@@ -1,34 +1,49 @@
 <?php
 
 /**
- * Titel and introduction to the lab.
+ * Generate random values to use in lab.
  */
+include __DIR__ . "/../random.php";
+
 $firstWord = "JavaScript";
 $secondWord = "rocks!";
 
-$numberOne = 10; // 20-999
-$numberTwo = 6;  // 20-999
-$numberThree = 56; // 20-999
-$numberFour = 348; // 110 - 450
-$floatOne = 12.55; // 100-999
-$floatTwo = 5.22; // 100-999 
-$lowNr = 15; // 0 - 100
-$highNr = 625; // 500 - 999
-$smallNr = 2; // 1-5
-$smallRandNr = 3; // 0-9
-$caseNrs = [1, 2, 3, 4, 5];
-$smallestRandNr = 1; // 0-2
-$aYear = 2014;
-$aMonth = 'Aug';
-$aDay = 5;
-$aDate = "$aMonth $aDay, $aYear";
+$numberOne      = rand_int($key, 20, 999);
+$numberTwo      = rand_int($key, 20, 999); 
+$numberThree    = rand_int($key, 20, 999);
+$numberFour     = rand_int($key, 110, 450); 
+
+$floatOne       = rand_float($key, 100, 999, 2); // 100.00 - 999.99 
+$floatTwo       = rand_float($key, 100, 999, 2); //5.22; // 100-999 
+
+$lowNr          = rand_int($key, 0, 100); //15; // 0 - 100
+$highNr         = rand_int($key, 500, 999); //625; // 500 - 999
+
+$smallNr        = rand_int($key, 1, 5); //2; // 1-5
+$smallRandNr    = rand_int($key, 0, 9); //3; // 0-9
+
+$caseNrs        = [1, 2, 3, 4, 5];
+$smallestRandNr = rand_int($key, 0, 2); //1; // 0-2
+
+$aYear          = 2014;
+$aMonth         = 'Aug';
+$aDay           = 5;
+$aDate          = "$aMonth $aDay, $aYear";
 
 
-$serie1 = [347, -221, 54, 435];  // 100-999
-$wordSerie1 = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
-$wordSerie2 = ['guitar', 'violin', 'drums'];
+$serie1         = [
+    rand_int($key, 100, 999), 
+    rand_int($key, 100, 999), 
+    rand_int($key, 100, 999), 
+    rand_int($key, 100, 999)
+];  // 100-999
+
+$wordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
+$wordSerie2     = ['guitar', 'violin', 'drums'];
+
 $sentenceSerie1 = ['I am in a glass case of emotion', 'If peeing your pants is cool, consider me Miles Davis', 'Do you want to hear the most annoying sound in the world?', 'Thank you very little', 'Tigers love pepper, they hate cinnamon.', 'I wake up in the morning and I piss excellence', 'I think most Scottish cuisine is based on a dare', 'I do not know, I mostly just hurt people.', 'I aim to misbehave.', ' I wish monkeys could Skype'];
-$someIntText = $numberOne . ".$numberTwo " . $wordSerie1[$smallRandNr]; 
+
+$someIntText    = $numberOne . ".$numberTwo " . $wordSerie1[$smallRandNr]; 
 
 return [
 

@@ -1,11 +1,7 @@
-Programming with JavaScript, HTML and CSS - javascript1
+Generate programming labs
 ===================
 
-Coursematerial for javascript1-course, aimed at a swedish target audience as the first course in programming with JavaScript (in a (web) browser environment) on University level in computer science. 
-
-The course will have a high enough level to satisfy those who are familiar with another programming language and has the need to learn programming JavaScript in a browser.
-
-To be relased on http://dbwebb.se/javascript1
+Used to generate programming labs in courses.
 
 
 

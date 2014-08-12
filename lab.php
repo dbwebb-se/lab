@@ -39,6 +39,7 @@ if (!$res) {
     die("Key did not match!");
 }
 
+define("KEY", $key);
 $acronym = $res->acronym;
 $course = $res->course;
 $lab = $res->lab;

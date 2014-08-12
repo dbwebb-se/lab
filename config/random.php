@@ -23,9 +23,9 @@ function md5_to_int($md5)
 /**
  * Create random integer within a range.
  */
-function rand_int($key, $min, $max)
+function rand_int($min, $max)
 {
-    mt_srand(md5_to_int($key));
+    mt_srand(md5_to_int(KEY));
     return mt_rand($min, $max);
 }
 
@@ -34,9 +34,9 @@ function rand_int($key, $min, $max)
 /**
  * Create random float within a range.
  */
-function rand_float($key, $min, $max, $precision)
+function rand_float($min, $max, $precision)
 {
-    mt_srand(md5_to_int($key));
+    mt_srand(md5_to_int(KEY));
     $factor = pow(10, $precision);
     return mt_rand($min*$factor, $max*$factor) / $factor;
 }

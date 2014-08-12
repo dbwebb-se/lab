@@ -8,22 +8,22 @@ include __DIR__ . "/../random.php";
 $firstWord = "JavaScript";
 $secondWord = "rocks!";
 
-$numberOne      = rand_int($key, 20, 999);
-$numberTwo      = rand_int($key, 20, 999); 
-$numberThree    = rand_int($key, 20, 999);
-$numberFour     = rand_int($key, 110, 450); 
+$numberOne      = rand_int(20, 999);// 100-999
+$numberTwo      = rand_int(20, 999);// 100-999
+$numberThree    = rand_int(20, 999);
+$numberFour     = rand_int(110, 450);
 
-$floatOne       = rand_float($key, 100, 999, 2); // 100.00 - 999.99 
-$floatTwo       = rand_float($key, 100, 999, 2); //5.22; // 100-999 
+$floatOne       = rand_float(100, 999, 2); // 100.00 - 999.99
+$floatTwo       = rand_float(100, 999, 2); //5.22; // 100-999
 
-$lowNr          = rand_int($key, 0, 100); //15; // 0 - 100
-$highNr         = rand_int($key, 500, 999); //625; // 500 - 999
+$lowNr          = rand_int(0, 100); //15; // 0 - 100
+$highNr         = rand_int(500, 999); //625; // 500 - 999
 
-$smallNr        = rand_int($key, 1, 5); //2; // 1-5
-$smallRandNr    = rand_int($key, 0, 9); //3; // 0-9
+$smallNr        = rand_int(1, 5); //2; // 1-5
+$smallRandNr    = rand_int(0, 9); //3; // 0-9
 
 $caseNrs        = [1, 2, 3, 4, 5];
-$smallestRandNr = rand_int($key, 0, 2); //1; // 0-2
+$smallestRandNr = rand_int(0, 2); //1; // 0-2
 
 $aYear          = 2014;
 $aMonth         = 'Aug';
@@ -32,10 +32,10 @@ $aDate          = "$aMonth $aDay, $aYear";
 
 
 $serie1         = [
-    rand_int($key, 100, 999), 
-    rand_int($key, 100, 999), 
-    rand_int($key, 100, 999), 
-    rand_int($key, 100, 999)
+    rand_int(100, 999),
+    rand_int(100, 999),
+    rand_int(100, 999),
+    rand_int(100, 999)
 ];  // 100-999
 
 $wordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
@@ -43,7 +43,29 @@ $wordSerie2     = ['guitar', 'violin', 'drums'];
 
 $sentenceSerie1 = ['I am in a glass case of emotion', 'If peeing your pants is cool, consider me Miles Davis', 'Do you want to hear the most annoying sound in the world?', 'Thank you very little', 'Tigers love pepper, they hate cinnamon.', 'I wake up in the morning and I piss excellence', 'I think most Scottish cuisine is based on a dare', 'I do not know, I mostly just hurt people.', 'I aim to misbehave.', ' I wish monkeys could Skype'];
 
-$someIntText    = $numberOne . ".$numberTwo " . $wordSerie1[$smallRandNr]; 
+$someIntText    = $numberOne . ".$numberTwo " . $wordSerie1[$smallRandNr];
+
+// switch
+$fruits        = ["apple", "kiwi", "plum"];
+$fruitColors   = ["green", "green", "red"];
+
+$fruitWhich = rand_int(0, count($fruits)-1);
+$fruit      = $fruits[$fruitWhich];
+$fruitColor = $fruitColors[$fruitWhich];
+
+
+
+// loops
+$loopLarge1 =  rand_int(100, 999);
+$loopLarge2 =  rand_int(100, 999);
+$loopSmall1 =  rand_int(10, 20);
+$loopSmall2 =  rand_int(10, 20);
+$loopTiny1  =  rand_int(3, 9);
+$loopTiny2  =  rand_int(3, 9);
+$loopRange1  =  rand_int(20, 29);
+$loopRange2  =  rand_int(40, 49);
+
+
 
 return [
 
@@ -105,7 +127,7 @@ return [
 [
 
 "text" => '
-<p>Use your two variables, "numberOne" and "numberTwo". Assign to them the values ' . $numberOne . ' and ' . $numberTwo . '.Create one more, called "numberThree" and give it the value: '. $numberThree . '. Use your variable "result" and assign to it the sum of all three variables. Answer with the result.
+<p>Use your two variables, "numberOne" and "numberTwo". Create one more, called "numberThree" and give it the value: '. $numberThree . '. Use your variable "result" and assign to it the sum of all three variables. Answer with the result.
 </p>
 ',
 
@@ -263,8 +285,9 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question. Removed by mos, isInteger is only available in Chrome.
  */
+/*
 [
 
 "text" => '
@@ -284,7 +307,7 @@ return [
 
 ],
 
-
+*/
 
 /**
  * Closing up this section.
@@ -394,7 +417,26 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'PI' to get the float value of 'Pi'. Round the result to 4 decimals. If you get stuck, then you can google how to round to a certain amount of decimals. Answer with your 'result'-variable.
+<p>Use the built-in constant 'E' to get the float value of 'E'. Use the built-in method 'ceil()' to get a integer value of 'E'.
+</p>
+",
+
+"answer" => function () {
+
+    return ceilt(M_E);
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use the built-in constant 'PI' to get the float value of 'Pi'. Round the result to 4 decimals. It can be a bit tricky to round up to a 4 decimals, but you can figure it out. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -863,6 +905,27 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 [
 
 "text" => "
+<p>Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=red). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'. Answer with the result where 'myFruit = $fruit'. 
+</p>
+",
+
+"answer" => function () use ($fruit, $fruitColor) {
+    
+    $result = "The $fruit is $fruitColor.";
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+/*
+[
+
+"text" => "
 <p>Pass the number " . $smallNr . " to a switch case statement with the cases: " . implode(',', $caseNrs) . ". Return a variable with the initial value of " . $highNr . ". Add your number to it and answer with the result.
 </p>
 ",
@@ -892,12 +955,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 },
 
 ],
-
+*/
 
 
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+/*
 [
 
 "text" => "
@@ -925,6 +989,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 },
 
 ],
+*/
 
 
 
@@ -959,22 +1024,21 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
  */
 [
 
-"text" => '
-<p>Use a for loop to increment ' . $numberTwo . ' with the value ' . $smallNr . ', 10 times. Answer with the result.
+"text" => "
+<p>Use a for-loop to increment $loopLarge1 with the value $loopTiny1, $loopSmall1 times. Answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($numberTwo, $smallNr) {
+"answer" => function () use ($loopLarge1, $loopSmall1, $loopTiny1) {
     
-    $result = $numberTwo;
-    for($i = 0; $i < 10; $i++) {
-        $result += $smallNr;
-    }   
+    $result = $loopLarge1;
+    for ($i = 0; $i < $loopSmall1; $i++) {
+        $result -= $loopTiny1;
+    }
     return $result;
 },
 
 ],
-
 
 
 
@@ -983,22 +1047,21 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
  */
 [
 
-"text" => '
-<p>Use a for loop to subtract ' . $smallNr . ' from ' . $numberOne . ', 10 times. Answer with the result.
+"text" => "
+<p>Use a for-loop to decrement $loopLarge2 with the value $loopTiny2, $loopSmall2 times. Answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($numberOne, $smallNr) {
+"answer" => function () use ($loopLarge2, $loopSmall2, $loopTiny2) {
     
-    $result = $numberOne;
-    for($i = 0; $i < 10; $i++) {
-        $result -= $smallNr;
-    }   
+    $result = $loopLarge2;
+    for ($i = 0; $i < $loopSmall2; $i++) {
+        $result -= $loopTiny2;
+    }
     return $result;
 },
 
 ],
-
 
 
 
@@ -1007,17 +1070,17 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
  */
 [
 
-"text" => '
-<p>Use a for loop to add all the values in the range -' . $numberOne . ' to ' . $numberOne . ' to a string. Answer with the result separated by comma (,).
+"text" => "
+<p>Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','.
 </p>
-',
+",
 
-"answer" => function () use ($numberOne) {
+"answer" => function () use ($loopRange1, $loopRange2) {
     
     $result = '';
-    for($i = $numberOne * -1; $i <= $numberOne; $i++) {
+    for ($i = $loopRange1; $i <= $loopRange2; $i++) {
         $result .= $i . ',';
-    }   
+    }
     return $result;
 },
 
@@ -1031,6 +1094,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
  */
 ], // EOF questions
 ], // EOF section
+
+
 
 
 
@@ -1057,17 +1122,18 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/whi
  */
 [
 
-"text" => '
-<p>Use a while loop to increment ' . $lowNr . ' with the value ' . $smallNr . ' until ' . $lowNr . ' has reached or passed 1000. Answer with the amount of steps needed.
-</p>',
+"text" => "
+<p>Use a while-loop to increment $loopSmall1 with the value $loopTiny1 until it has reached or passed $loopLarge1. Answer with the amount of steps needed.
+</p>",
 
-"answer" => function () use ($lowNr, $smallNr) {
+"answer" => function () use ($loopLarge1, $loopSmall1, $loopTiny1) {
+
     $result = 0;
-    $countThis = $lowNr;
-    while($countThis <= 1000) {
+    $countThis = $loopSmall1;
+    while ($countThis <= $loopLarge1) {
         
-        $result += 1;
-        $countThis += $smallNr;
+        $result++;
+        $countThis += $loopTiny1;
     }
     return $result;
 },
@@ -1081,18 +1147,17 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/whi
  */
 [
 
-"text" => '
-<p>Use a while loop to subtract ' . ($smallNr+1). ' from ' . $highNr . ' until ' . $highNr . ' has reached or passed 0. Answer with the amount of steps needed.
-</p>
-',
+"text" => "
+<p>Use a while-loop to subtract $loopTiny2 from $loopLarge2 until the value has reached or passed 0. Answer with the amount of steps needed.
+</p>",
 
-"answer" => function () use ($smallNr, $highNr) {
+"answer" => function () use ($loopTiny2, $loopLarge2) {
     $result = 0;
-    $countThis = $highNr;
-    while($countThis >= 0) {
+    $countThis = $loopLarge2;
+    while ($countThis > 0) {
         
-        $result += 1;
-        $countThis -= ($smallNr+1);
+        $result++;
+        $countThis -= $loopTiny2;
     }
     return $result;
 },

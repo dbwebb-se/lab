@@ -749,13 +749,32 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 [
 
 "text" => '
-<p>Compare the number ' . $numberOne . ' and a string that holds the same value ("' . $numberOne . '"). Use three equals (strict equal) when comparing. Use if else statements to answer "yes" if they are equal, else answer "no".
+<p>Compare the number ' . $numberOne . ' and a string that holds the same value ("' . $numberOne . '"). Use two equals == (loose equal) when comparing. Use if else statements to answer "yes" if they are equal, else answer "no".
 </p>
 ',
 
 "answer" => function () use ($numberOne) {
     
-    return $numberOne === strval($numberOne) ? "yes" : "no";
+    return $numberOne == "$numberOne" ? "yes" : "no";
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => '
+<p>Compare the number ' . $numberOne . ' and a string that holds the same value ("' . $numberOne . '"). Use three equals === (strict equal) when comparing. Use if else statements to answer "yes" if they are equal, else answer "no".
+</p>
+',
+
+"answer" => function () use ($numberOne) {
+    
+    return $numberOne === "$numberOne" ? "yes" : "no";
 },
 
 ],

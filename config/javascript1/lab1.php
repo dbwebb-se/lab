@@ -922,6 +922,26 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+[
+
+"text" => "
+<p>Extend your switch-case statement with a default value. The result should be 'That is an unknown fruit.' when the variable 'myFruit' has an unknown value. 
+</p>
+",
+
+"answer" => function () use () {
+    
+    $result = "That is an unknown fruit.";
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
 /*
 [
 

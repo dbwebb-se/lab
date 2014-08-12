@@ -3,23 +3,51 @@
 /**
  * Titel and introduction to the lab.
  */
-$numberOne = 10; // 1-999
-$numberTwo = 6;  // 1-999
-$numberThree = 56; // 100-999
-$floatTwo = 5.22; // 100-999 
+include __DIR__ . "/../random.php";
+
+// basic functions
+$numberOne      = rand_int(1, 999); //10; // 1-999
+$numberTwo      = rand_int(1, 999); //6;  // 1-999
+$numberThree    = rand_int(100, 999); //56; // 100-999
+
+$range1    = rand_int(10, 49);
+$range2    = rand_int(60, 99);
+$range3    = rand_int(20, 29);
+$range4    = rand_int(40, 49);
+$range5    = rand_int(100, 199);
+$range6    = rand_int(500, 599);
+$inRange   = rand_int(200, 499);
+$outRange  = rand_int(600, 699);
+
+$colors = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'pink', 'grey', 'brown', 'white'];
+$color = $colors[rand_int(0, count($colors)-1)];
+
+$fruits             = ["banana", "apple", "kiwi", "plum"];
+$fruitColors        = ["yellow", "green", "green", "red"];
+$fruitString        = implode(", ", $fruits);
+$fruitColorString   = implode(", ", $fruitColors);
+$fruitWhich         = rand_int(0, count($fruits)-1);
+$fruit              = $fruits[$fruitWhich];
+$fruitColor         = $fruitColors[$fruitWhich];
+
+$fbStart    = rand_int(1, 5); // 1-5
+$fbStop     = rand_int(20, 30); //25; // 20-30
+
+
+// are these used? maybe... rewrite exercises and move above this comment
+$floatTwo = 5.22; // 100-999
 $lowNr = 15; // 0 - 100
 $highNr = 625; // 500 - 999
 $smallNr = 2; // 1-5
 $smallRandNr = 5; // 0-9
 $qRandNr = 2; // 0-4 for the questions
-$fbStart = 1; // 1-5
-$fbStop = 25; // 20-30
 $monthNr = 7; // 1-12
 
 $serie1 = [347, -221, 54, 435];  // 100-999
 $wordSerie2 = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'pink', 'grey', 'brown', 'white'];
 $questionSerie1 = ['How are you?', 'How is the weather?', 'What is your name?', 'Where are you going?', 'Where are you from?'];
 $answerSerie1 = ['I have never been better.', 'Cloudy, with a chance of meatballs', 'I am Batman', 'I am going to Gotham City', 'Krypton'];
+
 
 
 return [
@@ -32,7 +60,7 @@ return [
 "title" => "Lab 2 - javascript1",
 
 "intro" => "
-<p>Intro text to explain stuff.
+<p>Practice to write functions.
 </p>
 ",
 
@@ -47,9 +75,7 @@ return [
 [
 "title" => "Basic functions",
 
-"intro" => "
-<p>????</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -62,9 +88,9 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function called "sumNumbers" that returns the sum of two numbers. The function should take two arguments: ' . $numberOne . ' and ' . $numberTwo . '. Answer with the result.</p>
-',
+"text" => "
+<p>Create a function called 'sumNumbers()'. The function should take two arguments and return the sum of them. Test the function using the arguments $numberOne and $numberTwo. Answer with the result.
+</p>",
 
 "answer" => function () use ($numberOne, $numberTwo) {
 
@@ -80,14 +106,13 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns the product of two numbers. The function should be called "productNumbers" and take two arguments ' . $numberTwo . ' and ' . $numberThree . '. Answer with the result.
-</p>
-',
+"text" => "
+<p>Create a function 'productNumbers()'. The function should take three arguments and return the product of them. Try the function using the numbers $numberOne, $numberTwo and $numberThree. Answer with the result.
+</p>",
 
-"answer" => function () use ($numberTwo, $numberThree) {
+"answer" => function () use ($numberOne, $numberTwo, $numberThree) {
     
-    return $numberTwo * $numberThree;
+    return $numberOne * $numberTwo * $numberThree;
 },
 
 ],
@@ -99,15 +124,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns the sum of all numbers between two chosen numbers. The function should take two arguments, one representing the lowest boundary and one that represents the highest boundary. Use the values ' . $smallRandNr . ' and ' . ($numberOne+10) . '. For example the arguments 10 and 20 should return the sum of 11+12+13...+19. Name the function "sumRangeNumbers" and answer with the result.
-</p>
-',
+"text" => "
+<p>Create a function 'sumRangeNumbers()' that returns the sum of all numbers between two chosen numbers. The function should take two arguments, one representing the lowest boundary and one that represents the highest boundary. For example, the arguments 10 and 20 should return the sum of 10+11+12+13...+20. Test it using the values $range1 and $range2 and answer with the result.
+</p>",
 
-"answer" => function () use ($smallRandNr, $numberOne) {
+"answer" => function () use ($range1, $range2) {
 
     $result = 0;
-    for($i = $smallRandNr+1; $i < $numberOne+10; $i++) {
+    for($i = $range1; $i <= $range2; $i++) {
             $result += $i;
     }
     return $result;
@@ -122,14 +146,13 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns a phrase. Your word is "' . $wordSerie2[$smallRandNr] . '". Pass the word as an argument to the function and the returned phrase should be: "My favorite color is ' . $wordSerie2[$smallRandNr] . '". Name the function "stringPhrase" and answer with the result.
-</p>
-',
+"text" => "
+<p>Create a function 'stringPhrase()' that returns a phrase. Your word is '$color'. Pass the word as an argument to the function and the returned phrase should be: 'My favorite color is $color.'. Test your function and answer with the result.
+</p>",
 
-"answer" => function () use ($wordSerie2, $smallRandNr) {
+"answer" => function () use ($color) {
 
-    return 'My favorite color is ' . $wordSerie2[$smallRandNr];
+    return 'My favorite color is ' . $color . ".";
 },
 
 ],
@@ -139,12 +162,12 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+/*
 [
 
-"text" => '
+"text" => "
 <p>Create a function that returns an answer to the exact question "' . $questionSerie1[$qRandNr] . '". The answer should be "' . $answerSerie1[$qRandNr] . '". If the question is otherwise, the function should return "I do not understand". Name the function "stringResponse" and answer with the result.
-</p>
-',
+</p>",
 
 "answer" => function () use ($questionSerie1, $answerSerie1, $qRandNr) {
 
@@ -159,6 +182,8 @@ return [
 },
 
 ],
+*/
+
 
 
 
@@ -167,10 +192,98 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns a string with all numbers comma-separated, in a range of: ' . $numberThree . ' and ' . $numberTwo . '. Make sure that the order of the arguments should not matter. For example if the arguments are: 5 and 10, the function should print: 5,6,7,8,9,10. If the arguments are: 10 and 5, the function should return: 10,9,8,7,6,5. If the arguments are the same, return out only that number. Name the function "printRange" and answer with the result.
-</p>
-',
+"text" => "
+<p>Create a function 'fruitColor()' that takes one argument called 'fruit' and returns the color of the fruit. The function should be aware of the following fruits ($fruitString) with respective color ($fruitColorString). Try it out using the fruit '$fruit' and answer with the result.
+</p>",
+
+"answer" => function () use ($fruitColor) {
+
+    $result = $fruitColor;
+    return $result;
+    
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function 'printRange()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers comma-separated in the range. Try it using the arguments $range3 and $range4. Answer with the result.
+</p>",
+
+"answer" => function () use ($range3, $range4) {
+    
+    $range = range($range3, $range4);
+    $result = implode(",", $range);
+
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function 'printRangeReversed()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers comma-separated in the range. Try it using the arguments $range4 and $range3. Answer with the result.
+</p>",
+
+"answer" => function () use ($range3, $range4) {
+    
+    $range = range($range4, $range3, -1);
+    $result = implode(",", $range);
+
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function 'printAnyRange()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers comma-separated in the range. If 'rangeStart' is smaller than 'rangeStop' the call the function 'printRange()'.  If 'rangeStart' is greater than 'rangeStop' the call the function 'printRangeReversed()' Try it using the arguments $range3 and $range4 (both ways). Answer with the result using arguments $range3 and $range4.
+</p>",
+
+"answer" => function () use ($range3, $range4) {
+    
+    if ($range3 < $range4) {
+        $range = range($range3, $range4);
+        $result = implode(",", $range);
+    } else if ($range3 > $range4) {
+        $range = range($range3, $range4, -1);
+        $result = implode(",", $range);
+    }
+
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+/*
+[
+
+"text" => "
+<p>Create a function that returns a string with all numbers comma-separated, in a range of: $range3 - $range4. Make sure that the order of the arguments should not matter. For example if the arguments are: 5 and 10, the function should print: 5,6,7,8,9,10. If the arguments are: 10 and 5, the function should return: 10,9,8,7,6,5. If the arguments are the same, return out only that number. Name the function printRange and answer with the result.
+</p>",
 
 "answer" => function () use ($numberTwo, $numberThree) {
     
@@ -197,7 +310,7 @@ return [
 },
 
 ],
-
+*/
 
 
 /** -----------------------------------------------------------------------------------
@@ -255,16 +368,15 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns "true" if the number ' . $numberThree . ' is higher than 50 and less than 100. If the number is out of range, the function should return "false". The return type should be boolean. Name the function "inRange" and answer with the result.
-</p>
-',
+"text" => "
+<p>Create a function 'inRange()' that takes three arguments, 'rangeStart', 'rangeStop' and 'value'. The function should return boolean 'true' if 'value' is greater than 'rangeStart' and less than 'rangeStop'. Otherwise it should return boolean 'false'. Try it out using the range $range5 - $range6 and the value $inRange. Answer with the result.
+</p>",
 
-"answer" => function () use ($numberThree) {
+"answer" => function () use ($range5, $range6, $inRange) {
     
     $result = false;
 
-    if($numberThree > 50 && $numberThree < 100) {
+    if($inRange > $range5 && $inRange < $range6) {
        $result = true;
     }
     return $result;
@@ -279,10 +391,32 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that takes two arguments, ' . $fbStart . ' (start) and ' . $fbStop . ' (stop). The arguments represents the starting point and stop point of the game "Fizz Buzz" (http://en.wikipedia.org/wiki/Fizz_buzz). The function should run from start to stop and add "Fizz", "Buzz" or both to your "result"-variable at appropriate numbers. Each entry to your result should be comma-separated. If "stop" is equal or lower than "start", the function should return such information. Name the function "fizzBuzz" and answer with the result. If you have an array, then use join() with comma-separation in your answer.
-</p>
-',
+"text" => "
+<p>Try out the function 'inRange()' using the range $range5 - $range6 and the value $outRange. Answer with the result.
+</p>",
+
+"answer" => function () use ($range5, $range6, $outRange) {
+    
+    $result = false;
+
+    if($outRange > $range5 && $outRange < $range6) {
+       $result = true;
+    }
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function 'fizzBuzz()' that takes two arguments 'start' and 'stop' and returns a comma-separated string. The arguments represents the starting point and stop point of the game 'Fizz Buzz' (http://en.wikipedia.org/wiki/Fizz_buzz). The function should run from start to stop and add 'Fizz', 'Buzz' or both to your 'result'-variable at appropriate numbers. Each entry to your result should be comma-separated. If 'stop' is equal or lower than 'start', the function should return an appropriate error message. Test the function using start=$fbStart and stop=$fbStop.
+</p>",
 
 "answer" => function () use ($fbStart, $fbStop) {
     
@@ -327,6 +461,7 @@ return [
 /** ===================================================================================
  * New section of exercises.
  */
+/*
 [
 "title" => "Throw/catch exeptions",
 
@@ -344,6 +479,7 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+/*
 [
 
 "text" => '
@@ -379,6 +515,7 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+/*
 [
 
 "text" => '
@@ -413,6 +550,7 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+/*
 [
 
 "text" => '
@@ -447,6 +585,7 @@ return [
 /**
  * Closing up this section.
  */
+/*
 ], // EOF questions
 ], // EOF section
 

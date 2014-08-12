@@ -423,7 +423,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 "answer" => function () {
 
-    return ceilt(M_E);
+    return ceil(M_E);
 },
 
 ],

@@ -929,7 +929,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 </p>
 ",
 
-"answer" => function () use () {
+"answer" => function () {
     
     $result = "That is an unknown fruit.";
     return $result;

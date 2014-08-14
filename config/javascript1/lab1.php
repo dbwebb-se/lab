@@ -5,18 +5,18 @@
  */
 include __DIR__ . "/../random.php";
 
-$firstWord = "JavaScript";
-$secondWord = "rocks!";
+// Mixed variables n stuff
 
-$numberOne      = rand_int(20, 999);// 100-999
-$numberTwo      = rand_int(20, 999);// 100-999
-$numberThree    = rand_int(20, 999);
+$firstWord      = "JavaScript";
+$secondWord     = "rocks!";
+
+
+
 $numberFour     = rand_int(110, 450);
 
-$floatOne       = rand_float(100, 999, 2); // 100.00 - 999.99
-$floatTwo       = rand_float(100, 999, 2); //5.22; // 100-999
 
-$lowNr          = rand_int(0, 100); //15; // 0 - 100
+
+$lowNr          = rand_int(1, 100); //15; // 0 - 100
 $highNr         = rand_int(500, 999); //625; // 500 - 999
 
 $smallNr        = rand_int(1, 5); //2; // 1-5
@@ -25,25 +25,86 @@ $smallRandNr    = rand_int(0, 9); //3; // 0-9
 $caseNrs        = [1, 2, 3, 4, 5];
 $smallestRandNr = rand_int(0, 2); //1; // 0-2
 
-$aYear          = 2014;
-$aMonth         = 'Aug';
-$aDay           = 5;
-$aDate          = "$aMonth $aDay, $aYear";
 
 
-$serie1         = [
-    rand_int(100, 999),
-    rand_int(100, 999),
-    rand_int(100, 999),
-    rand_int(100, 999)
-];  // 100-999
+
+
 
 $wordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
 $wordSerie2     = ['guitar', 'violin', 'drums'];
 
 $sentenceSerie1 = ['I am in a glass case of emotion.', 'If peeing your pants is cool, consider me Miles Davis.', 'Do you want to hear the most annoying sound in the world?', 'Thank you very little.', 'Tigers love pepper, they hate cinnamon.', 'I wake up in the morning and I piss excellence.', 'I think most Scottish cuisine is based on a dare.', 'I do not know, I mostly just hurt people.', 'I aim to misbehave.', 'I wish monkeys could Skype.'];
 
-$someIntText    = $numberOne . ".$numberTwo " . $wordSerie1[$smallRandNr];
+// SECTION 1
+$numberOne      = rand_int(20, 999);// 100-999
+$numberTwo      = rand_int(20, 999);// 100-999
+$numberThree    = rand_int(20, 999);
+
+$floatOne       = rand_float(100, 999, 2); // 100.00 - 999.99
+$floatTwo       = rand_float(100, 999, 2); //5.22; // 100-999
+
+$moduloOne      = rand_int(100, 999);
+$moduloTwo      = rand_int(10, 100);
+
+// SECTION 2
+$sect2SmallRand = rand_int(0, 9); //3; // 0-9
+$sect2Int       = rand_int(20, 999);// 100-999
+$sect2WordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
+$sect2IntText    = $sect2Int . ".$numberTwo " . $sect2WordSerie1[$sect2SmallRand];
+
+// SECTION 3
+$serie1         = [
+    rand_int(100, 999),
+    rand_int(100, 999),
+    rand_int(100, 999),
+    rand_int(100, 999)
+];  // 100-999
+$serie1_imp     = implode(",", $serie1);
+
+$sect3Float1    = rand_float(10, 999, 2);
+$sect3Float2    = rand_float(10, 999, 2);
+
+$sect3TinyInt   = rand_int(2, 5);
+$sect3SmallInt  = rand_int(10, 100);
+$sect3BigInt    = rand_int(200, 999);
+
+// SECTION 4
+$sect4SmallRand    = rand_int(0, 9); //3; // 0-9
+$sect4WordSerie     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
+$sect4Word     = $sect4WordSerie[$sect4SmallRand];
+$sect4BigInt    = rand_int(200, 999);
+
+// SECTION 5
+$sect5SentenceSerie = ['I am in a glass case of emotion.', 'If peeing your pants is cool, consider me Miles Davis.', 'Do you want to hear the most annoying sound in the world?', 'Thank you very little.', 'Tigers love pepper, they hate cinnamon.', 'I wake up in the morning and I piss excellence.', 'I think most Scottish cuisine is based on a dare.', 'I do not know, I mostly just hurt people.', 'I aim to misbehave.', 'I wish monkeys could Skype.'];
+$sect5SmallRand    = rand_int(0, 9); //3; // 0-9
+$sect5WordSerie     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
+$sect5Word     = $sect5WordSerie[$sect5SmallRand];
+$sect5SmallInt =  rand_int(0, 4);
+$sect5Sentence = $sect5SentenceSerie[$sect5SmallRand];
+
+$sect5WordSerie     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
+$sect5Word     = $sect5WordSerie[$sect5SmallRand];
+
+
+// SECTION 6
+$aYear          = rand_int(1970, 2014);//2014
+$aMonth         = 'Aug';
+$aDay           = rand_int(1, 29);
+$aDate          = "$aMonth $aDay, $aYear";
+
+
+// SECTION 7
+
+// Black Jack variables
+$handSize = 5;
+$card1 = rand_int(1, 11);
+$card2 = rand_int(1, 11);
+$card3 = rand_int(1, 11);
+$card4 = rand_int(1, 11);
+$card5 = rand_int(1, 11);
+
+
+
 
 // switch
 $fruits        = ["apple", "kiwi", "plum"];
@@ -107,9 +168,9 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable called "numberOne" and give it the value ' . $numberOne . '. Create another variable called "numberTwo" and give it the value ' . $numberTwo . '. Create a third variable called "result" and assign to it the sum of the first two variables. Answer with the result.</p>
-',
+"text" => "
+<p>Create a variable called 'numberOne' and give it the value $numberOne. Create another variable called 'numberTwo' and give it the value $numberTwo. Create a third variable called 'result' and assign to it the sum of the first two variables. Answer with the result.</p>
+",
 
 "answer" => function () use ($numberOne, $numberTwo) {
 
@@ -126,10 +187,10 @@ return [
  */
 [
 
-"text" => '
-<p>Use your two variables, "numberOne" and "numberTwo". Create one more, called "numberThree" and give it the value: '. $numberThree . '. Use your variable "result" and assign to it the sum of all three variables. Answer with the result.
+"text" => "
+<p>Use your two variables, 'numberOne' and 'numberTwo'. Create one more, called 'numberThree' and give it the value: $numberThree. Use your variable 'result' and assign to it the sum of all three variables. Answer with the result.
 </p>
-',
+",
 
 "answer" => function () use ($numberOne, $numberTwo, $numberThree) {
 
@@ -146,10 +207,10 @@ return [
  */
 [
 
-"text" => '
-<p>Use your variables "numberOne" and "numberTwo" and answer with the product of the numbers in your "result"-variable.
+"text" => "
+<p>Use your variables 'numberOne' and 'numberTwo' and answer with the product of the numbers in your 'result'-variable.
 </p>
-',
+",
 
 "answer" => function () use ($numberOne, $numberTwo) {
 
@@ -166,10 +227,10 @@ return [
  */
 [
 
-"text" => '
-<p>Use your variables "numberOne", "numberTwo" and "numberThree". Subtract "numberThree" from the product of the other two variables. Answer with your "result"-variable.
+"text" => "
+<p>Use your variables 'numberOne', 'numberTwo' and 'numberThree'. Subtract 'numberThree' from the product of the other two variables. Answer with your 'result'-variable.
 </p>
-',
+",
 
 "answer" => function () use ($numberOne, $numberTwo, $numberThree) {
 
@@ -186,10 +247,10 @@ return [
  */
 [
 
-"text" => '
-<p>Create two variables, "floatOne" and "floatTwo". Give them the values: ' . $floatOne . ' and ' . $floatTwo . '. Use your "result"-variable and assign to it the sum of the float numbers. Answer with the result.
+"text" => "
+<p>Create two variables, 'floatOne' and 'floatTwo'. Give them the values: $floatOne and $floatTwo. Use your 'result'-variable and assign to it the sum of the float numbers. Answer with the result.
 </p>
-',
+",
 
 "answer" => function () use ($floatOne, $floatTwo) {
 
@@ -206,15 +267,34 @@ return [
  */
 [
 
-"text" => '
-<p>Use your variables "floatOne" and "numberOne". Answer with the product of them in your "result"-variable.
+"text" => "
+<p>Use your variables 'floatOne' and 'numberOne'. Answer with the product of them in your 'result'-variable.
 </p>
-',
+",
 
 "answer" => function () use ($floatOne, $numberOne) {
 
     $sum = $floatOne * $numberOne;
     return $sum;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Answer with the result of $moduloOne modulus (%) $moduloTwo. 
+</p>
+",
+
+"answer" => function () use ($moduloOne, $moduloTwo) {
+
+    return $moduloOne%$moduloTwo;
 },
 
 ],
@@ -251,14 +331,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable "someIntText" and give it a value of "' . $someIntText . '". Use the built-in method "parseInt" to find out the integer representation of the text. Answer with your "result"-variable.
+"text" => "
+<p>Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the built-in method 'parseInt' to find out the integer representation of the text. Answer with your 'result'-variable.
 </p>
-',
+",
 
-"answer" => function () use ($someIntText) {
+"answer" => function () use ($sect2IntText) {
 
-    return (int)$someIntText;
+    return (int)$sect2IntText;
 },
 
 ],
@@ -270,14 +350,14 @@ return [
  */
 [
 
-"text" => '
-<p>Use your variable "someIntText". Use the built-in method "parseFloat" to find out the float representation of the text. Answer with your "result"-variable.
+"text" => "
+<p>Use your variable 'someIntText'. Use the built-in method 'parseFloat' to find out the float representation of the text. Answer with your 'result'-variable.
 </p>
-',
+",
 
-"answer" => function () use ($someIntText) {
+"answer" => function () use ($sect2IntText) {
 
-    return (float)$someIntText;
+    return (float)$sect2IntText;
 },
 
 ],
@@ -341,7 +421,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'max' to find out the highest number in the serie: " . implode(', ', $serie1) . ". Answer with your 'result'-variable.
+<p>Use the built-in method 'max' to find out the highest number in the serie: $serie1_imp. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -359,7 +439,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'min' to find out the lowest number in the serie: " . implode(', ', $serie1) . ". Answer with your 'result'-variable.
+<p>Use the built-in method 'min' to find out the lowest number in the serie: $serie1_imp. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -378,13 +458,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'round' to round the float number: " . $floatTwo . " to the closest integer. Answer with your 'result'-variable.
+<p>Use the built-in method 'round' to round the float number: $sect3Float1 to the closest integer. Answer with your 'result'-variable.
 </p>
 ",
 
-"answer" => function () use ($floatTwo) {
+"answer" => function () use ($sect3Float1) {
 
-    return round($floatTwo);
+    return round($sect3Float1);
 },
 
 ],
@@ -396,14 +476,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
  */
 [
 
-"text" => '
-<p>Use your two variables "numberOne" and "numberTwo". Find out the quotient of them and use the built-in method "floor" to get only the integer value. Use your "result"-variable in your answer.
+"text" => "
+<p>Find out the quotient of $sect3BigInt / $sect3SmallInt and use the built-in method 'floor' to get only the integer value. Use your 'result'-variable in your answer.
 </p>
-',
+",
 
-"answer" => function () use ($numberOne, $numberTwo) {
+"answer" => function () use ($sect3BigInt, $sect3SmallInt) {
 
-    $sum = $numberOne / $numberTwo;
+    $sum = $sect3BigInt / $sect3SmallInt;
     return floor($sum);
 },
 
@@ -455,13 +535,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'pow' to find the power of (base) " .  $numberOne . " and (exponent) " .  $smallNr . ". Answer with the result.
+<p>Use the built-in method 'pow' to find the power of (base) $sect3SmallInt and (exponent) $sect3TinyInt. Answer with the result.
 </p>
 ",
 
-"answer" => function () use ($numberOne, $smallNr) {
+"answer" => function () use ($sect3SmallInt, $sect3TinyInt) {
 
-    return pow($numberOne, $smallNr);
+    return pow($sect3SmallInt, $sect3TinyInt);
 },
 
 ],
@@ -497,10 +577,10 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
  */
 [
 
-"text" => '
-<p>Create a variable, named "firstWord", that holds the word "' . $firstWord . '". Create a second variable, named "secondWord", that holds the word "' . $secondWord . '". Create a third variable, named "bothWords", and put together firstWord and secondWord with a space between. Answer with the variable "bothWords".
+"text" => "
+<p>Create a variable, named 'firstWord', that holds the word '$firstWord'. Create a second variable, named 'secondWord', that holds the word '$secondWord'. Create a third variable, named 'bothWords', and put together 'firstWord' and 'secondWord' with a space between. Answer with the variable 'bothWords'.
 </p>
-',
+",
 
 "answer" => function () use ($firstWord, $secondWord) {
 
@@ -518,12 +598,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Create a variable called 'wordOne' and assign to it: '" .  $wordSerie1[$smallRandNr] . "'. Add your variable called 'numberTwo' to the word and answer with the result in your 'result'-variable.
+<p>Create a variable called 'wordOne' and assign to it: '$sect4Word'. Add the number $sect4BigInt to the word and answer with the result in your 'result'-variable.
 </p>
 ",
 
-"answer" => function () use ($wordSerie1, $smallRandNr, $numberTwo) {
-    $sum = $wordSerie1[$smallRandNr] . $numberTwo;
+"answer" => function () use ($sect4Word, $sect4BigInt) {
+    $sum = $sect4Word . $sect4BigInt;
     return $sum;
 },
 
@@ -563,12 +643,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use 'charAt' on a string to return the character at a given index. Use your 'wordOne' (" .  $wordSerie1[$smallRandNr] . ") and answer with the character at index: " . ($smallNr-1) . ".
+<p>Use 'charAt' on a string to return the character at a given index. Use it on the word '$sect5Word' and answer with the character at index $sect5SmallInt.
 </p>
 ",
-
-"answer" => function () use ($wordSerie1, $smallRandNr, $smallNr) {
-    $result = $wordSerie1[$smallRandNr]{$smallNr-1};
+// måste fixa smallnr -1
+"answer" => function () use ($sect5Word, $sect5SmallInt) {
+    $result = $sect5Word{$sect5SmallInt};
     return $result;
 },
 
@@ -582,12 +662,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use 'toUpperCase' to transform the string: '" . $sentenceSerie1[$smallRandNr] . "' to uppercase. Answer with the result.
+<p>Use 'toUpperCase' to transform the string: '$sect5Sentence' to uppercase. Answer with the result.
 </p>
 ",
 
-"answer" => function () use ($sentenceSerie1, $smallRandNr) {
-    $result = strtoupper($sentenceSerie1[$smallRandNr]);
+"answer" => function () use ($sect5Sentence) {
+    $result = strtoupper($sect5Sentence);
     return $result;
 },
 
@@ -601,12 +681,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use 'length' to find out the length of the string: '" . $wordSerie1[$smallRandNr] . "'. Answer with the result.
+<p>Use 'length' to find out the length of the string: '$sect5Word'. Answer with the result.
 </p>
 ",
 
-"answer" => function () use ($wordSerie1, $smallRandNr) {
-    $result = strlen($wordSerie1[$smallRandNr]);
+"answer" => function () use ($sect5Word) {
+    $result = strlen($sect5Word);
     return $result;
 },
 
@@ -620,12 +700,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use 'substr' to extract the last three characters of the word: '" . $wordSerie1[$smallRandNr] . "'. Answer with the result.
+<p>Use 'substr' to extract the last three characters of the word: '$sect5Word'. Answer with the result.
 </p>
 ",
 
-"answer" => function () use ($wordSerie1, $smallRandNr) {
-    $result = substr($wordSerie1[$smallRandNr], (strlen($wordSerie1[$smallRandNr])-3));
+"answer" => function () use ($sect5Word) {
+    $result = substr($sect5Word, (strlen($sect5Word)-3));
     return $result;
 },
 
@@ -665,7 +745,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Create a Date object called 'myDate' and initiate it with: '" . $aDate . "'. Use the built-in function Date.getFullYear to get the year from your Date object. Answer with the result.
+<p>Create a Date object called 'myDate' and initiate it with: '$aDate'. Use the built-in function Date.getFullYear to get the year from your Date object. Answer with the result.
 </p>
 ",
 
@@ -683,7 +763,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Create a new Date object that is equal to 'myDate' plus 30 days. Use Date.getDate and answer with the day of the month. If the date is below 10, then add a '0' (zero) before the number.
+<p>Create a new Date object that is equal to 'myDate' plus 30 days. Use Date.getDate and answer with the day of the month.
 </p>
 ",
 
@@ -691,8 +771,8 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
     $myDate = new DateTime($aDate);
     $interval = new DateInterval("P30D");
     $myDate->add($interval);
-
-    return $myDate->format('d');
+    $res = $myDate->format('d');
+    return (int)$res;
 },
 
 ],
@@ -1118,9 +1198,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 "answer" => function () use ($loopRange1, $loopRange2) {
     
     $result = '';
+    $temp = [];
     for ($i = $loopRange1; $i <= $loopRange2; $i++) {
-        $result .= $i . ',';
+        //$result .= $i . ',';
+        array_push($temp, $i);
     }
+    $result = implode(",", $temp);
     return $result;
 },
 

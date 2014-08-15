@@ -31,34 +31,6 @@ $array2SelectedString = implode(",", $array2Selected);
 $array2Within = rand_int(1, count($array2Selected) - 2);
 
 
-// Not used?
-$numberOne = 10; // 100-999
-$numberTwo = 6;  // 100-999
-$numberThree = 56; // 100-999
-$floatTwo = 5.22; // 100-999 
-$lowNr = 15; // 0 - 100
-$highNr = 625; // 500 - 999
-$smallNr = 2; // 1-5
-$smallRandNr = 5; // 0-9
-$qRandNr = 2; // 0-4 for the questions
-$fbStart = 1; // 1-5
-$fbStop = 25; // 20-30
-$arrRand = 3; // 0-4 for the array words
-
-$serie1 = [347, -221, 54, 435];  // 100-999
-$serie2 = [33, 2, -54, 17, 95, 99, 17, 54, 17, 5]; // array with duplicates
-
-$wordSerie2 = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'pink', 'grey', 'brown', 'white'];
-$questionSerie1 = ['How are you?', 'How is the weather?', 'What is your name?', 'Where are you going?', 'Where are you from?'];
-$answerSerie1 = ['I have never been better.', 'Cloudy, with a chance of meatballs', 'I am Batman', 'I am going to Gotham City', 'Krypton'];
-
-$arrWords1 = [
-['melon', 'banana', 'apple', 'orange', 'lemon'],
-['potato', 'carrot', 'onion', 'leek', 'cabbage'],
-['milk', 'juice', 'lemonade', 'soda', 'water'],
-['candy', 'cake', 'cupcakes', 'lollipop', 'pringles'],
-['beef', 'chicken', 'pork', 'sausage', 'tofu']
-];
 
 
 return [
@@ -71,7 +43,7 @@ return [
 "title" => "Lab 3 - javascript1",
 
 "intro" => "
-<p>Practise arrays.
+<p>Practise arrays. You might find useful help here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 </p>
 ",
 
@@ -86,7 +58,7 @@ return [
 [
 "title" => "Arrays",
 
-"intro" => "You might find useful help here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+"intro" => "To copy an array use array.slice() to make a real copy, not a shallow one.",
 
 "shuffle" => false,
 
@@ -106,7 +78,7 @@ return [
 
 "answer" => function () use ($array1Selected) {
     
-    return $array1Selected; 
+    return $array1Selected;
 },
 
 ],
@@ -144,7 +116,7 @@ return [
 
 "answer" => function () use ($array2Selected) {
     
-    return $array2Selected; 
+    return $array2Selected;
 },
 
 ],
@@ -164,6 +136,25 @@ return [
 "answer" => function () use ($array2Selected, $array2Within) {
         
     return $array2Selected[$array2Within];
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Return element $array2Within in 'array2'. Answer with the result.
+</p>
+",
+
+"answer" => function () use ($array2Selected, $array2Within) {
+        
+    return $array2Selected[$array2Within-1];
 },
 
 ],
@@ -238,30 +229,6 @@ return [
 [
 
 "text" => "
-<p>Create a variable 'array11' as a copy of 'array1'. Sort 'array11' according to its values. The smallest value comes first and the largest value comes last. Answer with the resulting array.
-</p>
-",
-
-"answer" => function () use ($array1Selected) {
-    
-    $a = array();
-    $a = $array1Selected;
-    sort($a);
-        
-    return $a;
-},
-
-],
-
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => "
 <p>Create a variable 'array21' as a copy of 'array2'. Sort 'array21'. Answer with the resulting array.
 </p>
 ",
@@ -282,23 +249,25 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
-/*
 [
 
-"text" => '
-<p>Create a function that takes two arguments, an array and a value in the array. Use the array ' . implode(", ", $wordSerie2) . ' and the value "' . $wordSerie2[$smallRandNr] . '". The function should return the index in the array that the value is found at. For example, if the arguments are: [1, 2, 3] and 2, the function should return the index of 2, which in this case is 1. If the value does not exist in the array, it should return -1. Name the function "findIndex" and return the result.
+"text" => "
+<p>Create a variable 'array11' as a copy of 'array1'. Sort 'array11' according to its values. The smallest value comes first and the largest value comes last. Answer with the resulting array.
 </p>
-',
+",
 
-"answer" => function () use ($wordSerie2, $smallRandNr) {
+"answer" => function () use ($array1Selected) {
     
-    $result = array_search($wordSerie2[$smallRandNr], $wordSerie2);
+    $a = array();
+    $a = $array1Selected;
+    sort($a);
         
-    return $result;
+    return $a;
 },
 
 ],
-*/
+
+
 
 
 /** -----------------------------------------------------------------------------------

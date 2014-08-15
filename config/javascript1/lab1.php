@@ -7,35 +7,26 @@ include __DIR__ . "/../random.php";
 
 // Mixed variables n stuff
 
-$firstWord      = "JavaScript";
-$secondWord     = "rocks!";
+/*
+ *   Tror inte dessa används, har ctrl-F:at dem men jag vågar inte ta bort dem... :o
+
+    $numberFour     = rand_int(110, 450);
+    $lowNr          = rand_int(1, 100); //15; // 0 - 100
+    $highNr         = rand_int(500, 999); //625; // 500 - 999
+    $smallNr        = rand_int(1, 5); //2; // 1-5
+    $smallRandNr    = rand_int(0, 9); //3; // 0-9
+    $caseNrs        = [1, 2, 3, 4, 5];
+    $smallestRandNr = rand_int(0, 2); //1; // 0-2
+    $wordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
+    $wordSerie2     = ['guitar', 'violin', 'drums'];
+    $sentenceSerie1 = ['I am in a glass case of emotion.', 'If peeing your pants is cool, consider me Miles Davis.', 'Do you want to hear the most annoying sound in the world?', 'Thank you very little.', 'Tigers love pepper, they hate cinnamon.', 'I wake up in the morning and I piss excellence.', 'I think most Scottish cuisine is based on a dare.', 'I do not know, I mostly just hurt people.', 'I aim to misbehave.', 'I wish monkeys could Skype.'];
+
+*/
 
 
 
-$numberFour     = rand_int(110, 450);
+// SECTION 1 ****************************************************
 
-
-
-$lowNr          = rand_int(1, 100); //15; // 0 - 100
-$highNr         = rand_int(500, 999); //625; // 500 - 999
-
-$smallNr        = rand_int(1, 5); //2; // 1-5
-$smallRandNr    = rand_int(0, 9); //3; // 0-9
-
-$caseNrs        = [1, 2, 3, 4, 5];
-$smallestRandNr = rand_int(0, 2); //1; // 0-2
-
-
-
-
-
-
-$wordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
-$wordSerie2     = ['guitar', 'violin', 'drums'];
-
-$sentenceSerie1 = ['I am in a glass case of emotion.', 'If peeing your pants is cool, consider me Miles Davis.', 'Do you want to hear the most annoying sound in the world?', 'Thank you very little.', 'Tigers love pepper, they hate cinnamon.', 'I wake up in the morning and I piss excellence.', 'I think most Scottish cuisine is based on a dare.', 'I do not know, I mostly just hurt people.', 'I aim to misbehave.', 'I wish monkeys could Skype.'];
-
-// SECTION 1
 $numberOne      = rand_int(20, 999);// 100-999
 $numberTwo      = rand_int(20, 999);// 100-999
 $numberThree    = rand_int(20, 999);
@@ -46,13 +37,15 @@ $floatTwo       = rand_float(100, 999, 2); //5.22; // 100-999
 $moduloOne      = rand_int(100, 999);
 $moduloTwo      = rand_int(10, 100);
 
-// SECTION 2
+// SECTION 2 ****************************************************
+
 $sect2SmallRand = rand_int(0, 9); //3; // 0-9
 $sect2Int       = rand_int(20, 999);// 100-999
 $sect2WordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
 $sect2IntText    = $sect2Int . ".$numberTwo " . $sect2WordSerie1[$sect2SmallRand];
 
-// SECTION 3
+// SECTION 3 ****************************************************
+
 $serie1         = [
     rand_int(100, 999),
     rand_int(100, 999),
@@ -68,13 +61,18 @@ $sect3TinyInt   = rand_int(2, 5);
 $sect3SmallInt  = rand_int(10, 100);
 $sect3BigInt    = rand_int(200, 999);
 
-// SECTION 4
+// SECTION 4 ****************************************************
+
 $sect4SmallRand    = rand_int(0, 9); //3; // 0-9
 $sect4WordSerie     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
 $sect4Word     = $sect4WordSerie[$sect4SmallRand];
 $sect4BigInt    = rand_int(200, 999);
 
-// SECTION 5
+$firstWord      = "JavaScript";
+$secondWord     = "rocks!";
+
+// SECTION 5 ****************************************************
+
 $sect5SentenceSerie = ['I am in a glass case of emotion.', 'If peeing your pants is cool, consider me Miles Davis.', 'Do you want to hear the most annoying sound in the world?', 'Thank you very little.', 'Tigers love pepper, they hate cinnamon.', 'I wake up in the morning and I piss excellence.', 'I think most Scottish cuisine is based on a dare.', 'I do not know, I mostly just hurt people.', 'I aim to misbehave.', 'I wish monkeys could Skype.'];
 $sect5SmallRand    = rand_int(0, 9); //3; // 0-9
 $sect5WordSerie     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
@@ -85,15 +83,14 @@ $sect5Sentence = $sect5SentenceSerie[$sect5SmallRand];
 $sect5WordSerie     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
 $sect5Word     = $sect5WordSerie[$sect5SmallRand];
 
+// SECTION 6 ****************************************************
 
-// SECTION 6
 $aYear          = rand_int(1970, 2014);//2014
 $aMonth         = 'Aug';
 $aDay           = rand_int(1, 29);
 $aDate          = "$aMonth $aDay, $aYear";
 
-
-// SECTION 7
+// SECTION 7 ****************************************************
 
 // Black Jack variables
 $handSize = 5;
@@ -108,6 +105,7 @@ $dealer2 = rand_int(1, 11);
 $dealer3 = rand_int(1, 11);
 $dealerSum = $dealer1+$dealer2+$dealer3;
 
+// SECTION 8 ****************************************************
 
 // switch
 $fruits        = ["apple", "kiwi", "plum"];
@@ -117,7 +115,7 @@ $fruitWhich = rand_int(0, count($fruits)-1);
 $fruit      = $fruits[$fruitWhich];
 $fruitColor = $fruitColors[$fruitWhich];
 
-
+// SECTION 9 AND 10 ****************************************************
 
 // loops
 $loopLarge1 =  rand_int(100, 999);

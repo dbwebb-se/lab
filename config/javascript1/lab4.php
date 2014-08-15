@@ -47,7 +47,7 @@ $person2Nationality = $persons[$person2Nr]["nationality"];
 $person2Born        = $persons[$person2Nr]["born"];
 
 $person2Print2      = "My name is $person2FirstName $person2LastName from $person2Nationality.";
-$person2BornFormat  = $person1Born->format('Y-m-d');
+$person2BornFormat  = $person2Born->format('Y-m-d');
 $person2BornYear    = $person2Born->format('Y');
 $person2Print3      = "I was born $person2BornYear.";
 
@@ -117,7 +117,7 @@ return [
 [
 
 "text" => "
-<p>Give your person-object the property 'firstName' with a value of '$person1FirstName'. Add a method called 'print1()' that returns a presentation of the object, like this: 'My name is $person1FirstName.' Answer with the result from calling 'person.print1()'.  
+<p>Give your person-object the property 'firstName' with a value of '$person1FirstName'. Add a method called 'print1()' that returns a presentation of the object, like this: 'My name is $person1FirstName.' Use 'this.firstName' to construct the string. Answer with the result from calling 'person.print1()'.  
 </p>
 ",
 
@@ -237,6 +237,25 @@ return [
 [
 
 "text" => "
+<p>Create a method 'shape.init(x, y, height, width)' that helps you to initiate a object. Try it out by re-initing 'shape1' using the method. Answer with 'shape1.print()'.
+</p>
+",
+
+"answer" => function () use ($x1, $y1, $h1, $w1) {
+
+    return "x:$x1, y:$y1, height:$h1, width:$w1";
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
 <p>Create another object from 'shape' called 'shape2' and initiate the properties with: x:$x2, y:$y2, height:$h2, width: $w2. Use the 'print' method to print out the assigned values.
 </p>
 ",
@@ -275,7 +294,7 @@ return [
 [
 
 "text" => "
-<p>Create a method 'shape.overlapPoint()' that checks if a position x, y is within the current shape. Or, the shape overlaps that position. Position x, y is top left of the shape. Return true or false. Test by checking if x:$x3, y:$y3 is within 'shape1' and if x:$x4, y:$y4 is within 'shape2'. Return the result separated by ', '.
+<p>Create a method 'shape.overlapPoint(posX, posY)' that checks if a position x, y is within the current shape. Or, the shape overlaps that position. The shapes position x and y is top left of the shape. Return true or false. Test by checking if x:$x3, y:$y3 is within 'shape1' and if x:$x4, y:$y4 is within 'shape2'. Return the result separated by ', '.
 </p>
 ",
 

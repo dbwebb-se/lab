@@ -110,12 +110,47 @@ if ($course == 'javascript1' && $lab == 'lab1') {
 
 
 /**
+ * Format the basic values
+ */
+function formatType($value)
+{
+    if (is_bool($value)) {
+        $value = $value ? "true" : "false";
+    } else if (is_int($value)) {
+        ;
+    } else if (is_string($value)) {
+        $value = "\"$value\"";
+    }
+
+    return $value;
+}
+
+
+/**
+ * Format array values
+ */
+function formatArray($value)
+{
+    $a = "[";
+    if (is_array($value)) {
+        foreach ($value as $val) {
+            $a .= formatType($val) . ",";
+        }
+        $value = substr($a, 0, -1) . "]";
+    }
+    return $value;
+}
+
+
+/**
  * Format the answer for print in HTML
  */
-function formatAnswerPrintable($answer) 
+function formatAnswerPrintable($answer)
 {
     if (is_bool($answer)) {
         $answer = $answer ? "true" : "false";
+    } else if (is_array($answer)) {
+        $answer = formatArray($answer);
     }
 
     return $answer;
@@ -125,7 +160,7 @@ function formatAnswerPrintable($answer)
 /**
  * Format the answer for a JSON object
  */
-function formatAnswerJSON($answer) 
+function formatAnswerJSON($answer)
 {
     if (is_int($answer) || is_float($answer)) {
         //$answer

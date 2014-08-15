@@ -3,6 +3,8 @@
 /**
  * Titel and introduction to the lab.
  */
+include __DIR__ . "/../random.php";
+
 $numberOne = 10; // 100-999
 $numberTwo = 6;  // 100-999
 $numberThree = 56; // 100-999
@@ -82,7 +84,7 @@ return [
     
     $arr = [1,2,3,4,5];   
     
-    return implode(',', $arr);
+    return $arr; //implode(',', $arr);
 },
 
 ],
@@ -103,7 +105,7 @@ return [
     
     $arr = $arrWords1[$arrRand];    
     
-    return implode(',', $arr);
+    return $arr; //implode(',', $arr);
 },
 
 ],
@@ -145,7 +147,7 @@ return [
     
     $result = array_merge($serie1, $arrWords1[$arrRand]);
         
-    return implode(",", $result);
+    return $result; //implode(",", $result);
 },
 
 ],
@@ -166,7 +168,7 @@ return [
     
     $result = array_reverse($arrWords1[$arrRand]);
         
-    return implode(",", $result);
+    return $result; //implode(",", $result);
 },
 
 ],
@@ -212,7 +214,7 @@ return [
         $result[$i] = strtoupper($val);
         $i++;
     }   
-    return implode(",", $result);
+    return $result; //implode(",", $result);
 },
 
 ],
@@ -237,7 +239,7 @@ return [
         $result[$i] = $val . ' is good for you';
         $i++;
     }   
-    return implode(",", $result);
+    return $result; //implode(",", $result);
 },
 
 ],
@@ -325,7 +327,7 @@ return [
 "answer" => function () use ($smallRandNr, $serie1) {
     $result = $serie1;
     array_push($result, $smallRandNr);
-    return implode(",", $result);   
+    return $result; //implode(",", $result);   
 },
 
 ],
@@ -368,7 +370,7 @@ return [
 "answer" => function () use ($serie2) {
     $result = $serie2;
     sort($result);
-    return implode(",", $result);   
+    return $result; //implode(",", $result);   
 },
 
 ],

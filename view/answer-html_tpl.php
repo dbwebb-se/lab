@@ -35,6 +35,30 @@ foreach ($sections as $section) {
 
 <script type="text/javascript">
 
+Array.prototype.equals = function (array) {
+    // if the other array is a falsy value, return
+    if (!array)
+        return false;
+
+    // compare lengths - can save a lot of time 
+    if (this.length != array.length)
+        return false;
+
+    for (var i = 0, l=this.length; i < l; i++) {
+        // Check if we have nested arrays
+        if (this[i] instanceof Array && array[i] instanceof Array) {
+            // recurse into the nested arrays
+            if (!this[i].equals(array[i]))
+                return false;       
+        }           
+        else if (this[i] != array[i]) { 
+            // Warning - two different object instances will never be equal: {x:20} != {x:20}
+            return false;   
+        }           
+    }       
+    return true;
+}   
+
 window.dbwebb = {
 
     "answers": {
@@ -53,15 +77,26 @@ window.dbwebb = {
         }?>
 
     },
+    "arrayCheck": function (answer1, answer2) {
+        if (answer1 instanceof Array && answer2 instanceof Array) {
+            console.log("yes is array");
+            return answer1.equals(answer2)
+        }
+        return false;
+    },
     "assert": function(question, answer, hint) {
         var element = document.getElementById("answer" + question),
             status,
             noanswer = "Replace this text with the answer or the variable holding it.",
             hint = hint || false;
 
+        console.log(typeof question);
+        console.log(typeof answer);
+
         if (answer === noanswer) {
             status = question + " NOT YET DONE."
-        } else if (answer === this.answers[question]) {
+        } else if (answer === this.answers[question]
+                   || this.arrayCheck(answer, this.answers[question])) {
             status = question + " CORRECT. Well done!\n" + answer;
         } else {
             status = question + " FAIL.\nYou said:\n" + answer;

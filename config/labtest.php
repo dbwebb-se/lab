@@ -120,10 +120,9 @@ return [
  */
 [
 
-"text" => '
+"text" => "
 <p>Create a variable holding the value 42 
-</p>
-',
+</p>",
 
 "answer" => function () {
     return 42;
@@ -137,10 +136,9 @@ return [
  */
 [
 
-"text" => '
+"text" => "
 <p>Create a variable holding the value 3.14 
-</p>
-',
+</p>",
 
 "answer" => function () {
     return 3.14;
@@ -155,10 +153,9 @@ return [
  */
 [
 
-"text" => '
+"text" => "
 <p>Create a variable holding the value -1 
-</p>
-',
+</p>",
 
 "answer" => function () {
     return -1;
@@ -197,10 +194,9 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable holding the boolean value "true".
-</p>
-',
+"text" => "
+<p>Create a variable holding the boolean value 'true'.
+</p>",
 
 "answer" => function () {
 
@@ -216,14 +212,93 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable holding the boolean value "false".
-</p>
-',
+"text" => "
+<p>Create a variable holding the boolean value 'false'.
+</p>",
 
 "answer" => function () {
 
     return false;
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Return type is an array.",
+
+"intro" => "
+<p>Testing to return values as the correct answer.</p>
+</p>
+",
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a variable holding an array with the range of values between 1-7.
+</p>",
+
+"answer" => function () {
+
+    return range(1, 7);
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a variable holding an array with the strings 'mumin' and 'moped'.
+</p>",
+
+"answer" => function () {
+
+    return array("mumin", "moped");
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a variable holding an array with the values 42 (int), true (boolean) and 'mumin' (string).
+</p>",
+
+"answer" => function () {
+
+    return array(42, true, "mumin");
 },
 
 ],

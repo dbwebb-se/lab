@@ -168,6 +168,8 @@ function formatAnswerJSON($answer)
         $answer = "\"$answer\"";
     } else if (is_bool($answer)) {
         $answer = $answer ? "true" : "false";
+    } else if (is_array($answer)) {
+        $answer = formatArray($answer);
     }
     // add checks for array and object and null
 

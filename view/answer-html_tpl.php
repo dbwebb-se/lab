@@ -79,7 +79,6 @@ window.dbwebb = {
     },
     "arrayCheck": function (answer1, answer2) {
         if (answer1 instanceof Array && answer2 instanceof Array) {
-            console.log("yes is array");
             return answer1.equals(answer2)
         }
         return false;
@@ -89,9 +88,6 @@ window.dbwebb = {
             status,
             noanswer = "Replace this text with the answer or the variable holding it.",
             hint = hint || false;
-
-        console.log(typeof question);
-        console.log(typeof answer);
 
         if (answer === noanswer) {
             status = question + " NOT YET DONE."

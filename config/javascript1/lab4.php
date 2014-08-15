@@ -3,19 +3,77 @@
 /**
  * Titel and introduction to the lab.
  */
-$p1 = array('firstName'=>'Isaac', 'lastName'=>'Newton', 'nationality'=>'England', 'born'=>new DateTime("Jan 4, 1643"));
-$p2 = array('firstName'=>'Albert', 'lastName'=>'Einstein', 'nationality'=>'Germany', 'born'=>new DateTime("Mar 14, 1879"));
-$print1 = "My name is " . $p1["firstName"];
-$print2 = $print1 . " " . $p1["lastName"] . ", from " . $p1["nationality"];
-$print10 = "My name is " . $p2["firstName"] . " " . $p2["lastName"] . ", from " . $p2["nationality"];
+include __DIR__ . "/../random.php";
 
-$x = [45,76,34]; // ?-?
-$y = [34,77,234]; // ?-?
-$h = [55,76,124]; // ?-?
-$w = [231,45,94]; // ?-?
 
-$xStep = 43; // -100-100
-$yStep = -73; // -100-100
+$persons = array(
+    array(
+        'firstName'     => 'Isaac',
+        'lastName'      => 'Newton',
+        'nationality'   => 'England',
+        'born'          => new DateTime("Jan 4, 1643")
+    ),
+    array(
+        'firstName'     => 'Henri',
+        'lastName'      => 'Becquerel',
+        'nationality'   => 'France',
+        'born'          => new DateTime("Dec 15, 1852")
+    ),
+    array(
+        'firstName'     => 'Albert',
+        'lastName'      => 'Einstein',
+        'nationality'   => 'Germany',
+        'born'          => new DateTime("Mar 14, 1879")
+    ),
+);
+
+$person1Nr = rand_int(0, count($persons) - 1);
+$person2Nr = ($person1Nr + 1) % count($persons);
+
+$person1FirstName   = $persons[$person1Nr]["firstName"];
+$person1LastName    = $persons[$person1Nr]["lastName"];
+$person1Nationality = $persons[$person1Nr]["nationality"];
+$person1Born        = $persons[$person1Nr]["born"];
+
+$person1Print1      = "My name is $person1FirstName.";
+$person1Print2      = "My name is $person1FirstName $person1LastName from $person1Nationality.";
+$person1BornFormat  = $person1Born->format('Y-m-d');
+$person1BornYear    = $person1Born->format('Y');
+$person1Print3      = "I was born $person1BornYear.";
+
+$person2FirstName   = $persons[$person2Nr]["firstName"];
+$person2LastName    = $persons[$person2Nr]["lastName"];
+$person2Nationality = $persons[$person2Nr]["nationality"];
+$person2Born        = $persons[$person2Nr]["born"];
+
+$person2Print2      = "My name is $person2FirstName $person2LastName from $person2Nationality.";
+$person2BornFormat  = $person1Born->format('Y-m-d');
+$person2BornYear    = $person2Born->format('Y');
+$person2Print3      = "I was born $person2BornYear.";
+
+
+$x1 = rand_int(10, 90);
+$y1 = rand_int(10, 90);
+$w1 = rand_int(10, 20);
+$h1 = rand_int(10, 20);
+$a1 = $w1 * $h1;
+
+$x2 = rand_int(10, 90);
+$y2 = rand_int(10, 90);
+$w2 = rand_int(10, 20);
+$h2 = rand_int(10, 20);
+$a2 = $w2 * $h2;
+
+$x3 = $x1 + $w1 - 1;
+$y3 = $y1 + $h1 - 1;
+
+$x4 = $x2 - 1;
+$y4 = $y2 - 1;
+
+$x5 = $x1 + round($w1 / 2);
+$y5 = $y1 + round($h1 / 2);
+$w5 = $w1;
+$h5 = $h1;
 
 
 return [
@@ -28,7 +86,7 @@ return [
 "title" => "Lab 4 - javascript1",
 
 "intro" => "
-<p>Intro text to explain stuff.
+<p>Practice basics on objects.
 </p>
 ",
 
@@ -44,7 +102,7 @@ return [
 "title" => "Create object",
 
 "intro" => "
-<p>To succeed with this lab, create an empty object called 'person' with the object literal. Create it outside your functions to make it global. For each question, you should create a print method, print1, print2, print3...etc. In this method, your object should print the newly added properties.</p>
+<p>Start by creating an empty object called 'person' by using the object literal.</p>
 ",
 
 "shuffle" => false,
@@ -58,14 +116,14 @@ return [
  */
 [
 
-"text" => '
-<p>Give your object the property "firstName" and name him "' . $p1["firstName"] . '". Also give him a method called "print1". This method should return a presentation of your object with the first name: "My name is ' . $p1["firstName"] . '". Answer with the presentation method "print1".  
+"text" => "
+<p>Give your person-object the property 'firstName' with a value of '$person1FirstName'. Add a method called 'print1()' that returns a presentation of the object, like this: 'My name is $person1FirstName.' Answer with the result from calling 'person.print1()'.  
 </p>
-',
+",
 
-"answer" => function () use ($print1) {  
+"answer" => function () use ($person1Print1) {
     
-    return $print1;
+    return $person1Print1;
 },
 
 ],
@@ -77,14 +135,14 @@ return [
  */
 [
 
-"text" => '
-<p>Give your object the properties "lastName" and "nationality". The attributes should be "' . $p1["lastName"] . '" and "' . $p1["nationality"] . '". Create the method print2 and add these to the prestentation: '. $print2 . '.
+"text" => "
+<p>Add properties 'lastName' and 'nationality' to your person-object. Their values should be '$person1LastName' and '$person1Nationality'. Create the method 'person.print2()' which should say: '$person1Print2'.
 </p>
-',
+",
 
-"answer" => function () use ($print2) {
+"answer" => function () use ($person1Print2) {
     
-    return $print2;
+    return $person1Print2;
 },
 
 ],
@@ -96,14 +154,14 @@ return [
  */
 [
 
-"text" => '
-<p>Give your object the property "born" and add a Date object: "' . $p1["born"]->format('Y-m-d') . '". Add this to print3 and print it out: ' . $print2 . '. I am born '. $p1['born']->format('Y') . '.
+"text" => "
+<p>Add the property 'born' with the value of a Date object: '$person1BornFormat'. Create a method 'print3()' that says exactly the same as 'print2()' followed by '$person1Print3'.
 </p>
-',
+",
 
-"answer" => function () use ($p1, $print2) {
-
-    return $print2 . ". I am born " . $p1['born']->format('Y');
+"answer" => function () use ($person1Print2, $person1Print3) {
+    
+    return $person1Print2 . " " . $person1Print3;
 },
 
 ],
@@ -115,14 +173,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a second person, called "person2" from the first one using Object.create. Change his properties to: ' . $p2["firstName"] . ' ' . $p2["lastName"] . ', ' . $p2["nationality"] . '. Born: ' . $p2["born"]->format('Y-m-d') . '. Print out the second persons method "print3".
+"text" => "
+<p>Create a second person, called 'person2' by using built-in function 'Object.create()'. The person2 should have the following properties: '$person2FirstName, $person2LastName, $person2Nationality, $person2BornFormat'. Print out details on the second person using 'person2.print3()'.
 </p>
-',
+",
 
-"answer" => function () use($p2, $print10) {
-
-    return $print10 . ". I am born " . $p2['born']->format('Y');
+"answer" => function () use ($person2Print2, $person2Print3) {
+    
+    return $person2Print2 . " " . $person2Print3;
 },
 
 ],
@@ -160,13 +218,13 @@ return [
 [
 
 "text" => "
-<p>Create a object called 'shape' with the properties: 'x', 'y', 'height', 'width' and 'print'. Create a new object from 'shape' called 'shape1' and initiate the properties with: x: " . $x[0] . ", y: " . $y[0] . ", height: " . $h[0] . " and width: " . $w[0] . ". Use the 'print' method to print out the assigned values: 'X: ?, Y: ?, height: ?, width: ?'
+<p>Create a object called 'shape' with the properties: 'x', 'y', 'height', 'width' and 'print'. Create a new object from 'shape' called 'shape1' and initiate the properties with: x:$x1, y:$y1, height:$h1, width: $w1. Use the 'print' method to print out the assigned values as: 'x:?, y:?, height:?, width:?'
 </p>
 ",
 
-"answer" => function () use ($x, $y, $h, $w) {
+"answer" => function () use ($x1, $y1, $h1, $w1) {
 
-    return "X: " . $x[0] . ", Y: " . $y[0] . ", height: " . $h[0] . ", width: " . $w[0];
+    return "x:$x1, y:$y1, height:$h1, width:$w1";
 },
 
 ],
@@ -179,13 +237,13 @@ return [
 [
 
 "text" => "
-<p>Create another object from 'shape' called 'shape2' and initiate the properties with: x: " . $x[1] . ", y: " . $y[1] . ", height: " . $h[1] . " and width: " . $w[1] . ". Use the 'print' method to print out the assigned values.
+<p>Create another object from 'shape' called 'shape2' and initiate the properties with: x:$x2, y:$y2, height:$h2, width: $w2. Use the 'print' method to print out the assigned values.
 </p>
 ",
 
-"answer" => function () use ($x, $y, $h, $w) {
+"answer" => function () use ($x2, $y2, $h2, $w2) {
 
-    return "X: " . $x[1] . ", Y: " . $y[1] . ", height: " . $h[1] . ", width: " . $w[1];
+    return "x:$x2, y:$y2, height:$h2, width:$w2";
 },
 
 ],
@@ -198,13 +256,13 @@ return [
 [
 
 "text" => "
-<p>Create one more object from 'shape' called 'shape3' and initiate the properties with: x: " . $x[2] . ", y: " . $y[2] . ", height: " . $h[2] . " and width: " . $w[2] . ". Use the 'print' method to print out the assigned values.
+<p>Create a method in 'shape' that calculates and returns the area of the shape. Try it out by calling it for 'shape1' and 'shape2'. Answer with both values, separated by ', '. 
 </p>
 ",
 
-"answer" => function () use ($x, $y, $h, $w) {
+"answer" => function () use ($a1, $a2) {
 
-    return "X: " . $x[2] . ", Y: " . $y[2] . ", height: " . $h[2] . ", width: " . $w[2];
+    return "$a1, $a2";
 },
 
 ],
@@ -217,16 +275,13 @@ return [
 [
 
 "text" => "
-<p>Create a method in 'shape' that allows the object to move a given number of steps. The method should take two arguments, " . $xStep . " and " . $yStep . ". The numbers represents the number of steps to move in x-axis and y-axis. Name the method 'move' and use 'print' on the second object (shape2) to print out the new position. 
+<p>Create a method 'shape.overlapPoint()' that checks if a position x, y is within the current shape. Or, the shape overlaps that position. Position x, y is top left of the shape. Return true or false. Test by checking if x:$x3, y:$y3 is within 'shape1' and if x:$x4, y:$y4 is within 'shape2'. Return the result separated by ', '.
 </p>
 ",
 
-"answer" => function () use ($x, $y, $h, $w, $xStep, $yStep) {
+"answer" => function () use ($a1, $a2) {
 
-    $x[1] += $xStep;
-    $y[1] += $yStep;
-
-    return "X: " . $x[1] . ", Y: " . $y[1] . ", height: " . $h[1] . ", width: " . $w[1];
+    return "true, false";
 },
 
 ],
@@ -239,22 +294,32 @@ return [
 [
 
 "text" => "
-<p>Create a method in 'shape', called 'printPos', that returns the current position of the object: 'X: ?, Y: ?'. Put your three objects in an array and use a for each loop to print out all objects position. Each 'print' should be on its own line by using a 'br' tag. 
+<p>Create a method 'shape.overlapShape()' that takes a shape as argument and checks if the shapes overlaps (colliding bodies). Return true or false. Create a new 'shape3' and initiate the properties with: x:$x5, y:$y5, height:$h5, width: $w5. Return the result from checking 'shape1.overlapShape(shape3)'.
 </p>
 ",
 
-"answer" => function () use ($x, $y, $xStep, $yStep) {
+"answer" => function () {
 
-    $result = "";
-    for($i = 0; $i < 3; $i++) {
-        if($i === 1) {
-            $result .= "X: " . ($x[$i]+=$xStep) . ", Y: " . ($y[$i]+=$yStep) . "<br>";
-        }
-        else {
-            $result .= "X: " . $x[$i] . ", Y: " . $y[$i] . "<br>";
-        }
-    }
-    return $result;
+    return true;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a method 'shape.move(moveX, moveY)' which moves the shape from its current position by adding 'x += moveX' and 'y += moveY'. Try it out by moving 'shape3' using 'moveX: $w1, moveY: $h1'. Re-check if the bodies 'shape1' and 'shape3' collides.
+</p>
+",
+
+"answer" => function () {
+
+    return false;
 },
 
 ],

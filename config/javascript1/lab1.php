@@ -102,8 +102,11 @@ $card2 = rand_int(1, 11);
 $card3 = rand_int(1, 11);
 $card4 = rand_int(1, 11);
 $card5 = rand_int(1, 11);
-
-
+$cardSum = $card1+$card2+$card3+$card4+$card5;
+$dealer1 = rand_int(1, 11);
+$dealer2 = rand_int(1, 11);
+$dealer3 = rand_int(1, 11);
+$dealerSum = $dealer1+$dealer2+$dealer3;
 
 
 // switch
@@ -811,132 +814,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 [
 
 "text" => "
-<p>Use if else statements to answer 'yes' if " . $numberOne . " is larger than " . $numberTwo . ", else answer 'no'.
+<p>Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5. Add them up and answer with the result. 
 </p>
 ",
 
-"answer" => function () use ($numberOne, $numberTwo) {
+"answer" => function () use ($card1, $card2, $card3, $card4, $card5) {
 
-    return $numberOne > $numberTwo ? "yes" : "no";
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Compare the number ' . $numberOne . ' and a string that holds the same value ("' . $numberOne . '"). Use two equals == (loose equal) when comparing. Use if else statements to answer "yes" if they are equal, else answer "no".
-</p>
-',
-
-"answer" => function () use ($numberOne) {
-    
-    return $numberOne == "$numberOne" ? "yes" : "no";
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Compare the number ' . $numberOne . ' and a string that holds the same value ("' . $numberOne . '"). Use three equals === (strict equal) when comparing. Use if else statements to answer "yes" if they are equal, else answer "no".
-</p>
-',
-
-"answer" => function () use ($numberOne) {
-    
-    return $numberOne === "$numberOne" ? "yes" : "no";
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Use if else statements to answer "yes" if ' . $numberOne . ' is higher than ' . $smallNr . '. If the numbers are equal answer "equal". Else answer "no".
-</p>
-',
-
-"answer" => function () use ($numberOne, $smallNr) {
-    
-    $result = '';
-    if($numberOne > $smallNr) {
-        $result = 'yes';
-    }
-    else if($numberOne === $smallNr) {
-        $result = 'equal';
-    }
-    else {
-        $result = 'no';
-    }
-    
-    return $result;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Use if else statements to answer "yes" if ' . $numberFour . ' is higher than ' . $highNr . ' OR  lower than ' . $lowNr . '. Else answer "no".
-</p>
-',
-
-"answer" => function () use ($numberFour, $lowNr, $highNr) {
-    
-    $result = '';
-    if($numberFour < $lowNr || $numberFour > $highNr) {
-        $result = 'yes';
-    }
-    else {
-        $result = 'no';
-    }
-    
-    return $result;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Use if else statements to answer "true" if ' . $numberOne . ', are less than or equal to ' . $numberTwo . '. Else answer "false". Answer with the result as a boolean.
-</p>
-',
-
-"answer" => function () use ($numberOne, $numberTwo) {
-    
-    $result = false;
-    if($numberOne <= $numberTwo) {
-        $result = true;
-    }
-    
-    return $result;
+    return $card1+$card2+$card3+$card4+$card5;
 },
 
 ],
@@ -949,24 +833,73 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 [
 
 "text" => "
-<p>Use if else statements to see if " . $numberOne . " is 'higher', 'lower' or 'equal' to " . $numberThree . ". Answer with the result as a string (higher, lower or equal).
+<p>Use an if statement to see if the five cards (card1-card5) have a combined value that is higher than 21. If the value is higher, answer with the string 'busted'. Else answer with the string 'safe'.
 </p>
 ",
 
-"answer" => function () use ($numberOne, $numberThree) {
+"answer" => function () use ($cardSum) {
     
-    $result = '';
+    return $cardSum > 21 ? "busted" : "safe";
+},
 
-    if($numberOne > $numberThree) {
-        $result = 'higher';
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use if else statements to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly 21. Answer with lower = 'safe', higher = 'busted', 21 = 'black jack'.
+</p>
+",
+
+"answer" => function () use ($card1, $card2, $card3) {
+    $hand = $card1+$card2+$card3;
+
+    $res = "safe";
+
+    if($hand > 21) {
+        $res = "busted";
     }
-    else if($numberOne < $numberThree) {
-        $result = 'lower';
+    else if($hand == 21) {
+        $res = "black jack";
+    }
+    return $res;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else, OR and the AND statements to see what the dealer should do. If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'. 
+</p>
+",
+
+"answer" => function () use ($dealerSum) {
+    
+    $res = "";
+    if($dealerSum < 17) {
+        $res = "safe";
+    }
+    else if($dealerSum >= 17 && $dealerSum < 21) {
+        $res = "stop";
+    }
+    else if($dealerSum === 21) {
+        $res = "black jack";
     }
     else {
-        $result = 'equal';
+        $res = "busted";
     }
-    return $result;
+    return $res;
 },
 
 ],

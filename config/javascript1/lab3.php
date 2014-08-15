@@ -5,6 +5,33 @@
  */
 include __DIR__ . "/../random.php";
 
+$array1 = [
+[42, 78, -1, 0, -432, 799, 2, 1100],
+[47, 98, -13, 0, -412, 499, 3, 1200],
+[41, 76, -16, 0, -462, 699, 4, 1300],
+[46, 73, -18, 0, -442, 779, 5, 1400],
+[49, 72, -10, 0, -412, 739, 6, 1500],
+];
+$array1Which = rand_int(0, count($array1) - 1);
+$array1Selected = $array1[$array1Which];
+$array1SelectedString = implode(",", $array1Selected);
+$array1Length = count($array1Selected);
+$array1String = implode(",", $array1Selected);
+
+$array2 = [
+['melon', 'banana', 'apple', 'orange', 'lemon'],
+['potato', 'carrot', 'onion', 'leek', 'cabbage'],
+['milk', 'juice', 'lemonade', 'soda', 'water'],
+['candy', 'cake', 'cupcakes', 'lollipop', 'pringles'],
+['beef', 'chicken', 'pork', 'sausage', 'tofu']
+];
+$array2Which = rand_int(0, count($array2) - 1);
+$array2Selected = $array2[$array2Which];
+$array2SelectedString = implode(",", $array2Selected);
+$array2Within = rand_int(1, count($array2Selected) - 2);
+
+
+// Not used?
 $numberOne = 10; // 100-999
 $numberTwo = 6;  // 100-999
 $numberThree = 56; // 100-999
@@ -34,7 +61,6 @@ $arrWords1 = [
 ];
 
 
-
 return [
 
 
@@ -45,7 +71,7 @@ return [
 "title" => "Lab 3 - javascript1",
 
 "intro" => "
-<p>In this lab, use a function to create the expected answers. Whenever you should answer with an array, then use join() with comma-separation in your answer.
+<p>Practise arrays.
 </p>
 ",
 
@@ -60,9 +86,7 @@ return [
 [
 "title" => "Arrays",
 
-"intro" => "
-<p>Some intro text.</p>
-",
+"intro" => "You might find useful help here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
 
 "shuffle" => false,
 
@@ -75,16 +99,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns an array with the length of 5 and holds the numbers 1, 2, 3, 4, 5. Name the function "myFirstArray" and answer with the returned array.
+"text" => "
+<p>Create a variable 'array1' holding an array with the numbers $array1SelectedString. Answer with the array.
 </p>
-',
+",
 
-"answer" => function () {
+"answer" => function () use ($array1Selected) {
     
-    $arr = [1,2,3,4,5];   
-    
-    return $arr; //implode(',', $arr);
+    return $array1Selected; 
 },
 
 ],
@@ -96,58 +118,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns an array with the words: ' . implode(", ", $arrWords1[$arrRand]) . '. Name the function "arrayStrings" and answer with the returned array.
+"text" => "
+<p>Use the variable 'array1'. How many items does the array have? Answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($arrWords1, $arrRand) {
-    
-    $arr = $arrWords1[$arrRand];    
-    
-    return $arr; //implode(',', $arr);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Create an array that holds the words: ' . implode(", ", $arrWords1[$arrRand]) . '. Name the function "returnOne" and only return the element on place: ' . $arrRand . '. Print out the result.
-</p>
-',
-
-"answer" => function () use ($arrWords1, $arrRand) {
-    
-    $word = $arrWords1[$arrRand][$arrRand];    
-    
-    return $word;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Create a function that merges two arrays: "' . implode(", ", $serie1) . '" and "' . implode(", ", $arrWords1[$arrRand]) . '" into a new array. Name the function "concArrays" and return the new array.
-</p>
-',
-
-"answer" => function () use ($arrWords1, $arrRand, $serie1) {
-    
-    $result = array_merge($serie1, $arrWords1[$arrRand]);
+"answer" => function () use ($array1Length) {
         
-    return $result; //implode(",", $result);
+    return $array1Length;
 },
 
 ],
@@ -159,16 +137,14 @@ return [
  */
 [
 
-"text" => '
-<p>Pass the array: "' . implode(", ", $arrWords1[$arrRand]) . '" to a function and reverse the order of the elements. Name the function "reverseArray" and return the array.
+"text" => "
+<p>Create a variable 'array2' holding an array with the words: $array2SelectedString. Answer with the array.
 </p>
-',
+",
 
-"answer" => function () use ($arrWords1, $arrRand) {
+"answer" => function () use ($array2Selected) {
     
-    $result = array_reverse($arrWords1[$arrRand]);
-        
-    return $result; //implode(",", $result);
+    return $array2Selected; 
 },
 
 ],
@@ -178,6 +154,135 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+[
+
+"text" => "
+<p>Return the element on position: $array2Within in 'array2'. Answer with the result.
+</p>
+",
+
+"answer" => function () use ($array2Selected, $array2Within) {
+        
+    return $array2Selected[$array2Within];
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use the variable 'array2'. Concatenate the first item and the last item as a string. Separate the string with '-' Answer with the result.
+</p>
+",
+
+"answer" => function () use ($array2Selected) {
+        
+    return $array2Selected[0] . '-' . $array2Selected[count($array2Selected)-1];
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Merge the two arrays 'array1' and 'array2' into a third variable 'array3'.Answer with 'array3'.
+</p>
+",
+
+"answer" => function () use ($array1Selected, $array2Selected) {
+    
+    $result = array_merge($array1Selected, $array2Selected);
+        
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Reverse the order of the elements in array 'array3'. Answer with the resulting array.
+</p>
+",
+
+"answer" => function () use ($array1Selected, $array2Selected) {
+    
+    $result = array_reverse(array_merge($array1Selected, $array2Selected));
+        
+    return $result;
+},
+
+],
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a variable 'array11' as a copy of 'array1'. Sort 'array11' according to its values. The smallest value comes first and the largest value comes last. Answer with the resulting array.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+    
+    $a = array();
+    $a = $array1Selected;
+    sort($a);
+        
+    return $a;
+},
+
+],
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a variable 'array21' as a copy of 'array2'. Sort 'array21'. Answer with the resulting array.
+</p>
+",
+
+"answer" => function () use ($array2Selected) {
+    
+    $a = $array2Selected;
+    sort($a);
+        
+    return $a;
+},
+
+],
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+/*
 [
 
 "text" => '
@@ -193,32 +298,7 @@ return [
 },
 
 ],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Pass the array: ' . implode(", ", $arrWords1[$arrRand]) . ' to a function and use a "forEach-loop" to change all items in the array to uppercase. Name the function "upperCaseArray" and return the array.
-</p>
-',
-
-"answer" => function () use ($arrWords1, $arrRand) {
-    
-    $result = [];
-    $i = 0;
-    foreach ($arrWords1[$arrRand] as $val) {
-        $result[$i] = strtoupper($val);
-        $i++;
-    }   
-    return $result; //implode(",", $result);
-},
-
-],
-
+*/
 
 
 /** -----------------------------------------------------------------------------------
@@ -226,40 +306,15 @@ return [
  */
 [
 
-"text" => '
-<p>Pass the array: ' . implode(", ", $arrWords1[$arrRand]) . ' to a function and use a "forEach-loop" to add the text "is good for you" to all elements in the array. Name the function "changeArrayElements" and return the array.
+"text" => "
+<p>Create a variable 'array22' which holds the same content as 'array2' - but all strings are uppercase. Use the built-in Array-function 'map()' to solve it. Answer with the array.
 </p>
-',
+",
 
-"answer" => function () use ($arrWords1, $arrRand) {
+"answer" => function () use ($array2Selected) {
     
-    $result = [];
-    $i = 0;
-    foreach ($arrWords1[$arrRand] as $val) {
-        $result[$i] = $val . ' is good for you';
-        $i++;
-    }   
-    return $result; //implode(",", $result);
-},
+    $result = array_map("strtoupper", $array2Selected);
 
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Pass the array: ' . implode(", ", $arrWords1[$arrRand]) . ' to a function and join it into a string. Use a space (" ") to separate the elements. Name the function "joinArray" and return the array.
-</p>
-',
-
-"answer" => function () use ($arrWords1, $arrRand) {
-    
-    $result = join(" ",$arrWords1[$arrRand]);
-    
     return $result;
 },
 
@@ -272,19 +327,20 @@ return [
  */
 [
 
-"text" => '
-<p>Pass the array ' . implode(", ", $serie2) . ' to a function that returns the last index of the element 17. Name the function "lastIndex" and return the result.
+"text" => "
+<p>Create a new array 'messageOfToday'. It should contain all items from 'array2' where each item is concatenated with the string ' is good for you!'. Use the built-in array-function 'forEach()' to solve it. Each sentence shold start with a capital letter. Answer with the resulting array.
 </p>
-',
+",
 
-"answer" => function () use ($serie2) {
-    $result = -1;
-    for($i = 0; $i < count($serie2); $i++) {
-        if($serie2[$i] === 17) {
-            $result = $i;
-        }
+"answer" => function () use ($array2Selected) {
+    
+    $a = array();
+    $str = "";
+    foreach ($array2Selected as $val) {
+        $a[] = ucfirst($val) .  " is good for you!";
     }
-    return $result;    
+
+    return $a;
 },
 
 ],
@@ -296,18 +352,18 @@ return [
  */
 [
 
-"text" => '
-<p>Pass the array ' . implode(", ", $arrWords1[$arrRand]) . ' to a function and use "pop()" to remove the last element. Return a string that holds the popped element. Name the function "popArray".
+"text" => "
+<p>Create a new array 'array12'. It should contain all positive numbers from the 'array1'. Use the built-in array-function 'filter()' to solve it. Answer with the resulting array.
 </p>
-',
+",
 
-"answer" => function () use ($arrWords1, $arrRand) {
+"answer" => function () use ($array1Selected) {
     
-    $arr = $arrWords1[$arrRand];
-    $removed = array_pop($arr);
-    
-    //$result = join(",",$arr);
-    return $removed;   
+    $a = array_filter($array1Selected, function ($val) {
+        return ($val > 0);
+    });
+
+    return $a;
 },
 
 ],
@@ -319,15 +375,137 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that adds the element ' . $smallRandNr . ' to the array ' . implode(", ", $serie1) . '. The function should take two arguments: the array and an element to add to it. Name the function "pushArray", return the array.
+"text" => "
+<p>Create a variable 'iLike'. It should contain the string 'I like ' and then all items from 'array2' separated with ', '. End the string with a '!'. Use the built-in array-function 'join()' to solve it. Answer with the string.
 </p>
-',
+",
 
-"answer" => function () use ($smallRandNr, $serie1) {
-    $result = $serie1;
-    array_push($result, $smallRandNr);
-    return $result; //implode(",", $result);   
+"answer" => function () use ($array2Selected) {
+    
+    $a = "I like " . implode(', ', $array2Selected) . "!";
+
+    return $a;
+},
+
+],
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function 'arraySum' that takes one argument and returns the sum of all elements in that array. Try out the function using 'array1' and answer with the result.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+    
+    $sum = 0;
+    foreach ($array1Selected as $val) {
+        $sum += $val;
+    }
+
+    return $sum;
+},
+
+],
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function 'arrayAverage' that takes one argument and returns the average of all elements in that array. Try out the function using 'array1' and answer with the rounded integer result.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+    
+    $sum = 0;
+    foreach ($array1Selected as $val) {
+        $sum += $val;
+    }
+
+    return round($sum / count($array1Selected));
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Modify arrays",
+
+"intro" => "",
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a new array 'myArray' and make it a copy of 'array1'. Get the last element from 'myArray' using the built-in array-function 'pop()'. Answer with the resulting array.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+    
+    $a = $array1Selected;
+    array_pop($a);
+    
+    return $a;
+},
+
+],
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Add the boolean value 'true' to the array 'myArray' using  built-in array-function 'push()'. Answer with the resulting array.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+
+    $a = $array1Selected;
+    array_pop($a);
+    array_push($a, true);
+    
+    return $a;
 },
 
 ],
@@ -339,18 +517,19 @@ return [
  */
 [
 
-"text" => '
-<p>Pass the array ' . implode(", ", $arrWords1[$arrRand]) . ' to a function and use "shift()" to remove the first element. Return a string that holds the shifted element. Name the function "shiftArray".
+"text" => "
+<p>Use the built-in array-function 'shift()' to remove the first item from the array 'myArray'. Answer with the resulting array.
 </p>
-',
+",
 
-"answer" => function () use ($arrWords1, $arrRand) {
+"answer" => function () use ($array1Selected) {
+
+    $a = $array1Selected;
+    array_pop($a);
+    array_push($a, true);
+    array_shift($a);
     
-    $arr = $arrWords1[$arrRand];
-    $removed = array_shift($arr);
-    //$result = join(",", $arr);
-    
-    return $removed;   
+    return $a;
 },
 
 ],
@@ -362,15 +541,134 @@ return [
  */
 [
 
-"text" => '
-<p>Pass the array ' . implode(", ", $serie2) . ' to a function that sort the array in ascending order. Name the function "sortArray" and return the sorted array.
+"text" => "
+<p>Add the float number '3.14' to the beginning of 'myArray' using built-in array-function 'unshift()'. Answer with the resulting array.
 </p>
-',
+",
 
-"answer" => function () use ($serie2) {
-    $result = $serie2;
-    sort($result);
-    return $result; //implode(",", $result);   
+"answer" => function () use ($array1Selected) {
+
+    $a = $array1Selected;
+    array_pop($a);
+    array_push($a, true);
+    array_shift($a);
+    array_unshift($a, 3.14);
+    
+    return $a;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Change 'myArray' element 3 and 4 to the boolean value 'false' using built-in array-function 'splice()'. Answer with the resulting array.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+
+    $a = $array1Selected;
+    array_pop($a);
+    array_push($a, true);
+    array_shift($a);
+    array_unshift($a, 3.14);
+    $a[2] = false;
+    $a[3] = false;
+    
+    return $a;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Extract the last two elements as a slice from 'myArray' using built-in array-function 'slice()'. Answer with the slice array.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+
+    $a = $array1Selected;
+    array_pop($a);
+    array_push($a, true);
+    array_shift($a);
+    array_unshift($a, 3.14);
+    $a[2] = false;
+    $a[3] = false;
+    $a = array_slice($a, -2);
+
+    return $a;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Remove item 4 and 5 in 'myArray'. Answer with the resulting array.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+
+    $a = $array1Selected;
+    array_pop($a);
+    array_push($a, true);
+    array_shift($a);
+    array_unshift($a, 3.14);
+    $a[2] = false;
+    $a[3] = false;
+    unset($a[3]);
+    unset($a[4]);
+
+    return $a;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Insert the string 'MEGA' after item 3 in 'myArray'. Answer with the resulting array.
+</p>
+",
+
+"answer" => function () use ($array1Selected) {
+
+    $a = $array1Selected;
+    array_pop($a);
+    array_push($a, true);
+    array_shift($a);
+    array_unshift($a, 3.14);
+    $a[2] = false;
+    $a[3] = false;
+    unset($a[3]);
+    unset($a[4]);
+    array_splice($a, 3, 0, "MEGA");
+
+    return $a;
 },
 
 ],

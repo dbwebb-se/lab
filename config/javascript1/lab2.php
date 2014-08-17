@@ -5,22 +5,28 @@
  */
 include __DIR__ . "/../random.php";
 
-// basic functions
-$numberOne      = rand_int(1, 999); //10; // 1-999
-$numberTwo      = rand_int(1, 999); //6;  // 1-999
-$numberThree    = rand_int(100, 999); //56; // 100-999
+$num1      = rand_int(1, 999); //10; // 1-999
+$num2      = rand_int(1, 999); //6;  // 1-999
+$num3      = rand_int(100, 999); //6;  // 1-999
 
 $range1    = rand_int(10, 49);
 $range2    = rand_int(60, 99);
+
+$colors = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'pink', 'grey', 'brown', 'white'];
+$color = $colors[rand_int(0, count($colors)-1)];
+
+$degree = rand_int(1, 360);
+
+// basic functions 
+
+
+
 $range3    = rand_int(20, 29);
 $range4    = rand_int(40, 49);
 $range5    = rand_int(100, 199);
 $range6    = rand_int(500, 599);
 $inRange   = rand_int(200, 499);
 $outRange  = rand_int(600, 699);
-
-$colors = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'pink', 'grey', 'brown', 'white'];
-$color = $colors[rand_int(0, count($colors)-1)];
 
 $fruits             = ["banana", "apple", "kiwi", "plum"];
 $fruitColors        = ["yellow", "green", "green", "red"];
@@ -30,24 +36,38 @@ $fruitWhich         = rand_int(0, count($fruits)-1);
 $fruit              = $fruits[$fruitWhich];
 $fruitColor         = $fruitColors[$fruitWhich];
 
+$wordSerie2 = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'pink', 'grey', 'brown', 'white'];
+$smallRandNr = rand_int(0, count($wordSerie2)-1); // 0-9
+$smallRand2 = $smallRandNr+5;
+$currWord = $wordSerie2[$smallRandNr];
+
+$money = rand_int(500, 999);
+$years = rand_int(10, 50);
+$interest = rand_int(1, 5);
+
 $fbStart    = rand_int(1, 5); // 1-5
 $fbStop     = rand_int(20, 30); //25; // 20-30
 
 
 // are these used? maybe... rewrite exercises and move above this comment
+/*
+
+cant see them used when ctrl-f them. do not dare to remove them...
+
+$numberOne      = rand_int(1, 999); //10; // 1-999
+$numberTwo      = rand_int(1, 999); //6;  // 1-999
+$numberThree    = rand_int(100, 999); //56; // 100-999
 $floatTwo = 5.22; // 100-999
 $lowNr = 15; // 0 - 100
 $highNr = 625; // 500 - 999
 $smallNr = 2; // 1-5
-$smallRandNr = 5; // 0-9
 $qRandNr = 2; // 0-4 for the questions
 $monthNr = 7; // 1-12
-
 $serie1 = [347, -221, 54, 435];  // 100-999
 $wordSerie2 = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'pink', 'grey', 'brown', 'white'];
 $questionSerie1 = ['How are you?', 'How is the weather?', 'What is your name?', 'Where are you going?', 'Where are you from?'];
 $answerSerie1 = ['I have never been better.', 'Cloudy, with a chance of meatballs', 'I am Batman', 'I am going to Gotham City', 'Krypton'];
-
+*/
 
 
 return [
@@ -89,12 +109,12 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'sumNumbers()'. The function should take two arguments and return the sum of them. Test the function using the arguments $numberOne and $numberTwo. Answer with the result.
+<p>Create a function called 'sumNumbers()'. The function should take two arguments and return the sum of them. Test the function using the arguments $num1 and $num2. Answer with the result.
 </p>",
 
-"answer" => function () use ($numberOne, $numberTwo) {
+"answer" => function () use ($num1, $num2) {
 
-    return $numberOne + $numberTwo;
+    return $num1 + $num2;
 },
 
 ],
@@ -107,12 +127,12 @@ return [
 [
 
 "text" => "
-<p>Create a function 'productNumbers()'. The function should take three arguments and return the product of them. Try the function using the numbers $numberOne, $numberTwo and $numberThree. Answer with the result.
+<p>Create a function called 'productNumbers()'. The function should take three arguments and return the product of them. Try the function using the numbers $num1, $num2 and $num3. Answer with the result.
 </p>",
 
-"answer" => function () use ($numberOne, $numberTwo, $numberThree) {
+"answer" => function () use ($num1, $num2, $num3) {
     
-    return $numberOne * $numberTwo * $numberThree;
+    return $num1 * $num2 * $num3;
 },
 
 ],
@@ -193,7 +213,7 @@ return [
 [
 
 "text" => "
-<p>Create a function 'fruitColor()' that takes one argument called 'fruit' and returns the color of the fruit. The function should be aware of the following fruits ($fruitString) with respective color ($fruitColorString). Try it out using the fruit '$fruit' and answer with the result.
+<p>Create a function called 'fruitColor()' that takes one argument called 'fruit' and returns the color of the fruit. The function should be aware of the following fruits ($fruitString) with respective color ($fruitColorString). Try it out using the fruit '$fruit' and answer with the result.
 </p>",
 
 "answer" => function () use ($fruitColor) {
@@ -318,17 +338,17 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns a string a specific number of times. The function should take 2 arguments, one string and one number: "' . $wordSerie2[$smallRandNr] . '" and ' . ($smallRandNr+5) . ' . The number represents the number of times the string should be added to a string. Name the function "stringRepeat" and answer with the result.
+"text" => "
+<p>Create a function called 'stringRepeat()' that returns a string a specific number of times. The function should take two arguments, one string and one number: '$currWord' and $smallRand2. The number represents the number of times the string should be added to a string. Test the function and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($wordSerie2, $smallRandNr) {
+"answer" => function () use ($currWord, $smallRand2) {
     
     $result = '';
 
-    for($i = 0; $i < $smallRandNr+5; $i++) {
-        $result .= $wordSerie2[$smallRandNr];
+    for($i = 0; $i < $smallRand2; $i++) {
+        $result .= $currWord;
     }
     return $result;
 },
@@ -342,18 +362,18 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns the money you have, after years of interest, given three arguments: ' . $highNr . ', ' . $lowNr . ' and ' . $smallNr . '. First argument represents the start money, the second argument represents the number of years your money produces interest. The third argument is the interest rate in percent (%). Name the function "calculateInterest" and answer with the result with a maximum of 4 decimals. 
+"text" => "
+<p>Create a function called 'calculateInterest()' that returns the money you have after x years of interest, given three arguments: $money, $years and $interest. First argument represents the start money, the second argument represents the number of years your money produces interest. The third argument is the interest rate in percent (%). Test your function and answer with the result with a maximum of 4 decimals. 
 </p>
-',
+",
 
-"answer" => function () use ($highNr, $lowNr, $smallNr) {
+"answer" => function () use ($money, $years, $interest) {
    
-    $result = $highNr; 
+    $result = $money; 
     $currentInterest = 0;
 
-    for($i = 0; $i < $lowNr; $i++) {
-        $currentInterest = ($result / 100) * $smallNr;
+    for($i = 0; $i < $years; $i++) {
+        $currentInterest = ($result / 100) * $interest;
         $result += $currentInterest; 
     }
     return round($result, 4);
@@ -415,7 +435,25 @@ return [
 [
 
 "text" => "
-<p>Create a function 'fizzBuzz()' that takes two arguments 'start' and 'stop' and returns a comma-separated string. The arguments represents the starting point and stop point of the game 'Fizz Buzz' (http://en.wikipedia.org/wiki/Fizz_buzz). The function should run from start to stop and add 'Fizz', 'Buzz' or both to your 'result'-variable at appropriate numbers. Each entry to your result should be comma-separated. If 'stop' is equal or lower than 'start', the function should return an appropriate error message. Test the function using start=$fbStart and stop=$fbStop.
+<p>Create a function called 'degreesToRadians()' that should take one argument, a degree value. The function should convert the value to radians and return the result with max 4 decimals. Test your function with the value $degree and answer with the result.  
+</p>",
+
+"answer" => function () use ($degree) {
+    
+    return round(($degree * (pi()/180)), 4);
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function called 'fizzBuzz()' that takes two arguments 'start' and 'stop' and returns a comma-separated string. The arguments represents the starting point and stop point of the game 'Fizz Buzz' (http://en.wikipedia.org/wiki/Fizz_buzz). The function should run from start to stop and add 'Fizz', 'Buzz' or both to your 'result'-variable at appropriate numbers. Each entry to your result should be comma-separated. If 'stop' is equal or lower than 'start', the function should return an appropriate error message. Test the function using start=$fbStart and stop=$fbStop.
 </p>",
 
 "answer" => function () use ($fbStart, $fbStop) {

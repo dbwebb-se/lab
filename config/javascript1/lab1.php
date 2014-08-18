@@ -39,9 +39,10 @@ $moduloTwo      = rand_int(10, 100);
 
 // SECTION 2 ****************************************************
 
-$sect2SmallRand = rand_int(0, 9); //3; // 0-9
+
 $sect2Int       = rand_int(20, 999);// 100-999
 $sect2WordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
+$sect2SmallRand = rand_int(0, count($sect2WordSerie1)-1); //3; // 0-9
 $sect2IntText    = $sect2Int . ".$numberTwo " . $sect2WordSerie1[$sect2SmallRand];
 
 // SECTION 3 ****************************************************

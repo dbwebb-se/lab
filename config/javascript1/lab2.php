@@ -5,6 +5,10 @@
  */
 include __DIR__ . "/../random.php";
 
+// basic functions 
+
+// SECTION 1
+
 $num1      = rand_int(1, 999); //10; // 1-999
 $num2      = rand_int(1, 999); //6;  // 1-999
 $num3      = rand_int(100, 999); //6;  // 1-999
@@ -16,10 +20,6 @@ $colors = ['red', 'blue', 'green', 'black', 'purple', 'yellow', 'pink', 'grey', 
 $color = $colors[rand_int(0, count($colors)-1)];
 
 $degree = rand_int(1, 360);
-
-// basic functions 
-
-
 
 $range3    = rand_int(20, 29);
 $range4    = rand_int(40, 49);
@@ -48,6 +48,19 @@ $interest = rand_int(1, 5);
 $fbStart    = rand_int(1, 5); // 1-5
 $fbStop     = rand_int(20, 30); //25; // 20-30
 
+// SECTION 2 Black jack
+
+$handSize = 5;
+$card1 = rand_int(1, 11);
+$card2 = rand_int(1, 11);
+$card3 = rand_int(1, 11);
+$card4 = rand_int(1, 11);
+$card5 = rand_int(1, 11);
+$cardSum = $card1+$card2+$card3;
+$dealer1 = rand_int(1, 11);
+$dealer2 = rand_int(1, 11);
+$dealer3 = rand_int(1, 11);
+$dealerSum = $dealer1+$dealer2+$dealer3;
 
 // are these used? maybe... rewrite exercises and move above this comment
 /*
@@ -499,12 +512,12 @@ return [
 /** ===================================================================================
  * New section of exercises.
  */
-/*
+
 [
-"title" => "Throw/catch exeptions",
+"title" => "Black jack functions",
 
 "intro" => "
-<p>something about it...
+<p>In this section, you could re-use your code from lab 1
 </p>
 ",
 
@@ -517,33 +530,17 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
-/*
+
 [
 
-"text" => '
-<p>Create a function that takes one argument, "monthNr". Use the number: ' . $monthNr . '. The function should return the name of the month representing the passed value, for example: monthNr = 2 should return "February". Create an exception for values out of range such if monthNr < 1 and > 12. Name the function monthException and return the name of the month. Answer with the returned string.
+"text" => "
+<p>Create a function called 'sumCards()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Your hand should be three cards with the values: $card1, $card3 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. The function should return the sum and the player: 'Player: $cardSum, Dealer: $dealerSum'. Test your function with the given values and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($monthNr) {
+"answer" => function () use ($cardSum, $dealerSum) {
 
-    function monthException($monthNr) {
-        $newMonthNr = $monthNr -1;
-        $months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-
-        if($newMonthNr < 0 || $newMonthNr >= 12) {
-            throw new Exception('Month number ' . $monthNr . ' does not exist in this universe...yet.');
-        }
-        else{
-            return $months[$newMonthNr];
-        }
-    }
-    try {
-        return monthException($monthNr);
-    }
-    catch (Exception $e){
-        return 'Caught Exception: ' . $e->getMessage();
-    }
+    return "Player: " . $cardSum . ", Dealer: " . $dealerSum;
 
 },
 
@@ -553,77 +550,53 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
-/*
+
 [
 
-"text" => '
-<p>Create a function that takes one argument, ' . $numberOne . '. The function should return the string "EVEN" if the number is even. Create an exception if the number is odd. The message should be "NOT EVEN". Name the function "oddOrEven" and answer with the result as a string.
+"text" => "
+<p>Create a function called 'sumCards2()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Players hand should be three cards with the values: $card1, $card3 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. This time you should include the check from lab 1 where you find out the boundaries of the player and the dealer. Player hand = 21 ('black jack'), Player hand < 21 ('safe'), Player hand > 21 ('busted'). Dealer hand < 17 ('safe'), Dealer hand >= 17 and < 21 ('stop'), Dealer hand = 21 ('black jack'), Delaer hand > 21 ('busted'). Return a string in the format: 'Player: safe, Dealer: busted'. Test your function with the given values and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($numberOne) {
+"answer" => function () use ($cardSum, $dealerSum) {
 
-    function oddOrEven($nr) {
+    $d = "Dealer: ";
+    $p = "Player: ";
+    $res = "";
 
-        $result = "";
-        if($nr % 2 === 0){
-            $result = "EVEN";
-            return $result;
-        }
-        else {
-            throw new Exception("NOT EVEN");
-        }
+    if($dealerSum < 17) {
+        $d .= "safe";
     }
-    try {
-        return oddOrEven($numberOne);
+    else if($dealerSum >= 17 && $dealerSum < 21) {
+        $d .= "stop";
     }
-    catch (Exception $e){
-        return $e->getMessage();
+    else if($dealerSum === 21) {
+        $d .= "black jack";
     }
+    else {
+        $d .= "busted";
+    }
+
+    if($cardSum < 21) {
+        $p .= "safe";
+    }
+    else if($cardSum === 21) {
+        $p .= "black jack";
+    }
+    else if($cardSum > 21) {
+        $p .= "busted";
+    }
+    return $p . ", " . $d;
+
 },
 
 ],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-/*
-[
-
-"text" => '
-<p>Create a function called "colorCheck". The function should take one argument, a string with the color: "' . $wordSerie2[$smallRandNr] . '". Use try catch to print out "I do not have the color ' . $wordSerie2[$smallRandNr] . '" if it do not exist. If it exists, just return the color. The colors to check with are: "green", "red", "purple", "white" and "brown". 
-</p>
-',
-
-"answer" => function () use ($wordSerie2, $smallRandNr) {
-
-    function colorCheck($clr) {
-        $result = '';
-        if($clr === 'green' || $clr === 'red' || $clr === 'purple' || $clr === 'white' || $clr === 'brown'){
-            $result = $clr;
-        }
-        else {
-            throw new Exception("I do not have the color " . $clr . ".");
-        }
-        return $result;
-    }
-    try {
-        return colorCheck($wordSerie2[$smallRandNr]);
-    }
-    catch (Exception $e){
-        return $e->getMessage();
-    }
-},
-
-],
-
 
 
 /**
  * Closing up this section.
  */
-/*
+
 ], // EOF questions
 ], // EOF section
 

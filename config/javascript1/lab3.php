@@ -186,7 +186,7 @@ return [
 [
 
 "text" => "
-<p>Merge the two arrays 'array1' and 'array2' into a third variable 'array3'.Answer with 'array3'.
+<p>Merge the two arrays 'array1' and 'array2' into a third variable 'array3'. Answer with 'array3'.
 </p>
 ",
 
@@ -367,7 +367,7 @@ return [
 [
 
 "text" => "
-<p>Create a function 'arraySum' that takes one argument and returns the sum of all elements in that array. Try out the function using 'array1' and answer with the result.
+<p>Create a function 'arraySum' that takes one array as argument and returns the sum of all elements in that array. Try out the function using 'array1' and answer with the result.
 </p>
 ",
 
@@ -392,7 +392,7 @@ return [
 [
 
 "text" => "
-<p>Create a function 'arrayAverage' that takes one argument and returns the average of all elements in that array. Try out the function using 'array1' and answer with the rounded integer result.
+<p>Create a function 'arrayAverage' that takes one array as argument and returns the average of all elements in that array. Try out the function using 'array1' and answer with the rounded integer result.
 </p>
 ",
 
@@ -464,7 +464,7 @@ return [
 [
 
 "text" => "
-<p>Add the boolean value 'true' to the array 'myArray' using  built-in array-function 'push()'. Answer with the resulting array.
+<p>Add the boolean value 'true' to the array 'myArray' using built-in array-function 'push()'. Answer with the resulting array.
 </p>
 ",
 

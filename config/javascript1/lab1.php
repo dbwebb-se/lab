@@ -335,7 +335,7 @@ return [
 [
 
 "text" => "
-<p>Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the built-in method 'parseInt' to find out the integer representation of the text. Answer with your 'result'-variable.
+<p>Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the function 'parseInt' to find out the integer representation of the text. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -354,7 +354,7 @@ return [
 [
 
 "text" => "
-<p>Use your variable 'someIntText'. Use the built-in method 'parseFloat' to find out the float representation of the text. Answer with your 'result'-variable.
+<p>Use your variable 'someIntText'. Use the function 'parseFloat' to find out the float representation of the text. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -500,7 +500,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in constant 'E' to get the float value of 'E'. Find the product of 'E' and $e_val. Use the built-in method 'ceil()' to get an integer value of your result.
+<p>Use the Math property 'E' to get the float value of 'E'. Find the product of 'E' and $e_val. Use the built-in method 'ceil()' to get an integer value of your result.
 </p>
 ",
 
@@ -519,7 +519,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in constant 'PI' to get the float value of 'Pi'. Round the result to 4 decimals. It can be a bit tricky to round up to a 4 decimals, but you can figure it out. Answer with your 'result'-variable.
+<p>Use the Math property 'PI' to get the float value of 'Pi'. Round the result to 4 decimals. It can be a bit tricky to round up to a 4 decimals, but you can figure it out. Answer with your 'result'-variable.
 </p>
 ",
 

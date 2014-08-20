@@ -424,7 +424,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the method 'max' to find out the highest number in the serie: $serie1_imp. Answer with your 'result'-variable.
+<p>Use the method 'max', in Math, to find out the highest number in the serie: $serie1_imp. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -442,7 +442,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the method 'min' to find out the lowest number in the serie: $serie1_imp. Answer with your 'result'-variable.
+<p>Use the method 'min', in Math, to find out the lowest number in the serie: $serie1_imp. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -461,7 +461,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'round' to round the float number: $sect3Float1 to the closest integer. Answer with your 'result'-variable.
+<p>Use the method 'round', in Math, to round the float number: $sect3Float1 to the closest integer. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -480,7 +480,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Find out the quotient of $sect3BigInt / $sect3SmallInt and use the built-in method 'floor' to get only the integer value. Use your 'result'-variable in your answer.
+<p>Find out the quotient of $sect3BigInt / $sect3SmallInt and use the method 'floor', in Math, to get only the integer value. Use your 'result'-variable in your answer.
 </p>
 ",
 
@@ -538,7 +538,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'pow' to find the power of (base) $sect3SmallInt and (exponent) $sect3TinyInt. Answer with the result.
+<p>Use the method 'pow', in Math, to find the power of (base) $sect3SmallInt and (exponent) $sect3TinyInt. Answer with the result.
 </p>
 ",
 

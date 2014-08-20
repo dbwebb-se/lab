@@ -335,7 +335,7 @@ return [
 [
 
 "text" => "
-<p>Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the built-in method 'parseInt' to find out the integer representation of the text. Answer with your 'result'-variable.
+<p>Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the function 'parseInt' to find out the integer representation of the text. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -354,7 +354,7 @@ return [
 [
 
 "text" => "
-<p>Use your variable 'someIntText'. Use the built-in method 'parseFloat' to find out the float representation of the text. Answer with your 'result'-variable.
+<p>Use your variable 'someIntText'. Use the function 'parseFloat' to find out the float representation of the text. Answer with your 'result'-variable.
 </p>
 ",
 

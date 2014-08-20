@@ -62,6 +62,7 @@ $sect3TinyInt   = rand_int(2, 5);
 $sect3SmallInt  = rand_int(10, 100);
 $sect3BigInt    = rand_int(200, 999);
 
+$e_val          = rand_int(10, 100);
 // SECTION 4 ****************************************************
 
 $sect4SmallRand    = rand_int(0, 9); //3; // 0-9
@@ -110,7 +111,7 @@ $dealerSum = $dealer1+$dealer2+$dealer3;
 
 // switch
 $fruits        = ["apple", "kiwi", "plum"];
-$fruitColors   = ["green", "green", "red"];
+$fruitColors   = ["green", "green", "purple"];
 
 $fruitWhich = rand_int(0, count($fruits)-1);
 $fruit      = $fruits[$fruitWhich];
@@ -156,7 +157,7 @@ return [
 "title" => "Integers, floats and variables",
 
 "intro" => "
-<p>The foundation of variables, numbers, strings and basic arithmetic.</p>
+<p>The foundation of variables, numbers, strings and basic arithmetic. In questions 1.5 and 1.6 you are going to work with floats. One way to round a float to a certain amount of decimals is:  Math.round(val*10000)/10000, where 'val' is your float number.</p>
 ",
 
 "shuffle" => false,
@@ -403,7 +404,7 @@ return [
  * New section of exercises.
  */
 [
-"title" => "Builtin Math-methods and functions",
+"title" => "Built-in Math-methods and functions",
 
 "intro" => "
 <p>If you need a hint, take a look at: <br> 
@@ -423,7 +424,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'max' to find out the highest number in the serie: $serie1_imp. Answer with your 'result'-variable.
+<p>Use the method 'max' to find out the highest number in the serie: $serie1_imp. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -441,7 +442,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in method 'min' to find out the lowest number in the serie: $serie1_imp. Answer with your 'result'-variable.
+<p>Use the method 'min' to find out the lowest number in the serie: $serie1_imp. Answer with your 'result'-variable.
 </p>
 ",
 
@@ -499,13 +500,13 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the built-in constant 'E' to get the float value of 'E'. Use the built-in method 'ceil()' to get a integer value of 'E'.
+<p>Use the built-in constant 'E' to get the float value of 'E'. Find the product of 'E' and $e_val. Use the built-in method 'ceil()' to get an integer value of your result.
 </p>
 ",
 
-"answer" => function () {
-
-    return ceil(M_E);
+"answer" => function () use($e_val) {
+    $res = M_E * $e_val;
+    return ceil($res);
 },
 
 ],
@@ -879,7 +880,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 [
 
 "text" => "
-<p>Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else, OR and the AND statements to see what the dealer should do. If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'. 
+<p>Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else and the AND (&&) statements to see what the dealer should do. If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'. 
 </p>
 ",
 
@@ -1085,7 +1086,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
     
     $result = $loopLarge1;
     for ($i = 0; $i < $loopSmall1; $i++) {
-        $result -= $loopTiny1;
+        $result += $loopTiny1;
     }
     return $result;
 },
@@ -1123,7 +1124,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 [
 
 "text" => "
-<p>Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','.
+<p>Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','. The result should not end with a comma.
 </p>
 ",
 
@@ -1185,7 +1186,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/whi
 
     $result = 0;
     $countThis = $loopSmall1;
-    while ($countThis <= $loopLarge1) {
+    while ($countThis < $loopLarge1) {
         
         $result++;
         $countThis += $loopTiny1;

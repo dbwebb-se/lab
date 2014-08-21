@@ -554,7 +554,7 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'sumCards2()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Players hand should be three cards with the values: $card1, $card3 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. This time you should include the check from lab 1 where you find out the boundaries of the player and the dealer. Player hand = 21 ('black jack'), Player hand < 21 ('safe'), Player hand > 21 ('busted'). Dealer hand < 17 ('safe'), Dealer hand >= 17 and < 21 ('stop'), Dealer hand = 21 ('black jack'), Delaer hand > 21 ('busted'). Return a string in the format: 'Player: safe, Dealer: busted'. Test your function with the given values and answer with the result.
+<p>Create a function called 'sumCards2()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Players hand should be three cards with the values: $card1, $card3 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. This time you should include the check from lab 1 where you find out the boundaries of the player and the dealer. Player hand = 21 ('black jack'), Player hand less than 21 ('safe'), Player hand larger than 21 ('busted'). Dealer hand less than 17 ('safe'), Dealer hand larger or equal to 17 and less than 21 ('stop'), Dealer hand = 21 ('black jack'), Delaer hand larger than 21 ('busted'). Return a string in the format: 'Player: safe, Dealer: busted'. Test your function with the given values and answer with the result.
 </p>
 ",
 
@@ -564,26 +564,26 @@ return [
     $p = "Player: ";
     $res = "";
 
-    if($dealerSum < 17) {
+    if ($dealerSum < 17) {
         $d .= "safe";
     }
-    else if($dealerSum >= 17 && $dealerSum < 21) {
+    else if ($dealerSum >= 17 && $dealerSum < 21) {
         $d .= "stop";
     }
-    else if($dealerSum === 21) {
+    else if ($dealerSum === 21) {
         $d .= "black jack";
     }
     else {
         $d .= "busted";
     }
 
-    if($cardSum < 21) {
+    if ($cardSum < 21) {
         $p .= "safe";
     }
-    else if($cardSum === 21) {
+    else if ($cardSum === 21) {
         $p .= "black jack";
     }
-    else if($cardSum > 21) {
+    else if ($cardSum > 21) {
         $p .= "busted";
     }
     return $p . ", " . $d;

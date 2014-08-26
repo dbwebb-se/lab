@@ -1,6 +1,18 @@
 <?php
 
 /**
+ * Generate random values to use in lab.
+ */
+include __DIR__ . "/../random.php";
+
+
+// SECTION 1
+
+$s1_numOne = rand_int(10, 100);
+$s1_numTwo = rand_int(10, 100);
+$s1_numThree = rand_int(10, 100);
+$s1_numFour = rand_int(10, 100);
+/**
  * Titel and introduction to the lab.
  */
 
@@ -63,14 +75,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable called "numberOne" and give it the value ' . $intOne . '. Create another variable called "numberTwo" and give it the value ' . $intTwo . '. Create a third variable called "result" and assign to it the sum of the first two variables. Answer with the result.
+"text" => "
+<p>Create a variable called 'numOne' and give it the value $s1_numOne. Create another variable called 'numTwo' and give it the value $s1_numTwo. Create a third variable called 'result' and assign to it the sum of the first two variables. Answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intTwo) {
+"answer" => function () use ($s1_numOne, $s1_numTwo) {
 
-    $result = $intOne + $intTwo;
+    $result = $s1_numOne + $s1_numTwo;
     return $result;
 },
 
@@ -82,14 +94,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable called "numberOne" and give it the value ' . $intOne . '. Create another variable called "numberTwo" and give it the value ' . $intThree . '. Subtract "numberTwo" from "numberOne" and answer with the result.
+"text" => "
+<p>Create a variable called 'numThree' and give it the value $s1_numThree. Create another variable called 'numFour' and give it the value $s1_numFour. Subtract 'numThree' from 'numFour' and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intThree) {
+"answer" => function () use ($s1_numThree, $s1_numFour) {
 
-    return $intOne-$intThree;
+    return $s1_numFour-$s1_numThree;
 },
 
 ],
@@ -101,14 +113,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable called "numberOne" and give it the value ' . $intOne . '. Create another variable called "numberTwo" and give it the value ' . $intTwo . '. Answer with the product of the two numbers.
+"text" => "
+<p>Find out the product of 'numOne' and 'numThree' and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intTwo) {
+"answer" => function () use ($s1_numOne, $s1_numThree) {
 
-    return $intOne*$intTwo;
+    return $s1_numOne*$s1_numThree;
 },
 
 ],

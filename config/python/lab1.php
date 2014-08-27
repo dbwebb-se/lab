@@ -6,7 +6,7 @@
 include __DIR__ . "/../random.php";
 
 
-// SECTION 1
+// SECTION 1 ****************************************************
 
 $s1_numOne 		= rand_int(10, 100);
 $s1_numTwo 		= rand_int(10, 100);
@@ -30,10 +30,62 @@ $s1_modTwo 		= rand_int(10, 100);
 
 $s1_wordSerie1 	= ["storage", "memory", "device", "syntax", "computer", "error", "print", "screen", "program", "input"];
 $s1_wordSerie2 	= ["icecream", "sunshine", "beach", "music", "vacation", "barbeque", "resort", "water", "restaurant", "beverage"];
-$s1_arrRandOne	= rand_int(0, 9);
+$s1_arrRandOne	= rand_int(0, count($s1_wordSerie1)-1);
 $s1_wordOne 	= $s1_wordSerie1[$s1_arrRandOne];
 $s1_wordTwo 	= $s1_wordSerie2[$s1_arrRandOne];
 
+// SECTION 2 ****************************************************
+
+$s2_numOne 		= rand_int(10, 500);
+$s2_numTwo 		= rand_int(10, 500);
+$s2_numThree 	= rand_int(10, 500);
+$s2_numFour 	= rand_int(10, 500);
+
+$s2_ifNumOne	= rand_int(10, 999);
+$s2_ifNumTwo	= rand_int(10, 999);
+
+// Chuck-a-luck stuff
+$dice1			= rand_int(1,6);
+$dice2			= rand_int(1,6);
+$dice3			= rand_int(1,6);
+
+$totVal 		= $dice1+$dice2+$dice3;
+
+
+// SECTION 3 ****************************************************
+
+$s3_numSerie = [6,8,95,2,12,152,4,78,621,45];
+$s3_numSerieToPrint = implode(",", $s3_numSerie);
+$s3_wordSerie1 = ["storage", "memory", "device", "syntax", "computer", "error", "print", "screen", "program", "input"];
+$s3_arrRandOne	= rand_int(0, 9);
+$s3_word = $s3_wordSerie1[$s3_arrRandOne];
+$s3_numOne		= rand_int(10, 999);
+$s3_floatOne	= rand_float(10, 999, 2);
+
+// SECTION 4
+
+$s4_numOne 		= rand_int(1, 100);
+$s4_numTwo 		= rand_int(1, 100);
+$s4_numThree 	= rand_int(1, 100);
+$s4_wordSerie 	= ["icecream", "sunshine", "beach", "music", "vacation", "barbeque", "resort", "water", "restaurant", "beverage"];
+$s4_arrRand		= rand_int(0, 9);
+$s4_word 		= $s4_wordSerie[$s4_arrRand];
+
+// SECTION 5
+
+$s5_addNum		= rand_int(3, 9);
+$s5_addTo		= rand_int(10, 100);
+$s5_addTimes	= rand_int(20, 80);
+
+$s5_subNum		= rand_int(3, 9);
+$s5_subFrom		= rand_int(10, 100);
+$s5_subTimes	= rand_int(20, 80);
+
+$s5_numSerie 	= [6,8,95,2,12,152,4,78,621,45];
+$s5_numSeriePrint	= implode(",", $s5_numSerie);
+
+$s5_numSerie2 = [67,2,12,28,128,15,90,4,579,450];
+$s5_numSerie2Print	= implode(",", $s5_numSerie2);
 /**
  * Titel and introduction to the lab.
  */
@@ -312,14 +364,14 @@ return [
  */
 [
 
-"text" => '
-<p>Print out the boolean value of: ' . $intOne . ' < ' . $intTwo . '.
+"text" => "
+<p>Answer with the boolean value of: $s2_numOne < $s2_numTwo.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intTwo) {
+"answer" => function () use ($s2_numOne, $s2_numTwo) {
 
-	return $intOne < $intTwo;  
+	return $s2_numOne < $s2_numTwo;  
 },
 
 ],
@@ -330,14 +382,14 @@ return [
  */
 [
 
-"text" => '
-<p>Answer with the boolean value of: ' . $intOne . ' > ' . $intTwo . '.
+"text" => "
+<p>Answer with the boolean value of: $s2_numThree > $s2_numFour.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intTwo) {
+"answer" => function () use ($s2_numThree, $s2_numFour) {
 
-	return $intOne > $intTwo;
+	return $s2_numThree > $s2_numFour;
 },
 
 ],
@@ -348,14 +400,14 @@ return [
  */
 [
 
-"text" => '
-<p>Answer with the boolean value of: ' . $intOne . ' == ' . $intTwo . '.
+"text" => "
+<p>Answer with the boolean value of: $s2_numOne == $s2_numThree.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intTwo) {
+"answer" => function () use ($s2_numOne, $s2_numThree) {
 
-	return $intOne == $intTwo;
+	return $s2_numOne == $s2_numThree;
 },
 
 ],
@@ -366,16 +418,34 @@ return [
  */
 [
 
-"text" => '
-<p>Create an if statement to see if ' . ($intOne*2) . ' is bigger than ' . ($intTwo*2) . '. If it is true, answer "yes", else answer "no".
+"text" => "
+<p>Create three variables representing dice values: 'd1' = $dice1, 'd2' = $dice2 and 'd3' = $dice3. Sum them up and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intTwo) {
+"answer" => function () use ($dice1, $dice2, $dice3) {
 
-	$result = "no";
-	if(($intOne*2) > ($intTwo*2)) {
-		$result = "yes";
+	return $dice1+$dice2+$dice3; 
+},
+
+],
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create an if statement to see if the total value of your dices is 11 or higher. If that is the case, answer with the string: 'big', else answer with the string: 'nothing'. 
+</p>
+",
+
+"answer" => function () use ($totVal) {
+
+	$result = "nothing";
+	if($totVal >= 11) {
+		$result = "big";
 	}
 	return $result; 
 },
@@ -388,52 +458,29 @@ return [
  */
 [
 
-"text" => '
-<p>Create an if statement to see if ' . $intOne . ' is bigger than ' . $intTwo . ' and smaller than ' . $bigInt . '. If it is true, answer "yes", else answer "no".
+"text" => "
+<p>Create an elif statement that checks your total dice value. The checks and results should be: three of the same value = 'triple', total of 11 or higher = 'big', total of 10 or lower = 'small'. If you get a triple you should not make more checks.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intTwo, $bigInt) {
-
-	$result = "no";
-	if($intOne > $intTwo && $intOne < $bigInt) {
-		$result = "yes";
-	}
-	return $result; 
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => '
-<p>Create an elif statement that checks what range a value belongs to. The ranges should be: below 10, 10 to 25, 26 to 50, 51 to 75 and 76 to 100. If the number is 24, you should print out: "10 to 25" and if the number is 5, print out "below 10". Use the number ' . $intThree . ' and answer with the corresponding result. It should work with any number between 0 and 100.
-</p>
-',
-
-"answer" => function () use ($intThree) {
+"answer" => function () use ($totVal, $dice1, $dice2, $dice3) {
 
 	$result = "";
-	if($intThree < 10) {
-		$result = "below 10";
+	$triple = false;
+
+	if($dice1 === $dice2 && $dice1 === $dice3) {
+		$result = "triple";
+		$triple = true;
 	}
-	if($intThree > 9 && $intThree <= 25) {
-		$result = "10 to 25";
+	if(!$triple) {
+		if($totVal <= 10) {
+			$result = "small";	
+		}
+		else if($totVal >= 11) {
+			$result = "big";
+		}
+		 
 	}
-	if($intThree > 25 && $intThree <= 50) {
-		$result = "26 to 50";
-	}
-	if($intThree > 50 && $intThree <= 75) {
-		$result = "51 to 75";
-	}
-	if($intThree > 75 && $intThree <= 100) {
-		$result = "75 to 100";
-	}
-	
 	return $result; 
 },
 
@@ -443,8 +490,9 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+/* 	Den här ser inte bra ut...
 [
-
+	
 "text" => '
 <p>Create a try/except statement that should try whether a value is a float or an integer. If the value is an integer, then answer "integer". If the value is a float, answer "float". Otherwise answer "neither". Use the value: ' . $numSerie1[$wordRand2] . ' when you submit your answer.
 </p>
@@ -463,7 +511,7 @@ return [
 },
 
 ],
-
+	*/ 
 
 /**
  * Closing up this section.
@@ -495,14 +543,14 @@ return [
  */
 [
 
-"text" => '
-<p>Use max() to print out the largest number of: ' . implode(",", $numSerie2) . '. 
+"text" => "
+<p>Use max() to find the largest number in the serie: $s3_numSerieToPrint. Answer with the result. 
 </p>
-',
+",
 
-"answer" => function () use ($numSerie2) {
+"answer" => function () use ($s3_numSerie) {
 
-	return max($numSerie2);
+	return max($s3_numSerie);
 	
 },
 
@@ -515,14 +563,14 @@ return [
  */
 [
 
-"text" => '
-<p>Use min() to print out the smallest number of: ' . implode(",", $numSerie2) . '. 
+"text" => "
+<p>Use min() to find the smallest number in the serie: $s3_numSerieToPrint. Answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($numSerie2) {
+"answer" => function () use ($s3_numSerie) {
 
-	return min($numSerie2);
+	return min($s3_numSerie);
 	
 },
 
@@ -535,14 +583,14 @@ return [
  */
 [
 
-"text" => '
-<p>Use len() to print out the number of letters in the word: "' . $wordSerie1[$wordRand1] . '". 
+"text" => "
+<p>Use len() to find the number of letters in the word: $s3_word. Answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($wordSerie1, $wordRand1) {
+"answer" => function () use ($s3_word) {
 
-	return strlen($wordSerie1[$wordRand1]);
+	return strlen($s3_word);
 	
 },
 
@@ -555,14 +603,14 @@ return [
  */
 [
 
-"text" => '
-<p>Convert the number: ' . $intOne . ' to a string and add it to the word: "' . $wordSerie1[$wordRand2] . '". 
+"text" => "
+<p>Convert the number $s3_numOne to a string and add it to the word '$s3_word'. Answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($wordSerie1, $wordRand2, $intOne) {
+"answer" => function () use ($s3_numOne, $s3_word) {
 
-	return $wordSerie1[$wordRand2] .= $intOne;
+	return $s3_word .= $s3_numOne;
 	
 },
 
@@ -575,15 +623,15 @@ return [
  */
 [
 
-"text" => '
-<p>Convert the number: ' . $floatTwo . ' to an integer and then to a string. Add it to the beginning of the word: "' . $wordSerie1[$wordRand1] . '". 
+"text" => "
+<p>Convert the number $s3_floatOne to an integer and then to a string. Add it to the beginning of the word: '$s3_word'. Answer with the result. 
 </p>
-',
+",
 
-"answer" => function () use ($wordSerie1, $wordRand1, $floatTwo) {
+"answer" => function () use ($s3_floatOne, $s3_word) {
 
-	$temp = intval($floatTwo);
-	return $temp .= $wordSerie1[$wordRand1];
+	$temp = intval($s3_floatOne);
+	return $temp .= $s3_word;
 	
 },
 
@@ -621,14 +669,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function called "prodNr" that returns the product of ' . $intTwo . ' and ' . $wordRand1 . '. Answer with a call of the function. 
+"text" => "
+<p>Create a function called 'prodNr' that takes two arguments, $s4_numOne and $s4_numTwo. The function should return the product of the numbers. Answer with a call to the function. 
 </p>
-',
+",
 
-"answer" => function () use ($intTwo, $wordRand1) {
+"answer" => function () use ($s4_numOne, $s4_numTwo) {
 
-	return $intTwo*$wordRand1;
+	return $s4_numOne*$s4_numTwo;
 },
 
 ],
@@ -640,14 +688,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function called "funnyWord" that takes one argument and adds it to a string. If the argument is "water", the function should print: "water is a funny word". Use the argument: "' . $wordSerie1[$wordRand1] . '" and answer with the outcome.
+"text" => "
+<p>Create a function called 'funnyWord' that takes one argument and adds it to a string. If the argument is 'water', the function should print: 'water is a funny word'. Use the argument '$s4_word' and answer with a call to the function.
 </p>
-',
+",
 
-"answer" => function () use ($wordSerie1, $wordRand1) {
+"answer" => function () use ($s4_word) {
 
-	return $wordSerie1[$wordRand1] . " is a funny word";
+	return $s4_word . " is a funny word";
 },
 
 ],
@@ -659,16 +707,16 @@ return [
  */
 [
 
-"text" => '
-<p>Create a function that returns "true" if the number ' . $intThree . ' is higher than 50 and less than 100. If the number is out of range, the function should return "false". The return type should be boolean. Name the function "inRange" and answer with a call of the function.
+"text" => "
+<p>Create a function called 'inRange' that takes one argument. The function should return 'true' if the argument is higher than 50 and lower than 100. If the number is out of range, the function should return 'false'. The return type should be boolean. Use the argument $s4_numThree and answer with a call to the function.
 </p>
-',
+",
 
-"answer" => function () use ($intThree) {
+"answer" => function () use ($s4_numThree) {
 
 	$result = false;
 
-    if($intThree > 50 && $intThree < 100) {
+    if($s4_numThree > 50 && $s4_numThree < 100) {
        $result = true;
     }
     return $result;
@@ -708,17 +756,17 @@ return [
  */
 [
 
-"text" => '
-<p>Create a while-loop that adds ' . $wordRand2 . ' to the number: ' . $intThree . ', 20 times. Answer with the result. 
+"text" => "
+<p>Create a while-loop that adds $s5_addNum to the number $s5_addTo, $s5_addTimes times. Answer with the result. 
 </p>
-',
+",
 
-"answer" => function () use ($wordRand2, $intThree) {
+"answer" => function () use ($s5_addNum, $s5_addTo, $s5_addTimes) {
 
-	$result = $intThree;
+	$result = $s5_addTo;
 	$i = 0;
-	while($i < 20) {
-		$result += $wordRand2;
+	while($i < $s5_addTimes) {
+		$result += $s5_addNum;
 		$i+=1;
 	}
 	return $result;
@@ -734,17 +782,17 @@ return [
  */
 [
 
-"text" => '
-<p>Create a while-loop that subtracts ' . ($wordRand2*2) . ' from ' . ($intThree*2) . ', ' . $intThree . ' times. Answer with the result. 
+"text" => "
+<p>Create a while-loop that subtracts $s5_subNum from $s5_subFrom, $s5_subTimes times. Answer with the result. 
 </p>
-',
+",
 
-"answer" => function () use ($wordRand2, $intThree) {
+"answer" => function () use ($s5_subNum, $s5_subFrom, $s5_subTimes) {
 
-	$result = ($intThree*2);
+	$result = $s5_subFrom;
 	$i = 0;
-	while($i < $intThree) {
-		$result -= ($wordRand2*2);
+	while($i < $s5_subTimes) {
+		$result -= $s5_subNum;
 		$i+=1;
 	}
 	return $result;
@@ -760,14 +808,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a for-loop that counts the number of elements in the serie: ' . implode(",", $numSerie2) . '. Answer with the result. 
+"text" => "
+<p>Create a for-loop that counts the number of elements in the serie: $s5_numSeriePrint. Answer with the result. 
 </p>
-',
+",
 
-"answer" => function () use ($numSerie2) {
+"answer" => function () use ($s5_numSerie) {
 
-	return count($numSerie2);
+	return count($s5_numSerie);
 	
 },
 
@@ -780,17 +828,17 @@ return [
  */
 [
 
-"text" => '
-<p>Create a for-loop that sums up the numbers ' . implode(",", $numSerie2) . '. Answer with the result. 
+"text" => "
+<p>Create a for-loop that sums up the numbers in the serie: $s5_numSerie2Print. Answer with the result. 
 </p>
-',
+",
 
-"answer" => function () use ($numSerie2) {
+"answer" => function () use ($s5_numSerie2) {
 
 	$result = 0;
 	
-	for($i = 0; $i < count($numSerie2); $i++) {
-		$result += $numSerie2[$i];
+	for($i = 0; $i < count($s5_numSerie2); $i++) {
+		$result += $s5_numSerie2[$i];
 	}
 	return $result;
 	
@@ -805,18 +853,18 @@ return [
  */
 [
 
-"text" => '
-<p>Create a for-loop that finds the largest number in the serie ' . implode(",", $numSerie2) . '. Answer with the result. 
+"text" => "
+<p>Create a for-loop that finds the largest number in the serie: $s5_numSeriePrint. Answer with the result. 
 </p>
-',
+",
 
-"answer" => function () use ($numSerie2) {
+"answer" => function () use ($s5_numSerie) {
 
 	$result = 0;
 	
-	for($i = 0; $i < count($numSerie2); $i++) {
-		if($numSerie2[$i] > $result) {
-			$result = $numSerie2[$i];
+	for($i = 0; $i < count($s5_numSerie); $i++) {
+		if($s5_numSerie[$i] > $result) {
+			$result = $s5_numSerie[$i];
 		}
 	}
 	return $result;
@@ -832,21 +880,21 @@ return [
  */
 [
 
-"text" => '
-<p>Create a for-loop that goes through the numbers: ' . implode(",", $numSerie2) . '. If the current number is even, you should add it to a variable and if the current number is odd, you should subtract it from the variable. Answer with the result. 
+"text" => "
+<p>Create a for-loop that goes through the numbers: $s5_numSerie2Print. If the current number is even, you should add it to a variable and if the current number is odd, you should subtract it from the variable. Answer with the final result. 
 </p>
-',
+",
 
-"answer" => function () use ($numSerie2) {
+"answer" => function () use ($s5_numSerie2) {
 
 	$result = 0;
 
-	for($i = 0; $i < count($numSerie2); $i++) {
-		if($numSerie2[$i] % 2 === 0) {
-			$result += $numSerie2[$i];
+	for($i = 0; $i < count($s5_numSerie2); $i++) {
+		if($s5_numSerie2[$i] % 2 === 0) {
+			$result += $s5_numSerie2[$i];
 		}
 		else {
-			$result -= $numSerie2[$i];
+			$result -= $s5_numSerie2[$i];
 		}
 	}
 	return $result;

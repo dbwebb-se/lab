@@ -50,30 +50,6 @@ $s1_slice1		= $s1_findSlice[rand_int(0, count($s1_findSlice)-1)];
  * Titel and introduction to the lab.
  */
 
-$words = [
-['melon', 'banana', 'apple', 'orange', 'lemon'],
-['potato', 'carrot', 'onion', 'leek', 'cabbage'],
-['milk', 'juice', 'lemonade', 'soda', 'water'],
-['candy', 'cake', 'cupcakes', 'lollipop', 'pringles'],
-['car', 'bus', 'plane', 'helicopter', 'train']
-];
-$format1 = [
-["grandma", 42, "cows"],
-["father", 9, "cats"],
-["brother", 2, "dogs"],
-["sister", 2, "houses"],
-["book", 398, "pages"]
-];
-$findSlice = [
-"154.84.56.0 : (wallpaper), soda", 
-"567.1.53.4 : (greece), table", 
-"196.98.2.54 : (tree), window", 
-"984.45.6.65 : (wasp), boat", 
-"789.234.2.54 : (sunshine), bakery"];
-$r1 = 1; // 0-4 for the words
-$r2 = 2; // 0-4 for the words
-$r3 = 3; // 0-4 for the words
-$r4 = 4; // 0-4 for the words
 
 return [
 

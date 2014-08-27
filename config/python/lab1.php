@@ -62,7 +62,7 @@ $s3_word = $s3_wordSerie1[$s3_arrRandOne];
 $s3_numOne		= rand_int(10, 999);
 $s3_floatOne	= rand_float(10, 999, 2);
 
-// SECTION 4
+// SECTION 4 ****************************************************
 
 $s4_numOne 		= rand_int(1, 100);
 $s4_numTwo 		= rand_int(1, 100);
@@ -71,7 +71,7 @@ $s4_wordSerie 	= ["icecream", "sunshine", "beach", "music", "vacation", "barbequ
 $s4_arrRand		= rand_int(0, 9);
 $s4_word 		= $s4_wordSerie[$s4_arrRand];
 
-// SECTION 5
+// SECTION 5 ****************************************************
 
 $s5_addNum		= rand_int(3, 9);
 $s5_addTo		= rand_int(10, 100);
@@ -86,27 +86,6 @@ $s5_numSeriePrint	= implode(",", $s5_numSerie);
 
 $s5_numSerie2 = [67,2,12,28,128,15,90,4,579,450];
 $s5_numSerie2Print	= implode(",", $s5_numSerie2);
-/**
- * Titel and introduction to the lab.
- */
-
-$wordSerie1 = ["storage", "memory", "device", "syntax", "computer", "error", "print", "screen", "program", "input"];
-$wordSerie2 = ["icecream", "sunshine", "beach", "music", "vacation", "barbeque", "resort", "water", "restaurant", "beverage"];
-$wordRand1 = 7; // 0-9 for the word array
-$wordRand2 = 3; // 0-9 for the word array
-
-$numSerie1 = [123,22.43,342,2,54.22,2.564,43,45.33,435,2.33];
-$numSerie2 = [6,8,95,2,12,152,4,78,621,45]; 
-$intOne = 78; // 20-499
-$intTwo = 123;  // 20-499
-$intThree = 45; // 1-100
-$bigInt = 654; // 500-999
-$floatOne = 5.77; // FLOATS! 10.0-999.99
-$floatTwo = 654.34; // FLOATS! 10.0-999.99 
-$divNr1 = 25; // 5,10,15,20,25,30 etc
-$divNr2 = 5;
-
-
 
 
 return [
@@ -119,7 +98,7 @@ return [
 "title" => "Lab 1 - python",
 
 "intro" => "
-<p>blablabla python blablablabla
+<p>If you need to peek at examples or just want to know more, take a look at the page: https://docs.python.org/3/library/index.html. Here you will find everything this lab will go through and much more.
 </p>
 ",
 
@@ -349,7 +328,7 @@ return [
 "title" => "Conditions, exceptions, booleans, if, else and elif",
 
 "intro" => "
-<p>loops n stuff
+<p>
 </p>
 ",
 
@@ -528,7 +507,7 @@ return [
 "title" => "Built-in functions",
 
 "intro" => "
-<p>Built-in functions n stuff
+<p>Some useful built-in functions
 </p>
 ",
 
@@ -654,7 +633,7 @@ return [
 "title" => "Functions",
 
 "intro" => "
-<p>functions n stuff
+<p>Basic functions
 </p>
 ",
 
@@ -741,7 +720,7 @@ return [
 "title" => "Iteration and loops",
 
 "intro" => "
-<p>functions n stuff
+<p>For-loops and while-loops. 
 </p>
 ",
 

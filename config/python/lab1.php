@@ -344,7 +344,7 @@ return [
 [
 
 "text" => "
-<p>Answer with the boolean value of: $s2_numOne < $s2_numTwo.
+<p>Answer with the boolean value of: $s2_numOne is less than $s2_numTwo.
 </p>
 ",
 
@@ -362,7 +362,7 @@ return [
 [
 
 "text" => "
-<p>Answer with the boolean value of: $s2_numThree > $s2_numFour.
+<p>Answer with the boolean value of: $s2_numThree is larger than $s2_numFour.
 </p>
 ",
 

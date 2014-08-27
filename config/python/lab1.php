@@ -8,10 +8,32 @@ include __DIR__ . "/../random.php";
 
 // SECTION 1
 
-$s1_numOne = rand_int(10, 100);
-$s1_numTwo = rand_int(10, 100);
-$s1_numThree = rand_int(10, 100);
-$s1_numFour = rand_int(10, 100);
+$s1_numOne 		= rand_int(10, 100);
+$s1_numTwo 		= rand_int(10, 100);
+$s1_numThree 	= rand_int(10, 100);
+$s1_numFour 	= rand_int(10, 100);
+
+// kan man ha dessa "jämna" sä man kan dela dem utan att få decimaler?
+$s1_divNum 		= 30;
+$s1_divNumWith 	= 5;
+////////////////////////////////
+
+$s1_floatOne 	= rand_float(10, 100, 2);
+$s1_floatTwo 	= rand_float(10, 100, 2);
+
+$s1_numFive		= rand_int(100, 500);
+$s1_numSix		= rand_int(100, 500);
+$s1_numSeven	= rand_int(10, 100);
+
+$s1_modOne 		= rand_int(100, 900);
+$s1_modTwo 		= rand_int(10, 100);
+
+$s1_wordSerie1 	= ["storage", "memory", "device", "syntax", "computer", "error", "print", "screen", "program", "input"];
+$s1_wordSerie2 	= ["icecream", "sunshine", "beach", "music", "vacation", "barbeque", "resort", "water", "restaurant", "beverage"];
+$s1_arrRandOne	= rand_int(0, 9);
+$s1_wordOne 	= $s1_wordSerie1[$s1_arrRandOne];
+$s1_wordTwo 	= $s1_wordSerie2[$s1_arrRandOne];
+
 /**
  * Titel and introduction to the lab.
  */
@@ -132,14 +154,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable called "numberOne" and give it the value ' . $divNr1 . '. Divide "numberOne" with ' . $divNr2 . '. Answer with the result.
+"text" => "
+<p>Divide $s1_divNum with $s1_divNumWith and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($divNr1, $divNr2) {
+"answer" => function () use ($s1_divNum, $s1_divNumWith) {
 
-    return $divNr1/$divNr2;
+    return $s1_divNum/$s1_divNumWith;
 },
 
 ],
@@ -151,14 +173,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable called "floatOne" and give it the value ' . $floatOne . '. Create another variable called "floatTwo" and give it the value ' . $floatTwo . '. Create a third variable called "result" and assign to it the sum of the first two variables. Answer with the result.
+"text" => "
+<p>Create a variable called 'floatOne' and give it the value $s1_floatOne. Create another variable called 'floatTwo' and give it the value $s1_floatTwo. Sum the two values and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($floatOne, $floatTwo) {
+"answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
-    return $floatOne+$floatTwo;
+    return $s1_floatOne+$s1_floatTwo;
 },
 
 ],
@@ -170,14 +192,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable called "floatOne" and give it the value ' . $floatOne . '. Create another variable called "floatTwo" and give it the value ' . $floatTwo . '. Subtract "floatTwo" from "floatOne" and answer with the result.
+"text" => "
+<p>Subtract 'floatTwo' from 'floatOne' and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($floatOne, $floatTwo) {
+"answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
-    return $floatOne-$floatTwo;
+    return $s1_floatOne-$s1_floatTwo;
 },
 
 ],
@@ -189,14 +211,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a variable called "floatOne" and give it the value ' . $floatOne . '. Create another variable called "floatTwo" and give it the value ' . $floatTwo . '. Answer with the product of the two numbers.
+"text" => "
+<p>Answer with the product of 'floatOne' and 'floatTwo'.
 </p>
-',
+",
 
-"answer" => function () use ($floatOne, $floatTwo) {
+"answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
-    return $floatOne*$floatTwo;
+    return $s1_floatOne*$s1_floatTwo;
 },
 
 ],
@@ -208,14 +230,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create three variables, "numberOne", "numberTwo" and "numberThree" and give them the values: ' . $intOne . ', ' . $intTwo . ' and '. $intThree . '. Sum up "numberOne" and "numberTwo". Subtract "numberThree" and answer with the result.
+"text" => "
+<p>Create three variables: 'n1' = $s1_numFive, 'n2' = $s1_numSix and 'n3' = $s1_numSeven. Sum up 'n1' and 'n2'. Subtract 'n3' and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $intTwo, $intThree) {
+"answer" => function () use ($s1_numFive, $s1_numSix, $s1_numSeven) {
 
-    return ($intOne+$intTwo)-$intThree;
+    return ($s1_numFive+$s1_numSix)-$s1_numSeven;
 },
 
 ],
@@ -227,14 +249,14 @@ return [
  */
 [
 
-"text" => '
-<p>Answer with the result of ' . $intOne . ' modulo (%) ' . $wordRand1 . '.
+"text" => "
+<p>Answer with the result of $s1_modOne modulo (%) $s1_modTwo.
 </p>
-',
+",
 
-"answer" => function () use ($intOne, $wordRand1) {
+"answer" => function () use ($s1_modOne, $s1_modTwo) {
 
-    return $intOne%$wordRand1;
+    return $s1_modOne%$s1_modTwo;
 },
 
 ],
@@ -246,14 +268,14 @@ return [
  */
 [
 
-"text" => '
-<p>Add the word: "' . $wordSerie1[$wordRand2] . '" to the word: "' . $wordSerie2[$wordRand2] . '" and answer with the result.
+"text" => "
+<p>Add the word: '$s1_wordOne' to the word: '$s1_wordTwo' and answer with the result.
 </p>
-',
+",
 
-"answer" => function () use ($wordSerie1, $wordRand2, $wordSerie2) {
+"answer" => function () use ($s1_wordOne, $s1_wordTwo) {
 
-    return $wordSerie2[$wordRand2] . $wordSerie1[$wordRand2];
+    return $s1_wordOne . $s1_wordTwo;
 },
 
 ],

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 """                                               
 <?=$key?> generated for <?=$acronym?> at <?=$created?> 
@@ -7,7 +8,7 @@
 from Dbwebb import Dbwebb
 
 dbwebb = Dbwebb()
-print("Ready to begin.");
+print("Ready to begin.")
 
 
 <?php 
@@ -44,4 +45,4 @@ print(dbwebb.assertEqual("<?="$sectionId.$questionId"?>", ANSWER, False))
 }
 ?>
 
-print("All done.");
+print("All done.")

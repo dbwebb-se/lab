@@ -156,11 +156,11 @@ return [
 </p>
 ",
 
-"answer" => function () use ($words, $r2, $r4) {
+"answer" => function () use ($s1_word3) {
 
 	$result = false;
-	for($i = 0; $i < strlen($words[$r2][$r4]); $i++) {
-		if($words[$r2][$r4][$i] === "a") {
+	for($i = 0; $i < strlen($s1_word3); $i++) {
+		if($s1_word3[$i] === "a") {
 			$result = true;
 		}
 	}

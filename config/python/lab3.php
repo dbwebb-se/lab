@@ -62,32 +62,7 @@ $s2_smallInt2		= rand_int(5, 9);
 /**
  * Titel and introduction to the lab.
  */
-$words = ["Finland", "Sweden", "Norway", "Denmark", "Iceland"];
-$listWords = [
-["table", "wall", "desk", "chair", "floor"],
-["wasp", "fly", "butterfly", "bumblebee", "mosquito"],
-["lion", "tiger", "ozelot", "bobcat", "cougar"],
-["Dafoe", "Sheen", "Berenger", "Depp", "Whitaker"],
-["flute", "guitar", "drums", "piano", "bass"]
-];
-$listSent = [
-"The?sun?is?shining",
-"The?snow?is?falling",
-"The?rain?is?pouring",
-"The?wind?is?blowing",
-"The?grass?is?growing"
-];
-$listNumbers = [
-[98,5,12,369,1],
-[123,4,125,69,155],
-[67,50,2,39,15],
-[567,23,12,36,7],
-[45,22,2,498,78]
-];
-$r1 = 1; // 0-4
-$r2 = 2; // 0-4
-$r3 = 3; // 0-4
-$r4 = 4; // 0-4
+
 
 
 return [

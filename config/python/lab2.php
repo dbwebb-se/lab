@@ -177,7 +177,7 @@ return [
 [
 
 "text" => "
-<p>Use a for-in loop to make all the letters in the word '$s1_word2' capitalized. Answer with the capitalized word.
+<p>Make all the letters in the word '$s1_word2' capitalized. Answer with the capitalized word.
 </p>
 ",
 

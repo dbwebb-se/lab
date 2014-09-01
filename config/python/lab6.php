@@ -1,43 +1,97 @@
 <?php
 
 /**
- * Titel and introduction to the lab.
+ * Generate random values to use in lab.
  */
-$obj = 
+include __DIR__ . "/../random.php";
+
+
+// SECTION 1 ****************************************************
+$s1_objects = 
 [
 ['name'=>'Roo', 'animal'=>'kangaroo', 'appearIn'=>'Winnie the pooh', 'color'=>"brown"],
 ['name'=>'Eeyore', 'animal'=>'donkey', 'appearIn'=>'Winnie the pooh', 'color'=>'gray'],
 ['name'=>'Sid', 'animal'=>'sloth', 'appearIn'=>'Ice Age', 'color'=>'yellow'],
 ['name'=>'Manny', 'animal'=>'mammoth', 'appearIn'=>'Ice Age', 'color'=>'brown'],
-['name'=>'Kermit', 'animal'=>'frog', 'appearIn'=>'The Muppets', 'color'=>'green'],
+['name'=>'Kermit', 'animal'=>'frog', 'appearIn'=>'The Muppets', 'color'=>'green']
+];
+$s1_objects2 =
+[
 ['name'=>'Piglet', 'animal'=>'pig', 'appearIn'=>'Winnie-the-pooh', 'color'=>'pink'],
 ['name'=>'Stripe', 'animal'=>'gremlin', 'appearIn'=>'Gremlins', 'color'=>'green'],
 ['name'=>'Nemo', 'animal'=>'clownfish', 'appearIn'=>'Finding Nemo', 'color'=>'orange'],
 ['name'=>'Bruce', 'animal'=>'shark', 'appearIn'=>'Finding Nemo', 'color'=>'gray'],
 ['name'=>'Falcor', 'animal'=>'luckdragon', 'appearIn'=>'The Neverending story', 'color'=>'pink']
 ];
-$r1 = 6; // 0-9
-$r2 = $r1-1;
-$r2 < 0 ? $r2 = 9 : $r2 += 0; 
-$r3 = $r2-1;
-$r3 < 0 ? $r3 = 9 : $r3 += 0;
-$print1 = "My name is " . $obj[$r1]["name"];
-$print2 = $print1 . " and I am a " . $obj[$r1]["color"] . " " . $obj[$r1]["animal"];
-$print3 = $print2 . ". I appear in the movie " . $obj[$r1]["appearIn"] . ".";
-$print3New = "My name is " . $obj[$r2]["name"] . " and I am a " . $obj[$r2]["color"] . " " . $obj[$r2]["animal"] . ". I appear in the movie " . $obj[$r2]["appearIn"] . ".";
-$acc = [
-["Savings", "56892", 11000],
-["Private", "85691", 12000],
-["Food", "15899", 45000],
-["Travel", "85223", 16800],
-["Family", "66952", 50000],
-["Clothes", "42136", 65000],
-["Salary", "20156", 16000],
-["Secret", "49653", 10900],
-["Budget", "98755", 10520],
-["Shopping", "74563", 13895],
+$s1_rand1 = rand_int(0, count($s1_objects)-1);
+$s1_obj1 = $s1_objects[$s1_rand1];
+$s1_obj1Name = $s1_obj1["name"];
+$s1_obj1Color = $s1_obj1["color"];
+$s1_obj1Color = $s1_obj1["animal"];
+$s1_obj1AppearIn = $s1_obj1["appearIn"];
+
+$s1_print1 = "My name is " . $s1_obj1Name;
+$s1_print2 = $s1_print1 . " and I am a " . $s1_obj1Color . " " . $s1_obj1Animal;
+$s1_print3 = $s1_print2 . ". I appear in the movie " . $s1_obj1AppearIn . ".";
+
+$s1_rand2 = rand_int(0, count($s1_objects2)-1);
+$s1_obj2 = $s1_objects2[$s1_rand2];
+$s1_obj2Name = $s1_obj2["name"];
+$s1_obj2Color = $s1_obj2["color"];
+$s1_obj2Animal = $s1_obj2["animal"];
+$s1_obj2AppearIn = $s1_obj2["appearIn"];
+
+$s1_print3New = "My name is " . $s1_obj2Name . " and I am a " . $s1_obj2Color . " " . $s1_obj2Anmial . ". I appear in the movie " . $s1_obj2AppearIn . ".";
+
+
+// SECTION 2 ****************************************************
+
+$s2_accounts1 = [
+    ["Savings", "56892", 11000],
+    ["Private", "85691", 12000],
+    ["Travel", "85223", 16800],
+    ["Family", "66952", 50000]
 ];
-$bigR = 5000; // 1000 - 10000
+$s2_accounts2 = [
+    ["Clothes", "42136", 65000],
+    ["Budget", "98755", 10520],
+    ["Shopping", "74563", 13895]
+];
+$s2_accounts3 = [
+    ["Salary", "20156", 16000],
+    ["Secret", "49653", 10900],
+    ["Food", "15899", 45000]
+];
+$s2_acc1 = $s2_accounts1[rand_int(0, count($s2_accounts1)-1)];
+$s2_acc1Name = $s2_acc1[0];
+$s2_acc1Nr = $s2_acc1[1];
+$s2_acc1Balance = $s2_acc1[2];
+
+$s2_acc2 = $s2_accounts2[rand_int(0, count($s2_accounts2)-1)];
+$s2_acc2Name = $s2_acc2[0];
+$s2_acc2Nr = $s2_acc2[1];
+$s2_acc2Balance = $s2_acc2[2];
+
+$s2_acc3 = $s2_accounts3[rand_int(0, count($s2_accounts3)-1)];
+$s2_acc3Name = $s2_acc3[0];
+$s2_acc3Nr = $s2_acc3[1];
+$s2_acc3Balance = $s2_acc3[2];
+
+$s2_bigNr = rand_float(1000, 10000, 2);
+$s2_acc3NewBalance = $s2_bigNr + $s2_acc3Balance;
+$s2_acc1NewBalance = $s2_acc1Balance - $s2_bigNr;
+
+$s2_print1 = "Account: " . $s2_acc1Name . ", Number: " . $s2_acc1Nr . ", Balance: " . $s2_acc1Balance;
+$s2_print2 = "Account: " . $s2_acc2Name . ", Number: " . $s2_acc2Nr . ", Balance: " . $s2_acc2Balance;
+$s2_print3 = "Account: " . $s2_acc3Name . ", Number: " . $s2_acc3Nr . ", Balance: " . $s2_acc3Balance;
+$s2_printNew = "Account: " . $s2_acc3Name . ", Number: " . $s2_acc3Nr . ", Balance: " . $s2_acc3New;
+$s2_lastPrint = "Balance: " . $s2_acc1NewBalance . ", Balance: " . $s2_acc2Balance . ", " . "Balance: " . $s2_acc3NewBalance;
+
+
+/**
+ * Titel and introduction to the lab.
+ */
+
 
 return [
 
@@ -80,14 +134,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create an object-class called "Character". Create an instance of the object and call it: "myObj". Give it two attributes: "name" and "print1". The name should be "' . $obj[$r1]["name"] . '". Answer with the print-method and present your object\'s name: "My name is  ' . $obj[$r1]["name"] . '".
+"text" => "
+<p>Create an object-class called 'Character'. Create an instance of the object and call it: 'myObj'. Give it two attributes: 'name' and 'print1'. The name should be '$s1_obj1Name'. Answer with the print-method and present your object's name: 'My name is $s1_obj1Name'.
 </p>
-',
+",
 
-"answer" => function () use ($print1) {
+"answer" => function () use ($s1_print1) {
 
-    return $print1;
+    return $s1_print1;
 },
 
 ],
@@ -99,14 +153,14 @@ return [
  */
 [
 
-"text" => '
-<p>Give your object some more attributes: "color" and "animal". Use the values: "' . $obj[$r1]["color"] . '" and "' . $obj[$r1]["animal"] . '". Answer with a new print-method in the format: "' . $print2 . '".
+"text" => "
+<p>Give your object some more attributes: 'color' and 'animal'. Use the values: '$s1_obj1Color' and '$s1_obj1Animal'. Answer with a new print-method in the format: '$s1_print2'.
 </p>
-',
+",
 
-"answer" => function () use ($print2) {
+"answer" => function () use ($s1_print2) {
 
-    return $print2;
+    return $s1_print2;
 },
 
 ],
@@ -118,14 +172,14 @@ return [
  */
 [
 
-"text" => '
-<p>Give your object a last attribute: "appearIn". Use the value: "' . $obj[$r1]["appearIn"] . '". Answer with a new print-method in the format: "' . $print3 . '".
+"text" => "
+<p>Give your object a last attribute: 'appearIn'. Use the value: '$s1_obj1AppearIn'. Answer with a new print-method in the format: '$s1_print3'.
 </p>
-',
+",
 
-"answer" => function () use ($print3) {
+"answer" => function () use ($s1_print3) {
 
-    return $print3;
+    return $s1_print3;
 },
 
 ],
@@ -137,14 +191,14 @@ return [
  */
 [
 
-"text" => '
-<p>Make a deep-copy of your object and call it "myObj2". Change its attributes to name: "' . $obj[$r2]["name"] . '", animal: "' . $obj[$r2]["animal"] . '", color: "' . $obj[$r2]["color"] . '", appearIn: "' . $obj[$r2]["appearIn"] . '". Use the new objects "print3" as your answer.
+"text" => "
+<p>Make a deep-copy of your object and call it 'myObj2'. Change its attributes to name: '$s1_obj2Name', animal: '$s1_obj2Animal', color: '$s1_obj2Color', appearIn: '$s1_obj2AppearIn'. Use the new objects 'print3' as your answer.
 </p>
-',
+",
 
-"answer" => function () use ($print3New) {
+"answer" => function () use ($s1_print3New) {
 
-    return $print3New;
+    return $s1_print3New;
 },
 
 ],
@@ -166,7 +220,7 @@ return [
 "title" => "More on objects",
 
 "intro" => "
-<p>?????????????
+<p>
 </p>
 ",
 
@@ -181,10 +235,10 @@ return [
  */
 [
 
-"text" => '
-<p>Create an object-class called "Account". Give it the attributes: "name", "number", "balance" and a print-method that prints out its information as a string: "Account: ?, Number: ?, Balance: ? ". Initiate "name" and "number" with the string "unknown" and initiate "balance" with 0.0. Call the print-method on the object-class and answer with the printed result.
+"text" => "
+<p>Create an object-class called 'Account'. Give it the attributes: 'name', 'number', 'balance' and a print-method that prints out its information as a string: 'Account: ?, Number: ?, Balance: ? '. Initiate 'name' and 'number' with the string 'unknown' and initiate 'balance' with 0.0. Call the print-method on the object-class and answer with the printed result.
 </p>
-',
+",
 
 "answer" => function () {
 
@@ -200,14 +254,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create an instance of the Account-class, called "acc1" and assign the values: name: "' . $acc[$r1][0] . '", number: "' . $acc[$r1][1] . '", balance: "' . $acc[$r1][2] . '". Answer with the print-method.
+"text" => "
+<p>Create an instance of the Account-class, called 'acc1' and assign the values: name: '$s2_acc1Name', number: $s2_acc1Nr, balance: $s2_acc1Balance. Answer with the print-method.
 </p>
-',
+",
 
-"answer" => function () use ($acc, $r1) {
+"answer" => function () use ($s2_print1) {
 
-    return "Account: " . $acc[$r1][0] . ", Number: " . $acc[$r1][1] . ", Balance: " . $acc[$r1][2];
+    return $s2_print1;
 },
 
 ],
@@ -219,14 +273,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create another instance of the Account-class, called "acc2" and assign the values: name: "' . $acc[$r2][0] . '", number: "' . $acc[$r2][1] . '", balance: "' . $acc[$r2][2] . '". Answer with the print-method.
+"text" => "
+<p>Create another instance of the Account-class, called 'acc2' and assign the values: name: '$s2_acc2Name', number: $s2_acc2Nr, balance: $s2_acc2Balance. Answer with the print-method.
 </p>
-',
+",
 
-"answer" => function () use ($acc, $r2) {
+"answer" => function () use ($s2_print2) {
 
-    return "Account: " . $acc[$r2][0] . ", Number: " . $acc[$r2][1] . ", Balance: " . $acc[$r2][2];
+    return $s2_print2;
 },
 
 ],
@@ -238,14 +292,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create one more instance of the Account-class, called "acc3" and assign the values: name: "' . $acc[$r3][0] . '", number: "' . $acc[$r3][1] . '", balance: "' . $acc[$r3][2] . '". Answer with the print-method.
+"text" => "
+<p>Create one more instance of the Account-class, called 'acc3' and assign the values: name: '$s2_acc3Name', number: $s2_acc3Nr, balance: $s2_acc3Balance. Answer with the print-method.
 </p>
-',
+",
 
-"answer" => function () use ($acc, $r3) {
+"answer" => function () use ($s2_print3) {
 
-    return "Account: " . $acc[$r3][0] . ", Number: " . $acc[$r3][1] . ", Balance: " . $acc[$r3][2];
+    return $s2_print3;
 },
 
 ],
@@ -257,16 +311,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create a method in the Account class, called "transfer". It should take two arguments, a float number that represents the amount to transfer, and another account-object that the money should be transferred to. The balance can not be lower than zero. Change its own balance and the other objects balance with the corresponding argument. Answer with the print-method on acc3 after you moved the value: ' . $bigR . ' from acc1 to acc3. 
+"text" => "
+<p>Create a method in the Account class, called 'transfer'. It should take two arguments, a float number that represents the amount to transfer, and another account-object that the money should be transferred to. The balance can not be lower than zero. Change its own balance and the other objects balance with the corresponding argument. Answer with the print-method on acc3 after you moved the value: $s2_bigNr from acc1 to acc3. 
 </p>
-',
+",
 
-"answer" => function () use ($acc, $r3, $bigR) {
+"answer" => function () use ($s2_printNew) {
 
-	$temp = $bigR += $acc[$r3][2];
-
-    return "Account: " . $acc[$r3][0] . ", Number: " . $acc[$r3][1] . ", Balance: " . $temp;
+    return $s2_printNew;
 },
 
 ],
@@ -278,21 +330,14 @@ return [
  */
 [
 
-"text" => '
-<p>Create one more method in the Account-class, called "current" that only prints out the current balance: "Balance: ?". Put your three accounts in a list and loop over it and print out the balance for each object. Each print should be on its own line. 
+"text" => "
+<p>Create one more method in the Account-class, called 'current' that only prints out the current balance: 'Balance: ?'. Put your three accounts in a list and loop over it and print out the balance for each object. Each print should be separated by a comma. 
 </p>
-',
+",
 
-"answer" => function () use ($acc, $r1, $r2, $r3) {
+"answer" => function () use ($s2_lastPrint) {
 
-	$temp1 = $acc[$r1][2] -= $bigR;
- 	$temp2 = $acc[$r3][2] += $bigR;
-	$result = 
-	"Balance: " . $temp1 . "<br>" .
-    "Balance: " . $acc[$r2][2] . "<br>" . 
-    "Balance: " . $temp2;
-
-    return $result;
+    return $s2_lastPrint;
 },
 
 ],

@@ -37,7 +37,7 @@ class Dbwebb():
             status = question + " CORRECT. Well done!\n" + str(answer)
         
         else:
-            status = question + " FAIL.\nYou said:\n" + answer
+            status = question + " FAIL.\nYou said:\n" + str(answer)
             status += "\nHint:\n" + str(self.answers["answers"][question]) if hint else ""
 
         return status

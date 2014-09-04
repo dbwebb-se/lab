@@ -224,13 +224,13 @@ return [
 [
 
 "text" => "
-<p>Subtract 'floatTwo' from 'floatOne' and answer with the result.
+<p>Subtract 'floatTwo' from 'floatOne' and answer with the result. Round to 2 decimals.
 </p>
 ",
 
 "answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
-    return $s1_floatOne-$s1_floatTwo;
+    return round($s1_floatOne-$s1_floatTwo, 2);
 },
 
 ],

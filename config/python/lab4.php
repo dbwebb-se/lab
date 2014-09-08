@@ -104,7 +104,7 @@ return [
 "title" => "Dictionaries",
 
 "intro" => "
-<p>Some basics with dictionaries<p>
+<p>Some basics with dictionaries</p>
 ",
 
 "shuffle" => false,

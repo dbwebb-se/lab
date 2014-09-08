@@ -205,13 +205,13 @@ return [
 [
 
 "text" => "
-<p>Create a variable called 'floatOne' and give it the value $s1_floatOne. Create another variable called 'floatTwo' and give it the value $s1_floatTwo. Sum the two values and answer with the result.
+<p>Create a variable called 'floatOne' and give it the value $s1_floatOne. Create another variable called 'floatTwo' and give it the value $s1_floatTwo. Sum the two values and answer with the result, rounded to 2 decimals.
 </p>
 ",
 
 "answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
-    return $s1_floatOne+$s1_floatTwo;
+    return round($s1_floatOne+$s1_floatTwo, 2);
 },
 
 ],
@@ -243,13 +243,13 @@ return [
 [
 
 "text" => "
-<p>Answer with the product of 'floatOne' and 'floatTwo'.
+<p>Answer with the product of 'floatOne' and 'floatTwo', rounded to 4 decimals.
 </p>
 ",
 
 "answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
-    return $s1_floatOne*$s1_floatTwo;
+    return round($s1_floatOne*$s1_floatTwo, 4);
 },
 
 ],

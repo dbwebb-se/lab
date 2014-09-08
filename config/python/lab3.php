@@ -107,7 +107,7 @@ return [
 [
 
 "text" => "
-<p>Concatinate the two lists [$s1_shortList1Print] and [$s1_shortList2Print]. Answer with your list. 
+<p>Concatenate the two lists [$s1_shortList1Print] and [$s1_shortList2Print]. Answer with your list. 
 </p>
 ",
 

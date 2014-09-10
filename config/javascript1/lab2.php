@@ -534,7 +534,7 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'sumCards()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Your hand should be three cards with the values: $card1, $card3 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. The function should return the sum and the player: 'Player: $cardSum, Dealer: $dealerSum'. Test your function with the given values and answer with the result.
+<p>Create a function called 'sumCards()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Your hand should be three cards with the values: $card1, $card2 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. The function should return the sum and the player: 'Player: $cardSum, Dealer: $dealerSum'. Test your function with the given values and answer with the result.
 </p>
 ",
 
@@ -554,7 +554,7 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'sumCards2()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Players hand should be three cards with the values: $card1, $card3 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. This time you should include the check from lab 1 where you find out the boundaries of the player and the dealer. Player hand = 21 ('black jack'), Player hand less than 21 ('safe'), Player hand larger than 21 ('busted'). Dealer hand less than 17 ('safe'), Dealer hand larger or equal to 17 and less than 21 ('stop'), Dealer hand = 21 ('black jack'), Delaer hand larger than 21 ('busted'). Return a string in the format: 'Player: safe, Dealer: busted'. Test your function with the given values and answer with the result.
+<p>Create a function called 'sumCards2()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Players hand should be three cards with the values: $card1, $card2 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. This time you should include the check from lab 1 where you find out the boundaries of the player and the dealer. Player hand = 21 ('black jack'), Player hand less than 21 ('safe'), Player hand larger than 21 ('busted'). Dealer hand less than 17 ('safe'), Dealer hand larger or equal to 17 and less than 21 ('stop'), Dealer hand = 21 ('black jack'), Delaer hand larger than 21 ('busted'). Return a string in the format: 'Player: safe, Dealer: busted'. Test your function with the given values and answer with the result.
 </p>
 ",
 

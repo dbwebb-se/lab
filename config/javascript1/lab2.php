@@ -534,7 +534,7 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'sumCards()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Your hand should be three cards with the values: $card1, $card3 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. The function should return the sum and the player: 'Player: $cardSum, Dealer: $dealerSum'. Test your function with the given values and answer with the result.
+<p>Create a function called 'sumCards()' that should take two variables, the sum of the players hand and the sum of the dealers hand. Your hand should be three cards with the values: $card1, $card2 and $card3. The dealers hand should be three card with the values: $dealer1, $dealer2, $dealer3. The function should return the sum and the player: 'Player: $cardSum, Dealer: $dealerSum'. Test your function with the given values and answer with the result.
 </p>
 ",
 

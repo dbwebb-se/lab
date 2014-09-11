@@ -267,7 +267,7 @@ return [
 [
 
 "text" => "
-<p>Create a function 'printRangeReversed()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers in reversed order, comma-separated in the range. Try it using the arguments $range4 and $range3. Answer with the result.
+<p>Create a function 'printRangeReversed()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers comma-separated in the range. Try it using the arguments $range4 and $range3. Answer with the result.
 </p>",
 
 "answer" => function () use ($range3, $range4) {

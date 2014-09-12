@@ -110,8 +110,8 @@ $dealerSum = $dealer1+$dealer2+$dealer3;
 // SECTION 8 ****************************************************
 
 // switch
-$fruits        = ["apple", "kiwi", "plum"];
-$fruitColors   = ["green", "green", "purple"];
+$fruits        = ["banana", "apple", "kiwi", "plum"];
+$fruitColors   = ["yellow", "green", "green", "purple"];
 
 $fruitWhich = rand_int(0, count($fruits)-1);
 $fruit      = $fruits[$fruitWhich];

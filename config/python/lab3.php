@@ -74,10 +74,7 @@ return [
  */
 "title" => "Lab 3 - python",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => "",
 
 
 "sections" => [
@@ -90,10 +87,7 @@ return [
 [
 "title" => "List basics",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -248,7 +242,7 @@ return [
 "title" => "Built-in list functions",
 
 "intro" => "
-<pSome basic built-in functions
+<p>Some basic built-in functions
 </p>
 ",
 

@@ -394,7 +394,7 @@ return [
 
     $a = $s2_numSerie3;
     asort($a);
-    return implode(",",$a);
+    return $a; //implode(",",$a);
 },
 
 ],
@@ -413,17 +413,16 @@ return [
 
 "answer" => function () use ($s2_numSerie2, $s2_smallInt1, $s2_smallInt2) {
 
-	$result = $s2_numSerie2;
-	for($i = 0; $i < count($result); $i++) {
-		if($result[$i]%2===0) {
-			$result[$i] *= $s2_smallInt1;
-		}
-		else {
-			$result[$i] += $s2_smallInt2;	
-		}
-	}
+    $result = $s2_numSerie2;
+    for ($i = 0; $i < count($result); $i++) {
+    	if ($result[$i]%2===0) {
+    		$result[$i] *= $s2_smallInt1;
+    	} else {
+    		$result[$i] += $s2_smallInt2,
+    	}
+    }
     arsort($result);
-    return implode(",", $result);
+    return $result; //implode(",", $result);
 },
 
 ],

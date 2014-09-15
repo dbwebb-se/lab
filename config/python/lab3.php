@@ -418,7 +418,7 @@ return [
     	if ($result[$i]%2===0) {
     		$result[$i] *= $s2_smallInt1;
     	} else {
-    		$result[$i] += $s2_smallInt2,
+    		$result[$i] += $s2_smallInt2;
     	}
     }
     arsort($result);

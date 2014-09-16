@@ -15,8 +15,10 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
-Work in progress (latest)
+v0.0.x (latest)
 
+* Corrected conversion error in answer.py
+* Added extras as own link  and suport for lab6 in python.
 * Started work in april 2014, planned release end of august 2014.
 
 

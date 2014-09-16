@@ -74,10 +74,7 @@ return [
  */
 "title" => "Lab 3 - python",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => "",
 
 
 "sections" => [
@@ -90,10 +87,7 @@ return [
 [
 "title" => "List basics",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -107,7 +101,7 @@ return [
 [
 
 "text" => "
-<p>Concatinate the two lists [$s1_shortList1Print] and [$s1_shortList2Print]. Answer with your list. 
+<p>Concatenate the two lists [$s1_shortList1Print] and [$s1_shortList2Print]. Answer with your list. 
 </p>
 ",
 
@@ -248,7 +242,7 @@ return [
 "title" => "Built-in list functions",
 
 "intro" => "
-<pSome basic built-in functions
+<p>Some basic built-in functions
 </p>
 ",
 
@@ -393,9 +387,9 @@ return [
 "answer" => function () use ($s2_numSerie3) {
 
     $a = $s2_numSerie3;
-    asort($a);
+    asort($a);    
     
-    return implode(",",$a);
+    return $a; //implode(",",$a);
 },
 
 ],
@@ -414,17 +408,16 @@ return [
 
 "answer" => function () use ($s2_numSerie2, $s2_smallInt1, $s2_smallInt2) {
 
-	$result = $s2_numSerie2;
-	for($i = 0; $i < count($result); $i++) {
-		if($result[$i]%2===0) {
-			$result[$i] *= $s2_smallInt1;
-		}
-		else {
-			$result[$i] += $s2_smallInt2;	
-		}
-	}
+    $result = $s2_numSerie2;
+    for ($i = 0; $i < count($result); $i++) {
+    	if ($result[$i]%2===0) {
+    		$result[$i] *= $s2_smallInt1;
+    	} else {
+    		$result[$i] += $s2_smallInt2;
+    	}
+    }
     arsort($result);
-    return implode(",", $result);
+    return $result; //implode(",", $result);
 },
 
 ],

@@ -110,8 +110,8 @@ $dealerSum = $dealer1+$dealer2+$dealer3;
 // SECTION 8 ****************************************************
 
 // switch
-$fruits        = ["apple", "kiwi", "plum"];
-$fruitColors   = ["green", "green", "purple"];
+$fruits        = ["banana", "apple", "kiwi", "plum"];
+$fruitColors   = ["yellow", "green", "green", "purple"];
 
 $fruitWhich = rand_int(0, count($fruits)-1);
 $fruit      = $fruits[$fruitWhich];
@@ -938,7 +938,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 [
 
 "text" => "
-<p>Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=red). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'. Answer with the result where 'myFruit = $fruit'. 
+<p>Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'. Answer with the result where 'myFruit = $fruit'. 
 </p>
 ",
 

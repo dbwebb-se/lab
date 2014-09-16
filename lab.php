@@ -13,12 +13,21 @@ $doAnswerJs   = isset($_GET['answer-js']) ? true : false;
 $doAnswerPy   = isset($_GET['answer-py']) ? true : false;
 $doAnswerPyAssert = isset($_GET['answer-py-assert']) ? true : false;
 $doAnswerJson = isset($_GET['answer-json']) ? true : false;
+$doAnswerExtra = isset($_GET['answer-extra']) ? true : false;
 $key          = isset($_GET['key']) ? $_GET['key'] : null;
 
 
 
 // Check or die
-(isset($doLab) || isset($doAnswers) || isset($doAnswerHtml) || isset($doAnswerJs) || isset($doAnswerPy) || isset($doAnswerJson) || isset($doAnswerPyAssert)) or die("Missing what to do.");
+(isset($doLab) 
+    || isset($doAnswers)
+    || isset($doAnswerHtml)
+    || isset($doAnswerJs)
+    || isset($doAnswerPy)
+    || isset($doAnswerJson)
+    || isset($doAnswerExtra)
+    || isset($doAnswerPyAssert))
+        or die("Missing what to do.");
 isset($key) or die("No key supplied.");
 
 
@@ -96,6 +105,11 @@ if ($course == 'javascript1' && $lab == 'lab1') {
 } else if ($course == 'python' && $lab == 'lab5') {
     
     extract(include "config/python/lab5.php");
+    // shuffle questions
+
+} else if ($course == 'python' && $lab == 'lab6') {
+    
+    extract(include "config/python/lab6.php");
     // shuffle questions
 
 } else if ($lab == 'labtest') {
@@ -195,6 +209,8 @@ if ($doLab && $doAnswers) {
     include "view/answer-json_tpl.php";
 } else if ($doAnswerPyAssert) {
     include "view/answer-py-assert_tpl.php";
+} else if ($doAnswerExtra) {
+    include "view/answer-extra_tpl.php";
 } else {
     die("Nothing to do.");
 }

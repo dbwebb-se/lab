@@ -89,6 +89,7 @@ if (isset($_GET['doGenerate'])) {
 <a href="lab.php?answer-py&key=$gen_key">Answer-py</a> | 
 <a href="lab.php?answer-json&key=$gen_key">Answer-json</a> | 
 <a href="lab.php?answer-py-assert&key=$gen_key">Answer-py-assert</a> | 
+<a href="lab.php?answer-extra&key=$gen_key">Answer-extras</a> | 
 </p>
 EOD;
 
@@ -143,6 +144,7 @@ EOD;
         <option value="lab3">Lab 3</option>
         <option value="lab4">Lab 4</option>
         <option value="lab5">Lab 5</option>
+        <option value="lab6">Lab 6</option>
         <option value="labtest">Lab Test</option>
     </select></label>
 </p>
@@ -200,6 +202,7 @@ Key: {$res->gen_key}</br>
 <a href="lab.php?answer-py&key=$gen_key">Answer-py</a> | 
 <a href="lab.php?answer-json&key=$gen_key">Answer-json</a> | 
 <a href="lab.php?answer-py-assert&key=$gen_key">Answer-py-assert</a> | 
+<a href="lab.php?answer-extra&key=$gen_key">Answer-extras</a> | 
 </p>
 EOD;
 

@@ -119,7 +119,7 @@ return [
 [
 
 "text" => "
-<p>Create a small phonebook using a dictionary. Use the names as keys and numbers as values. Use '$s1_dictNameSet1Print' and corresponding numbers: '$s1_dictNrSet1Print'. Answer with the keys comma-separated, sorted in an alphabetical and ascending order and in a string.
+<p>Create a small phonebook using a dictionary. Use the names as keys and numbers as values. Use '$s1_dictNameSet1Print' and corresponding numbers: '$s1_dictNrSet1Print'. Answer with the keys comma-separated, sorted in an alphabetical and ascending order and in a string. Hint: Add the keys to a list and sort it before converting it to a string.
 </p>
 ",
 
@@ -180,7 +180,7 @@ return [
 [
 
 "text" => "
-<p>Open 'alice.txt' and create a dictionary that holds all words as separate keys and the frequency as values. Find out how many times the word: 'youth' is used in the text and answer with the right integer. 
+<p>Open 'alice.txt' and create a dictionary that holds all words as separate keys and the frequency as values. Find out how many times the word: 'youth' is used in the text and answer with the right integer. Hint: For Python 3, use: line = line.translate(str.maketrans("", "", string.punctuation)). May be a mistake in the book. 
 </p>
 ",
 
@@ -200,7 +200,7 @@ return [
 [
 
 "text" => "
-<p>Use your dictionary over 'alice.txt' and find the key that have a value of 4 and has exactly 5 characters. Answer with the key as a string. 
+<p>Use your dictionary over 'alice.txt' and find the key that has a value of 4 and has exactly 5 characters. Answer with the key as a string. 
 </p>
 ",
 

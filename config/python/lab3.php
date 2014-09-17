@@ -336,7 +336,7 @@ return [
 [
 
 "text" => "
-<p>Open the file 'httpd-access.txt' and answer with the first four characters of the eighth element on line 893. Answer as a string.
+<p>Open the file 'httpd-access.txt' and answer with the first four characters of the eighth element on line 893. Use a space (' ') as delimiter and answer as a string.
 </p>
 ",
 
@@ -380,14 +380,15 @@ return [
 [
 
 "text" => "
-<p>Create a function that returns the list passed as argument sorted in numerical and ascending order. Use the list: [$s2_numSerie3Print]. Answer with the sorted list.
+<p>Create a function that returns the list passed as argument sorted in numerical and ascending order. Use the list: [$s2_numSerie3Print], and the built-in method 'sort()'. Answer with the sorted list.
 </p>
 ",
 
 "answer" => function () use ($s2_numSerie3) {
 
     $a = $s2_numSerie3;
-    asort($a);
+    asort($a);    
+    
     return $a; //implode(",",$a);
 },
 

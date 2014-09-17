@@ -49,9 +49,21 @@ $s2_tuple2 = $s2_tuples[$s2_rand2];
 $s2_tuple2Print = implode(", ", $s2_tuple2);
 $s2_replWords = ["bucket", "elevator", "hammer", "fire", "green", "music", "elephant", "beverage", "cow", "curtain"];
 $s2_replWord1 = $s2_replWords[rand_int(0, count($s2_replWords)-1)];
+
+$s2_tuplesListNumbers = [
+[98,5,12,369,1],
+[123,4,125,69,155],
+[67,50,2,39,15],
+[567,23,12,36,7],
+[45,22,2,498,78]
+];
+$s2_listSerie1		= $s2_tuplesListNumbers[rand_int(0, count($s2_tuplesListNumbers)-1)];
+$s2_listSerie1Print	= implode(", ", $s2_listSerie1);
+
 /**
  * Titel and introduction to the lab.
  */
+/* Unused stuff
 $dictNames = [
 ["Baggins", "Aragorn", "Smaug"],
 ["Solo", "Skywalker", "Vader"],
@@ -75,7 +87,7 @@ $tuples = [
 ["moose", 12, 1.98, "table", 7],
 ["elephant", 33, 7.28, "stove", 4],
 ["snake", 89, 9.63, "bookshelf", 1]
-];
+];*/
 
 
 return [
@@ -180,7 +192,7 @@ return [
 [
 
 "text" => "
-<p>Open 'alice.txt' and create a dictionary that holds all words as separate keys and the frequency as values. Find out how many times the word: 'youth' is used in the text and answer with the right integer. Hint: For Python 3, use: line = line.translate(str.maketrans("", "", string.punctuation)). May be a mistake in the book. 
+<p>Open 'alice.txt' and create a dictionary that holds all words as separate keys and the frequency as values. Find out how many times the word: 'youth' is used in the text and answer with the right integer. Hint: For Python 3, use: line = line.translate(str.maketrans('', '', string.punctuation)). May be a mistake in the book. 
 </p>
 ",
 
@@ -262,7 +274,47 @@ return [
 [
 
 "text" => "
-<p>Create a tuple with ($s2_tuple2Print). Replace the second element with: '$s2_replWord1'. Answer with the first three elements in a comma-separated string.
+<p>Create a tuple out of: ($s2_tuple1Print). Assign each value in the tuple to different variables: 'a','b','c','d','e'. Answer with the variable: 'd'. Hint: a,b,c = tuple.
+</p>
+",
+
+"answer" => function () use ($s2_tuple1) {
+	$temp = $s2_tuple1[3];	
+
+    return $temp;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use the list [$s2_listSerie1Print]. Assign the first two elements to a tuple with a slice on the list. Answer with the first element in the tuple as an integer.
+</p>
+",
+
+"answer" => function () use ($s2_listSerie1) {
+	$temp = (int)$s2_listSerie1[0];	
+
+    return $temp;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a tuple with ($s2_tuple2Print). Convert it to a list and replace the second element with: '$s2_replWord1'. Convert it back to a tuple and answer with the first three elements in a comma-separated string.
 </p>
 ",
 

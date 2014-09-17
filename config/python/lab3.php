@@ -186,7 +186,7 @@ return [
 [
 
 "text" => "
-<p>Use the list [$s1_list1Print]. Update it with the words: '$s1_word1' and '$s1_word2' as the second and third element. Answer with the modified list.
+<p>Use the list [$s1_list1Print]. Add the words: '$s1_word1' and '$s1_word2' as the second and third element. Answer with the modified list.
 </p>
 ",
 
@@ -236,6 +236,27 @@ return [
 "answer" => function () use ($s1_list2) {
 	$tempList = $s1_list2;
 	asort($tempList);
+	return $tempList;
+	
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use the list from the last excercise ([$s1_list2Print]) and sort it in decending alphabetical order. Answer with the sorted list.
+</p>
+",
+
+"answer" => function () use ($s1_list2) {
+	$tempList = $s1_list2;
+	arsort($tempList);
 	return $tempList;
 	
 },

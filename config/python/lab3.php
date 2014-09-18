@@ -15,6 +15,8 @@ $s1_listWords 		= [
 ["flute", "guitar", "drums", "piano", "bass"]
 ];
 $s1_extraWords		= ["icecream", "hotdog", "purple", "yellow", "elevator"];
+$s1_extraWords2		= ["pirate", "donkey", "jacket", "bag", "money"];
+$s1_extraWords3		= ["cord", "light", "painting", "tablet", "potato"];
 $s1_shortList1		= [$s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)], $s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)]];
 $s1_shortList1Print	= implode(", ", $s1_shortList1);
 $s1_shortList2		= [$s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)], $s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)]];
@@ -25,8 +27,8 @@ $s1_list1Print 		= implode(", ", $s1_list1);
 $s1_list2 			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
 $s1_list2Print 		= implode(", ", $s1_list2);
 $s1_word1			= $s1_extraWords[rand_int(0, count($s1_extraWords)-1)];
-$s1_word2			= $s1_extraWords[rand_int(0, count($s1_extraWords)-1)];
-$s1_word3			= $s1_extraWords[rand_int(0, count($s1_extraWords)-1)];
+$s1_word2			= $s1_extraWords2[rand_int(0, count($s1_extraWords2)-1)];
+$s1_word3			= $s1_extraWords3[rand_int(0, count($s1_extraWords3)-1)];
 
 $s1_list3			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
 $s1_wordToList3		= $s1_list3[rand_int(0, count($s1_list3)-1)];
@@ -94,8 +96,8 @@ $s3_slice1Replace = $s3_slice1ReplaceList[rand_int(0, count($s3_slice1ReplaceLis
 $s3_slice1Answer = $s3_slice1Use;
 $s3_slice1Answer[1] = $s3_slice1Replace[0];
 $s3_slice1Answer[2] = $s3_slice1Replace[1];
-$s3_slice1PrintList = implode(",", $s3_slice1Use);
-$s3_slice1PrintReplace = implode(",", $s3_slice1Replace);
+$s3_slice1PrintList = implode(", ", $s3_slice1Use);
+$s3_slice1PrintReplace = implode(", ", $s3_slice1Replace);
 $s3_slice2Use = $s3_slice1Use;
 $s3_slice2Use[count($s3_slice2Use)-2] = $s3_slice1Replace[0];
 $s3_slice2Use[count($s3_slice2Use)-1] = $s3_slice1Replace[1];
@@ -105,7 +107,7 @@ array_splice($s3_slice3, 3, 0, $s3_slice1Replace);
 $s3_del1Rand = rand_int(0, count($s3_slice1)-1);
 $s3_del1List = $s3_slice1[$s3_del1Rand];
 $s3_del2List = $s3_del1List;
-$s3_printDel1 = implode(",", $s3_del1List);
+$s3_printDel1 = implode(", ", $s3_del1List);
 unset($s3_del1List[0]);
 unset($s3_del2List[1], $s3_del2List[2]);
 
@@ -118,7 +120,7 @@ $s3_aliasLists = [
 ];
 $s3_aliasRand = rand_int(0, count($s3_aliasLists)-1);
 $s3_aliasUse = $s3_aliasLists[$s3_aliasRand];
-$s3_aliasPrint = implode(",",$s3_aliasUse);
+$s3_aliasPrint = implode(", ",$s3_aliasUse);
 
 $s3_aliasReplace = ["x", "y", "z", "p", "s"];
 $s3_aliasReplaceWith = $s3_aliasReplace[rand_int(0, count($s3_aliasReplace)-1)];
@@ -363,13 +365,13 @@ return [
 [
 
 "text" => "
-<p>Use a built-in function to get the average value of the list: [$s2_numSerie2Print]. Answer with the result as a float.
+<p>Use a built-in function to get the average value of the list: [$s2_numSerie2Print]. Answer with the result as a float with at most one decimal.
 </p>
 ",
 
 "answer" => function () use ($s2_numSerie2) {
 
-    return floatval(array_sum($s2_numSerie2)/count($s2_numSerie2));
+    return round(floatval(array_sum($s2_numSerie2)/count($s2_numSerie2)), 1);
 },
 
 ],
@@ -422,7 +424,7 @@ return [
 [
 
 "text" => "
-<p>Use the string: '$s3_split1Use' and split it with the delimiter ' ' (space). Answer with the element in place $s3_split1AnswerNr.
+<p>Use the string: '$s3_split1Use' and split it with the delimiter ' ' (space). Answer with the element at index $s3_split1AnswerNr.
 </p>
 ",
 
@@ -619,13 +621,16 @@ return [
 [
 
 "text" => "
-<p>Create a function that returns the list passed as argument sorted in numerical and ascending order. Use the list: [$s2_numSerie3Print], and the built-in method 'sort()'. Answer with the sorted list.
+<p>Create a function that returns the list passed as argument sorted in numerical and ascending order. Also multiply all values with 10. Use the list: [$s2_numSerie3Print], and the built-in method 'sort()'. Answer with the sorted list.
 </p>
 ",
 
 "answer" => function () use ($s2_numSerie3) {
 
-    $a = $s2_numSerie3;
+    $a = [];
+    for($i = 0; $i < count($s2_numSerie3); $i++) {
+    	$a[$i] = ($s2_numSerie3[$i] * 10);
+    }
     asort($a);    
     
     return $a; //implode(",",$a);

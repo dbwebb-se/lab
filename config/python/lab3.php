@@ -15,6 +15,8 @@ $s1_listWords 		= [
 ["flute", "guitar", "drums", "piano", "bass"]
 ];
 $s1_extraWords		= ["icecream", "hotdog", "purple", "yellow", "elevator"];
+$s1_extraWords2		= ["pirate", "donkey", "jacket", "bag", "money"];
+$s1_extraWords3		= ["cord", "light", "painting", "tablet", "potato"];
 $s1_shortList1		= [$s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)], $s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)]];
 $s1_shortList1Print	= implode(", ", $s1_shortList1);
 $s1_shortList2		= [$s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)], $s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)]];
@@ -25,8 +27,8 @@ $s1_list1Print 		= implode(", ", $s1_list1);
 $s1_list2 			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
 $s1_list2Print 		= implode(", ", $s1_list2);
 $s1_word1			= $s1_extraWords[rand_int(0, count($s1_extraWords)-1)];
-$s1_word2			= $s1_extraWords[rand_int(0, count($s1_extraWords)-1)];
-$s1_word3			= $s1_extraWords[rand_int(0, count($s1_extraWords)-1)];
+$s1_word2			= $s1_extraWords2[rand_int(0, count($s1_extraWords2)-1)];
+$s1_word3			= $s1_extraWords3[rand_int(0, count($s1_extraWords3)-1)];
 
 $s1_list3			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
 $s1_wordToList3		= $s1_list3[rand_int(0, count($s1_list3)-1)];

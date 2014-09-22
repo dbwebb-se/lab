@@ -306,7 +306,7 @@ return [
 
 "answer" => function () use ($s1_wordOne, $s1_wordTwo) {
 
-    return $s1_wordOne . $s1_wordTwo;
+    return $s1_wordTwo . $s1_wordOne;
 },
 
 ],

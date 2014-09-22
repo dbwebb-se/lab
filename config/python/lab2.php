@@ -218,7 +218,7 @@ return [
 [
 
 "text" => "
-<p>Assign the words: '$s1_word5' and '$s1_word6' to two different variables. Pass them as arguments to a function that returns them as a single word. Answer with the result.
+<p>Assign the words: '$s1_word5' and '$s1_word6' to two different variables. Create a function and pass the two words as arguments to it. Your function should return them as a single word. Answer with the result.
 </p>
 ",
 
@@ -237,7 +237,7 @@ return [
 [
 
 "text" => "
-<p>Pass the word: '$s1_word' to a function that returns a sentence: 'This word was: $s1_word'. Answer with the result.
+<p>Create a function and pass the word: '$s1_word' to it. Your function should return the sentence: 'This word was: $s1_word'. Answer with the result.
 </p>
 ",
 
@@ -256,7 +256,7 @@ return [
 [
 
 "text" => "
-<p>Pass the word: '$s1_word6' to a function that returns the string 'yes' if the word is longer than 5 characters. Else return 'no'. Answer with the result.
+<p>Create a function and pass the word: '$s1_word6' to it. Your function should return the string 'yes' if the word is longer than 5 characters. Else return 'no'. Answer with the result.
 </p>
 ",
 
@@ -280,7 +280,7 @@ return [
 [
 
 "text" => "
-<p>Pass the word: '$s1_word2' to a function that returns a string with the word backwards. Answer with the result.
+<p>Create a function and pass the word: '$s1_word2' to it. Your function should return a string with the word backwards. Answer with the result.
 </p>
 ",
 
@@ -304,7 +304,7 @@ return [
 [
 
 "text" => "
-<p>Pass the word: '$s1_word5' to a function that excludes the first and the last letter of the word. Answer with the result.
+<p>Create a function and pass the word: '$s1_word5' to it. Your function should exclude the first and the last letter of the word and return it. Answer with the result.
 </p>
 ",
 
@@ -398,7 +398,7 @@ return [
 [
 
 "text" => "
-<p>Count the number of times a line starts with '81'. Answer with the result as an integer.
+<p>Open the file and count the number of times a line starts with '81'. Answer with the result as an integer.
 </p>
 ",
 

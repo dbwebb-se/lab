@@ -169,7 +169,7 @@ return [
 [
 
 "text" => "
-<p>Use the 'get() method' on your phonebook and answer with '$s1_name1's phonenumber. 
+<p>Use the 'get()' method on your phonebook and answer with the phonenumber of '$s1_name1'. 
 </p>
 ",
 

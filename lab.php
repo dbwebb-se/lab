@@ -140,27 +140,14 @@ function formatType($value)
 }
 
 
-/**
- * Format array values
- */
-function formatArray($value)
-{
-    $a = "[";
-    if (is_array($value)) {
-        foreach ($value as $val) {
-            $a .= formatType($val) . ",";
-        }
-        $value = substr($a, 0, -1) . "]";
-    }
-    return $value;
-}
-
 
 /**
  * Format the answer for print in HTML
  */
 function formatAnswerPrintable($answer)
 {
+    return json_encode($answer, JSON_PRETTY_PRINT);
+
     if (is_bool($answer)) {
         $answer = $answer ? "true" : "false";
     } else if (is_array($answer)) {
@@ -176,18 +163,23 @@ function formatAnswerPrintable($answer)
  */
 function formatAnswerJSON($answer)
 {
+    return json_encode($answer, JSON_PRETTY_PRINT);
+/*
     if (is_int($answer) || is_float($answer)) {
         //$answer
     } else if (is_string($answer)) {
-        $answer = "\"$answer\"";
+        return json_encode($answer, JSON_PRETTY_PRINT);
+        #$answer = "\"$answer\"";
     } else if (is_bool($answer)) {
         $answer = $answer ? "true" : "false";
     } else if (is_array($answer)) {
+        //return json_encode($answer, JSON_PRETTY_PRINT);
         $answer = formatArray($answer);
     }
     // add checks for array and object and null
 
     return $answer;
+    */
 }
 
 

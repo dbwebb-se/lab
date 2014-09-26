@@ -116,7 +116,7 @@ return [
 "title" => "Dictionaries",
 
 "intro" => "
-<p>Some basics with dictionaries</p>
+<p>Some basics with dictionaries.</p>
 ",
 
 "shuffle" => false,
@@ -131,15 +131,13 @@ return [
 [
 
 "text" => "
-<p>Create a small phonebook using a dictionary. Use the names as keys and numbers as values. Use '$s1_dictNameSet1Print' and corresponding numbers: '$s1_dictNrSet1Print'. Answer with the keys comma-separated, sorted in an alphabetical and ascending order and in a string. Hint: Add the keys to a list and sort it before converting it to a string.
+<p>Create a small phonebook using a dictionary. Use the names as keys and numbers as values. Use '$s1_dictNameSet1Print' and corresponding numbers: '$s1_dictNrSet1Print'. Add the phonenumbers as integers. Answer with the resulting dictionary.
 </p>
 ",
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
 	
-	$res = $s1_dictNameSet1;
-	asort($res);
-    return implode(",", $res);
+    return array_combine($s1_dictNameSet1, $s1_dictNrSet1);
 },
 
 ],
@@ -152,15 +150,13 @@ return [
 [
 
 "text" => "
-<p>Use your phonebook and answer with the values (phonenumbers) comma-separated, in ascending order and as a string. 
+<p>How many items are there in the dictionary? 
 </p>
 ",
 
-"answer" => function () use ($s1_dictNrSet1) {
-	
-	$res = $s1_dictNrSet1;
-	asort($res);
-    return (string)implode(",", $res);
+"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
+    
+    return count(array_combine($s1_dictNameSet1, $s1_dictNrSet1));
 },
 
 ],
@@ -173,12 +169,12 @@ return [
 [
 
 "text" => "
-<p>Use the 'get() method' on your phonebook and answer with '$s1_name1's phonenumber. Answer with an integer. 
+<p>Use the 'get() method' on your phonebook and answer with '$s1_name1's phonenumber. 
 </p>
 ",
 
 "answer" => function () use ($s1_number1) {
-	
+    
     return (int)$s1_number1;
 },
 
@@ -189,6 +185,188 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
+[
+
+"text" => "
+<p>Get all keys from the dictionary and return them in a sorted list. 
+</p>
+",
+
+"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
+    
+    $res = $s1_dictNameSet1;
+    sort($res);
+    return $res;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Get all values from the dictionary and return them in a sorted list. 
+</p>
+",
+
+"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
+    
+    $res = $s1_dictNrSet1;
+    sort($res);
+    return $res;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use the in-operator to test if the name '$s1_name1' exists in the dictionary. Answer with the return boolean value.
+</p>
+",
+
+"answer" => function () {
+    
+    return true;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use the in-operator to test if the phone number $s1_number1 exists in the dictionary. Answer with the return boolean value.
+</p>
+",
+
+"answer" => function () {
+    
+    return true;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use a for-loop to walk through the dictionary and and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order. Answer with the resulting string.
+</p>
+",
+
+"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
+    
+    $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
+    ksort($res);
+
+    $str = "";
+    foreach ($res as $key => $val) {
+        $str .= $key . " " . $val . "\n";
+    };
+
+    return $str;
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Convert the phonenumber to a string and add the prefix '+1-', representing the language code, to each phone-number. Answer with the resulting dictionary.
+</p>
+",
+
+"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
+    
+    $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
+
+    $res = array_map( function($val) {
+            return "+1-" . $val;
+        },
+        $res
+    );
+    return $res;
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Get and remove the item '$s1_name1' from the phonebook (use pop()). Answer with the resulting dictionary.
+</p>
+",
+
+"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1, $s1_name1) {
+    
+    $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
+
+    unset($res[$s1_name1]);
+
+    return $res;
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Add the item you just popped from the phonebook. Answer with the resulting dictionary.
+</p>
+",
+
+"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
+    
+    $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
+
+    return $res;
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+/*
 [
 
 "text" => "
@@ -209,7 +387,7 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
-[
+/*[
 
 "text" => "
 <p>Use your dictionary over 'alice.txt' and find the key that has a value of 4 and has exactly 5 characters. Answer with the key as a string. 
@@ -332,7 +510,7 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
-[
+/*[
 
 "text" => "
 <p>Open 'alice.txt' and find the 5 most frequently used words in the text. Answer with a comma-separated string in the format: 'word:number,word:number' etc, in decending order based on the number.
@@ -351,7 +529,7 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
-[
+/*[
 
 "text" => "
 <p>Use the two tuples: ($s2_tuple1Print) and ($s2_tuple2Print). Name the tuples 'tupleOne' and 'tupletwo' and then swap the values and answer with a float value representing the sum of the second and third element in 'tupleOne';
@@ -372,7 +550,7 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
-[
+/*[
 
 "text" => "
 <p>Open 'httpd-access.txt' and find the ip-adress with the most entries. Answer with sum of all digits in the ip-adress as an integer.

@@ -519,7 +519,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 
 "text" => "
-<p>Use the Math property 'PI' to get the float value of 'Pi'. Round the result to 4 decimals. It can be a bit tricky to round up to a 4 decimals, but you can figure it out. Answer with your 'result'-variable.
+<p>Use the Math property 'PI' to get the float value of 'Pi'. Round the result to 4 decimals. Answer with your 'result'-variable.
 </p>
 ",
 

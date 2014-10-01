@@ -5,6 +5,16 @@
  */
 include __DIR__ . "/../random.php";
 
+// ################### SECTION 1 ##################
+
+$s1_numOne 			= rand_int(10, 500);
+$s1_numTwo 			= rand_int(10, 500);
+$s1_numThree		= rand_int(100, 500);
+$s1_numFour			= rand_int(10, 99);
+
+$s1_floatOne		= rand_float(10, 500, 2);
+$s1_floatTwo		= rand_float(10, 500, 2);
+
 return [
 
 
@@ -46,13 +56,13 @@ return [
 [
 
 "text" => "
-<p>
+<p>Create two variables 'numOne' and 'numTwo' and assign to them the values $s1_numOne and $s1_numTwo. Sum up the variables and answer with the result.
 </p>
 ",
 
-"answer" => function () {
+"answer" => function () use ($s1_numOne, $s1_numTwo) {
 
-    return 0;
+    return $s1_numOne + $s1_numTwo;
 },
 
 ],
@@ -64,13 +74,13 @@ return [
 [
 
 "text" => "
-<p>
+<p>Use your two variables 'numOne' and 'numTwo'. Subtract 'numOne' from 'numTwo' and answer with the result.
 </p>
 ",
 
-"answer" => function () {
+"answer" => function () use ($s1_numOne, $s1_numTwo) {
 
-    return 0;
+    return $s1_numTwo - $s1_numOne;
 },
 
 ],
@@ -83,13 +93,51 @@ return [
 [
 
 "text" => "
-<p>
+<p>Use your two variables 'numOne' and 'numTwo'. Answer with the product of the variables.
 </p>
 ",
 
-"answer" => function () {
+"answer" => function () use($s1_numOne, $s1_numTwo) {
 
-    return 0;
+    return $s1_numOne * $s1_numTwo;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Divide '$s1_numThree' with '$s1_numFour' and answer with the result.
+</p>
+",
+
+"answer" => function () use($s1_numThree, $s1_numFour) {
+
+    return $s1_numThree / $s1_numFour;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a variable called 'floatOne' and give it the value $s1_floatOne. Create another variable called 'floatTwo' and give it the value $s1_floatTwo. Sum up the variables and answer with the result.
+</p>
+",
+
+"answer" => function () use($s1_floatOne, $s1_floatTwo) {
+
+    return $s1_floatOne / $s1_floatTwo;
 },
 
 ],

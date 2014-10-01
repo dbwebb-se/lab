@@ -1,9 +1,5 @@
 <?php
-error_reporting(-1);              // Report all type of errors
-ini_set('display_errors', 1);     // Display all errors
-ini_set('output_buffering', 0);   // Do not buffer outputs, write directly
-
-date_default_timezone_set("UTC");
+include __DIR__ . "/config.php";
 
 
 
@@ -133,6 +129,7 @@ EOD;
     <select name="course">
         <option value="javascript1">javascript1</option>
         <option value="python">python</option>
+        <option value="htmlphp">htmlphp</option>
     </select></label>
 </p>
 

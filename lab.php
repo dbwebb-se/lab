@@ -1,9 +1,7 @@
 <?php
-error_reporting(-1);              // Report all type of errors
-ini_set('display_errors', 1);     // Display all errors
-ini_set('output_buffering', 0);   // Do not buffer outputs, write directly
+include __DIR__ . "/config.php";
 
-date_default_timezone_set("UTC");
+
 
 // Incoming
 $doLab        = isset($_GET['lab']) ? true : false;
@@ -110,6 +108,31 @@ if ($course == 'javascript1' && $lab == 'lab1') {
 } else if ($course == 'python' && $lab == 'lab6') {
     
     extract(include "config/python/lab6.php");
+    // shuffle questions
+
+} else if ($course == 'htmlphp' && $lab == 'lab1') {
+    
+    extract(include "config/htmlphp/lab1.php");
+    // shuffle questions
+
+} else if ($course == 'htmlphp' && $lab == 'lab2') {
+    
+    extract(include "config/htmlphp/lab2.php");
+    // shuffle questions
+
+} else if ($course == 'htmlphp' && $lab == 'lab3') {
+    
+    extract(include "config/htmlphp/lab3.php");
+    // shuffle questions
+
+} else if ($course == 'htmlphp' && $lab == 'lab4') {
+    
+    extract(include "config/htmlphp/lab4.php");
+    // shuffle questions
+
+} else if ($course == 'htmlphp' && $lab == 'lab5') {
+    
+    extract(include "config/htmlphp/lab5.php");
     // shuffle questions
 
 } else if ($lab == 'labtest') {

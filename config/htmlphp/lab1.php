@@ -188,6 +188,14 @@ return [
 
 
 
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
 /** ===================================================================================
  * New section of exercises.
  */

@@ -237,9 +237,8 @@ return [
 
 "answer" => function () use ($s1_list2) {
 	$tempList = $s1_list2;
-	asort($tempList);
+	sort($tempList);
 	return $tempList;
-	
 },
 
 ],
@@ -258,7 +257,7 @@ return [
 
 "answer" => function () use ($s1_list2) {
 	$tempList = $s1_list2;
-	arsort($tempList);
+	rsort($tempList);
 	return $tempList;
 	
 },
@@ -506,7 +505,7 @@ return [
 
 "answer" => function () use ($s3_del1List) {
 
-    return $s3_del1List;
+    return array_values($s3_del1List);
 },
 
 ],
@@ -525,7 +524,7 @@ return [
 
 "answer" => function () use ($s3_del2List) {
 
-    return $s3_del2List;
+    return array_values($s3_del2List);
 },
 
 ],
@@ -631,7 +630,7 @@ return [
     for($i = 0; $i < count($s2_numSerie3); $i++) {
     	$a[$i] = ($s2_numSerie3[$i] * 10);
     }
-    asort($a);    
+    sort($a);    
     
     return $a; //implode(",",$a);
 },
@@ -660,7 +659,7 @@ return [
     		$result[$i] += $s2_smallInt2;
     	}
     }
-    arsort($result);
+    rsort($result);
     return $result; //implode(",", $result);
 },
 

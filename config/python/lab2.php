@@ -427,7 +427,7 @@ return [
 
 ],
 
-
+/* Find out which ip adress (first serie of numbers on each line) that has the highest amount of entries in the file. Test with the adresses: '81.226.253.26' and '95.19.133.73'. Answer with the highest amount of entries as an integer.*/
 
 /** -----------------------------------------------------------------------------------
  * A question.
@@ -435,7 +435,7 @@ return [
 [
 
 "text" => "
-<p>Find out which ip adress (first serie of numbers on each line) that has the highest amount of entries in the file. Test with the adresses: '81.226.253.26' and '95.19.133.73'. Answer with the highest amount of entries as an integer. 
+<p>Find out which of the ip adresses 81.226.253.26 and 95.19.133.73 that has the highest amount of entries. Answer with the result as an integer.
 </p>
 ",
 

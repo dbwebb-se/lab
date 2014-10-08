@@ -17,6 +17,7 @@ History
 
 v0.0.x (latest)
 
+* Lots of small fixes for readability
 * Added htmlphp as course
 * Corrected conversion error in answer.py
 * Added extras as own link  and suport for lab6 in python.

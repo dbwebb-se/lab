@@ -96,7 +96,7 @@ window.dbwebb = {
             status = question + " CORRECT. Well done!\n" + answer;
         } else {
             status = question + " FAIL.\nYou said:\n" + answer;
-            status += hint ? "\nHint:\n" + this.answers[question] : "";
+            status += hint ? "\nHint:\n" + JSON.stringify(this.answers[question]) : "";
         }
 
         console.log(status);

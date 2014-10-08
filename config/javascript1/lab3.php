@@ -332,7 +332,7 @@ return [
         return ($val > 0);
     });
 
-    return $a;
+    return array_values($a);
 },
 
 ],
@@ -607,7 +607,7 @@ return [
     unset($a[3]);
     unset($a[4]);
 
-    return $a;
+    return array_values($a);
 },
 
 ],

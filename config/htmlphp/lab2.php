@@ -91,7 +91,32 @@ $s3_singleState2 = $s3_singleStates[$s3_stateRand-1];
 
 // ################### SECTION 4 ##################
 
+$s4_numArr1 = [
+[1,6,4,67,43,2,89,8,55,10],
+[10,3,45,98,4,7,56,23,3,1],
+[11,4,41,67,99,22,8,83,5,16],
+[21,5,4,6,76,2,18,85,55,1],
+[31,60,54,7,13,2,9,68,5,2]
+];
+$s4_which = rand_int(1, count($s4_numArr1)-1);
+$s4_useThis1 = $s4_numArr1[$s4_which];
+$s4_useThis2 = $s4_numArr1[$s4_which-1];
+$s4_printNum1 = implode(",", $s4_useThis1);
+$s4_printNum2 = implode(",", $s4_useThis2);
+$s4_smallNum = rand_int(5, 20);
+$s4_capitals = $s1_useThisCapitalArray;
 
+$s4_newCountries = [
+["Netherlands", "Turkey", "China"],
+["Germany"]
+];
+$s4_newCapitals = [
+["Amsterdam", "Ankara", "Bejing"],
+["Berlin"]
+];
+
+$s4_foreach1 = ["one"=>1, "two"=>2, "three"=>3, "four"=>4, "five"=>5];
+//$temp = implode(", ", $s4_foreach1);
 
 return [
 
@@ -507,6 +532,25 @@ return [
 
 
 
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use implode() on your 'capital'-array and answer with a string where each item is separated by a hyphen (-). 
+</p>
+",
+
+"answer" => function () use ($s4_capitals) {
+
+	return implode("-", $s4_capitals);   
+},
+
+],
+
+
+
 /**
  * Closing up this section.
  */
@@ -538,13 +582,64 @@ return [
 [
 
 "text" => "
-<p>
+<p>Create an array, called 'numbers1' with the items: [$s4_printNum1]. Use a for-each loop to sum each item with $s4_smallNum and put them in a new array called 'summedNumbers1'. Answer with the new array.
 </p>
 ",
 
-"answer" => function () {
-	
-	return 0;
+"answer" => function () use ($s4_useThis1, $s4_smallNum) {
+	$summedNumbers1 = [];
+	foreach ($s4_useThis1 as $key) {
+		array_push($summedNumbers1,($key+=$s4_smallNum));
+	}
+	return $summedNumbers1;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a new array called 'numbers2' with the items [$s4_printNum2]. Use at least a for-each loop to add all numbers larger than 20 to a new array called 'largeNumbers'. Answer with the new array.
+</p>
+",
+
+"answer" => function () use ($s4_useThis2) {
+	$largeNumbers = [];
+	foreach ($s4_useThis2 as $key) {
+		if($key > 20) {
+			array_push($largeNumbers,$key);
+		}
+	}
+	return $largeNumbers;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create an array with the keys: 'one', 'two', 'three', 'four' and 'five' and the values: 1, 2, 3, 4, 5. Use a foreach-loop to add all keys and values to an array in the format: ['key=value', key=value, etc']. Use implode() to make the answer a string with all items separated by a comma (,). 
+</p>
+",
+
+"answer" => function () use ($s4_foreach1) {
+	$res = [];
+	foreach ($s4_foreach1 as $key => $val) {
+		
+		array_push($res, $key . "=" . $val);
+		
+	}
+	return implode(",", $res);
 },
 
 ],

@@ -14,10 +14,28 @@ print("Ready to begin.")
 <?php 
 $sectionId = 0;
 
+?>
+"""
+==========================================================================
+<?=$title?> 
+ 
+<?=wordwrap(trim(strip_tags($intro), "\n"), 75, "\n", true)?> 
+"""
+
+<?php 
 foreach ($sections as $section) {
     $sectionId++;
     $questionId = 0;
 
+?>
+"""
+--------------------------------------------------------------------------
+Section <?=$sectionId?>. <?=$section['title']?> 
+ 
+<?=wordwrap(trim(strip_tags($section['intro']), "\n"), 75, "\n", true)?> 
+"""
+
+<?php 
     foreach ($section['questions'] as $question) {
         $questionId++;
 
@@ -45,4 +63,4 @@ print(dbwebb.assertEqual("<?="$sectionId.$questionId"?>", ANSWER, False))
 }
 ?>
 
-print("All done.")
+dbwebb.exitWithSummary()

@@ -17,6 +17,8 @@ History
 
 v0.0.x (latest)
 
+* Added info on lab and section in labfile.
+* Added summary at the end and exit with status 0 (success) or 1 (failed).
 * Lots of small fixes for readability
 * Added htmlphp as course
 * Corrected conversion error in answer.py

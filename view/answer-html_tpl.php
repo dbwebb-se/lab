@@ -28,6 +28,7 @@ foreach ($sections as $section) {
     }
 }?>
 
+<p id="summary"></p>
 
 <hr>
 <p><i>Generated for <?=$acronym?> at <?=$created?>.</i></p>
@@ -77,6 +78,9 @@ window.dbwebb = {
         }?>
 
     },
+    "correct": 0,
+    "failed": 0,
+    "notDone": 0,    
     "arrayCheck": function (answer1, answer2) {
         if (answer1 instanceof Array && answer2 instanceof Array) {
             return answer1.equals(answer2)
@@ -91,13 +95,33 @@ window.dbwebb = {
 
         if (answer === noanswer) {
             status = question + " NOT YET DONE."
+            window.dbwebb.notDone += 1;
         } else if (answer === this.answers[question]
                    || this.arrayCheck(answer, this.answers[question])) {
             status = question + " CORRECT. Well done!\n" + answer;
+            window.dbwebb.correct += 1;
         } else {
             status = question + " FAIL.\nYou said:\n" + answer;
             status += hint ? "\nHint:\n" + JSON.stringify(this.answers[question]) : "";
+            window.dbwebb.failed += 1;
         }
+
+        console.log(status);
+        element.innerHTML = status;
+    },
+    "exitWithSummary": function() {
+        var element = document.getElementById("summary"),
+            status;
+
+        status  = "Done with status "
+        status += Object.keys(window.dbwebb.answers).length;
+        status += "/"
+        status += window.dbwebb.correct;
+        status += "/"
+        status += window.dbwebb.failed;
+        status += "/"
+        status += window.dbwebb.notDone;
+        status += " (Total/Correct/Failed/Not done).";
 
         console.log(status);
         element.innerHTML = status;

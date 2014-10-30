@@ -30,6 +30,21 @@ $s1_singleWord1 = $s1_singleWords[rand_int(0, count($s1_singleWords)-1)];
 $s1_smallNr = rand_int(5, 20);
 $s1_bigNr	= rand_int(25, 50);
 
+$s1_array1 = ["green", "brown", "pink", "white", "gray", "blue"];
+$s1_array2 = ["frog", "bear", "pig", "lion", "wolf", "whale"];
+$s1_array1Print = implode(",", $s1_array1);
+$s1_array2Print = implode(",", $s1_array2);
+$s1_array3 = array_combine($s1_array1, $s1_array2);
+
+$s1_dollars = 1.261215;
+$s1_euroToConvert = rand_int(100, 999);
+
+$s1_inRange = rand_int(10, 150);
+
+$s1_diameter = rand_int(5, 20);
+$s1_circleArea = round((($s1_diameter/2)*($s1_diameter/2))*pi(),4); 
+
+
 // ################### SECTION 2 ##################
 
 
@@ -146,7 +161,7 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'printRange' that should take 2 numbers as arguments, start and stop. The function should add all even numbers between start and stop to an array and return it. Answer with a call to the function using the arguments: $s1_smallNr and $s1_bigNr.
+<p>Create a function called 'printRange' that should take 2 numbers as arguments, start and stop. The function should add all even numbers between start and stop (not including) to an array and return it. Answer with a call to the function using the arguments: $s1_smallNr and $s1_bigNr.
 </p>
 ",
 
@@ -165,74 +180,41 @@ return [
 
 
 
-/**
- * Closing up this section.
- */
-], // EOF questions
-], // EOF section
-
-
-
-/** ===================================================================================
- * New section of exercises.
- */
-[
-"title" => "",
-
-"intro" => "
-<p>?????
-</p>
-",
-
-"shuffle" => false,
-
-"questions" => [
-
-
-
 /** -----------------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => "
-<p>
+<p>Create a function called 'combineArrays' that takes two arrays as arguments. The function should combine the arrays to one associative array and return it. The first argument is the key and the second argument is the value. Answer with a call to the function using the arguments: [$s1_array1Print] and [$s1_array2Print].
 </p>
 ",
 
-"answer" => function () {
-		
-	
-	return 0;  
-	
+"answer" => function () use ($s1_array3) {
+
+	return $s1_array3;
 },
 
 ],
 
 
 
-/**
- * Closing up this section.
- */
-], // EOF questions
-], // EOF section
-
-
-
-/** ===================================================================================
- * New section of exercises.
+/** -----------------------------------------------------------------------------------
+ * A question.
  */
 [
-"title" => "",
 
-"intro" => "
-<p>????? 
+"text" => "
+<p>Create a function called 'euroToDollar' that takes one argument, the euro amount to convert to dollars. Count 1 Euro as $s1_dollars dollars. Return the dollar amount of $s1_euroToConvert Euros. Answer with the result as a float with 4 decimals. 
 </p>
 ",
 
-"shuffle" => false,
+"answer" => function () use ($s1_dollars, $s1_euroToConvert) {
 
-"questions" => [
+	return round(($s1_euroToConvert*$s1_dollars), 4);
+},
+
+],
 
 
 
@@ -242,13 +224,70 @@ return [
 [
 
 "text" => "
-<p>
+<p>Create a function called 'inRange' that takes one argument. The function should return 'true' if the argument is higher than 50 and lower than 100. If the number is out of range, the function should return 'false'. The return type should be boolean. Use the argument $s1_inRange and answer with a call to the function.
+</p>
+",
+
+"answer" => function () use ($s1_inRange) {
+
+	$result = false;
+
+    if($s1_inRange > 50 && $s1_inRange < 100) {
+       $result = true;
+    }
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function called 'calculateArea' that takes one argument, the diameter of a circle. The function should return the area of the circle, with 4 decimals. Answer with the result if the diameter is $s1_diameter. ( hint: pi() )
+</p>
+",
+
+"answer" => function () use ($s1_circleArea) {
+
+	return $s1_circleArea;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a function called 'fibonacci'. The function should use the Fibbonacci Sequence (http://en.wikipedia.org/wiki/Fibonacci_number), starting with 1 and 2. Return the sum of all odd numbers in the sequence, when the value dont exceed 1.000.000. Answer with a call of the function.
 </p>
 ",
 
 "answer" => function () {
-	
-	return 0;
+
+	$prev = 2;
+	$prev2 = 1;
+	$res = 2;
+	$num = 0;
+	while ($num < 1000000) {
+	  $num = $prev + $prev2;
+
+	  $prev2 = $prev;
+	  $prev = $num;
+
+	  if (($num % 2) != 0) {
+	    $res += $num;
+	  }
+	}
+	return $res;
 },
 
 ],

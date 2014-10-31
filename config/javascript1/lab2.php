@@ -288,7 +288,7 @@ return [
 [
 
 "text" => "
-<p>Create a function 'printAnyRange()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers comma-separated in the range. If 'rangeStart' is smaller than 'rangeStop' the call the function 'printRange()'.  If 'rangeStart' is greater than 'rangeStop' the call the function 'printRangeReversed()' Try it using the arguments $range3 and $range4 (both ways). Answer with the result using arguments $range3 and $range4.
+<p>Create a function 'printAnyRange()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers comma-separated in the range. If 'rangeStart' is smaller than 'rangeStop' then call the function 'printRange()'.  If 'rangeStart' is greater than 'rangeStop' the call the function 'printRangeReversed()'. Try it using the arguments $range3 and $range4 (both ways). Answer with the result using arguments $range3 and $range4.
 </p>",
 
 "answer" => function () use ($range3, $range4) {

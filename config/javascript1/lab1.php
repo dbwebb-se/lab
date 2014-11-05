@@ -268,7 +268,8 @@ return [
 /** -----------------------------------------------------------------------------------
  * A question.
  */
-[
+// FOR LATER USE....
+/*[
 
 "text" => "
 <p>Use your variables 'floatOne' and 'numberOne'. Answer with the product of them in your 'result'-variable.
@@ -282,7 +283,7 @@ return [
 },
 
 ],
-
+*/
 
 
 /** -----------------------------------------------------------------------------------

@@ -229,7 +229,7 @@ return [
 [
 
 "text" => "
-<p>Create a variable 'array21' as a copy of 'array2'. Sort 'array21'. Answer with the resulting array.
+<p>Create a variable 'array21' as a clone of 'array2'. Sort 'array21'. Answer with the resulting array. (Hint: http://stackoverflow.com/questions/3978492/javascript-fastest-way-to-duplicate-an-array-slice-vs-for-loop)
 </p>
 ",
 

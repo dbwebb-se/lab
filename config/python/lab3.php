@@ -365,7 +365,7 @@ return [
 [
 
 "text" => "
-<p>Use a built-in function to get the average value of the list: [$s2_numSerie2Print]. Answer with the result as a float with at most one decimal.
+<p>Use built-in functions, such as 'sum' and 'len' to get the average value of the list: [$s2_numSerie2Print]. Answer with the result as a float with at most one decimal.
 </p>
 ",
 

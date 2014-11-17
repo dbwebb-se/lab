@@ -17,6 +17,7 @@ History
 
 v0.0.x (latest)
 
+* Hint and answer is now printed as json to visualize the type.
 * Added info on lab and section in labfile.
 * Added summary at the end and exit with status 0 (success) or 1 (failed).
 * Lots of small fixes for readability

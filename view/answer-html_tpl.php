@@ -98,10 +98,10 @@ window.dbwebb = {
             window.dbwebb.notDone += 1;
         } else if (answer === this.answers[question]
                    || this.arrayCheck(answer, this.answers[question])) {
-            status = question + " CORRECT. Well done!\n" + answer;
+            status = question + " CORRECT. Well done!\n" + JSON.stringify(answer);
             window.dbwebb.correct += 1;
         } else {
-            status = question + " FAIL.\nYou said:\n" + answer;
+            status = question + " FAIL.\nYou said:\n" + JSON.stringify(answer);
             status += hint ? "\nHint:\n" + JSON.stringify(this.answers[question]) : "";
             window.dbwebb.failed += 1;
         }

@@ -41,12 +41,12 @@ class Dbwebb():
             self.notDone += 1
         
         elif answer == self.answers["answers"][question]:
-            status = question + " CORRECT. Well done!\n" + str(answer)
+            status = question + " CORRECT. Well done!\n" + json.dumps(answer)
             self.correct += 1
         
         else:
-            status = question + " FAIL.\nYou said:\n" + str(answer)
-            status += "\nHint:\n" + str(self.answers["answers"][question]) if hint else ""
+            status = question + " FAIL.\nYou said:\n" + json.dumps(answer)
+            status += "\nHint:\n" + json.dumps(self.answers["answers"][question]) if hint else ""
             self.failed += 1
 
         return status

@@ -12,8 +12,58 @@ $bookNr = rand_int(0, count($books)-1);
 $useThisBook = $books[$bookNr];
 $file1 = file_get_contents(__DIR__ . "/$useThisBook.txt");
 $file2 = file_get_contents(__DIR__ . "/$useThisBook.txt", NULL, NULL, 16, 25);
-$file3 = preg_split('/\r\n|\n|\r/', trim(file_get_contents(__DIR__ . "/$useThisBook.txt")));
 $file3 = explode(PHP_EOL, $file1);
+
+
+$numbers = [
+[rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100)],
+[rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100)],
+[rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100)],
+[rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100)],
+[rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100)]
+];
+$nrRand = rand_int(0, count($numbers)-1);
+$useThisNrs = $numbers[$nrRand];
+$nrsPrint = implode(", ", $useThisNrs);
+
+file_put_contents(__DIR__ . "/temp.txt", $file1);
+$file4 = file_get_contents(__DIR__ . "/temp.txt");
+file_put_contents(__DIR__ . "/temp.txt", $nrsPrint);
+$file5 = explode(", ", file_get_contents(__DIR__ . "/temp.txt"));
+array_push($file5, "$nrRand");
+
+$sentances = [
+    ["No matter how hard I try, I never seem to run out of bad ideas.", rand_int(10, 500), rand_float(20, 500, 2)],
+    ["A green apple is not orange.", rand_int(10, 500), rand_float(20, 500, 2)],
+    ["A fish with no eye is called a fsh.", rand_int(10, 500), rand_float(20, 500, 2)],
+    ["People say nothing is impossible, but I do nothing every day.", rand_int(10, 500), rand_float(20, 500, 2)],
+    ["Future depends on your dreams, so go to sleep.", rand_int(10, 500), rand_float(20, 500, 2)],
+    ["I stepped on a cornflake and now I am a cereal killer.", rand_int(10, 500), rand_float(20, 500, 2)],
+    ["Never trust an atom. They make up everything.", rand_int(10, 500), rand_float(20, 500, 2)],
+    ["What happens if you get scared half to death twice?", rand_int(10, 500), rand_float(20, 500, 2)]
+];
+
+$sentRand = rand_int(0, count($sentances)-1);
+$useThisSent = $sentances[$sentRand];
+$useThisSentPrint = implode(", ", $useThisSent);
+
+$file6 = serialize($useThisSent);
+file_put_contents(__DIR__ . "/temp.txt", $file6);
+$file6 = unserialize(file_get_contents(__DIR__ . "/temp.txt"));
+
+
+/*$temp = "åäö<br>";
+echo $temp;
+echo strlen($temp);
+echo "<br>";
+echo mb_strlen($temp);
+echo "<br>";
+mb_internal_encoding("UTF-8");
+echo strlen($temp);
+echo "<br>";
+echo mb_strlen($temp);*/
+//echo mb_internal_encoding();
+
 
 // ################### Date/time ##################
 
@@ -28,17 +78,20 @@ $useThisDate3 = new DateTime($dates[$dateRand]);
 $dateSub = $useThisDate3->sub(new DateInterval("P5DT3H"));
 
 $passwords = ["myPassword", "thisIsALamePassword", "anyoneCanCrackMe", "safe@44%", "lollipop"];
-$salts = ["saltAndPepper", "mySalt", "randomSalt", "saltLakeCity", "saltLicorice"];
 $passRand = rand_int(0, count($passwords)-1);
-$useThisSalt = $salts[$passRand];
 $useThisPass = $passwords[$passRand];
-$passHash = crypt($useThisPass, $useThisSalt);
+$passHash = password_hash($useThisPass, PASSWORD_DEFAULT);
+$passResult = password_verify($useThisPass, $passHash);
 
 $rot = str_rot13($useThisPass);
 $plain = ["Cinderella", "Lady and the Tramp", "Old Yeller", "Treasure Island", "The Jungle Book"];
 $decrypts = [$plain[0]=>str_rot13($plain[0]), $plain[1]=>str_rot13($plain[1]), $plain[2]=>str_rot13($plain[2]), $plain[3]=>str_rot13($plain[3]), $plain[4]=>str_rot13($plain[4])];
 $presentCrypts = implode(", ", array_values($decrypts));
 $presentCryptAnswer = implode(", ", array_keys($decrypts));
+
+$mdFive = md5($useThisPass);
+
+
 
 /**
  * Titel and introduction to the lab.
@@ -106,7 +159,7 @@ return [
 [
 
 "text" => "
-<p>Create a new DateTime-object with the same parameters and add 3 months to it. Answer with the result, presented in year-month-day.
+<p>Create a new DateTime-object with the same parameters and add 3 months to it. Answer with the result, presented in the format: yyyy-mm-dd.
 </p>
 ",
 
@@ -125,7 +178,7 @@ return [
 [
 
 "text" => "
-<p>Use one of your DateTime-objects and answer with the time, presented in 'hours:minutes:seconds'.
+<p>Use one of your DateTime-objects and answer with the time, presented in the format: hours:minutes:seconds.
 </p>
 ",
 
@@ -144,7 +197,7 @@ return [
 [
 
 "text" => "
-<p>Create a new DateTime-object based on the same date and time and subtract 5 days and 3 hours from it. Answer with the whole date, presented in 'year-month-day hours:minutes:seconds'.
+<p>Create a new DateTime-object based on the same date and time and subtract 5 days and 3 hours from it. Answer with the whole date, presented in the format: yyyy-mm-dd hours:minutes:seconds.
 </p>
 ",
 
@@ -186,7 +239,7 @@ return [
 [
 
 "text" => "
-<p>Use 'file_get_contents()' to get the file as a string. Answer with the result.</p>
+<p>Use 'file_get_contents()' to get the file as a string. Save it to a variable called 'fileAsString'. Answer with the variable.</p>
 ",
 
 "answer" => function () use($file1) {
@@ -234,6 +287,42 @@ return [
 
 
 
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Use your varable, 'fileAsString' and write it to a file, called 'temp.txt'. Read the content into a variable and answer with it.</p>
+",
+
+"answer" => function () use($file4) {
+
+    return $file4;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create an array with the numbers [$nrsPrint]. Use 'implode()' to make it a comma-separated string and overwrite the content in the file 'temp.txt'. Get the content from the file and use 'explode()' to make it to an array again, without the commas. Insert the number: $nrRand as a string in the end and answer with the array.</p>
+",
+
+"answer" => function () use($file5) {
+
+    return $file5;
+},
+
+],
+
+
+
 /**
  * Closing up this section.
  */
@@ -265,12 +354,12 @@ return [
 [
 
 "text" => "
-<p>This is a question.
+<p>Use the array: [$useThisSentPrint] and 'serialize' it and overwrite the content of 'temp.txt' with the result. 'Unserialize' the content from the file back to an array and answer with it. (Take a peek into your 'temp.txt' to see how a serialized array looks)
 </p>
 ",
 
-"answer" => function () {
-    
+"answer" => function () use($file6){
+    return $file6;
 },
 
 ],
@@ -292,7 +381,7 @@ return [
 "title" => "Cryptography",
 
 "intro" => "
-<p>Reference to crypt: http://php.net/manual/en/function.crypt.php, rot13: http://php.net/manual/en/function.str-rot13.php.
+<p>Reference to password_hash: http://php.net/manual/en/function.password-hash.php, rot13: http://php.net/manual/en/function.str-rot13.php.
 </p>
 ",
 
@@ -308,37 +397,13 @@ return [
 [
 
 "text" => "
-<p>Use crypt() to create a hash of the password: '$useThisPass' and the salt: '$useThisSalt'. Answer with the result.
+<p>Use password_hash() with the DEFAULT algorithm to create a hash of the password: '$useThisPass'. Test password_verify() with different passwords to see what it returns. Answer with the result, using '$useThisPass'.
 </p>
 ",
 
-"answer" => function () use($passHash) {
+"answer" => function () use($passResult) {
 
-    return $passHash;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => "
-<p>Think that your hash from last exercise is stored in a database. Create a function that checks if a password is valid and correct, comparing the stored hash and a hash created from the input. The function should take 2 arguments, a password and a salt. The function should return the boolean value 'true' if is is a match and the boolean value 'false' if they are not correct. Answer with a call to the function using your password and salt from last exercise. 
-</p>
-",
-
-"answer" => function () use($passHash, $useThisSalt, $useThisPass) {
-
-    $same = false;
-    if(crypt($useThisPass, $useThisSalt) == $passHash) {
-    	$same = true;
-    }
-
-    return $same;
+    return $passResult;
 },
 
 ],
@@ -379,6 +444,26 @@ return [
 
     
     return $presentCryptAnswer;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Calculate the hash of the password '$useThisPass' with md5. Answer with the hash.
+</p>
+",
+
+"answer" => function () use($mdFive) {
+
+    
+    return $mdFive;
 },
 
 ],

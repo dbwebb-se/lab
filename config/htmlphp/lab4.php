@@ -51,18 +51,15 @@ $file6 = serialize($useThisSent);
 file_put_contents(__DIR__ . "/temp.txt", $file6);
 $file6 = unserialize(file_get_contents(__DIR__ . "/temp.txt"));
 
+$encodingWords = ["övergångsställe", "skärgårdsö", "räksmörgås", "förmånsrätt", "björnbärssås"];
+$encRand = rand_int(0, count($encodingWords)-1);
+$useThisEnc = $encodingWords[$encRand];
+mb_internal_encoding("ISO-8859-1");                                 // set encoding to iso-8859-1
+$encAns1 = mb_internal_encoding();                                  // answer 1 = get encoding
+$encAns2 = strlen($useThisEnc) . ", " . mb_strlen($useThisEnc);     // answer 2 = strlen and mb_strlen
+mb_internal_encoding("UTF-8");                                      // set encoding to utf-8
+$encAns3 = strlen($useThisEnc) . ", " . mb_strlen($useThisEnc);     // answer 3 = strlen and mb_strlen
 
-/*$temp = "åäö<br>";
-echo $temp;
-echo strlen($temp);
-echo "<br>";
-echo mb_strlen($temp);
-echo "<br>";
-mb_internal_encoding("UTF-8");
-echo strlen($temp);
-echo "<br>";
-echo mb_strlen($temp);*/
-//echo mb_internal_encoding();
 
 
 // ################### Date/time ##################
@@ -87,7 +84,7 @@ $rot = str_rot13($useThisPass);
 $plain = ["Cinderella", "Lady and the Tramp", "Old Yeller", "Treasure Island", "The Jungle Book"];
 $decrypts = [$plain[0]=>str_rot13($plain[0]), $plain[1]=>str_rot13($plain[1]), $plain[2]=>str_rot13($plain[2]), $plain[3]=>str_rot13($plain[3]), $plain[4]=>str_rot13($plain[4])];
 $presentCrypts = implode(", ", array_values($decrypts));
-$presentCryptAnswer = implode(", ", array_keys($decrypts));
+//$presentCryptAnswer = implode(", ", array_keys($decrypts));
 
 $mdFive = md5($useThisPass);
 
@@ -436,14 +433,14 @@ return [
 [
 
 "text" => "
-<p>Use ROT13 decoding to find which movies hides in the strings: '$presentCrypts'. Answer with the result in a comma-separated string. (Each movie is comma-separated)
+<p>Use ROT13 decoding to find which movies hides in the strings: '$presentCrypts'. Answer with an array containing all answers. (Each movie is comma-separated)
 </p>
 ",
 
-"answer" => function () use($presentCryptAnswer) {
+"answer" => function () use($plain) {
 
     
-    return $presentCryptAnswer;
+    return $plain;
 },
 
 ],
@@ -500,13 +497,51 @@ return [
 [
 
 "text" => "
-<p>This is a question.
+<p>Set the internal encoding to 'ISO-8859-1'. Answer with the result of 'mb_internal_encoding()'.
 </p>
 ",
 
-"answer" => function () {
-
+"answer" => function () use($encAns1) {
     
+    return $encAns1;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Check the 'strlen()' and 'mb_strlen()' of the word '$useThisEnc'. Answer with the two results as a comma-separated string.
+</p>
+",
+
+"answer" => function () use($encAns2) {
+    
+    return $encAns2;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Set the internal encoding to 'UTF-8' and check the 'strlen()' and 'mb_strlen()' of the word '$useThisEnc'. Answer with the two results as a comma-separated string.
+</p>
+",
+
+"answer" => function () use($encAns3) {
+    
+    return $encAns3;
 },
 
 ],

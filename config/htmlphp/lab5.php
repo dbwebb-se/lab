@@ -28,57 +28,115 @@ catch(PDOException $e) {
     echo $e->getMessage();
 }
 
+// ################### HELPERS ########################
+
+$tempBorn = [];
+
 // ################### SETUP QUERIES ##################
 
-$query1 = "SELECT firstName FROM people WHERE countryOfBirth=?";
-$query2 = "SELECT * FROM people WHERE born=?";
-$query3 = "SELECT born FROM people WHERE lastName IN (?,?)"; 
-$query4 = "SELECT * FROM people"; //count rows 
-$query5 = "SELECT * FROM people"; //how many are born 1969 
+$query1     = "SELECT firstName FROM people WHERE countryOfBirth=?";
+$query2     = "SELECT * FROM people WHERE born=?";
+$query3     = "SELECT born FROM people WHERE lastName IN (?,?)"; 
+$query4     = "SELECT count(*) FROM people";
+$query5     = "SELECT * FROM people"; 
 
 // ################### PREPARE STATEMENTS ##################
 
-$stmt1 = $mydb->prepare($query1);
-$stmt2 = $mydb->prepare($query2);
-$stmt3 = $mydb->prepare($query3);
-$stmt4 = $mydb->prepare($query4);
-$stmt5 = $mydb->prepare($query5);
+$stmt1      = $mydb->prepare($query1);
+$stmt2      = $mydb->prepare($query2);
+$stmt3      = $mydb->prepare($query3);
+$stmt4      = $mydb->prepare($query4);
+$stmt5      = $mydb->prepare($query5);
 
 // ################### EXECUTE STATEMENTS ##################
 
-$stmt1->execute(array($q1Use));
-$stmt2->execute(array($q2Use));
-$stmt3->execute(array($q3Use1, $q3Use2));
+$stmt1      ->execute(array($q1Use));
+$stmt2      ->execute(array($q2Use));
+$stmt3      ->execute(array($q3Use1, $q3Use2));
+$stmt4      ->execute();
+$stmt5      ->execute();
 
 // ################### GET RESULTS #################
 
-$res1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
-$res2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-$res3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+$res1       = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+$res2       = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+$res3       = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+$res4       = $stmt4->fetch(PDO::FETCH_NUM);
+$res5       = $stmt5->fetchAll(PDO::FETCH_ASSOC);
 
 // ################### FIX ANSWERS ##################
 
-$answer1 = []; $answer2 = []; $answer3 = 0; $answer4 = []; $answer5 = [];
+$answer1 = []; $answer2 = ""; $answer3 = 0; $answer4 = 0; $answer5 = "";
 
 foreach ($res1 as $row) {
     array_push($answer1, $row['firstName']);
 }
-foreach ($res2 as $row) {
-    array_push($answer2, $row['firstName'] . " " . $row['lastName']);
-}
-foreach ($res3 as $row) {
-    $answer3 += $row['born'];
-}
-// ################### Save the Answers ##################
 
-$a1 = implode(", ", $answer1);
-$a2 = implode(", ", $answer2);
-$a3 = (int)$answer3;
+foreach ($res2 as $row) {
+    $answer2 = $row['firstName'] . " " . $row['lastName'];
+}
+
+foreach ($res3 as $row) {
+    $answer3 += (int)$row['born'];
+}
+
+$answer4 = (int)$res4[0];
+
+foreach ($res5 as $row) {
+    array_push($tempBorn, (int)$row['born']);
+}
+
+foreach ($res5 as $row) {
+    if((int)$row['born'] == min($tempBorn)) {
+        $answer5 = $row['countryOfBirth'];
+    }
+}
+
+// ################### CREATE TABLE ##########################
+
+$tableNames     = ["animals", "books", "movies"];
+$tableColNames  = [
+["id", "species", "name"],
+["id", "title", "author"],
+["id", "title", "director"]
+];
+$tableCol1 = [
+["Lion", "Giraffe", "Zebra", "Hippo", "Penquin"],
+["The art of war", "The Shining", "Ulysses", "Lord of the flies", "Pride and justice"],
+["Super 8", "Creepshow", "Goodfellas", "Apollo 13", "Spaceballs"]
+];
+$tableCol2 = [
+["Alex", "Melman", "Marty", "Gloria", "Skipper"],
+["Sun Tzu", "Stephen King", "James Joyce", "William Golding", "Jane Austen"],
+["J.J. Abrams", "George Romero", "Martin Scorsese", "Ron Howard", "Mel Brooks"]
+];
+
+$magicNr = rand_int(0, count($tableNames)-1);
+$printTableName = $tableNames[$magicNr];
+$printColNames = implode(", ", $tableColNames[$magicNr]);
+$printCol1 = implode(", ", $tableCol1[$magicNr]);
+$printCol2 = implode(", ", $tableCol2[$magicNr]);
+$vals = "";
+for($i=0; $i<count($tableCol1[$magicNr]); $i++) {
+    $vals .= $tableCol1[$magicNr][$i] . " " . $tableCol2[$magicNr][$i];
+}
+$useCol1 = $tableColNames[$magicNr][1];
+$useCol2 = $tableColNames[$magicNr][2];
+$final = [
+    $tableCol1[$magicNr][0]=>$tableCol2[$magicNr][0],
+    $tableCol1[$magicNr][1]=>$tableCol2[$magicNr][1],
+    $tableCol1[$magicNr][2]=>$tableCol2[$magicNr][2],
+    $tableCol1[$magicNr][3]=>$tableCol2[$magicNr][3],
+    $tableCol1[$magicNr][4]=>$tableCol2[$magicNr][4],
+    ];
 
 
 // ################### Close the connection ##################
 
 unset($mydb);
+
+
+
 /**
  * Titel and introduction to the lab.
  */
@@ -126,13 +184,13 @@ return [
 [
 
 "text" => "
-<p>Find the firstnames of the people born in $q1Use. Answer with a string and the names comma-separated.
+<p>Find the firstnames of the people born in $q1Use. Answer with an array containing the names.
 </p>
 ",
 
-"answer" => function () use($a1) {
+"answer" => function () use($answer1) {
 
-    return $a1;
+    return $answer1;
 },
 
 ],
@@ -149,9 +207,9 @@ return [
 </p>
 ",
 
-"answer" => function () use($a2) {
+"answer" => function () use($answer2) {
 
-    return $a2;
+    return $answer2;
 },
 
 ],
@@ -168,36 +226,13 @@ return [
 </p>
 ",
 
-"answer" => function () use($a3) {
+"answer" => function () use($answer3) {
 
-    return $a3;
+    return $answer3;
 },
 
 ],
 
-
-
-/**
- * Closing up this section.
- */
-], // EOF questions
-], // EOF section
-
-
-
-/** ===================================================================================
- * New section of exercises.
- */
-[
-"title" => "tjoho",
-
-"intro" => "
-<p>weehoo</p>
-",
-
-"shuffle" => false,
-
-"questions" => [
 
 
 /** -----------------------------------------------------------------------------------
@@ -206,12 +241,51 @@ return [
 [
 
 "text" => "
-<p></p>
+<p>Count the number of entries in the table 'people'. Answer with an integer.
+</p>
 ",
 
-"answer" => function () {
+"answer" => function () use($answer4) {
 
-    return 0;
+    return $answer4;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Find which country ('countryOfBirth') the oldest person was born in. Answer with a string.
+</p>
+",
+
+"answer" => function () use($answer5) {
+
+    return $answer5;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a table, called '$printTableName', with the columns '$printColNames'. The first column, 'id', should be an integer with auto increment. The other columns should be strings. Insert the values: '$printCol1' in the second column and in the third column, insert the values '$printCol2'. Question the database and answer with an an associative array containing the '$useCol1' as the key and the '$useCol2' as the value.
+</p>
+",
+
+"answer" => function () use($final){
+
+    return $final;
 },
 
 ],

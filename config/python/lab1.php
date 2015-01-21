@@ -668,7 +668,7 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'funnyWord' that takes one argument and adds it to a string. If the argument is 'water', the function should return: 'water is a funny word'. Use the argument '$s4_word' and answer with a call to the function.
+<p>Create a function called 'funnyWord' that takes one argument and adds it to the string ' is a funny word'. If the argument is 'water', the function should return: 'water is a funny word'. Use the argument '$s4_word' and answer with a call to the function.
 </p>
 ",
 

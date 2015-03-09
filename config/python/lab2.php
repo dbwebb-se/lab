@@ -328,7 +328,7 @@ return [
 [
 
 "text" => "
-<p>Use the funktion str.format() to print out: 'My 'string' has 'integer' 'string''. Use the values: '$s1_f1', '$s1_f2' and '$s1_f3'. Answer with the result.
+<p>Use str.format() to print out: 'My 'string' has 'integer' 'string''. Use the values: '$s1_f1', '$s1_f2' and '$s1_f3'. Answer with the result.
 </p>
 ",
 

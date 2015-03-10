@@ -4,15 +4,17 @@ include __DIR__ . "/config.php";
 
 
 // Incoming
-$doLab        = isset($_GET['lab']) ? true : false;
-$doAnswers    = isset($_GET['answers']) ? true : false;
-$doAnswerHtml = isset($_GET['answer-html']) ? true : false;
-$doAnswerJs   = isset($_GET['answer-js']) ? true : false;
-$doAnswerPy   = isset($_GET['answer-py']) ? true : false;
-$doAnswerPyAssert = isset($_GET['answer-py-assert']) ? true : false;
-$doAnswerJson = isset($_GET['answer-json']) ? true : false;
-$doAnswerExtra = isset($_GET['answer-extra']) ? true : false;
-$key          = isset($_GET['key']) ? $_GET['key'] : null;
+$doLab              = isset($_GET['lab']) ? true : false;
+$doAnswers          = isset($_GET['answers']) ? true : false;
+$doAnswerHtml       = isset($_GET['answer-html']) ? true : false;
+$doAnswerJs         = isset($_GET['answer-js']) ? true : false;
+$doAnswerPhp        = isset($_GET['answer-php']) ? true : false;
+$doAnswerPhpAssert  = isset($_GET['answer-php-assert']) ? true : false;
+$doAnswerPy         = isset($_GET['answer-py']) ? true : false;
+$doAnswerPyAssert   = isset($_GET['answer-py-assert']) ? true : false;
+$doAnswerJson       = isset($_GET['answer-json']) ? true : false;
+$doAnswerExtra      = isset($_GET['answer-extra']) ? true : false;
+$key                = isset($_GET['key']) ? $_GET['key'] : null;
 
 
 
@@ -21,10 +23,12 @@ $key          = isset($_GET['key']) ? $_GET['key'] : null;
     || isset($doAnswers)
     || isset($doAnswerHtml)
     || isset($doAnswerJs)
+    || isset($doAnswerPhp)
+    || isset($doAnswerPhpAssert)
     || isset($doAnswerPy)
+    || isset($doAnswerPyAssert)
     || isset($doAnswerJson)
-    || isset($doAnswerExtra)
-    || isset($doAnswerPyAssert))
+    || isset($doAnswerExtra))
         or die("Missing what to do.");
 isset($key) or die("No key supplied.");
 
@@ -218,12 +222,16 @@ if ($doLab && $doAnswers) {
     include "view/answer-html_tpl.php";
 } else if ($doAnswerJs) {
     include "view/answer-js_tpl.php";
+} else if ($doAnswerPhp) {
+    include "view/answer-php_tpl.php";
+} else if ($doAnswerPhpAssert) {
+    include "view/answer-php-assert_tpl.php";
 } else if ($doAnswerPy) {
     include "view/answer-py_tpl.php";
-} else if ($doAnswerJson) {
-    include "view/answer-json_tpl.php";
 } else if ($doAnswerPyAssert) {
     include "view/answer-py-assert_tpl.php";
+} else if ($doAnswerJson) {
+    include "view/answer-json_tpl.php";
 } else if ($doAnswerExtra) {
     include "view/answer-extra_tpl.php";
 } else {

@@ -17,6 +17,7 @@ History
 
 v0.0.x (latest)
 
+* Added support for PHP labs and integrated with htmlphp-labs.
 * Hint and answer is now printed as json to visualize the type.
 * Added info on lab and section in labfile.
 * Added summary at the end and exit with status 0 (success) or 1 (failed).
@@ -30,5 +31,5 @@ v0.0.x (latest)
 
 ```                                                            
  .                                                             
-..:  Copyright (c) 2014 Mikael Roos, me@mikaelroos.se   
+..:  Copyright (c) 2014-15 Mikael Roos, me@mikaelroos.se   
 ```                                                            

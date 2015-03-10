@@ -90,7 +90,7 @@ window.dbwebb = {
     "assert": function(question, answer, hint) {
         var element = document.getElementById("answer" + question),
             status,
-            noanswer = "Replace this text with the answer or the variable holding it.",
+            noanswer = "Replace this text with the variable holding the answer.",
             hint = hint || false;
 
         if (answer === noanswer) {

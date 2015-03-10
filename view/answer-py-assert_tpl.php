@@ -4,7 +4,7 @@
 """                                               
 Python dbwebb module for asserting and auto correcting labs.
 
-It reads the answers from a json-file and uses ut
+It reads the answers from a json-file and use it
 for checking with assertEqual().
 
 """
@@ -34,7 +34,7 @@ class Dbwebb():
         """
 
         status = None
-        noanswer = "Replace this text with the answer or the variable holding it."
+        noanswer = "Replace this text with the variable holding the answer."
 
         if answer == noanswer:
             status = question + " NOT YET DONE."

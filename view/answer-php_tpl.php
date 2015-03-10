@@ -1,19 +1,24 @@
+<?="<?php\n"?>
 /**                                               
  * @preserve <?=$key?> generated for <?=$acronym?> at <?=$created?> 
- */                                               
-(function(dbwebb){
-    "use strict";
+ */
 
-    var ANSWER = null;
+// Set error reporting to verbose
+error_reporting(-1);              // Report all type of errors
+ini_set('display_errors', 1);     // Display all errors
 
-    console.log("Ready to begin.");
+// Load and create object with lab utilities
+require __DIR__ . "/CDbwebb.php";
+$dbwebb = new CDbwebb();
+
 
 
 <?php 
 $sectionId = 0;
-
 ?>
-/** ======================================================================
+
+
+/** ===================================================================
  * <?=$title?> 
  *
  * <?=wordwrap(trim(strip_tags($intro), "\n"), 75, "\n * ", true)?> 
@@ -24,9 +29,10 @@ $sectionId = 0;
 foreach ($sections as $section) {
     $sectionId++;
     $questionId = 0;
-
 ?>
-/** ----------------------------------------------------------------------
+
+
+/** -------------------------------------------------------------------
  * Section <?=$sectionId?>. <?=$section['title']?> 
  *
  * <?=wordwrap(trim(strip_tags($section['intro']), "\n"), 75, "\n * ", true)?> 
@@ -36,8 +42,9 @@ foreach ($sections as $section) {
 <?php 
     foreach ($section['questions'] as $question) {
         $questionId++;
-
 ?>
+
+
 /**
  * Exercise <?="$sectionId.$questionId"?> 
  * 
@@ -49,18 +56,17 @@ foreach ($sections as $section) {
 
 
 
-ANSWER = "Replace this text with the variable holding the answer.";
+$ANSWER = "Replace this text with the variable holding the answer.";
 
 // Is the answer as expected?
 // When you get stuck - change false to true to get a hint.
-dbwebb.assert("<?="$sectionId.$questionId"?>", ANSWER, false);
-
+echo $dbwebb->assertEqual("<?="$sectionId.$questionId"?>", $ANSWER, false);
 
 <?php 
     }
 }
 ?>
 
-    console.log(dbwebb.exitWithSummary());
 
-}(window.dbwebb));
+// Wrap it up
+exit(intval(!$dbwebb->exitWithSummary()));

@@ -82,9 +82,11 @@ if (isset($_GET['doGenerate'])) {
 <a href="lab.php?answers&key=$gen_key">Answers</a> | 
 <a href="lab.php?answer-html&key=$gen_key">Answer-html</a> | 
 <a href="lab.php?answer-js&key=$gen_key">Answer-js</a> | 
+<a href="lab.php?answer-php&key=$gen_key">Answer-php</a> | 
+<a href="lab.php?answer-php-assert&key=$gen_key">Answer-php-assert</a> | 
 <a href="lab.php?answer-py&key=$gen_key">Answer-py</a> | 
-<a href="lab.php?answer-json&key=$gen_key">Answer-json</a> | 
 <a href="lab.php?answer-py-assert&key=$gen_key">Answer-py-assert</a> | 
+<a href="lab.php?answer-json&key=$gen_key">Answer-json</a> | 
 <a href="lab.php?answer-extra&key=$gen_key">Answer-extras</a> | 
 </p>
 EOD;
@@ -196,9 +198,11 @@ Key: {$res->gen_key}</br>
 <a href="lab.php?answers&key=$gen_key">Answers</a> | 
 <a href="lab.php?answer-html&key=$gen_key">Answer-html</a> | 
 <a href="lab.php?answer-js&key=$gen_key">Answer-js</a> | 
+<a href="lab.php?answer-php&key=$gen_key">Answer-php</a> | 
+<a href="lab.php?answer-php-assert&key=$gen_key">Answer-php-assert</a> | 
 <a href="lab.php?answer-py&key=$gen_key">Answer-py</a> | 
-<a href="lab.php?answer-json&key=$gen_key">Answer-json</a> | 
 <a href="lab.php?answer-py-assert&key=$gen_key">Answer-py-assert</a> | 
+<a href="lab.php?answer-json&key=$gen_key">Answer-json</a> | 
 <a href="lab.php?answer-extra&key=$gen_key">Answer-extras</a> | 
 </p>
 EOD;

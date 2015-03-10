@@ -52,7 +52,7 @@ Write your code below and put the answer into the variable ANSWER.
 
 
 
-ANSWER = "Replace this text with the answer or the variable holding it."
+ANSWER = "Replace this text with the variable holding the answer."
 
 # Is the answer as expected?
 # When you get stuck - change False to True to get a hint.

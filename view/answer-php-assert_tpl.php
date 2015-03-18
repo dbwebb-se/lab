@@ -77,9 +77,9 @@ class CDbwebb
             
     
     /**
-     * Print a exit message with the result of all tests. 
+     * Print a exit message with the result of all tests.
      *
-     * @return boolean true if all answers are correct, else false 
+     * @return boolean true if all answers are correct, else false
      */
     public function printSummary()
     {

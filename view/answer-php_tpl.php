@@ -1,6 +1,6 @@
 <?="<?php\n"?>
-/**                                               
- * @preserve <?=$key?> generated for <?=$acronym?> at <?=$created?> 
+/**
+ * @preserve <?=$key?> generated for <?=$acronym?> at <?=$created?>
  */
 
 // Set error reporting to verbose
@@ -19,9 +19,9 @@ $sectionId = 0;
 
 
 /** ===================================================================
- * <?=$title?> 
+ * <?=$title?>
  *
- * <?=wordwrap(trim(strip_tags($intro), "\n"), 75, "\n * ", true)?> 
+ * <?=wordwrap(trim(strip_tags($intro), "\n"), 75, "\n * ", true)?>
  *
  */
 
@@ -33,9 +33,9 @@ foreach ($sections as $section) {
 
 
 /** -------------------------------------------------------------------
- * Section <?=$sectionId?>. <?=$section['title']?> 
+ * Section <?=$sectionId?>. <?=$section['title']?>
  *
- * <?=wordwrap(trim(strip_tags($section['intro']), "\n"), 75, "\n * ", true)?> 
+ * <?=wordwrap(trim(strip_tags($section['intro']), "\n"), 75, "\n * ", true)?>
  *
  */
 
@@ -46,9 +46,9 @@ foreach ($sections as $section) {
 
 
 /**
- * Exercise <?="$sectionId.$questionId"?> 
- * 
- * <?=wordwrap(trim(strip_tags($question['text']), "\n"), 75, "\n * ", true)?> 
+ * Exercise <?="$sectionId.$questionId"?>
+ *
+ * <?=wordwrap(trim(strip_tags($question['text']), "\n"), 75, "\n * ", true)?>
  *
  * Write your code below and put the answer into the variable ANSWER.
  */

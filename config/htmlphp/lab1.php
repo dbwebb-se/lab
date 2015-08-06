@@ -54,7 +54,7 @@ $s3_word1 			= $s3_wordList1[rand_int(0, count($s3_wordList1)-1)];
 $s3_word2 			= $s3_wordList2[rand_int(0, count($s3_wordList2)-1)];
 $s3_sub1			= rand_int(0, strlen($s3_word1)-1);
 $s3_sub2 			= $s3_word2[2] . $s3_word2[3];
-$s3_word3			= $s3_wordList2[rand_int(0, count($s3_wordList2)-1)]; 
+$s3_word3			= $s3_wordList2[rand_int(0, count($s3_wordList2)-1)];
 $s3_strpos1			= $s3_word3[rand_int(0, strlen($s3_word3)-1)];
 $s3_numserie1		= [rand_int(-100, 100), rand_int(-100, 100), rand_int(-100, 100), rand_int(-100, 100), rand_int(-100, 100)];
 $s3_numserie2		= [rand_int(-100, 100), rand_int(-100, 100), rand_int(-100, 100), rand_int(-100, 100), rand_int(-100, 100)];
@@ -210,7 +210,7 @@ return [
 [
 
 "text" => "
-<p>Subtract 'floatOne' from 'floatTwo', round up to 3 decimals and answer with the result. 
+<p>Subtract 'floatOne' from 'floatTwo', round up to 3 decimals and answer with the result.
 </p>
 ",
 
@@ -229,7 +229,7 @@ return [
 [
 
 "text" => "
-<p>Create a variable called 'floatThree' and give it the value $s1_floatThree.  Add 'floatOne' to 'floatTwo' and multiply the result with 'floatThree', take that result and divide it by 'numOne'. Answer with the result rounded to 4 decimals. 
+<p>Create a variable called 'floatThree' and give it the value $s1_floatThree.  Add 'floatOne' to 'floatTwo' and multiply the result with 'floatThree', take that result and divide it by 'numOne'. Answer with the result rounded to 4 decimals.
 </p>
 ",
 
@@ -406,7 +406,7 @@ return [
 [
 
 "text" => "
-<p>Create the string: \"$s1_sentence\" by combining pure text with the values of your variables 'wordOne', 'wordTwo' and 'numTwo'. Store the resulting text in a variable 'sentence'. Answer with the variable.
+<p>Create the string: \"$s1_sentence\" by combining pure text with the values of your variables 'wordOne', 'wordTwo' and 'numOne'. Store the resulting text in a variable 'sentence'. Answer with the variable.
 </p>
 ",
 
@@ -430,10 +430,10 @@ return [
 ",
 
 "answer" => function () use ($s1_sentence) {
-		
-	
-	return strlen($s1_sentence);  
-	
+
+
+	return strlen($s1_sentence);
+
 },
 
 ],
@@ -453,7 +453,7 @@ return [
 "answer" => function () use ($s3_word1, $s3_sub1) {
 
 	return substr($s3_word1, $s3_sub1, 1);
-	
+
 },
 
 ],
@@ -473,7 +473,7 @@ return [
 "answer" => function () use ($s3_word2) {
 
 	return substr($s3_word2, 3, 2);
-	
+
 },
 
 ],
@@ -493,7 +493,7 @@ return [
 "answer" => function () use ($s3_word3, $s3_strpos1) {
 
 	return strpos($s3_word3, $s3_strpos1);
-	
+
 },
 
 ],
@@ -513,7 +513,7 @@ return [
 "answer" => function () use ($s3_word3) {
 
 	return strpos($s3_word3, "xyz");
-	
+
 },
 
 ],
@@ -557,7 +557,7 @@ return [
 
 "answer" => function () use ($s2_numOne, $s2_numTwo) {
 
-	return $s2_numOne < $s2_numTwo;  
+	return $s2_numOne < $s2_numTwo;
 },
 
 ],
@@ -576,7 +576,7 @@ return [
 
 "answer" => function () use ($s2_numThree, $s2_numFour) {
 
-	return $s2_numThree > $s2_numFour;  
+	return $s2_numThree > $s2_numFour;
 },
 
 ],
@@ -601,8 +601,8 @@ return [
 	else if($s2_smallSum > $s2_smallCompare) {
 		$res = "higher";
 	}
-	
-	return $res;  
+
+	return $res;
 },
 
 ],
@@ -620,12 +620,12 @@ return [
 ",
 
 "answer" => function () use ($s2_smallSum, $s2_smallIf1, $s2_smallIf2) {
-		
+
 	$res = false;
     if ($s2_smallSum >= $s2_smallIf1 && $s2_smallSum <= $s2_smallIf2) {
         $res = true;
     }
-	return $res;	
+	return $res;
 },
 
 ],
@@ -647,7 +647,7 @@ return [
 "title" => "Iteration and loops",
 
 "intro" => "
-<p>For-loops and while-loops. 
+<p>For-loops and while-loops.
 </p>
 ",
 
@@ -663,7 +663,7 @@ return [
 [
 
 "text" => "
-<p>Create a while-loop that adds $s4_addNum to the number $s4_addTo, $s4_addTimes times. Use variables to store the numbers. Answer with the result. 
+<p>Create a while-loop that adds $s4_addNum to the number $s4_addTo, $s4_addTimes times. Use variables to store the numbers. Answer with the result.
 </p>
 ",
 
@@ -687,7 +687,7 @@ return [
 [
 
 "text" => "
-<p>Create a while-loop that subtracts $s4_toSub from the number $s4_subFrom until the number is between (not equal to) $s4_toReachLow and $s4_toReachHigh. Answer with the final result as a float, rounded to 2 decimals. 
+<p>Create a while-loop that subtracts $s4_toSub from the number $s4_subFrom until the number is between (not equal to) $s4_toReachLow and $s4_toReachHigh. Answer with the final result as a float, rounded to 2 decimals.
 </p>
 ",
 
@@ -700,7 +700,7 @@ return [
 	}
 
 	return round($result, 2);
-	
+
 },
 
 ],
@@ -724,7 +724,7 @@ return [
 	for($i=0;$i<=$s4_forSmall;$i++) {
 		$result .= $i . ',';
 	}
-    
+
 	return rtrim($result, ',');
 },
 
@@ -750,17 +750,15 @@ return [
 	$res = 0;
 
 	for($i = $s4_toReachLow; $i <= $max; $i++) {
-		if($i % 2 === 0) {
-			$res += $i * pi();
-		}
-        elseif ($i % 10 === 0) {
-            ;
+		if ($i % 10 != 0) {
+            if ($i % 2 === 0) {
+    			$res += $i * pi();
+    		} else {
+    			$res -= sqrt($i);
+    		}
         }
-		else {
-			$res -= sqrt($i);
-		}
 	}
-	return ceil($res);
+	return intval(ceil($res));
 },
 
 ],

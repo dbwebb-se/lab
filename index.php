@@ -11,7 +11,6 @@ if (!is_writable(__DIR__)) {
     exit;
 }
 
-
 $dsn = "sqlite:db.sqlite";
  
 // Open the database file and catch the exception it it fails.

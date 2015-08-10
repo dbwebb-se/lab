@@ -12,8 +12,19 @@ if (!is_writable(__DIR__)) {
 }
 
 
-$db = new PDO("sqlite:db.sqlite");
-
+$dsn = "sqlite:db.sqlite";
+ 
+// Open the database file and catch the exception it it fails.
+try {
+    $db = new PDO($dsn);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo "Failed to connect to the database using DSN:<br>$dsn<br>";
+    throw $e;
+}
+ 
+ 
+ 
 /**
  * Create table
  */

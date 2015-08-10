@@ -61,7 +61,7 @@ $s2_keyArray2 = $s2_keyArray;
 $s2_keyArray2[$s2_addThisKey] = $s2_addThisValue;
 
 $s2_randKey = array_rand($s2_keyArray2, 1);
-
+//print_r($s2_keyArray2);
 // ################### SECTION 3 ##################
 
 $s3_arr1 = [
@@ -143,9 +143,7 @@ return [
 [
 "title" => "Arrays - with numeric index",
 
-"intro" => "
-<p>??????</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -178,12 +176,12 @@ return [
 [
 
 "text" => "
-<p>Create a new array called 'capitals' with the items: ['$s1_capitalPrint']. Answer with a string containing each country from the 'countries'-array followed by the corresponding capital. Use the format 'country = capital, country = capital...'. 
+<p>Create a new array called 'capitals' with the items: ['$s1_capitalPrint']. Answer with a string containing each country from the 'countries'-array followed by the corresponding capital. Use the format 'country = capital, country = capital...'.
 </p>
 ",
 
 "answer" => function () use($s1_useThisCountryArray, $s1_useThisCapitalArray) {
-	
+
 	$ca = $s1_useThisCapitalArray;
 	$co = $s1_useThisCountryArray;
 
@@ -205,7 +203,7 @@ return [
 ",
 
 "answer" => function () use($s1_arrSel) {
-	
+
     return $s1_arrSel[0]+$s1_arrSel[1];
 },
 
@@ -219,7 +217,7 @@ return [
 [
 
 "text" => "
-<p>Use your arrays 'numbers1' and 'capitals' to change item at index $s1_smallRand2 in 'numbers1' to the item at index $s1_smallRand1 in 'capitols'. Answer with your 'numbers1'-array.  
+<p>Use your arrays 'numbers1' and 'capitals' to change item at index $s1_smallRand2 in 'numbers1' to the item at index $s1_smallRand1 in 'capitols'. Answer with your 'numbers1'-array.
 </p>
 ",
 
@@ -266,10 +264,7 @@ return [
 [
 "title" => "Arrays - with keys",
 
-"intro" => "
-<p>?????
-</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -288,10 +283,10 @@ return [
 ",
 
 "answer" => function () use($s2_keyArray) {
-	
-	
-	
-	return $s2_keyArray;  
+
+
+
+	return $s2_keyArray;
 },
 
 ],
@@ -309,10 +304,10 @@ return [
 ",
 
 "answer" => function () use($s2_keyArray2) {
-	
-	
-	
-	return $s2_keyArray2;  
+
+
+
+	return $s2_keyArray2;
 },
 
 ],
@@ -330,7 +325,7 @@ return [
 ",
 
 "answer" => function () use($s2_keyArray2, $s2_randKey) {
-	return $s2_keyArray2[$s2_randKey];  
+	return $s2_keyArray2[$s2_randKey];
 },
 
 ],
@@ -351,10 +346,7 @@ return [
 [
 "title" => "Arrays - built-in functions",
 
-"intro" => "
-<p>?????
-</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -373,10 +365,10 @@ return [
 ",
 
 "answer" => function () use ($s3_arrSel) {
-		
-	
-	return count($s3_arrSel);  
-	
+
+
+	return count($s3_arrSel);
+
 },
 
 ],
@@ -394,11 +386,11 @@ return [
 ",
 
 "answer" => function () use ($s3_arrSel2) {
-		
+
 	sort($s3_arrSel2);
 
-	return $s3_arrSel2;  
-	
+	return $s3_arrSel2;
+
 },
 
 ],
@@ -416,11 +408,11 @@ return [
 ",
 
 "answer" => function () use ($s3_arrSel) {
-		
+
 	asort($s3_arrSel);
 
-	return $s3_arrSel;  
-	
+	return $s3_arrSel;
+
 },
 
 ],
@@ -438,11 +430,11 @@ return [
 ",
 
 "answer" => function () use ($s3_arrSel) {
-		
+
 	$temp = array_pop($s3_arrSel);
 
-	return $temp;  
-	
+	return $temp;
+
 },
 
 ],
@@ -460,11 +452,11 @@ return [
 ",
 
 "answer" => function () use ($s3_arrSel2, $s3_single) {
-		
+
 	array_push($s3_arrSel2, $s3_single);
 
-	return $s3_arrSel2;  
-	
+	return $s3_arrSel2;
+
 },
 
 ],
@@ -483,8 +475,8 @@ return [
 
 "answer" => function () use ($s3_newArray) {
 
-	return array_shift($s3_newArray);  
-	
+	return array_shift($s3_newArray);
+
 },
 
 ],
@@ -506,7 +498,7 @@ return [
 	array_shift($s3_newArray);
 	array_unshift($s3_newArray, $s3_singelState1, $s3_singleState2);
 
-	return $s3_newArray;   
+	return $s3_newArray;
 },
 
 ],
@@ -525,7 +517,7 @@ return [
 
 "answer" => function () use ($s3_arrSel) {
 
-	return array_reverse($s3_arrSel);   
+	return array_reverse($s3_arrSel);
 },
 
 ],
@@ -538,13 +530,13 @@ return [
 [
 
 "text" => "
-<p>Use implode() on your 'capital'-array and answer with a string where each item is separated by a hyphen (-). 
+<p>Use implode() on your 'capital'-array and answer with a string where each item is separated by a hyphen (-).
 </p>
 ",
 
 "answer" => function () use ($s4_capitals) {
 
-	return implode("-", $s4_capitals);   
+	return implode("-", $s4_capitals);
 },
 
 ],
@@ -565,10 +557,7 @@ return [
 [
 "title" => "Arrays - for-each loop",
 
-"intro" => "
-<p>????? 
-</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -628,16 +617,16 @@ return [
 [
 
 "text" => "
-<p>Create an array with the keys: 'one', 'two', 'three', 'four' and 'five' and the values: 1, 2, 3, 4, 5. Use a foreach-loop to add all keys and values to an array in the format: ['key=value', key=value, etc']. Use implode() to make the answer a string with all items separated by a comma (,). 
+<p>Create an array with the keys: 'one', 'two', 'three', 'four' and 'five' and the values: 1, 2, 3, 4, 5. Use a foreach-loop to add all keys and values to an array in the format: ['key=value', key=value, etc']. Use implode() to make the answer a string with all items separated by a comma (,).
 </p>
 ",
 
 "answer" => function () use ($s4_foreach1) {
 	$res = [];
 	foreach ($s4_foreach1 as $key => $val) {
-		
+
 		array_push($res, $key . "=" . $val);
-		
+
 	}
 	return implode(",", $res);
 },

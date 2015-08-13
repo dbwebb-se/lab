@@ -42,7 +42,7 @@ $s1_euroToConvert = rand_int(100, 999);
 $s1_inRange = rand_int(10, 150);
 
 $s1_diameter = rand_int(5, 20);
-$s1_circleArea = round((($s1_diameter/2)*($s1_diameter/2))*pi(),4); 
+$s1_circleArea = round((($s1_diameter/2)*($s1_diameter/2))*pi(),4);
 
 
 // ################### SECTION 2 ##################
@@ -205,7 +205,7 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'euroToDollar' that takes one argument, the euro amount to convert to dollars. Count 1 Euro as $s1_dollars dollars. Return the dollar amount of $s1_euroToConvert Euros. Answer with the result as a float with 4 decimals. 
+<p>Create a function called 'euroToDollar' that takes one argument, the euro amount to convert to dollars. Count 1 Euro as $s1_dollars dollars. Return the dollar amount of $s1_euroToConvert Euros. Answer with the result as a float with 4 decimals.
 </p>
 ",
 
@@ -275,7 +275,7 @@ return [
 
 	$prev = 2;
 	$prev2 = 1;
-	$res = 2;
+	$res = 1;
 	$num = 0;
 	while ($num < 1000000) {
 	  $num = $prev + $prev2;

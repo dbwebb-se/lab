@@ -7,13 +7,12 @@ include __DIR__ . "/../random.php";
 
 // ################### Files ##################
 
-$books = ["Dracula", "SherlockHolmes", "SleepyHollow", "Grimm", "Frankenstein"];
+$books = ["SherlockHolmes", "SleepyHollow", "Grimm", "Frankenstein"];
 $bookNr = rand_int(0, count($books)-1);
 $useThisBook = $books[$bookNr];
 $file1 = file_get_contents(__DIR__ . "/$useThisBook.txt");
 $file2 = file_get_contents(__DIR__ . "/$useThisBook.txt", NULL, NULL, 16, 25);
 $file3 = explode(PHP_EOL, $file1);
-
 
 $numbers = [
 [rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100),rand_int(3,100)],
@@ -26,10 +25,12 @@ $nrRand = rand_int(0, count($numbers)-1);
 $useThisNrs = $numbers[$nrRand];
 $nrsPrint = implode(", ", $useThisNrs);
 
-file_put_contents(__DIR__ . "/temp.txt", $file1);
-$file4 = file_get_contents(__DIR__ . "/temp.txt");
-file_put_contents(__DIR__ . "/temp.txt", $nrsPrint);
-$file5 = explode(", ", file_get_contents(__DIR__ . "/temp.txt"));
+//file_put_contents(__DIR__ . "/temp.txt", $file1);
+//$file4 = file_get_contents(__DIR__ . "/temp.txt");
+$file4 = $file1;
+//file_put_contents(__DIR__ . "/temp.txt", $nrsPrint);
+$file5 = explode(", ", $nrsPrint);   // new
+// $file5 = explode(", ", file_get_contents(__DIR__ . "/temp.txt"));
 array_push($file5, "$nrRand");
 
 $sentances = [
@@ -46,10 +47,11 @@ $sentances = [
 $sentRand = rand_int(0, count($sentances)-1);
 $useThisSent = $sentances[$sentRand];
 $useThisSentPrint = implode(", ", $useThisSent);
-
-$file6 = serialize($useThisSent);
-file_put_contents(__DIR__ . "/temp.txt", $file6);
-$file6 = unserialize(file_get_contents(__DIR__ . "/temp.txt"));
+$file6 = unserialize(file_get_contents(__DIR__ . "/serialized.txt"));
+// $file6 = serialize($useThisSent);
+// $file6 = unserialize($file6);
+//file_put_contents(__DIR__ . "/temp.txt", $file6);
+//$file6 = unserialize(file_get_contents(__DIR__ . "/temp.txt"));
 
 $encodingWords = ["övergångsställe", "skärgårdsö", "räksmörgås", "förmånsrätt", "björnbärssås"];
 $encRand = rand_int(0, count($encodingWords)-1);
@@ -121,7 +123,7 @@ return [
 "title" => "Date and time",
 
 "intro" => "
-<p>In this section you will be working with the DateTime-object. If you manipulate the object, such as add or subtract, the original object will be changed, hence you will create new objects from the same date in thise exercises. Read more on: http://php.net/manual/en/class.datetime.php.
+<p>In this section you will be working with the DateTime-object. If you manipulate the object, such as add or subtract, the original object will be changed, hence you will create new objects from the same date in these exercises. Read more on: http://php.net/manual/en/class.datetime.php.
 </p>
 ",
 
@@ -156,7 +158,7 @@ return [
 [
 
 "text" => "
-<p>Create a new DateTime-object with the same parameters and add 3 months to it. Answer with the result, presented in the format: yyyy-mm-dd.
+<p>Create a new DateTime-object with the same parameters and add 3 months to it. Answer with the result, presented in the format: 'Y-m-d'.
 </p>
 ",
 
@@ -194,7 +196,7 @@ return [
 [
 
 "text" => "
-<p>Create a new DateTime-object based on the same date and time and subtract 5 days and 3 hours from it. Answer with the whole date, presented in the format: yyyy-mm-dd hours:minutes:seconds.
+<p>Create a new DateTime-object based on the same date and time and subtract 5 days and 3 hours from it. Answer with the whole date, presented in the format: 'Y-m-d hours:minutes:seconds'.
 </p>
 ",
 
@@ -222,7 +224,7 @@ return [
 "title" => "Working with files",
 
 "intro" => "
-<p>In this section, you will be working with the file: '$useThisBook.txt'. It contains a paragraph from a book.</p>
+<p>In this section, you will be working with the file: '$useThisBook.txt'. It contains a paragraph from a book and can be found in the lab folder.</p>
 ",
 
 "shuffle" => false,
@@ -284,42 +286,6 @@ return [
 
 
 
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => "
-<p>Use your varable, 'fileAsString' and write it to a file, called 'temp.txt'. Read the content into a variable and answer with it.</p>
-",
-
-"answer" => function () use($file4) {
-
-    return $file4;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => "
-<p>Create an array with the numbers [$nrsPrint]. Use 'implode()' to make it a comma-separated string and overwrite the content in the file 'temp.txt'. Get the content from the file and use 'explode()' to make it to an array again, without the commas. Insert the number: $nrRand as a string in the end and answer with the array.</p>
-",
-
-"answer" => function () use($file5) {
-
-    return $file5;
-},
-
-],
-
-
-
 /**
  * Closing up this section.
  */
@@ -334,10 +300,7 @@ return [
 [
 "title" => "Serialize",
 
-"intro" => "
-<p>Some intro text.
-</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -351,7 +314,7 @@ return [
 [
 
 "text" => "
-<p>Use the array: [$useThisSentPrint] and 'serialize' it and overwrite the content of 'temp.txt' with the result. 'Unserialize' the content from the file back to an array and answer with it. (Take a peek into your 'temp.txt' to see how a serialized array looks)
+<p>Use the file 'serialized.txt' in your lab folder and read it, unserialize it and put the result in your answer. (Take a peek into your 'serialized.txt' to see how a serialized array looks)
 </p>
 ",
 
@@ -419,7 +382,7 @@ return [
 
 "answer" => function () use($rot) {
 
-    
+
     return $rot;
 },
 
@@ -439,7 +402,7 @@ return [
 
 "answer" => function () use($plain) {
 
-    
+
     return $plain;
 },
 
@@ -459,7 +422,7 @@ return [
 
 "answer" => function () use($mdFive) {
 
-    
+
     return $mdFive;
 },
 
@@ -481,9 +444,7 @@ return [
 [
 "title" => "Multibyte strings",
 
-"intro" => "
-<p>Some intro text.</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 
@@ -502,7 +463,7 @@ return [
 ",
 
 "answer" => function () use($encAns1) {
-    
+
     return $encAns1;
 },
 
@@ -521,7 +482,7 @@ return [
 ",
 
 "answer" => function () use($encAns2) {
-    
+
     return $encAns2;
 },
 
@@ -540,7 +501,7 @@ return [
 ",
 
 "answer" => function () use($encAns3) {
-    
+
     return $encAns3;
 },
 

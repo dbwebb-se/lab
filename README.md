@@ -15,7 +15,7 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
-v0.0.x (latest)
+v2.0.0 (2015-08-17)
 
 * Added support for PHP labs and integrated with htmlphp-labs.
 * Hint and answer is now printed as json to visualize the type.

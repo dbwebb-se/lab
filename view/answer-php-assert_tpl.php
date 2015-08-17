@@ -81,7 +81,7 @@ class CDbwebb
      *
      * @return boolean true if all answers are correct, else false
      */
-    public function printSummary()
+    public function exitWithSummary()
     {
         $total = count($this->answers["answers"]);
         echo "Done with status {$total}/{$this->correct}/{$this->failed}/"

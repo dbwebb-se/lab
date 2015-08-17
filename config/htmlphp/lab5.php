@@ -19,7 +19,7 @@ $q3Use1 = $q3a[rand_int(0, count($q3a)-1)];
 $q3Use2 = $q3b[rand_int(0, count($q3b)-1)];
 
 // ################### Connect to Database ##################
- 
+
 try {
     $mydb = new PDO("sqlite:" . __DIR__ . "/myDB.sqlite");
     $mydb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
@@ -28,45 +28,60 @@ catch(PDOException $e) {
     echo $e->getMessage();
 }
 
-// ################### HELPERS ########################
-
-$tempBorn = [];
-
 // ################### SETUP QUERIES ##################
 
-$query1     = "SELECT firstName FROM people WHERE countryOfBirth=?";
-$query2     = "SELECT * FROM people WHERE born=?";
-$query3     = "SELECT born FROM people WHERE lastName IN (?,?)"; 
-$query4     = "SELECT count(*) FROM people";
-$query5     = "SELECT * FROM people"; 
+$query1 = "SELECT firstName FROM people WHERE countryOfBirth=?";
+$query2 = "SELECT * FROM people WHERE born=?";
+$query3 = "SELECT born FROM people WHERE lastName IN (?,?)";
+$query4 = "SELECT count(*) FROM people";
+$query5 = "SELECT MIN(born), countryOfBirth FROM people";
+$query6 = "SELECT AVG(born) FROM people";
+$query7 = "SELECT MAX(born), cityOfBirth FROM people WHERE countryOfBirth='USA'";
+$query8 = "SELECT firstName, lastname FROM people ORDER BY lastName";
 
 // ################### PREPARE STATEMENTS ##################
 
-$stmt1      = $mydb->prepare($query1);
-$stmt2      = $mydb->prepare($query2);
-$stmt3      = $mydb->prepare($query3);
-$stmt4      = $mydb->prepare($query4);
-$stmt5      = $mydb->prepare($query5);
+$stmt1 = $mydb->prepare($query1);
+$stmt2 = $mydb->prepare($query2);
+$stmt3 = $mydb->prepare($query3);
+$stmt4 = $mydb->prepare($query4);
+$stmt5 = $mydb->prepare($query5);
+$stmt6 = $mydb->prepare($query6);
+$stmt7 = $mydb->prepare($query7);
+$stmt8 = $mydb->prepare($query8);
 
 // ################### EXECUTE STATEMENTS ##################
 
-$stmt1      ->execute(array($q1Use));
-$stmt2      ->execute(array($q2Use));
-$stmt3      ->execute(array($q3Use1, $q3Use2));
-$stmt4      ->execute();
-$stmt5      ->execute();
+$stmt1->execute(array($q1Use));
+$stmt2->execute(array($q2Use));
+$stmt3->execute(array($q3Use1, $q3Use2));
+$stmt4->execute();
+$stmt5->execute();
+$stmt6->execute();
+$stmt7->execute();
+$stmt8->execute();
 
 // ################### GET RESULTS #################
 
-$res1       = $stmt1->fetchAll(PDO::FETCH_ASSOC);
-$res2       = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-$res3       = $stmt3->fetchAll(PDO::FETCH_ASSOC);
-$res4       = $stmt4->fetch(PDO::FETCH_NUM);
-$res5       = $stmt5->fetchAll(PDO::FETCH_ASSOC);
+$res1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+$res2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+$res3 = $stmt3->fetchAll(PDO::FETCH_ASSOC);
+$res4 = $stmt4->fetch(PDO::FETCH_NUM);
+$res5 = $stmt5->fetchAll(PDO::FETCH_ASSOC);
+$res6 = $stmt6->fetch(PDO::FETCH_NUM);
+$res7 = $stmt7->fetch(PDO::FETCH_ASSOC);
+$res8 = $stmt8->fetchAll(PDO::FETCH_ASSOC);
 
 // ################### FIX ANSWERS ##################
 
-$answer1 = []; $answer2 = ""; $answer3 = 0; $answer4 = 0; $answer5 = "";
+$answer1 = [];
+$answer2 = "";
+$answer3 = 0;
+$answer4 = (int)$res4[0];
+$answer5 = "";
+$answer6 = (int)$res6[0];
+$answer7 = (string)$res7['cityOfBirth'];
+$answer8 = [];
 
 foreach ($res1 as $row) {
     array_push($answer1, $row['firstName']);
@@ -80,56 +95,13 @@ foreach ($res3 as $row) {
     $answer3 += (int)$row['born'];
 }
 
-$answer4 = (int)$res4[0];
-
 foreach ($res5 as $row) {
-    array_push($tempBorn, (int)$row['born']);
+    $answer5 = $row['countryOfBirth'];
 }
 
-foreach ($res5 as $row) {
-    if((int)$row['born'] == min($tempBorn)) {
-        $answer5 = $row['countryOfBirth'];
-    }
+foreach ($res8 as $row) {
+    array_push($answer8, $row['lastName'] . " " . $row['firstName']);
 }
-
-// ################### CREATE TABLE ##########################
-
-$tableNames     = ["animals", "books", "movies"];
-$tableColNames  = [
-["id", "species", "name"],
-["id", "title", "author"],
-["id", "title", "director"]
-];
-$tableCol1 = [
-["Lion", "Giraffe", "Zebra", "Hippo", "Penquin"],
-["The art of war", "The Shining", "Ulysses", "Lord of the flies", "Pride and justice"],
-["Super 8", "Creepshow", "Goodfellas", "Apollo 13", "Spaceballs"]
-];
-$tableCol2 = [
-["Alex", "Melman", "Marty", "Gloria", "Skipper"],
-["Sun Tzu", "Stephen King", "James Joyce", "William Golding", "Jane Austen"],
-["J.J. Abrams", "George Romero", "Martin Scorsese", "Ron Howard", "Mel Brooks"]
-];
-
-$magicNr = rand_int(0, count($tableNames)-1);
-$printTableName = $tableNames[$magicNr];
-$printColNames = implode(", ", $tableColNames[$magicNr]);
-$printCol1 = implode(", ", $tableCol1[$magicNr]);
-$printCol2 = implode(", ", $tableCol2[$magicNr]);
-$vals = "";
-for($i=0; $i<count($tableCol1[$magicNr]); $i++) {
-    $vals .= $tableCol1[$magicNr][$i] . " " . $tableCol2[$magicNr][$i];
-}
-$useCol1 = $tableColNames[$magicNr][1];
-$useCol2 = $tableColNames[$magicNr][2];
-$final = [
-    $tableCol1[$magicNr][0]=>$tableCol2[$magicNr][0],
-    $tableCol1[$magicNr][1]=>$tableCol2[$magicNr][1],
-    $tableCol1[$magicNr][2]=>$tableCol2[$magicNr][2],
-    $tableCol1[$magicNr][3]=>$tableCol2[$magicNr][3],
-    $tableCol1[$magicNr][4]=>$tableCol2[$magicNr][4],
-    ];
-
 
 // ################### Close the connection ##################
 
@@ -168,7 +140,7 @@ return [
 "title" => "Working with SQLite and PDO",
 
 "intro" => "
-<p>The database has six columns: 'id', 'firstName', 'lastName', 'born', 'cityOfBirth', 'countryOfBirth'.
+<p>The database one table called 'people' with has six columns: 'id', 'firstName', 'lastName', 'born', 'cityOfBirth', 'countryOfBirth'.
 </p>
 ",
 
@@ -279,13 +251,51 @@ return [
 [
 
 "text" => "
-<p>Create a table, called '$printTableName', with the columns '$printColNames'. The first column, 'id', should be an integer with auto increment. The other columns should be strings. Insert the values: '$printCol1' in the second column and in the third column, insert the values '$printCol2'. Question the database and answer with an an associative array containing the '$useCol1' as the key and the '$useCol2' as the value.
+<p>What is the average value of the column 'born'? Answer with an integer.
 </p>
 ",
 
-"answer" => function () use($final){
+"answer" => function () use($answer6){
 
-    return $final;
+    return $answer6;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Find the youngest person born in USA. Which city is he/she born in? Answer with a string.
+</p>
+",
+
+"answer" => function () use($answer7){
+
+    return $answer7;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Get the first name and lastname of all persons in the database. Order them by their last name, alphabetically and ascending. Answer with an array of strings, ['lastName firstName', 'lastName firstName'].
+</p>
+",
+
+"answer" => function () use($answer8){
+
+    return $answer8;
 },
 
 ],

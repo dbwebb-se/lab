@@ -278,7 +278,7 @@ return [
 [
 
 "text" => "
-<p>Use your 'countries' and 'capitals' arrays and create another array called 'keyArray'. The country should be the key and the capital should be the value. Answer with the new array. (hint: 'country'=>'capital')
+<p>Use your 'countries' and 'capitals' arrays and create another array called 'keyArray'. The country should be the key and the capital should be the value. Answer with the new array. (hint: 'country'=&gt;'capital')
 </p>
 ",
 

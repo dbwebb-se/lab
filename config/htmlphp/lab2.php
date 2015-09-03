@@ -57,11 +57,14 @@ $s2_smallRand = rand_int(0, count($s2_moreKeys)-1);
 $s2_addThisKey = $s2_moreKeys[$s2_smallRand];
 $s2_addThisValue = $s2_moreValues[$s2_smallRand];
 
+//$s2_newArr = $s2_keyArray;
+
 $s2_keyArray2 = $s2_keyArray;
 $s2_keyArray2[$s2_addThisKey] = $s2_addThisValue;
+$s2_randKey = $s1_useThisCountryArray[rand_int(0, count($s1_useThisCountryArray)-1)];
 
-$s2_randKey = array_rand($s2_keyArray2, 1);
-//print_r($s2_keyArray2);
+//$s2_randKey = $s2_keyArray2[$s2_newRand];
+//print_r($s2_newRand);
 // ################### SECTION 3 ##################
 
 $s3_arr1 = [
@@ -409,7 +412,7 @@ return [
 
 "answer" => function () use ($s3_arrSel) {
 
-	asort($s3_arrSel);
+	arsort($s3_arrSel);
 
 	return $s3_arrSel;
 

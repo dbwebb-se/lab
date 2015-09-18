@@ -489,7 +489,7 @@ return [
 [
 
 "text" => "
-<p>Find the last element on each line and sum all that are even numbers. Answer with the result as an integer.
+<p>Find the last element (digit) on each line, if there are any, and sum all that are even. Answer with the result as an integer.
 </p>
 ",
 

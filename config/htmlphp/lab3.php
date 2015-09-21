@@ -281,7 +281,7 @@ return [
 	  $prev2 = $prev;
 	  $prev = $num;
 
-	  if (($num % 2) != 0) {
+	  if (($num % 2) != 0 && $num < 1000000) {
 	    $res += $num;
 	  }
 	}

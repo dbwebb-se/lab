@@ -39,10 +39,10 @@ $s1_f2				= $s1_formatRand[1];
 $s1_f3				= $s1_formatRand[2];
 
 $s1_findSlice = [
-"154.84.56.0 : (wallpaper), soda", 
-"567.1.53.4 : (greece), table", 
-"196.98.2.54 : (tree), window", 
-"984.45.6.65 : (wasp), boat", 
+"154.84.56.0 : (wallpaper), soda",
+"567.1.53.4 : (greece), table",
+"196.98.2.54 : (tree), window",
+"984.45.6.65 : (wasp), boat",
 "789.234.2.54 : (sunshine), bakery"];
 $s1_slice1		= $s1_findSlice[rand_int(0, count($s1_findSlice)-1)];
 
@@ -435,7 +435,7 @@ return [
 [
 
 "text" => "
-<p>Find out which of the ip adresses 81.226.253.26 and 95.19.133.73 that has the highest amount of entries. Answer with the result as an integer.
+<p>Find out which of the ip adresses 81.226.253.26 and 95.19.133.73 that has the highest amount of entries in the file. Answer with the result as an integer.
 </p>
 ",
 
@@ -453,7 +453,7 @@ return [
 [
 
 "text" => "
-<p>Count the number of periods (.) there are in the file. Use the built-in function count() on the file after you have converted it to a string. Answer with the result as an integer. 
+<p>Count the number of periods (.) there are in the file. Use the built-in function count() on the file after you have converted it to a string. Answer with the result as an integer.
 </p>
 ",
 

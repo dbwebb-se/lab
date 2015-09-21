@@ -82,9 +82,7 @@ return [
 [
 "title" => "Basic functions",
 
-"intro" => "
-<p>??????</p>
-",
+"intro" => "",
 
 "shuffle" => false,
 

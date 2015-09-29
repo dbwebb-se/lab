@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.0.1 (2015-09-29)
+
+* Tagging before major rewrite.
+
+
 v2.0.0 (2015-08-17)
 
 * Added support for PHP labs and integrated with htmlphp-labs.

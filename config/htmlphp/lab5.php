@@ -140,7 +140,7 @@ return [
 "title" => "Working with SQLite and PDO",
 
 "intro" => "
-<p>The database one table called 'people' with has six columns: 'id', 'firstName', 'lastName', 'born', 'cityOfBirth', 'countryOfBirth'.
+<p>The database has one table called 'people'. 'people' has six columns: 'id', 'firstName', 'lastName', 'born', 'cityOfBirth', 'countryOfBirth'.
 </p>
 ",
 

@@ -34,7 +34,8 @@ try {
 /**
  * All courses/labs and their configfile.
  */
-const VALID_LABS = [
+//const VALID_LABS = [
+$VALID_LABS = [
     "javascript1/lab1" => "config/javascript1/lab1.php",
     "javascript1/lab2" => "config/javascript1/lab2.php",
     "javascript1/lab3" => "config/javascript1/lab3.php",
@@ -57,5 +58,8 @@ const VALID_LABS = [
     "oophp/lab1" => "config/oophp/lab1.php",
 
     "linux/lab1" => "config/linux/lab1.php",
+
+    "webgl/lab1" => "config/webgl/lab1.php",
+    "webgl/lab2" => "config/webgl/lab2.php",
 
 ];

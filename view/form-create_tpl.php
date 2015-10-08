@@ -8,6 +8,7 @@
         <option value="htmlphp">htmlphp</option>
         <option value="oophp">oophp</option>
         <option value="linux">linux</option>
+        <option value="webgl">webgl</option>
     </select></label>
 </p>
 

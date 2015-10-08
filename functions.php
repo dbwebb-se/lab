@@ -46,7 +46,7 @@ create table if not exists lab
     acronym text,
     course text,
     lab text,
-    version text
+    version text,
     created datetime
 )
 ";
@@ -104,10 +104,12 @@ function generateKey($acronym, $course, $lab, $created)
  */
 function getConfigurationFor($course, $lab)
 {
+    global $VALID_LABS;
+    
     if ($lab == 'labtest') {
         return "config/labtest.php";
-    } elseif (array_key_exists("$course/$lab", VALID_LABS)) {
-        return VALID_LABS["$course/$lab"];
+    } elseif (array_key_exists("$course/$lab", $VALID_LABS)) {
+        return $VALID_LABS["$course/$lab"];
     }
     return false;
 }

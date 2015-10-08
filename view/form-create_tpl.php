@@ -6,6 +6,8 @@
         <option value="javascript1">javascript1</option>
         <option value="python">python</option>
         <option value="htmlphp">htmlphp</option>
+        <option value="oophp">oophp</option>
+        <option value="linux">linux</option>
     </select></label>
 </p>
 

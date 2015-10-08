@@ -4,12 +4,8 @@ $text = $key . "\n";
 $text .= "--------------------------------\n";
 
 foreach ($sections as $section) {
-
     foreach ($section['questions'] as $question) {
-
         $text .= formatAnswerPrintable($question['answer']()) . "\n";
-
-
     }
 }
 

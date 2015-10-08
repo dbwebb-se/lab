@@ -17,6 +17,8 @@ $doAnswerPhp        = isset($_GET['answer-php'])        ? true : false;
 $doAnswerPhpAssert  = isset($_GET['answer-php-assert']) ? true : false;
 $doAnswerPy         = isset($_GET['answer-py'])         ? true : false;
 $doAnswerPyAssert   = isset($_GET['answer-py-assert'])  ? true : false;
+$doAnswerBash       = isset($_GET['answer-bash'])       ? true : false;
+$doAnswerBashAssert = isset($_GET['answer-bash-assert']) ? true : false;
 $doAnswerJson       = isset($_GET['answer-json'])       ? true : false;
 $doAnswerExtra      = isset($_GET['answer-extra'])      ? true : false;
 
@@ -25,7 +27,7 @@ $key                = isset($_GET['key']) ? $_GET['key'] : null;
 
 
 // Check or die
-($doLab 
+($doLab
     || $doAnswers
     || $doAnswerHtml
     || $doAnswerJs
@@ -33,6 +35,8 @@ $key                = isset($_GET['key']) ? $_GET['key'] : null;
     || $doAnswerPhpAssert
     || $doAnswerPy
     || $doAnswerPyAssert
+    || $doAnswerBash
+    || $doAnswerBashAssert
     || $doAnswerJson
     || $doAnswerExtra)
         or die("Missing what to do.");
@@ -47,104 +51,23 @@ $acronym    = $res->acronym;
 $course     = $res->course;
 $lab        = $res->lab;
 $created    = $res->created;
+$version    = $res->version;
 
 
 
-// Generate
-if ($course == 'javascript1' && $lab == 'lab1') {
-    
-    extract(include "config/javascript1/lab1.php");
-    // shuffle questions
+// Read configuration for lab
+$configFile = getConfigurationFor($course, $lab);
 
-} else if ($course == 'javascript1' && $lab == 'lab2') {
-    
-    extract(include "config/javascript1/lab2.php");
-    // shuffle questions
-
-} else if ($course == 'javascript1' && $lab == 'lab3') {
-    
-    extract(include "config/javascript1/lab3.php");
-    // shuffle questions
-
-} else if ($course == 'javascript1' && $lab == 'lab4') {
-    
-    extract(include "config/javascript1/lab4.php");
-    // shuffle questions
-
-} else if ($course == 'javascript1' && $lab == 'lab5') {
-    
-    extract(include "config/javascript1/lab5.php");
-    // shuffle questions
-
-} else if ($course == 'python' && $lab == 'lab1') {
-    
-    extract(include "config/python/lab1.php");
-    // shuffle questions
-
-} else if ($course == 'python' && $lab == 'lab2') {
-    
-    extract(include "config/python/lab2.php");
-    // shuffle questions
-
-} else if ($course == 'python' && $lab == 'lab3') {
-    
-    extract(include "config/python/lab3.php");
-    // shuffle questions
-
-} else if ($course == 'python' && $lab == 'lab4') {
-    
-    extract(include "config/python/lab4.php");
-    // shuffle questions
-
-} else if ($course == 'python' && $lab == 'lab5') {
-    
-    extract(include "config/python/lab5.php");
-    // shuffle questions
-
-} else if ($course == 'python' && $lab == 'lab6') {
-    
-    extract(include "config/python/lab6.php");
-    // shuffle questions
-
-} else if ($course == 'htmlphp' && $lab == 'lab1') {
-    
-    extract(include "config/htmlphp/lab1.php");
-    // shuffle questions
-
-} else if ($course == 'htmlphp' && $lab == 'lab2') {
-    
-    extract(include "config/htmlphp/lab2.php");
-    // shuffle questions
-
-} else if ($course == 'htmlphp' && $lab == 'lab3') {
-    
-    extract(include "config/htmlphp/lab3.php");
-    // shuffle questions
-
-} else if ($course == 'htmlphp' && $lab == 'lab4') {
-    
-    extract(include "config/htmlphp/lab4.php");
-    // shuffle questions
-
-} else if ($course == 'htmlphp' && $lab == 'lab5') {
-    
-    extract(include "config/htmlphp/lab5.php");
-    // shuffle questions
-
-} else if ($lab == 'labtest') {
-    
-    extract(include "config/labtest.php");
-    // shuffle questions
-
-} else {
+if ($configFile === false) {
     die("Not a valid combination.");
 }
 
+extract(include $configFile);
+// shuffle questions
 
 
-if ($doLab && $doAnswers) {
-    include "view/lab_tpl.php";
-} else if ($doLab) {
+// Apply the config to the choosen view
+if ($doLab) {
     include "view/lab_tpl.php";
 } else if ($doAnswers) {
     include "view/answers_tpl.php";
@@ -160,6 +83,10 @@ if ($doLab && $doAnswers) {
     include "view/answer-py_tpl.php";
 } else if ($doAnswerPyAssert) {
     include "view/answer-py-assert_tpl.php";
+} else if ($doAnswerBash) {
+    include "view/answer-bash_tpl.php";
+} else if ($doAnswerBashAssert) {
+    include "view/answer-bash-assert_tpl.php";
 } else if ($doAnswerJson) {
     include "view/answer-json_tpl.php";
 } else if ($doAnswerExtra) {

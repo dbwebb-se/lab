@@ -1,6 +1,6 @@
 <?="<?php\n"?>
 /**
- * @preserve <?=$key?> generated for <?=$acronym?> at <?=$created?>
+ * @preserve <?=$key?>
  */
 
 // Set error reporting to verbose

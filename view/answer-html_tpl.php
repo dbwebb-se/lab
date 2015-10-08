@@ -9,9 +9,19 @@
 </head>
 <body>
 
-<code><?=$key?></code>
-<p><i>Generated for <?=$acronym?> at <?=$created?>.</i></p>
+<pre><?="
+$key
+$course
+$lab
+$acronym
+$created
+$version
+" ?>
+</pre>
+
+<p><i>Generated <?=$timestamp_now?> by <a href="https://github.com/mosbth/lab">dbwebb lab-utility</a> <?=VERSION?>.</i></p>
 <hr>
+
 <h1><?=$title?></h1>
 <p>Solve the exercises in the file <code>answer.js</code> and reload this file to se the outcome. Check the console for errors.</p>
 
@@ -31,7 +41,6 @@ foreach ($sections as $section) {
 <p id="summary"></p>
 
 <hr>
-<p><i>Generated for <?=$acronym?> at <?=$created?>.</i></p>
 <code><?=$key?></code>
 
 <script type="text/javascript">

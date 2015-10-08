@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""                                               
-<?=$key?> generated for <?=$acronym?> at <?=$created?> 
+"""
+<?="$key
+$course
+$lab
+$acronym
+$created
+$version
+"?>
+
+Generated <?=$timestamp_now?> by dbwebb lab-utility <?=VERSION?>.
+https://github.com/mosbth/lab
 """
 
 from Dbwebb import Dbwebb

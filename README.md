@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.1.0 (2015-09-29)
+
+* Major rewrite of frontend.
+
+
 v2.0.1 (2015-09-29)
 
 * Tagging before major rewrite.

@@ -8,6 +8,8 @@
 <a href="lab.php?answer-php-assert&amp;key=<?=$gen_key?>">Answer-php-assert</a> | 
 <a href="lab.php?answer-py&amp;key=<?=$gen_key?>">Answer-py</a> | 
 <a href="lab.php?answer-py-assert&amp;key=<?=$gen_key?>">Answer-py-assert</a> | 
+<a href="lab.php?answer-bash&amp;key=<?=$gen_key?>">Answer-bash</a> | 
+<a href="lab.php?answer-bash-assert&amp;key=<?=$gen_key?>">Answer-bash-assert</a> | 
 <a href="lab.php?answer-json&amp;key=<?=$gen_key?>">Answer-json</a> | 
 <a href="lab.php?answer-extra&amp;key=<?=$gen_key?>">Answer-extras</a> | 
 </p>

@@ -9,8 +9,17 @@
 </head>
 <body>
 
-<code><?=$key?></code>
-<p><i>Generated for <?=$acronym?> at <?=$created?>.</i></p>
+<pre><?="
+$key
+$course
+$lab
+$acronym
+$created
+$version
+" ?>
+</pre>
+
+<p><i>Generated <?=$timestamp_now?> by <a href="https://github.com/mosbth/lab">dbwebb lab-utility</a> <?=VERSION?>.</i></p>
 <hr>
 
 <h1><?=$title?></h1>
@@ -39,7 +48,7 @@ $questionId++;
 <?php if ($doAnswers) : ?>
 
 <h4>Answer</h4>
-<pre><?=formatAnswerPrintable($question['answer']())?></pre>
+<pre><?=formatAnswerPrintable($question['answer']()) . " (" . gettype($question['answer']()) . ")"?></pre>
 
 <?php endif; ?>
 
@@ -50,7 +59,6 @@ $questionId++;
 <?php endforeach; ?>
 
 <hr>
-<p><i>Generated for <?=$acronym?> at <?=$created?>.</i></p>
 <code><?=$key?></code>
 
 </body>

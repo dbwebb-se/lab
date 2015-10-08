@@ -1,5 +1,5 @@
 /**                                               
- * @preserve <?=$key?> generated for <?=$acronym?> at <?=$created?> 
+ * @preserve <?=$key?>
  */                                               
 (function(dbwebb){
     "use strict";

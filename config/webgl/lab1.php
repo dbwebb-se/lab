@@ -49,6 +49,48 @@ $sect3Sentence = $sect3SentenceSerie[$sect3SmallRand];
 $sect3WordSerie = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
 $sect3Word = $sect3WordSerie[$sect3SmallRand];
 
+// SECTION 4 ****************************************************
+
+$aYear          = rand_int(1970, 2014);//2014
+$aMonth         = 'Aug';
+$aDay           = rand_int(1, 29);
+$aDate          = "$aMonth $aDay, $aYear";
+
+// SECTION 5 ****************************************************
+
+$handSize = 5;
+$card1 = rand_int(1, 11);
+$card2 = rand_int(1, 11);
+$card3 = rand_int(1, 11);
+$card4 = rand_int(1, 11);
+$card5 = rand_int(1, 11);
+$cardSum = $card1+$card2+$card3+$card4+$card5;
+$dealer1 = rand_int(1, 11);
+$dealer2 = rand_int(1, 11);
+$dealer3 = rand_int(1, 11);
+$dealerSum = $dealer1+$dealer2+$dealer3;
+
+// SECTION 6 ****************************************************
+
+$fruits        = ["banana", "apple", "kiwi", "plum"];
+$fruitColors   = ["yellow", "green", "green", "purple"];
+
+$fruitWhich = rand_int(0, count($fruits)-1);
+$fruit      = $fruits[$fruitWhich];
+$fruitColor = $fruitColors[$fruitWhich];
+
+// SECTION 7 AND 8 ****************************************************
+
+// loops
+$loopLarge1 =  rand_int(100, 999);
+$loopLarge2 =  rand_int(100, 999);
+$loopSmall1 =  rand_int(10, 20);
+$loopSmall2 =  rand_int(10, 20);
+$loopTiny1  =  rand_int(3, 9);
+$loopTiny2  =  rand_int(3, 9);
+$loopRange1  =  rand_int(20, 29);
+$loopRange2  =  rand_int(40, 49);
+
 return [
 
 
@@ -446,6 +488,438 @@ return [
 
 
 /** ---------------------------------------------------------------------------
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Date object",
+
+"intro" => "
+<p>For more functions and methods, look into: <br>
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+</p>
+",
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 4.1
+ */
+[
+
+"text" => "
+<p>Create a Date object called 'myDate' and initiate it with: '$aDate'. Use the built-in function Date.getFullYear to get the year from your Date object. Answer with the result.
+</p>
+",
+
+"answer" => function () use ($aYear) {
+
+    return $aYear;
+},
+
+],
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 4.2
+ */
+[
+
+"text" => "
+<p>Create a new Date object that is equal to 'myDate' plus 30 days. Use Date.getDate and answer with the day of the month.
+</p>
+",
+
+"answer" => function () use ($aDate) {
+    $myDate = new DateTime($aDate);
+    $interval = new DateInterval("P30D");
+    $myDate->add($interval);
+    $res = $myDate->format('d');
+    return (int)$res;
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "If, else if and else",
+
+"intro" => "
+<p>If you need a hint, take a look at: <br>
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
+</p>
+",
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+    /** -----------------------------------------------------------------------------------
+     * A question.
+     */
+    [
+
+    "text" => "
+    <p>Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5. Add them up and answer with the result.
+    </p>
+    ",
+
+    "answer" => function () use ($card1, $card2, $card3, $card4, $card5) {
+
+        return $card1+$card2+$card3+$card4+$card5;
+    },
+
+    ],
+
+
+
+    /** -----------------------------------------------------------------------------------
+     * A question.
+     */
+    [
+
+    "text" => "
+    <p>Use an if statement to see if the five cards (card1-card5) have a combined value that is higher than 21. If the value is higher, answer with the string 'busted'. Else answer with the string 'safe'.
+    </p>
+    ",
+
+    "answer" => function () use ($cardSum) {
+
+        return $cardSum > 21 ? "busted" : "safe";
+    },
+
+    ],
+
+
+
+    /** -----------------------------------------------------------------------------------
+     * A question.
+     */
+    [
+
+    "text" => "
+    <p>Use if else statements to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly 21. Answer with lower = 'safe', higher = 'busted', 21 = 'black jack'.
+    </p>
+    ",
+
+    "answer" => function () use ($card1, $card2, $card3) {
+        $hand = $card1+$card2+$card3;
+
+        $res = "safe";
+
+        if($hand > 21) {
+            $res = "busted";
+        }
+        else if($hand == 21) {
+            $res = "black jack";
+        }
+        return $res;
+    },
+
+    ],
+
+
+
+    /** -----------------------------------------------------------------------------------
+     * A question.
+     */
+    [
+
+    "text" => "
+    <p>Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else and the AND (&&) statements to see what the dealer should do. If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'.
+    </p>
+    ",
+
+    "answer" => function () use ($dealerSum) {
+
+        $res = "";
+        if($dealerSum < 17) {
+            $res = "safe";
+        }
+        else if($dealerSum >= 17 && $dealerSum < 21) {
+            $res = "stop";
+        }
+        else if($dealerSum === 21) {
+            $res = "black jack";
+        }
+        else {
+            $res = "busted";
+        }
+        return $res;
+    },
+
+    ],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Switch, case",
+
+"intro" => "
+<p>If you need a hint, take a look at: <br>
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+</p>
+",
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 6.1
+ */
+[
+
+"text" => "
+<p>Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'. Answer with the result where 'myFruit = $fruit'.
+</p>
+",
+
+"answer" => function () use ($fruit, $fruitColor) {
+
+    $result = "The $fruit is $fruitColor.";
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 6.2
+ */
+[
+
+"text" => "
+<p>Extend your switch-case statement with a default value. The result should be 'That is an unknown fruit.' when the variable 'myFruit' has an unknown value. Answer with the result where 'myFruit = pear'.
+</p>
+",
+
+"answer" => function () {
+
+    $result = "That is an unknown fruit.";
+    return $result;
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "For loops",
+
+"intro" => "
+<p>If you need a hint, take a look at: <br>
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+</p>
+",
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 7.1
+ */
+[
+
+"text" => "
+<p>Use a for-loop to increment $loopLarge1 with the value $loopTiny1, $loopSmall1 times. Answer with the result.
+</p>
+",
+
+"answer" => function () use ($loopLarge1, $loopSmall1, $loopTiny1) {
+
+    $result = $loopLarge1;
+    for ($i = 0; $i < $loopSmall1; $i++) {
+        $result += $loopTiny1;
+    }
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 7.2
+ */
+[
+
+"text" => "
+<p>Use a for-loop to decrement $loopLarge2 with the value $loopTiny2, $loopSmall2 times. Answer with the result.
+</p>
+",
+
+"answer" => function () use ($loopLarge2, $loopSmall2, $loopTiny2) {
+
+    $result = $loopLarge2;
+    for ($i = 0; $i < $loopSmall2; $i++) {
+        $result -= $loopTiny2;
+    }
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 7.3
+ */
+[
+
+"text" => "
+<p>Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','. The result should not end with a comma.
+</p>
+",
+
+"answer" => function () use ($loopRange1, $loopRange2) {
+
+    $result = '';
+    $temp = [];
+    for ($i = $loopRange1; $i <= $loopRange2; $i++) {
+        //$result .= $i . ',';
+        array_push($temp, $i);
+    }
+    $result = implode(",", $temp);
+    return $result;
+},
+
+],
+
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "While loops",
+
+"intro" => "
+<p>If you need a hint, take a look at: <br>
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
+</p>
+",
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 8.1
+ */
+[
+
+"text" => "
+<p>Use a while-loop to increment $loopSmall1 with the value $loopTiny1 until it has reached or passed $loopLarge1. Answer with the amount of steps needed.
+</p>",
+
+"answer" => function () use ($loopLarge1, $loopSmall1, $loopTiny1) {
+
+    $result = 0;
+    $countThis = $loopSmall1;
+    while ($countThis < $loopLarge1) {
+
+        $result++;
+        $countThis += $loopTiny1;
+    }
+    return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 8.2
+ */
+[
+
+"text" => "
+<p>Use a while-loop to subtract $loopTiny2 from $loopLarge2 until the value has reached or passed 0. Answer with the amount of steps needed.
+</p>",
+
+"answer" => function () use ($loopTiny2, $loopLarge2) {
+    $result = 0;
+    $countThis = $loopLarge2;
+    while ($countThis > 0) {
+
+        $result++;
+        $countThis -= $loopTiny2;
+    }
+    return $result;
+},
+
+],
+
+
+
+/**
  * Closing up this section.
  */
 ], // EOF questions

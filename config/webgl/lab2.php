@@ -80,21 +80,21 @@ $person1LastName    = $persons[$person1Nr]["lastName"];
 $person1Nationality = $persons[$person1Nr]["nationality"];
 $person1Born        = $persons[$person1Nr]["born"];
 
-$person1Print1      = "My name is $person1FirstName.";
-$person1Print2      = "My name is $person1FirstName $person1LastName from $person1Nationality.";
+$person1Print1      = "My name is $person1FirstName";
+$person1Print2      = "My name is $person1FirstName $person1LastName from $person1Nationality";
 $person1BornFormat  = $person1Born->format('Y-m-d');
 $person1BornYear    = $person1Born->format('Y');
-$person1Print3      = "I was born $person1BornYear.";
+$person1Print3      = "I was born $person1BornYear";
 
 $person2FirstName   = $persons[$person2Nr]["firstName"];
 $person2LastName    = $persons[$person2Nr]["lastName"];
 $person2Nationality = $persons[$person2Nr]["nationality"];
 $person2Born        = $persons[$person2Nr]["born"];
 
-$person2Print2      = "My name is $person2FirstName $person2LastName from $person2Nationality.";
+$person2Print2      = "My name is $person2FirstName $person2LastName from $person2Nationality";
 $person2BornFormat  = $person2Born->format('Y-m-d');
 $person2BornYear    = $person2Born->format('Y');
-$person2Print3      = "I was born $person2BornYear.";
+$person2Print3      = "I was born $person2BornYear";
 
 
 $x1 = rand_int(10, 90);
@@ -703,7 +703,7 @@ return [
 [
 
 "text" => "
-<p>Add properties 'lastName' and 'nationality' to your person-object. Their values should be '$person1LastName' and '$person1Nationality'. Create the method 'person.print2()' which should say: '$person1Print2'.
+<p>Add properties 'lastName' and 'nationality' to your person-object. Their values should be '$person1LastName' and '$person1Nationality'. Create the method 'person.print2()' which should say: '$person1Print2'. Answer with a call to person.print2().
 </p>
 ",
 
@@ -722,7 +722,7 @@ return [
 [
 
 "text" => "
-<p>Add the property 'born' with the value of a Date object: '$person1BornFormat'. Create a method 'print3()' that says exactly the same as 'print2()' followed by '$person1Print3'.
+<p>Add the property 'born' with the value of a Date object: '$person1BornFormat'. Create a method 'print3()' that says exactly the same as 'print2()' followed by '$person1Print3'. Answer with a call to person.print3().
 </p>
 ",
 
@@ -741,7 +741,7 @@ return [
 [
 
 "text" => "
-<p>Create a second person, called 'person2' by using built-in function 'Object.create()'. The person2 should have the following properties: '$person2FirstName, $person2LastName, $person2Nationality, $person2BornFormat'. Print out details on the second person using 'person2.print3()'.
+<p>Create a second person, called 'person2' by using built-in function 'Object.create()' with your 'person'-object. The person2 should have the following properties: '$person2FirstName, $person2LastName, $person2Nationality, $person2BornFormat'. Print out details on the second person using 'person2.print3()'.
 </p>
 ",
 
@@ -785,7 +785,7 @@ return [
 [
 
 "text" => "
-<p>Create a object called 'shape' with the properties: 'x', 'y', 'height', 'width' and 'print'. Create a new object from 'shape' called 'shape1' and initiate the properties with: x:$x1, y:$y1, height:$h1, width: $w1. Use the 'print' method to print out the assigned values as: 'x:?, y:?, height:?, width:?'
+<p>Create a object called 'shape' with the properties: 'x', 'y', 'height', 'width' and 'print'. Create a new object from 'shape' called 'shape1' and initiate the properties with: x:$x1, y:$y1, height:$h1, width: $w1. Use the 'print' method to print out the assigned values as: 'x:?, y:?, height:?, width:?'. Answer with a call to shape.print().
 </p>
 ",
 

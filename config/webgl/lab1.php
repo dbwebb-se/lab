@@ -218,7 +218,7 @@ return [
 
 "answer" => function () use ($floatOne, $floatTwo) {
 
-    $sum = $floatOne - $floatTwo;
+    $sum = $floatOne + $floatTwo;
     return $sum;
 },
 

@@ -13,6 +13,9 @@ $allSuits = [
     "clubs", "diamonds", "spades", "hearts"
 ];
 
+$printValues = implode(", ", $allValues);
+$printSuits = implode(", ", $allSuits);
+
 // SECTION 1
 $randValue = rand_int(0, (count($allValues)-1));
 $randSuit = rand_int(0, (count($allSuits)-1));
@@ -45,8 +48,31 @@ class Card {
     }
 }
 
-$myCard = new Card($useThisValue, $useThisSuit);
+class Deck {
+    private $fullDeck = [];
 
+    public function __construct($suits, $values) {
+        for ($i = 0; $i < count($suits); $i++) {
+            for ($j = 0; $j < count($values); $j++) {
+                array_push($this->fullDeck, new Card($values[$j], $suits[$i]));
+            }
+        }
+    }
+
+    public function amountOfCards() {
+        return count($this->fullDeck);
+    }
+
+    public function drawFive() {
+        $drawnCards = [];
+        for ($i = 0; $i < 5; $i++) {
+            array_push($drawnCards, array_pop($this->fullDeck));
+        }
+    }
+}
+
+$myCard = new Card($useThisValue, $useThisSuit);
+$myDeck = new Deck($allSuits, $allValues);
 
 return [
 
@@ -58,7 +84,7 @@ return [
 "title" => "Lab 1 - oophp",
 
 "intro" => "
-<p>TBD
+<p>Read more: http://php.net/manual/en/language.oop5.php
 </p>
 ",
 
@@ -127,7 +153,7 @@ return [
 [
 
 "text" => "
-<p>Continue with the class 'Card'. Create a constructor that takes two arguments, value and suit. Set the private members and answer with a call to: '&#36;card2-&gt;getCard()'.
+<p>Continue with the class 'Card'. Create a constructor that takes two arguments, value and suit. Create a new instance of 'Card', called 'card3'. Pass the arguments $useThisValue and $useThisSuit. Set the private members and answer with a call to: '&#36;card2-&gt;getCard()'.
 </p>
 ",
 
@@ -165,18 +191,38 @@ return [
 
 
 /** ---------------------------------------------------------------------------
- * A question. 1.1
+ * A question. 2.1
  */
 [
 
 "text" => "
-<p>Create a class called 'Deck'.
+<p>Create a new class called 'Deck' that has a private array called 'fullDeck'. In the constructor, fill 'fullDeck' with new Cards from the Card-class. Create two string arrays containing all values and all suits. Use: suits = [$printSuits] and values = [$printValues]. Pass those arrays as arguments to the contructor in 'Deck'. Create a public function, called 'amountOfCards', that returns the current amount of cards in your deck as an integer. Create an instance of your 'Deck'-class called 'myDeck' and answer with a call to &#36;myDeck-&gt;amountOfCards().
 </p>
 ",
 
 "answer" => function () use ($myDeck){
 
-    return $myDeck->getCard();
+    return $myDeck->amountOfCards();
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question. 2.2
+ */
+[
+
+"text" => "
+<p>Create another function in 'Deck', called 'drawFive', that draws 5 cards. Use the method 'pop()' to solve it. Call the new function and answer with another call to &#36;myDeck-&gt;amountOfCards().
+</p>
+",
+
+"answer" => function () use ($myDeck){
+
+    $myDeck->drawFive();
+    return $myDeck->amountOfCards();
 },
 
 ],

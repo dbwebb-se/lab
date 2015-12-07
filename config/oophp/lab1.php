@@ -52,8 +52,10 @@ class Deck {
     private $fullDeck = [];
 
     public function __construct($suits, $values) {
-        for ($i = 0; $i < count($suits); $i++) {
-            for ($j = 0; $j < count($values); $j++) {
+        $sCount = count($suits);
+        $vCount = count($values);
+        for ($i = 0; $i < $sCount; $i++) {
+            for ($j = 0; $j < $vCount; $j++) {
                 array_push($this->fullDeck, new Card($values[$j], $suits[$i]));
             }
         }

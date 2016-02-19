@@ -265,7 +265,7 @@ return [
 [
 
 "text" => "
-<p>Create a function called 'fibonacci'. The function should use the Fibbonacci Sequence (http://en.wikipedia.org/wiki/Fibonacci_number), starting with 1 and 2. Return the sum of all odd numbers in the sequence, when the value dont exceed 1.000.000. Answer with a call of the function. A Fibonacci-sequence can look like this: 1, 2, 3, 5, 8, 13, 21, 34, 55 etc. You add the current value with the last, i.e. 1+2=3, 3+2=5, 5+3=8 etc.
+<p>Create a function called 'fibonacci'. The function should use the Fibbonacci Sequence (http://en.wikipedia.org/wiki/Fibonacci_number), starting with 1 and 2. Return the sum of all odd numbers in the sequence, when the sequence value dont exceed 1.000.000. Answer with a call of the function. A Fibonacci-sequence can look like this: 1, 2, 3, 5, 8, 13, 21, 34, 55 etc. You add the current value with the last, i.e. 1+2=3, 3+2=5, 5+3=8 etc.
 </p>
 ",
 

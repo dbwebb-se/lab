@@ -121,6 +121,25 @@ $s4_newCapitals = [
 $s4_foreach1 = ["one"=>1, "two"=>2, "three"=>3, "four"=>4, "five"=>5];
 //$temp = implode(", ", $s4_foreach1);
 
+$switchCountries1 = ["Sweden", "Brazil", "China", "Australia", "Canada"];
+$switchCountries2 = ["Sweden", "Denmark", "Finland", "Brazil", "China", "Australia", "Canada"];
+
+$switchContinents1 = ["Europa", "South America", "Asia", "Oceania", "North America"];
+$switchContinents2 = ["Europa", "Europa", "Europa", "South America", "Asia", "Oceania", "North America"];
+
+$countriesString1 = implode(", ", $switchCountries1);
+$countriesString2 = implode(", ", $switchCountries2);
+
+$continentsString1 = implode(", ", $switchContinents1);
+$continentsString2 = implode(", ", $switchContinents2);
+
+$switchWich1 = rand_int(1, count($switchCountries1)-1);
+$switchWich2 = rand_int(0, 2);
+
+// $switchAns1 =
+
+
+
 return [
 
 
@@ -632,6 +651,69 @@ return [
 
 	}
 	return implode(",", $res);
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Switch-case",
+
+"intro" => "http://se1.php.net/manual/en/control-structures.switch.php",
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Create a switch-case statement that returns the continent a certain country resides in. Use the countries: $countriesString1 and the continents: $continentsString1. Answer with a test on the country: $switchCountries1[$switchWich1].
+</p>
+",
+
+"answer" => function () use ($switchContinents1, $switchWich1) {
+
+    return $switchContinents1[$switchWich1];
+
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that returns the corresponding continent. Use the countries: $countriesString2 and the continents: $continentsString1. Answer with a test on the country: $switchCountries2[$switchWich2].
+</p>
+",
+
+"answer" => function () use ($switchContinents2, $switchWich2) {
+
+    return $switchContinents2[$switchWich2];
+
 },
 
 ],

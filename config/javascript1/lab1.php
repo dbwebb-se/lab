@@ -292,7 +292,7 @@ return [
 [
 
 "text" => "
-<p>Answer with the result of $moduloOne modulus (%) $moduloTwo. 
+<p>Answer with the result of $moduloOne modulus (%) $moduloTwo.
 </p>
 ",
 
@@ -380,7 +380,7 @@ return [
 ',
 
 "answer" => function () use ($someIntText) {
-    
+
     $result = false;
 
     if(is_int($someIntText)) {
@@ -408,7 +408,7 @@ return [
 "title" => "Built-in Math-methods and functions",
 
 "intro" => "
-<p>If you need a hint, take a look at: <br> 
+<p>If you need a hint, take a look at: <br>
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 </p>
 ",
@@ -631,7 +631,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 "intro" => "
 <p>If you need a hint, take a look at: <br>
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 </p>
 ",
 
@@ -815,7 +815,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 [
 
 "text" => "
-<p>Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5. Add them up and answer with the result. 
+<p>Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5. Add them up and answer with the result.
 </p>
 ",
 
@@ -839,7 +839,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 ",
 
 "answer" => function () use ($cardSum) {
-    
+
     return $cardSum > 21 ? "busted" : "safe";
 },
 
@@ -881,12 +881,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 [
 
 "text" => "
-<p>Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else and the AND (&&) statements to see what the dealer should do. If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'. 
+<p>Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else and the AND (&&) statements to see what the dealer should do. If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'.
 </p>
 ",
 
 "answer" => function () use ($dealerSum) {
-    
+
     $res = "";
     if($dealerSum < 17) {
         $res = "safe";
@@ -939,12 +939,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 [
 
 "text" => "
-<p>Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'. Answer with the result where 'myFruit = $fruit'. 
+<p>Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'. Answer with the result where 'myFruit = $fruit'.
 </p>
 ",
 
 "answer" => function () use ($fruit, $fruitColor) {
-    
+
     $result = "The $fruit is $fruitColor.";
     return $result;
 },
@@ -964,7 +964,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 ",
 
 "answer" => function () {
-    
+
     $result = "That is an unknown fruit.";
     return $result;
 },
@@ -985,22 +985,22 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 ",
 
 "answer" => function () use ($smallNr, $caseNrs, $highNr) {
-    
+
     $result = $highNr;
     switch ($smallNr) {
-        case (1) : 
+        case (1) :
         $result += 1;
         break;
-        case (2) : 
+        case (2) :
         $result += 2;
         break;
-        case (3) : 
+        case (3) :
         $result += 3;
         break;
-        case (4) : 
+        case (4) :
         $result += 4;
         break;
-        case (5) : 
+        case (5) :
         $result += 5;
         break;
         default: $result = $highNr;
@@ -1024,17 +1024,17 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 ",
 
 "answer" => function () use ($wordSerie2, $smallestRandNr) {
-    
+
     $result = 'My favorite instrument is ';
 
     switch ($wordSerie2[$smallestRandNr]) {
-        case ('guitar') : 
+        case ('guitar') :
         $result .= 'guitar';
         break;
-        case ('violin') : 
+        case ('violin') :
         $result .= 'violin';
         break;
-        case ('drums') : 
+        case ('drums') :
         $result .= 'drums';
         break;
         default: $result = 'I dont like music.';
@@ -1084,7 +1084,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 ",
 
 "answer" => function () use ($loopLarge1, $loopSmall1, $loopTiny1) {
-    
+
     $result = $loopLarge1;
     for ($i = 0; $i < $loopSmall1; $i++) {
         $result += $loopTiny1;
@@ -1107,7 +1107,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 ",
 
 "answer" => function () use ($loopLarge2, $loopSmall2, $loopTiny2) {
-    
+
     $result = $loopLarge2;
     for ($i = 0; $i < $loopSmall2; $i++) {
         $result -= $loopTiny2;
@@ -1125,12 +1125,12 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 [
 
 "text" => "
-<p>Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','. The result should not end with a comma.
+<p>Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','. The result should not end with a comma. You should neither have a space after the comma.
 </p>
 ",
 
 "answer" => function () use ($loopRange1, $loopRange2) {
-    
+
     $result = '';
     $temp = [];
     for ($i = $loopRange1; $i <= $loopRange2; $i++) {
@@ -1188,7 +1188,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/whi
     $result = 0;
     $countThis = $loopSmall1;
     while ($countThis < $loopLarge1) {
-        
+
         $result++;
         $countThis += $loopTiny1;
     }
@@ -1212,7 +1212,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/whi
     $result = 0;
     $countThis = $loopLarge2;
     while ($countThis > 0) {
-        
+
         $result++;
         $countThis -= $loopTiny2;
     }

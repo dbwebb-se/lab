@@ -7,6 +7,7 @@
         <option value="python">python</option>
         <option value="htmlphp">htmlphp</option>
         <option value="oophp">oophp</option>
+        <option value="oopython">oopython</option>
         <option value="linux">linux</option>
         <option value="webgl">webgl</option>
     </select></label>

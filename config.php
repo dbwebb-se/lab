@@ -49,6 +49,12 @@ $VALID_LABS = [
     "python/lab5" => "config/python/lab5.php",
     "python/lab6" => "config/python/lab6.php",
 
+    "oopython/lab1" => "config/oopython/lab1.php",
+    "oopython/lab2" => "config/oopython/lab2.php",
+    "oopython/lab3" => "config/oopython/lab3.php",
+    "oopython/lab4" => "config/oopython/lab4.php",
+    "oopython/lab5" => "config/oopython/lab5.php",
+
     "htmlphp/lab1" => "config/htmlphp/lab1.php",
     "htmlphp/lab2" => "config/htmlphp/lab2.php",
     "htmlphp/lab3" => "config/htmlphp/lab3.php",

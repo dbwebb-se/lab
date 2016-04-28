@@ -6,8 +6,8 @@
 include __DIR__ . "/../random.php";
 
 $arrayNames = ["Misty", "Buster", "Gordon", "Lilly", "Misha", "Nova", "Perrin", "Nynaeve", "Kvothe", "Denna", "Basion"];
-$arrayEyeColors = ["Blue", "Green", "Brown". "Red", "Black"]
-$arratAnimal = ["dog, cat"]
+$arrayEyeColors = ["Blue", "Green", "Brown", "Red", "Black"];
+$arrayAnimal = ["dog, cat"];
 
 //SECTION 1 ****************************************************
 $s1_catName = $arrayNames[rand_int(0, count($arrayNames) - 1)];
@@ -22,7 +22,7 @@ $s2_ac1Owner = $arrayNames[rand_int(2, count($arrayNames) - 1) - 2];
 $s2_acBalance = rand_float(100, 200, 2);
 $s2_firstDeposit = rand_float(50, 100, 2);
 $s2_balanceAfterFirstDeposit = $s2_acBalance + $s2_firstDeposit;
-$s2_firstWithdraw = randFloat(30, 70, 2);
+$s2_firstWithdraw = rand_float(30, 70, 2);
 $s2_ac2Owner = $arrayNames[rand_int(3, count($arrayNames) - 1) - 3];
 $s2_2balanceAfterFirstWithdraw = $s2_acBalance - $s2_firstWithdraw;
 $s2_ac1PlusAc2 = $s2_balanceAfterFirstDeposit + $s2_2balanceAfterFirstWithdraw;
@@ -76,7 +76,7 @@ return [
 
 "answer" => function () use ($s1_catEyeColor, $s1_catName) {
 
-    $result = "My cats name is $s1_catEyeColor and has $s1_catName eyes.";
+    $result = "My cats name is $s1_catName and has $s1_catEyeColor eyes.";
     return $result;
 },
 
@@ -150,7 +150,7 @@ return [
 </p>
 ",
 
-"answer" => function () use () {
+"answer" => function () {
 
     return round(true);
 },
@@ -169,7 +169,7 @@ return [
 </p>
 ",
 
-"answer" => function () use () {
+"answer" => function () {
 
     return "All cats are evil!";
 },
@@ -204,7 +204,7 @@ Answer with the string '<Misty> has cat1.nrOfPaws paws but cats have Cat.nrOfpaw
 </p>
 ",
 
-"answer" => function () use () {
+"answer" => function () {
 
     return "Cats have 4 paws";
 },
@@ -249,7 +249,7 @@ Answer with the string '<Misty> has cat1.nrOfPaws paws but cats have Cat.nrOfpaw
 
 "answer" => function () use ($s2_balanceAfterFirstDeposit, $s2_ac1Owner) {
 
-	return "$s2_ac1Owner has $s2_balanceAfterFirstDeposit kr",;
+	return "$s2_ac1Owner has $s2_balanceAfterFirstDeposit kr";
 },
 
 ],
@@ -285,7 +285,7 @@ Answer with the string '<Misty> has cat1.nrOfPaws paws but cats have Cat.nrOfpaw
 
 "answer" => function () use ($s2_ac1Owner, $s2_ac1PlusAc2) {
 
-	return $s2_ac1Owner + " has " + $s2_ac1PlusAc2 + " kr";
+	return "$s2_ac1Owner has $s2_ac1PlusAc2 kr";
 },
 
 ],
@@ -305,7 +305,7 @@ Answer with ba2.showBalance()
 
 "answer" => function () use ($s2_ba2PlusBa1PlusFloat, $s2_ac2Owner) {
 
-	return $s2_ac2Owner + " has " + $s2_ba2PlusBa1PlusFloat + " kr";
+	return "$s2_ac2Owner has $s2_ba2PlusBa1PlusFloat kr";
 },
 
 ],
@@ -348,7 +348,7 @@ Answer with ba2.showBalance()
 
 "answer" => function () use ($s1_catName, $s1_catEyeColor, $s1_livesLeft, $s1_dogName, $s1_dogEyeColor) {
 
-	return "My cats name is $s1_catName, has $s1_catEyeColor eyes and has $s1_livesLeft lives left to live. My dogs name is $s1_dogName, has $s1_dogEyeColor eyes and has 1 lives left to live.",;
+	return "My cats name is $s1_catName, has $s1_catEyeColor eyes and has $s1_livesLeft lives left to live. My dogs name is $s1_dogName, has $s1_dogEyeColor eyes and has 1 lives left to live.";
 
 },
 

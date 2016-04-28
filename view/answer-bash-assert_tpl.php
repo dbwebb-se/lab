@@ -2,16 +2,17 @@
 #
 # Bash dbwebb module for asserting and auto correcting labs.
 #
-# It reads the answers from a json-file and use it
+# It reads the answers from files in a directory
 # for checking with assertEqual().
 #
-
+ANSWERS=".answer"
+PROMPT=">>> "
 
 
 #
 # Init by reading file with answers.
 #
-LAB_answers= json.load(open(answersFileName))
+LAB_answers=1 # json.load(open(answersFileName))
 LAB_correct=0
 LAB_failed=0
 LAB_notDone=0
@@ -26,24 +27,24 @@ LAB_notDone=0
 #
 function assertEqual
 {
-    status = None
-    noanswer = "Replace this text with the variable holding the answer."
+    local question=$1
+    local hint=$2
+    local noanswer="Replace this text with the variable holding the answer."
 
-    if answer == noanswer:
-        status = question + " NOT YET DONE."
-        self.notDone += 1
+    if [ "$ANSWER" = "$noanswer" ]; then
+        echo "${PROMPT}$question NOT YET DONE."
+        ((LAB_notDone++))
     
-    elif answer == self.answers["answers"][question]:
-        status = question + " CORRECT. Well done!\n" + json.dumps(answer)
-        self.correct += 1
+    elif [ $ANSWER ]; then #answer == self.answers["answers"][question] ]; then
+        echo "${PROMPT}$question CORRECT. Well done!" # + json.dumps(answer)
+        ((LAB_correct++))
     
-    else:
-        status = question + " FAIL.\nYou said:\n" + json.dumps(answer)
-        status += "\nHint:\n" + json.dumps(self.answers["answers"][question]) if hint else ""
-        self.failed += 1
-
-    return status
-}        
+    else
+        printf "${PROMPT}%s FAIL.\nYou said:\n" $question # + json.dumps(answer)
+        #status += "\nHint:\n" #+ json.dumps(self.answers["answers"][question]) if hint else ""
+        ((LAB_failed++))
+    fi
+}
 
 
 
@@ -54,15 +55,7 @@ function assertEqual
 #
 function exitWithSummary
 {
-        local msg="Done with status %d/%d/%d/%d (Total/Correct/Failed/Not done)."
-        
-        local total=10 #len(self.answers["answers"])
+    printf "${PROMPT}Done with status %d/%d/%d/%d (Total/Correct/Failed/Not done).\n" $LAB_answers $LAB_correct $LAB_failed $LAB_notDone
 
-        printf($msg % $total, $LAB_correct, $LAB_failed, $LAB_notDone)
-
-        if [ $total -eq $LAB_correct ]; then 
-            exit 0
-        else
-            exit 1
-        fi
+    exit $(( $LAB_answers == $LAB_correct ? 0 : 1 ))
 }

@@ -7,7 +7,7 @@ include __DIR__ . "/../random.php";
 
 
 // Settings
-$base = __DIR__;
+$base = __DIR__ . "/lab1_extra";
 $file = "ircLog.txt";
 
 
@@ -19,6 +19,8 @@ return [
 /**
  * Titel and introduction to the lab.
  */
+"answerFormat" => "text",
+
 "title" => "Lab 1 - linux",
 
 "intro" => "
@@ -102,8 +104,8 @@ return [
 "points" => 1,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return trim(exec("cd $base && wc -l $file"));
+    return exec("cd $base && wc -l $file");
+    //return trim(exec("cd $base && wc -l $file")); // Mac OS
 },
 
 ],
@@ -116,15 +118,14 @@ return [
 [
 
 "text" => "
-<p>Använd `wc` för att räkna ut hur många ord, words, ircloggen består av. Spara antalet ord i en variabel och svara med den.
+<p>Använd `wc` tillsammans med `cut` för att räkna ut hur många ord, words, ircloggen består av. Spara enbart antalet ord i en variabel och svara med den.
 </p>
 ",
 
 "points" => 1,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    return exec("cd $base &&  wc -w $file | cut -d' ' -f1");
 },
 
 ],
@@ -144,8 +145,7 @@ return [
 "points" => 1,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    return exec("cd $base && cat $file | grep pansar | grep notepad");
 },
 
 ],
@@ -165,8 +165,9 @@ return [
 "points" => 1,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    $res = [];
+    exec("cd $base && tail -4 $file", $res);
+    return implode("\n", $res);
 },
 
 ],

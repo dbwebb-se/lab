@@ -25,8 +25,8 @@ echo <<< EOD
 EOD;
 ?>
 
-. dbwebb.bash
-echo ">>> Ready to begin."
+. .dbwebb.bash
+echo "${PROMPT}Ready to begin."
 
 
 <?php 

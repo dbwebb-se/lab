@@ -26,9 +26,14 @@ $version
 <?=$intro?>
 
 <?php 
+// How to format the answers
+if (!isset($answerFormat)) {
+    $answerFormat = "json";
+}
+
 $sectionId = 0;
 
-foreach ($sections as $section) : 
+foreach ($sections as $section) :
 $sectionId++;
 $questionId = 0;
 ?>
@@ -37,7 +42,7 @@ $questionId = 0;
 <?=$section['intro']?>
 
 <?php 
-foreach ($section['questions'] as $question) : 
+foreach ($section['questions'] as $question) :
 $questionId++;
 ?>
 
@@ -54,8 +59,14 @@ if (isset($question["points"])) {
 <?php if ($doAnswers) : ?>
 
 <h4>Answer</h4>
-<pre><?=formatAnswerPrintable($question['answer']()) . " (" . gettype($question['answer']()) . ")"?></pre>
 
+<?php if ($answerFormat == "json") : ?>
+<pre><?= formatAnswerPrintable($question['answer']()) . " (" . gettype($question['answer']()) . ")" ?></pre>
+
+<?php elseif ($answerFormat == "text") : ?>
+<pre><?= $question['answer']() ?></pre>
+
+<?php endif; ?>
 <?php endif; ?>
 
 

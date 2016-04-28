@@ -10,7 +10,6 @@ include __DIR__ . "/functions.php";
 
 // Incoming
 $doLab              = isset($_GET['lab'])               ? true : false;
-$doBundle           = isset($_GET['bundle'])            ? true : false;
 $doAnswers          = isset($_GET['answers'])           ? true : false;
 $doAnswerHtml       = isset($_GET['answer-html'])       ? true : false;
 $doAnswerJs         = isset($_GET['answer-js'])         ? true : false;
@@ -30,7 +29,6 @@ $key                = isset($_GET['key']) ? $_GET['key'] : null;
 
 // Check or die
 ($doLab
-    || $doBundle
     || $doAnswers
     || $doAnswerHtml
     || $doAnswerJs
@@ -73,8 +71,6 @@ extract(include $configFile);
 // Apply the config to the choosen view
 if ($doLab) {
     include "view/lab_tpl.php";
-} else if ($doBundle) {
-    include "view/bundle_tpl.php";
 } else if ($doAnswers) {
     include "view/answers_tpl.php";
 } else if ($doAnswerHtml) {

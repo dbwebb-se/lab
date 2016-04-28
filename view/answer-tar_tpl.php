@@ -1,4 +1,4 @@
-<pre><?php
+<?php
 
 $base1 = tempnam("/tmp", "LAB");
 $base = "${base1}_";
@@ -18,7 +18,7 @@ foreach ($sections as $section) {
 
     foreach ($section['questions'] as $question) {
         $questionId++;
-        $answer = formatAnswerJSON($question['answer']());
+        $answer = $question['answer']();
         file_put_contents("$dir/$sectionId.$questionId", $answer);
     }
 }
@@ -34,5 +34,5 @@ header('Content-Disposition: attachment; filename="answer.tar"');
 readfile("$base/answer.tar");
 
 // Clean up
-//exec("rm -rf $base");
+exec("rm -rf $base");
 unlink($base1);

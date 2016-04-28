@@ -6,6 +6,12 @@
 include __DIR__ . "/../random.php";
 
 
+// Settings
+$base = __DIR__;
+$file = "ircLog.txt";
+
+
+
 return [
 
 
@@ -16,7 +22,7 @@ return [
 "title" => "Lab 1 - linux",
 
 "intro" => "
-<p>TBD
+<p>En lab där du använder Unix verktyg som finns tillgängliga via kommandoraden, tillsammans med lite Bash, för att finna och hantera information i en IRC loggfil. 
 </p>
 ",
 
@@ -47,13 +53,31 @@ return [
 [
 
 "text" => "
-<p>TBD.
+<p>Skapa en variabel `FILE` och tilldela den värdet `$file`. Svara med variabelns värde, dvs `\$FILE`.
 </p>
 ",
 
-"answer" => function () {
+"answer" => function () use ($file) {
 
-    return true;
+    return $file;
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => "
+<p>Använd kommandot `wc` för att räkna ut hur många rader ircloggen består av. Visa endast antalet rader och filens namn. Spara svaret i en variabel och svara med variabelns innehåll.
+</p>
+",
+
+"answer" => function () use ($base, $file) {
+    return exec("cd $base && wc --lines $file");
 },
 
 ],

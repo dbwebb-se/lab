@@ -77,7 +77,7 @@ ANSWER="Replace this text with the variable holding the answer."
 
 # Is the answer as expected?
 # When you get stuck - change false to true to get a hint.
-assertEqual "<?="$sectionId.$questionId"?>" "$ANSWER" false
+assertEqual "<?="$sectionId.$questionId"?>" false
 
 <?php 
     }

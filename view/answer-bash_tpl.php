@@ -3,11 +3,11 @@
 <?php
 function printLines() {
     global $lines;
-    
+
     foreach($lines as $line) {
             echo "# $line";
     }
-    echo "\n";    
+    echo "\n";
 }
 
 $currentVersion = VERSION;
@@ -26,7 +26,7 @@ EOD;
 ?>
 
 . dbwebb.bash
-echo "Ready to begin."
+echo ">>> Ready to begin."
 
 
 <?php 
@@ -60,9 +60,16 @@ foreach ($sections as $section) {
         $questionId++;
         $description = wordwrap(trim(strip_tags($question['text']), "\n"), 75, "\n", true);
         $lines = explode("\n", $description);
+
+        // Get points
+        $points = null;
+        if (isset($question["points"])) {
+            $points = " (${question["points"]} poäng)";
+        }
+
 ?>
 #
-# Exercise <?="$sectionId.$questionId"?> 
+# Exercise <?="$sectionId.$questionId$points"?> 
 # 
 <?php printLines(); ?>
 #

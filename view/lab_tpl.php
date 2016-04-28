@@ -41,7 +41,13 @@ foreach ($section['questions'] as $question) :
 $questionId++;
 ?>
 
-<h3>Exercise <?="$sectionId.$questionId"?></h3>
+<?php
+$points = null;
+if (isset($question["points"])) {
+    $points = " (${question["points"]} poäng)";
+}
+?>
+<h3>Exercise <?="$sectionId.$questionId$points"?></h3>
 <?=$question['text']?>
 
 

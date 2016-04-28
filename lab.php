@@ -10,6 +10,7 @@ include __DIR__ . "/functions.php";
 
 // Incoming
 $doLab              = isset($_GET['lab'])               ? true : false;
+$doBundle           = isset($_GET['bundle'])            ? true : false;
 $doAnswers          = isset($_GET['answers'])           ? true : false;
 $doAnswerHtml       = isset($_GET['answer-html'])       ? true : false;
 $doAnswerJs         = isset($_GET['answer-js'])         ? true : false;
@@ -20,6 +21,7 @@ $doAnswerPyAssert   = isset($_GET['answer-py-assert'])  ? true : false;
 $doAnswerBash       = isset($_GET['answer-bash'])       ? true : false;
 $doAnswerBashAssert = isset($_GET['answer-bash-assert']) ? true : false;
 $doAnswerJson       = isset($_GET['answer-json'])       ? true : false;
+$doAnswerTar        = isset($_GET['answer-tar'])        ? true : false;
 $doAnswerExtra      = isset($_GET['answer-extra'])      ? true : false;
 
 $key                = isset($_GET['key']) ? $_GET['key'] : null;
@@ -28,6 +30,7 @@ $key                = isset($_GET['key']) ? $_GET['key'] : null;
 
 // Check or die
 ($doLab
+    || $doBundle
     || $doAnswers
     || $doAnswerHtml
     || $doAnswerJs
@@ -38,6 +41,7 @@ $key                = isset($_GET['key']) ? $_GET['key'] : null;
     || $doAnswerBash
     || $doAnswerBashAssert
     || $doAnswerJson
+    || $doAnswerTar
     || $doAnswerExtra)
         or die("Missing what to do.");
 isset($key) or die("No key supplied.");
@@ -69,6 +73,8 @@ extract(include $configFile);
 // Apply the config to the choosen view
 if ($doLab) {
     include "view/lab_tpl.php";
+} else if ($doBundle) {
+    include "view/bundle_tpl.php";
 } else if ($doAnswers) {
     include "view/answers_tpl.php";
 } else if ($doAnswerHtml) {
@@ -89,6 +95,8 @@ if ($doLab) {
     include "view/answer-bash-assert_tpl.php";
 } else if ($doAnswerJson) {
     include "view/answer-json_tpl.php";
+} else if ($doAnswerTar) {
+    include "view/answer-tar_tpl.php";
 } else if ($doAnswerExtra) {
     include "view/answer-extra_tpl.php";
 } else {

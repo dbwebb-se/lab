@@ -11,5 +11,6 @@
 <a href="lab.php?answer-bash&amp;key=<?=$gen_key?>">Answer-bash</a> | 
 <a href="lab.php?answer-bash-assert&amp;key=<?=$gen_key?>">Answer-bash-assert</a> | 
 <a href="lab.php?answer-json&amp;key=<?=$gen_key?>">Answer-json</a> | 
+<a href="lab.php?answer-tar&amp;key=<?=$gen_key?>">Answer-tar</a> | 
 <a href="lab.php?answer-extra&amp;key=<?=$gen_key?>">Answer-extras</a> | 
 </p>

@@ -12,6 +12,7 @@ file_put_contents("$dir/key", $key);
 
 // Write all answers to file
 $sectionId = 0;
+$sumPoints = null;
 foreach ($sections as $section) {
     $sectionId++;
     $questionId = 0;
@@ -20,9 +21,26 @@ foreach ($sections as $section) {
         $questionId++;
         $answer = $question['answer']();
         file_put_contents("$dir/$sectionId.$questionId", $answer);
+
+        if (isset($question['points'])) {
+            $points = $question['points'];
+            $sumPoints += $points;
+            file_put_contents("$dir/$sectionId.$questionId.points", $points);
+        }
     }
 }
 
+// Summary
+file_put_contents("$dir/summary.total", $questionId);
+if ($sumPoints) {
+    file_put_contents("$dir/summary.points", $sumPoints);
+}
+if (isset($passPercentage) && !is_null($passPercentage)) {
+    file_put_contents("$dir/summary.pass", floor($sumPoints * $passPercentage));
+}
+if (isset($passDistinctPercentage) && !is_null($passDistinctPercentage)) {
+    file_put_contents("$dir/summary.passdistinct", floor($sumPoints * $passDistinctPercentage));
+}
 
 // Gather it all in a tar file
 system("cd $base && tar cf answer.tar .answer");

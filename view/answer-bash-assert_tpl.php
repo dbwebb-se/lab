@@ -12,10 +12,26 @@ PROMPT=">>> "
 #
 # Init by reading file with answers.
 #
-LAB_answers=1 # json.load(open(answersFileName))
+LAB_answers=$( cat "$ANSWERS/summary.total" )
 LAB_correct=0
 LAB_failed=0
 LAB_notDone=0
+
+LAB_mypoints=0
+LAB_points=$LAB_answers
+if [ -f "$ANSWERS/summary.points" ]; then
+    LAB_points=$( cat "$ANSWERS/summary.points" )
+fi
+
+LAB_pass=$LAB_points
+if [ -f "$ANSWERS/summary.pass" ]; then
+    LAB_pass=$( cat "$ANSWERS/summary.pass" )
+fi
+
+LAB_distinct=-1 # -1 to disable
+if [ -f "$ANSWERS/summary.passdistinct" ]; then
+    LAB_distinct=$( cat "$ANSWERS/summary.passdistinct" )
+fi
 
 
 
@@ -30,18 +46,27 @@ function assertEqual
     local question=$1
     local hint=$2
     local noanswer="Replace this text with the variable holding the answer."
+    local answer=$( cat "$ANSWERS/$question" )
+    local points=1
+    
+    if [ -f "$ANSWERS/$question.points" ]; then
+        points=$( cat "$ANSWERS/$question.points" )
+    fi
 
     if [ "$ANSWER" = "$noanswer" ]; then
-        echo "${PROMPT}$question NOT YET DONE."
+        echo "${PROMPT}$question NOT YET DONE. (${points}p)"
         ((LAB_notDone++))
     
-    elif [ $ANSWER ]; then #answer == self.answers["answers"][question] ]; then
-        echo "${PROMPT}$question CORRECT. Well done!" # + json.dumps(answer)
+    elif [ $ANSWER = $answer ]; then
+        printf "%s%s CORRECT. Well done! (%sp)\n%s\n" "$PROMPT" "$question" $points "$ANSWER"
         ((LAB_correct++))
+        LAB_mypoints=$((LAB_mypoints + points))
     
     else
-        printf "${PROMPT}%s FAIL.\nYou said:\n" $question # + json.dumps(answer)
-        #status += "\nHint:\n" #+ json.dumps(self.answers["answers"][question]) if hint else ""
+        printf "%s%s FAIL. ($sp)\n%sYou said:\n%s\n" "$PROMPT" "$question" "$PROMPT" $points "$ANSWER"
+        if $hint; then
+            printf "%sHint:\n%s\n" "$PROMPT" $answer
+        fi
         ((LAB_failed++))
     fi
 }
@@ -55,7 +80,24 @@ function assertEqual
 #
 function exitWithSummary
 {
-    printf "${PROMPT}Done with status %d/%d/%d/%d (Total/Correct/Failed/Not done).\n" $LAB_answers $LAB_correct $LAB_failed $LAB_notDone
+    local green='\[\031[0;32m\]'
 
-    exit $(( $LAB_answers == $LAB_correct ? 0 : 1 ))
+    printf "%sDone with status %d/%d/%d/%d (Total/Correct/Failed/Not done).\n" "$PROMPT" $LAB_answers $LAB_correct $LAB_failed $LAB_notDone
+    
+    printf "%sPoints earned: %sp of %sp (PASS=>%sp" "$PROMPT" $LAB_mypoints $LAB_points $LAB_pass
+    if [ $LAB_distinct -ne -1 ]; then
+        printf ", PASS W DISTINCTION=>%sp" $LAB_distinct
+    fi
+    printf ").\n"
+
+    # Grading
+    if [ $LAB_distinct -ne -1 -a $LAB_mypoints -ge $LAB_distinct ]; then
+        printf "\e[0;36m%sGrade: PASS WITH DISTINCTION!!! :-D\e[m\n" "$PROMPT"
+    elif [ $LAB_mypoints -ge $LAB_pass ]; then
+        printf "\e[0;32m%sGrade: PASS! :-)\e[m\n" "$PROMPT"
+    else
+        printf "\e[1;33m%sGrade: NO PASS. :-|\e[m\n" "$PROMPT"
+    fi
+
+    exit $(( $LAB_mypoints >= $LAB_pass ? 0 : 1 ))
 }

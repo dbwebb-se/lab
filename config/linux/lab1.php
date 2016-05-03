@@ -28,6 +28,15 @@ return [
 </p>
 ",
 
+"passPercentage" => 70/100,
+"passDistinctPercentage" => 100/100,
+
+/*
+"grades" => [
+    "pass" => 60/100,
+    "pass-distinct" => 100/100,
+]
+*/
 
 "sections" => [
 
@@ -40,33 +49,12 @@ return [
 "title" => "Bash",
 
 "intro" => "
-<p>TBD.</p>
+<p>Öva Linux kommandon och använd dem tillsammans med Bash. I denna övningen kommer du främst använda kommandon som `grep`, `wc`, `head` och `tail` för att söka ut information i en loggfil från irc-chatten. Sedan kombinerar du utskriften av kommandona in till variabler i Bash. Använd man-sidorna vid behov för att finna informaiton om hur du löser uppgifterna.</p>
 ",
 
 "shuffle" => false,
 
 "questions" => [
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => "
-<p>PREPARE ? spara svar i variabel, trim(), only get words in wc, pipe
-</p>
-",
-
-"points" => 1,
-
-"answer" => function () use ($file) {
-
-    return "TBD";
-},
-
-],
 
 
 
@@ -187,8 +175,7 @@ return [
 "points" => 1,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    return exec("cd $base && grep 'Log opened' $file | head -1");
 },
 
 ],
@@ -208,8 +195,7 @@ return [
 "points" => 1,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    return exec("cd $base && grep '<@wasa>' $file | head -3 | tail -1");
 },
 
 ],
@@ -229,8 +215,7 @@ return [
 "points" => 1,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    return exec("cd $base && grep '11:15' $file | wc -l");
 },
 
 ],
@@ -250,8 +235,9 @@ return [
 "points" => 3,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    $res = [];
+    exec("cd $base && grep -A 10 'Day changed Wed Jun 17 2015' $file | tail -10", $res);
+    return implode("\n", $res);
 },
 
 ],
@@ -271,8 +257,9 @@ return [
 "points" => 3,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    $res = [];
+    exec("cd $base && grep Forum $file | grep htmlphp | grep projektet", $res);
+    return implode("\n", $res);
 },
 
 ],
@@ -292,8 +279,7 @@ return [
 "points" => 3,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    return exec("cd $base && grep '<@Bobbzorzen>' $file | grep -B 2 cewl | head -1");
 },
 
 ],
@@ -313,8 +299,7 @@ return [
 "points" => 3,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    return exec("cd $base && grep -A 9 'Mon Jun 08 2015' $file | tail -6 | wc -w");
 },
 
 ],
@@ -334,8 +319,7 @@ return [
 "points" => 3,
 
 "answer" => function () use ($base, $file) {
-    //return exec("cd $base && wc --lines $file");
-    return "TBD";
+    return exec("cd $base && grep 07:48 $file | grep pansar | head -1");
 },
 
 ],

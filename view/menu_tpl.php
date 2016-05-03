@@ -1,6 +1,7 @@
 <p>
 <a href="lab.php?lab&amp;key=<?=$gen_key?>">Lab</a> | 
 <a href="lab.php?lab&amp;answers&amp;key=<?=$gen_key?>">Lab with answers</a> | 
+<a href="?action=bundle&amp;key=<?=$gen_key?>">Bundle</a> | 
 <a href="lab.php?answers&amp;key=<?=$gen_key?>">Answers</a> | 
 <a href="lab.php?answer-html&amp;key=<?=$gen_key?>">Answer-html</a> | 
 <a href="lab.php?answer-js&amp;key=<?=$gen_key?>">Answer-js</a> | 

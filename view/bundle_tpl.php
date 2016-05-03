@@ -1,5 +1,12 @@
 <?php
 
+// Support if only accessed by key
+if (is_null($lab)) {
+    $res = getDetailsFromKeyOrDie($key);
+    $lab = $res->lab;
+    $course = $res->course;
+}
+
 // Create base for 
 $base1 = tempnam("/tmp", "LAB");
 $base = "${base1}_";
@@ -17,6 +24,7 @@ $baseurl = $_SERVER["REQUEST_SCHEME"]
 $labCommon = [
     ["filename" => "instruction.html", "action" => "lab"],
     ["filename" => "extra.tar", "action" => "answer-extra"],
+    ["dirname" => __DIR__ . "/../config/$course/${lab}_extra"], // CHECK VALUES
 ];
 
 $labPerType = [
@@ -26,6 +34,10 @@ $labPerType = [
         ["filename" => "answer.tar",  "action" => "answer-tar"],
     ]
 ];
+
+// UPDATE dbwebb-cli to generate labs for linux & oopython
+// Move all extra_tar to libs
+// UPDATE dbwebb-cli to only use bundle
 
 // Default types, guessed from course and lab
 $defaultType = [
@@ -64,6 +76,11 @@ $type or die("Missing type of bundle to create.");
 $labs = array_merge($labCommon, $labPerType[$type]);
 $keyPart = "key=$key";
 foreach ($labs as $lab) {
+    if (isset($lab["dirname"]) && is_dir($lab["dirname"])) {
+        system("cp ${lab["dirname"]}/* $base/");
+        continue;
+    }
+
     $url = "$baseurl?$keyPart&${lab["action"]}";
     $content = file_get_contents($url);
     file_put_contents("$base/${lab["filename"]}", $content);

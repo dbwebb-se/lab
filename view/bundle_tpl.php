@@ -21,10 +21,17 @@ $baseurl = $_SERVER["REQUEST_SCHEME"]
     . "/lab.php";
 
 // Define what types of labs that exists and combine accordingly
+$courses = ["htmlphp", "oophp", "python", "javascript1", "linux", "oopython", "webgl"];
+$labPattern = "/lab[\d]+$/";
+
+if (!(preg_match($labPattern, $lab) && in_array($course, $courses))) {
+    die("Invalid combination of course and lab.");
+}
+
 $labCommon = [
     ["filename" => "instruction.html", "action" => "lab"],
     ["filename" => "extra.tar", "action" => "answer-extra"],
-    ["dirname" => __DIR__ . "/../config/$course/${lab}_extra"], // CHECK VALUES
+    ["dirname" => __DIR__ . "/../config/$course/${lab}_extra"],
 ];
 
 $labPerType = [
@@ -32,12 +39,17 @@ $labPerType = [
         ["filename" => "answer.bash", "action" => "answer-bash", "mode" => "755"],
         ["filename" => ".dbwebb.bash", "action" => "answer-bash-assert"],
         ["filename" => "answer.tar",  "action" => "answer-tar"],
+    ],
+    "python" => [
+        ["filename" => "answer.py", "action" => "answer-py", "mode" => "755"],
+        ["filename" => "Dbwebb.py", "action" => "answer-py-assert"],
+        ["filename" => ".answer.json",  "action" => "answer-json"],
     ]
 ];
 
-// UPDATE dbwebb-cli to generate labs for linux & oopython
+// Test bundle generation on all labs.
 // Move all extra_tar to libs
-// UPDATE dbwebb-cli to only use bundle
+// Change prompt on all labs
 
 // Default types, guessed from course and lab
 $defaultType = [
@@ -76,8 +88,10 @@ $type or die("Missing type of bundle to create.");
 $labs = array_merge($labCommon, $labPerType[$type]);
 $keyPart = "key=$key";
 foreach ($labs as $lab) {
-    if (isset($lab["dirname"]) && is_dir($lab["dirname"])) {
-        system("cp ${lab["dirname"]}/* $base/");
+    if (isset($lab["dirname"])) {
+        if (is_dir($lab["dirname"])) {
+            system("cp ${lab["dirname"]}/* $base/");
+        }
         continue;
     }
 

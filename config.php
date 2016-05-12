@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.0.1x (2015-09-29)";
+const VERSION = "v2.2.0 (2016-05-12)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -68,4 +68,17 @@ $VALID_LABS = [
     "webgl/lab1" => "config/webgl/lab1.php",
     "webgl/lab2" => "config/webgl/lab2.php",
 
+];
+
+// Type of lab
+$LAB_TYPE = [
+    "htmlphp"    => "php",
+    "oophp"      => "php",
+    "javascript1" => "javascript",
+    "webgl"      => "javascript",
+    "python"     => "python",
+    "oopython"   => "python",
+    "linux"      => [
+        "lab1" => "bash",
+    ],
 ];

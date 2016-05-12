@@ -17,7 +17,7 @@ https://github.com/mosbth/lab
 from Dbwebb import Dbwebb
 
 dbwebb = Dbwebb()
-print("Ready to begin.")
+print(">>> Ready to begin.")
 
 
 <?php 

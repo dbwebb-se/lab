@@ -15,6 +15,12 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.0 (2016-05-12)
+
+* Major rewrite of lab creation, now creating bundle.tar.
+* Added support for bash-labs.
+
+
 v2.1.0 (2015-09-29)
 
 * Major rewrite of frontend.

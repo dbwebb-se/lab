@@ -8,13 +8,15 @@
  */
 class CDbwebb
 {
+    const PROMPT = ">>> ";
+    
     /**
      * Constructor, init by reading json-file with answers.
      *
      */
     public function __construct()
     {
-        $this->answers = json_decode(file_get_contents("answer.json"), true);
+        $this->answers = json_decode(file_get_contents(".answer.json"), true);
         $this->correct = 0;
         $this->failed  = 0;
         $this->notDone = 0;
@@ -22,13 +24,20 @@ class CDbwebb
 
         if (php_sapi_name() == "cli") {
             $this->pre    = null;
-            $this->preEnd = null;
+            $this->preEnd = "\n";
+            $this->colorGreen  = "\033[92m";
+            $this->colorYellow = "\033[93m";
+            $this->colorStop   = "\033[0m";
         } else {
             $this->pre    = "<pre>";
             $this->preEnd = "</pre>";
+            $this->colorGreen  = "<span style='color: #006400'>";
+            $this->colorYellow = "<span style='color: #FF8C00'>";
+            $this->colorStop   = "</span>";
+
         }
 
-        echo "{$this->pre}Ready to begin.\n";
+        echo "{$this->pre}" . self::PROMPT . "Ready to begin.\n";
     }
     
     
@@ -50,22 +59,22 @@ class CDbwebb
 
         if ($answer === $noanswer) {
 
-            $status = $question . " NOT YET DONE.";
+            $status = self::PROMPT . $question . " NOT YET DONE.";
             $this->notDone += 1;
             
         } elseif ($answer === $correct) {
 
-            $status = $question . " CORRECT. Well done!\n"
+            $status = self::PROMPT . $question . " CORRECT. Well done!\n"
                 . json_encode($answer, $this->jsonOptions);
             $this->correct += 1;
                         
         } else {
 
-            $status = $question . " FAIL.\nYou said:\n"
+            $status = self::PROMPT . $question . " FAIL.\n" . self::PROMPT . "You said:\n"
                 . json_encode($answer, $this->jsonOptions)
                 . " (" . gettype($answer) . ")";
             $status .= $hint
-                ? "\nHint:\n" . json_encode($correct) . " (" . gettype($correct) . ")"
+                ? "\n" . self::PROMPT . "Hint:\n" . json_encode($correct) . " (" . gettype($correct) . ")"
                 : "";
             $this->failed += 1;
             
@@ -84,8 +93,23 @@ class CDbwebb
     public function exitWithSummary()
     {
         $total = count($this->answers["answers"]);
-        echo "Done with status {$total}/{$this->correct}/{$this->failed}/"
-            . "{$this->notDone} (Total/Correct/Failed/Not done).\n{$this->preEnd}";
-        return ($total == $this->correct);
+        echo self::PROMPT
+            . "Done with status {$total}/{$this->correct}/{$this->failed}/"
+            . "{$this->notDone} (Total/Correct/Failed/Not done).\n";
+        $status = $total == $this->correct;
+        
+        if ($status) {
+            echo $this->colorGreen
+                . self::PROMPT
+                . "Grade: PASS! :-)"
+                . $this->colorStop;
+        } else {
+            echo $this->colorYellow
+                . self::PROMPT
+                . "NO PASS. :-|"
+                . $this->colorStop;
+        }
+        echo $this->preEnd;
+        return $status;
     }
 }

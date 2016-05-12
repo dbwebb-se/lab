@@ -7,6 +7,11 @@ if (is_null($lab)) {
     $course = $res->course;
 }
 
+// Check if valid combination
+if (getConfigurationFor($course, $lab) === false) {
+    die("Invalid combination of course and lab.");
+}
+
 // Create base for 
 $base1 = tempnam("/tmp", "LAB");
 $base = "${base1}_";
@@ -20,20 +25,14 @@ $baseurl = $_SERVER["REQUEST_SCHEME"]
     . dirname($_SERVER["SCRIPT_NAME"])
     . "/lab.php";
 
-// Define what types of labs that exists and combine accordingly
-$courses = ["htmlphp", "oophp", "python", "javascript1", "linux", "oopython", "webgl"];
-$labPattern = "/lab[\d]+$/";
-
-if (!(preg_match($labPattern, $lab) && in_array($course, $courses))) {
-    die("Invalid combination of course and lab.");
-}
-
+// General items to create for all labs
 $labCommon = [
     ["filename" => "instruction.html", "action" => "lab"],
-    ["filename" => "extra.tar", "action" => "answer-extra"],
+    //["filename" => "extra.tar", "action" => "answer-extra"], //OBSOLETE
     ["dirname" => __DIR__ . "/../config/$course/${lab}_extra"],
 ];
 
+//Specific items to create
 $labPerType = [
     "bash" => [
         ["filename" => "answer.bash", "action" => "answer-bash", "mode" => "755"],
@@ -44,43 +43,21 @@ $labPerType = [
         ["filename" => "answer.py", "action" => "answer-py", "mode" => "755"],
         ["filename" => "Dbwebb.py", "action" => "answer-py-assert"],
         ["filename" => ".answer.json",  "action" => "answer-json"],
-    ]
-];
-
-// Test bundle generation on all labs.
-// Move all extra_tar to libs
-// Change prompt on all labs
-
-// Default types, guessed from course and lab
-$defaultType = [
-    "htmlphp"    => "php",
-    "oophp"      => "php",
-    "javascrip1" => "javascript",
-    "webgl"      => "javascript",
-    "python"     => "python",
-    "oopython"   => "python",
-    "linux"      => [
-        "lab1" => "bash",
+    ],
+    "php" => [
+        ["filename" => "answer.php", "action" => "answer-php", "mode" => "755"],
+        ["filename" => ".CDbwebb.php", "action" => "answer-php-assert"],
+        ["filename" => ".answer.json",  "action" => "answer-json"],
+    ],
+    "javascript" => [
+        ["filename" => "answer.html", "action" => "answer-html"],
+        ["filename" => "answer.js",  "action" => "answer-js"],
     ],
 ];
 
 // Get type of lab and generate it
 $type = isset($_GET["type"]) ? $_GET["type"] : null;
-
-if (!$type) {
-    if ($course && $lab) {
-        if (isset($defaultType[$course])) {
-            if (is_array($defaultType[$course])) {
-                if (isset($defaultType[$course][$lab])) {
-                    $type = $defaultType[$course][$lab];
-                }
-            } else {
-                $type = $defaultType[$course];
-            }
-        }
-    }
-}
-
+$type = getLabType($course, $lab, $type);
 $type or die("Missing type of bundle to create.");
 
 

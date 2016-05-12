@@ -117,15 +117,42 @@ function getConfigurationFor($course, $lab)
 
 
 /**
+ * Read configuration for lab, or die
+ *
+ * @return void
+ */
+function getLabType($course, $lab, $type)
+{
+    global $LAB_TYPE;
+    
+    if (!$type) {
+        if ($course && $lab) {
+            if (isset($LAB_TYPE[$course])) {
+                if (is_array($LAB_TYPE[$course])) {
+                    if (isset($LAB_TYPE[$course][$lab])) {
+                        $type = $LAB_TYPE[$course][$lab];
+                    }
+                } else {
+                    $type = $LAB_TYPE[$course];
+                }
+            }
+        }
+    }
+    return $type;
+}
+
+
+
+/**
  * Format the basic values
  */
 function formatType($value)
 {
     if (is_bool($value)) {
         $value = $value ? "true" : "false";
-    } else if (is_int($value)) {
+    } elseif (is_int($value)) {
         ;
-    } else if (is_string($value)) {
+    } elseif (is_string($value)) {
         $value = "\"$value\"";
     }
 

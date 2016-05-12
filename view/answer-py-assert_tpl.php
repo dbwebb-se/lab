@@ -26,6 +26,7 @@ class Dbwebb():
         self.correct = 0
         self.failed = 0
         self.notDone = 0
+        self.prompt = ">>> "
 
 
     def assertEqual(self, question, answer, hint=False):
@@ -37,16 +38,16 @@ class Dbwebb():
         noanswer = "Replace this text with the variable holding the answer."
 
         if answer == noanswer:
-            status = question + " NOT YET DONE."
+            status = self.prompt + question + " NOT YET DONE."
             self.notDone += 1
         
         elif answer == self.answers["answers"][question]:
-            status = question + " CORRECT. Well done!\n" + json.dumps(answer)
+            status = self.prompt + question + " CORRECT. Well done!\n" + json.dumps(answer)
             self.correct += 1
         
         else:
-            status = question + " FAIL.\nYou said:\n" + json.dumps(answer)
-            status += "\nHint:\n" + json.dumps(self.answers["answers"][question]) if hint else ""
+            status = self.prompt + question + " FAIL.\n" + self.prompt + "You said:\n" + json.dumps(answer) + " " + str(type(answer))
+            status += "\n" + self.prompt + "Hint:\n" + json.dumps(self.answers["answers"][question]) + " " +  str(type(self.answers["answers"][question])) if hint else ""
             self.failed += 1
 
         return status
@@ -57,12 +58,16 @@ class Dbwebb():
         Print a exit message with the result of all tests. Exit with status 0 if all
         tasks are solved, else exit with status 1.
         """
-        msg = "Done with status {}/{}/{}/{} (Total/Correct/Failed/Not done)."
+        msg = self.prompt + "Done with status {}/{}/{}/{} (Total/Correct/Failed/Not done)."
         total = len(self.answers["answers"])
 
         print(msg.format(total, self.correct, self.failed, self.notDone))
 
+        # Grading
+
         if total == self.correct: 
+            print("\033[92m{}Grade: PASS! :-)\033[0m".format(self.prompt))
             sys.exit(0)
         else:
+            print("\033[93m{}Grade: NO PASS. :-|\033[0m".format(self.prompt))
             sys.exit(1)

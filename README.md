@@ -17,7 +17,7 @@ History
 
 v2.2.1 (2016-05-13)
 
-* Correct bug oopythn/lab1.
+* Correct bug oopython/lab1.
 * Changed install path for answer.json and CDbwebb.php.
 
 

@@ -15,7 +15,7 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
-v2.2.3 (2016-05-13)
+v2.2.2-4 (2016-05-13)
 
 * Made Dbwebb.py pass pylint.
 

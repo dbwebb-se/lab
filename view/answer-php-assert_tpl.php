@@ -16,7 +16,7 @@ class CDbwebb
      */
     public function __construct()
     {
-        $this->answers = json_decode(file_get_contents(".answer.json"), true);
+        $this->answers = json_decode(file_get_contents("answer.json"), true);
         $this->correct = 0;
         $this->failed  = 0;
         $this->notDone = 0;

@@ -15,6 +15,12 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.1 (2016-05-13)
+
+* Correct bug oopythn/lab1.
+* Changed install path for answer.json and CDbwebb.php.
+
+
 v2.2.0 (2016-05-12)
 
 * Major rewrite of lab creation, now creating bundle.tar.

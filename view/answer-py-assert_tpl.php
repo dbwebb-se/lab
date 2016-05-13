@@ -18,7 +18,7 @@ class Dbwebb():
     Class for autocorrecting labs.
     """
 
-    def __init__(self, answersFileName=".answer.json"):
+    def __init__(self, answersFileName="answer.json"):
         """
         Init by reading json-file with answers.
         """

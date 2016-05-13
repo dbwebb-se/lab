@@ -42,12 +42,15 @@ $labPerType = [
     "python" => [
         ["filename" => "answer.py", "action" => "answer-py", "mode" => "755"],
         ["filename" => "Dbwebb.py", "action" => "answer-py-assert"],
-        ["filename" => ".answer.json",  "action" => "answer-json"],
+        //["filename" => ".answer.json",  "action" => "answer-json"],
+        ["filename" => "answer.json",  "action" => "answer-json"],
     ],
     "php" => [
         ["filename" => "answer.php", "action" => "answer-php", "mode" => "755"],
-        ["filename" => ".CDbwebb.php", "action" => "answer-php-assert"],
-        ["filename" => ".answer.json",  "action" => "answer-json"],
+        //["filename" => ".CDbwebb.php", "action" => "answer-php-assert"],
+        //["filename" => ".answer.json",  "action" => "answer-json"],
+        ["filename" => "CDbwebb.php", "action" => "answer-php-assert"],
+        ["filename" => "answer.json",  "action" => "answer-json"],
     ],
     "javascript" => [
         ["filename" => "answer.html", "action" => "answer-html"],

@@ -7,7 +7,7 @@ include __DIR__ . "/../random.php";
 
 $arrayNames = ["Misty", "Buster", "Gordon", "Lilly", "Misha", "Nova", "Perrin", "Nynaeve", "Kvothe", "Denna", "Basion"];
 $arrayEyeColors = ["Blue", "Green", "Brown", "Red", "Black"];
-$arrayAnimal = ["dog, cat"];
+$arrayAnimal = ["dog", "cat"];
 
 //SECTION 1 ****************************************************
 $s1_catName = $arrayNames[rand_int(0, count($arrayNames) - 1)];

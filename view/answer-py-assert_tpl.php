@@ -46,8 +46,18 @@ class Dbwebb():
             self.correct += 1
         
         else:
-            status = self.prompt + question + " FAIL.\n" + self.prompt + "You said:\n" + json.dumps(answer) + " " + str(type(answer))
-            status += "\n" + self.prompt + "Hint:\n" + json.dumps(self.answers["answers"][question]) + " " +  str(type(self.answers["answers"][question])) if hint else ""
+            status = self.prompt
+                + question
+                + " FAIL.\n"
+                + self.prompt
+                + "You said:\n" + json.dumps(answer)
+                + " "
+                + str(type(answer))
+            status += "\n"
+                + self.prompt
+                + "Hint:\n" + json.dumps(self.answers["answers"][question])
+                + " "
+                +  str(type(self.answers["answers"][question])) if hint else ""
             self.failed += 1
 
         return status

@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.2 (2016-05-13)
+
+* Made Dbwebb.py pass pylint.
+
+
 v2.2.1 (2016-05-13)
 
 * Correct bug oopython/lab1.

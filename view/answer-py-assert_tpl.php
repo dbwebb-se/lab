@@ -50,7 +50,10 @@ class Dbwebb():
             status += self.prompt + "You said:\n" + json.dumps(answer) + " "
             status += str(type(answer))
             status += "\n" + self.prompt
-            status += "Hint:\n" + json.dumps(self.answers["answers"][question]) + " " +  str(type(self.answers["answers"][question])) if hint else ""
+            if hint:
+                status += "Hint:\n"
+                status += json.dumps(self.answers["answers"][question]) + " "
+                status += str(type(self.answers["answers"][question]))
             self.failed += 1
 
         return status

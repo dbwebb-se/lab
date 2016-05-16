@@ -15,6 +15,7 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.8 (2016-05-16)
 v2.2.7 (2016-05-16)
 
 * Update exit status for CDbwebb.php.

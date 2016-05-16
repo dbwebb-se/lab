@@ -15,6 +15,16 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.6 (2016-05-16)
+
+* Changed exit status to 42 when labs are not yet done.
+
+
+v2.2.5 (2016-05-13)
+
+* Rechanging path for including CDbwebb.php
+
+
 v2.2.2-4 (2016-05-13)
 
 * Made Dbwebb.py pass pylint.

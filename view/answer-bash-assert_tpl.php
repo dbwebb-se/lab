@@ -99,5 +99,5 @@ function exitWithSummary
         printf "\e[1;33m%sGrade: NO PASS. :-|\e[m\n" "$PROMPT"
     fi
 
-    exit $(( $LAB_mypoints >= $LAB_pass ? 0 : 1 ))
+    exit $(( $LAB_mypoints >= $LAB_pass ? 0 : 42 ))
 }

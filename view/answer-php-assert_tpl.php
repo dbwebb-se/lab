@@ -110,6 +110,6 @@ class CDbwebb
                 . $this->colorStop;
         }
         echo $this->preEnd;
-        return $status;
+        return $status == 0 ? 0 : 42;
     }
 }

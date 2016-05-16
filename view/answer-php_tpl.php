@@ -69,4 +69,4 @@ echo $dbwebb->assertEqual("<?="$sectionId.$questionId"?>", $ANSWER, false);
 
 
 // Wrap it up
-exit(intval(!$dbwebb->exitWithSummary()));
+exit($dbwebb->exitWithSummary());

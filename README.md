@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.7 (2016-05-16)
+
+* Update exit status for CDbwebb.php.
+
+
 v2.2.6 (2016-05-16)
 
 * Changed exit status to 42 when labs are not yet done.

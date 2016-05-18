@@ -17,7 +17,7 @@ echo <<< EOD
 EOD;
 ?>
 
-<?= $header ?>
+<?php if (isset($header)) echo $header ?>
 
 . .dbwebb.bash
 echo "${PROMPT}Ready to begin."

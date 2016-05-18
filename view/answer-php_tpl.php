@@ -19,7 +19,7 @@ echo <<< EOD
 EOD;
 ?>
 
-<?= $header ?>
+<?php if (isset($header)) echo $header ?>
 
 // Set error reporting to verbose
 error_reporting(-1);              // Report all type of errors

@@ -14,7 +14,7 @@ Generated <?=$timestamp_now?> by dbwebb lab-utility <?=VERSION?>.
 https://github.com/mosbth/lab
 """
 
-<?= $header ?>
+<?php if (isset($header)) echo $header ?>
 
 from Dbwebb import Dbwebb
 

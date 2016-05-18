@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.11 (2016-05-18)
+
+* Allow responses to contain HTML and print it out correctly in the HTML template.
+
+
 v2.2.10 (2016-05-18)
 
 * Labtexts in linux and htmlphp is now formatted as Markdown.

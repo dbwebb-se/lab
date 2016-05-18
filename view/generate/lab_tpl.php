@@ -53,27 +53,34 @@ if (isset($question["points"])) {
 }
 ?>
 <h3>Exercise <?="$sectionId.$questionId$points"?></h3>
-<?=parseMarkdown($question['text'])?>
+<?= parseMarkdown($question['text']) ?>
 
 
 <?php if ($doAnswers) : ?>
 
 <h4>Answer</h4>
 
-<?php if ($answerFormat == "json") : ?>
-<pre><?= formatAnswerPrintable($question['answer']()) . " (" . gettype($question['answer']()) . ")" ?></pre>
+<?php
+$answer = null;
+if ($answerFormat == "json") {
+    $answer = formatAnswerPrintable($question['answer']())
+        . " ("
+        . gettype($question['answer']())
+        . ")";
+}
+elseif ($answerFormat == "text") {
+    $answer = $question['answer']();
+}
+?>
+<?= parseMarkdown("```\n$answer\n```") ?>
 
-<?php elseif ($answerFormat == "text") : ?>
-<pre><?= $question['answer']() ?></pre>
-
-<?php endif; ?>
-<?php endif; ?>
+<?php endif; // $doAnswers ?>
 
 
 
-<?php endforeach; ?>
+<?php endforeach; // Questions ?>
 
-<?php endforeach; ?>
+<?php endforeach; // Sections  ?>
 
 <hr>
 <code><?=$key?></code>

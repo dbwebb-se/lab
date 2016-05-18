@@ -9,7 +9,7 @@
 class CDbwebb
 {
     const PROMPT = ">>> ";
-    
+
     /**
      * Constructor, init by reading json-file with answers.
      *
@@ -39,8 +39,8 @@ class CDbwebb
 
         echo "{$this->pre}" . self::PROMPT . "Ready to begin.\n";
     }
-    
-    
+
+
 
     /**
      * Check if the answer is correct or not, present a hint if asked for.
@@ -61,13 +61,13 @@ class CDbwebb
 
             $status = self::PROMPT . $question . " NOT YET DONE.";
             $this->notDone += 1;
-            
+
         } elseif ($answer === $correct) {
 
             $status = self::PROMPT . $question . " CORRECT. Well done!\n"
                 . json_encode($answer, $this->jsonOptions);
             $this->correct += 1;
-                        
+
         } else {
 
             $status = self::PROMPT . $question . " FAIL.\n" . self::PROMPT . "You said:\n"
@@ -77,14 +77,14 @@ class CDbwebb
                 ? "\n" . self::PROMPT . "Hint:\n" . json_encode($correct) . " (" . gettype($correct) . ")"
                 : "";
             $this->failed += 1;
-            
+
         }
 
         return $status . "\n";
     }
 
-            
-    
+
+
     /**
      * Print a exit message with the result of all tests.
      *
@@ -97,7 +97,7 @@ class CDbwebb
             . "Done with status {$total}/{$this->correct}/{$this->failed}/"
             . "{$this->notDone} (Total/Correct/Failed/Not done).\n";
         $status = $total == $this->correct;
-        
+
         if ($status) {
             echo $this->colorGreen
                 . self::PROMPT
@@ -106,7 +106,7 @@ class CDbwebb
         } else {
             echo $this->colorYellow
                 . self::PROMPT
-                . "NO PASS. :-|"
+                . "Grade: Thou Did Not Pass. :-|"
                 . $this->colorStop;
         }
         echo $this->preEnd;

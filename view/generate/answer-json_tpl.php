@@ -2,7 +2,7 @@
     "details":  "Generated for <?=$acronym?> at <?=$created?>.",
     "key":      "<?=$key?>",
     "answers":  {
-        <?php 
+<?php
         $sectionId = 0;
         $json = "";
         foreach ($sections as $section) {
@@ -12,7 +12,7 @@
             foreach ($section['questions'] as $question) {
                 $questionId++;
                 $answer = formatAnswerJSON($question['answer']());
-                $json .= "\t\t\"$sectionId.$questionId\":\t\t$answer,\n";
+                $json .= "        \"$sectionId.$questionId\":\t\t$answer,\n";
             }
         }
         echo substr($json, 0, -2) . "\n";?>

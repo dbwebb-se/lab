@@ -15,6 +15,13 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.13 (2016-05-18)
+
+* Type hinting on JavaScript labs when using hint.
+* Updating structure for labs using HTML/JavaScript.
+* Adding support for labs in Node js.
+
+
 v2.2.12 (2016-05-18)
 
 * Converted python labs to Markdown.

@@ -1,4 +1,4 @@
-<?="<?php\n"?>
+#!/usr/bin/env node
 
 <?php
 $currentVersion = VERSION;
@@ -18,23 +18,22 @@ echo <<< EOD
  */
 EOD;
 ?>
+"use strict";
 
 <?php if (isset($header)) echo $header ?>
 
-// Set error reporting to verbose
-error_reporting(-1);              // Report all type of errors
-ini_set('display_errors', 1);     // Display all errors
+import dbwebb from "./.dbwebb.js";
 
-// Load and create object with lab utilities
-require __DIR__ . "/CDbwebb.php";
-$dbwebb = new CDbwebb();
+var ANSWER = null;
+console.log(dbwebb.prompt + "Ready to begin.");
 
 
 
 <?php
 $sectionId = 0;
+
 ?>
-/** ===================================================================
+/** ======================================================================
  * <?= $title . "\n" ?>
  *
  * <?= wrap($intro, "\n * ") ?>
@@ -48,7 +47,7 @@ foreach ($sections as $section) {
     $sectionId++;
     $questionId = 0;
 ?>
-/** -------------------------------------------------------------------
+/** ----------------------------------------------------------------------
  * Section <?= $sectionId ?> . <?= $section['title'] . "\n" ?>
  *
  * <?= wrap($section['intro'], "\n * ") ?>
@@ -80,15 +79,14 @@ foreach ($sections as $section) {
 
 
 
-$ANSWER = "Replace this text with the variable holding the answer.";
+ANSWER = "Replace this text with the variable holding the answer.";
 
 // I will now test your answer - change false to true to get a hint.
-echo $dbwebb->assertEqual("<?="$sectionId.$questionId"?>", $ANSWER, false);
+dbwebb.assert("<?="$sectionId.$questionId"?>", ANSWER, false);
 
 <?php
     }
 }
 ?>
 
-// Wrap it up
-exit($dbwebb->exitWithSummary());
+process.exit(dbwebb.exitWithSummary());

@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.2.12 (2016-05-18)";
+const VERSION = "v2.2.13 (2016-05-18)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -65,6 +65,8 @@ $VALID_LABS = [
     "oophp/lab1" => "config/oophp/lab1.php",
 
     "linux/lab1" => "config/linux/lab1.php",
+    "linux/lab2" => "config/linux/lab2.php",
+    "linux/lab3" => "config/linux/lab3.php",
 
     "webgl/lab1" => "config/webgl/lab1.php",
     "webgl/lab2" => "config/webgl/lab2.php",
@@ -81,5 +83,7 @@ $LAB_TYPE = [
     "oopython"   => "python",
     "linux"      => [
         "lab1" => "bash",
+        "lab2" => "bash",
+        "lab3" => "node",
     ],
 ];

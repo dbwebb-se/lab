@@ -56,6 +56,11 @@ $labPerType = [
         ["filename" => "answer.html", "action" => "answer-html"],
         ["filename" => "answer.js",  "action" => "answer-js"],
     ],
+    "node" => [
+        ["filename" => "answer.js",  "action" => "answer-node", "mode" => "755"],
+        ["filename" => ".dbwebb.js", "action" => "answer-node-assert"],
+        ["filename" => ".answer.json",  "action" => "answer-json"],
+    ],
 ];
 
 // Get type of lab and generate it

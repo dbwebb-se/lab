@@ -75,5 +75,5 @@ class Dbwebb():
             print("\033[92m{}Grade: PASS! :-)\033[0m".format(self.prompt))
             sys.exit(0)
         else:
-            print("\033[93m{}Grade: NO PASS. :-|\033[0m".format(self.prompt))
+            print("\033[93m{}Grade: Thou Did Not Pass. :-|\033[0m".format(self.prompt))
             sys.exit(42)

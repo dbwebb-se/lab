@@ -96,7 +96,7 @@ function exitWithSummary
     elif [ $LAB_mypoints -ge $LAB_pass ]; then
         printf "\e[0;32m%sGrade: PASS! :-)\e[m\n" "$PROMPT"
     else
-        printf "\e[1;33m%sGrade: NO PASS. :-|\e[m\n" "$PROMPT"
+        printf "\e[1;33m%sGrade: Thou Did Not Pass. :-|\e[m\n" "$PROMPT"
     fi
 
     exit $(( $LAB_mypoints >= $LAB_pass ? 0 : 42 ))

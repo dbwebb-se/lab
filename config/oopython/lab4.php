@@ -5,6 +5,9 @@
  */
 include __DIR__ . "/../random.php";
 
+// Settings
+$base = __DIR__ . "/lab4_extra";
+$file = "regexOnLists.py";
 
 //SECTION 1 ****************************************************
 $arrayTwister = ["how", "can", "clam", "cram", "clean", "cream", "can"];
@@ -19,14 +22,16 @@ return [
  */
 "title" => "Lab 4 - oopython",
 
-"intro" => "
+"intro" => <<<EOD
 If you need to peek at examples or just want to know more, take a look at the page: https://docs.python.org/2/howto/regex.html. Here you will find everything this lab will go through and much more.
-",
+EOD
+,
 
-"header" => "
+"header" => <<<EOD
 import re
 import regexOnLists as reg
-",
+EOD
+,
 
 "sections" => [
 
@@ -38,11 +43,14 @@ import regexOnLists as reg
 [
 "title" => "Regular expressions",
 
-"intro" => "
-For the exercises where you should match a pattern on strings in lists use 'reg.regexOnLists(pattern, matchList, dontMatchList)'.  
-Unless it says in the exercise to send an argument for the index parameter dont. Copy the lists from the exercise description and send as arguments.  
+"intro" => <<<EOD
+For the exercises where you should match a pattern on strings in lists use  
+'reg.regexOnLists(pattern, matchList, dontMatchList)'.  
+Unless it says in the exercise to send an argument for the index parameter dont. Copy the lists from the exercise description and send as arguments.
+
 Answer with the result from the function.
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -55,10 +63,13 @@ Answer with the result from the function.
  */
 [
 
-"text" => "
-Write a pattern that matches the word '$s1_twisterWord' in the sentence 'how can a clam cram in a clean cream can?'.  
+"text" => <<<EOD
+Write a pattern that matches the word '$s1_twisterWord' in the sentence  
+'how can a clam cram in a clean cream can?'.
+
 Use the re modules findall function.
-",
+EOD
+,
 
 "answer" => function () use ($s1_twisterWord) {
 
@@ -74,10 +85,13 @@ Use the re modules findall function.
  */
 [
 
-"text" => "
-Write a pattern that only matches the words that starts with a big letter in the sentence 'Droskkusken Max kuskar med Fuxar och fuskar med droskkusktaxan.'.  
+"text" => <<<EOD
+Write a pattern that only matches the words that starts with a big letter in the sentence  
+'Droskkusken Max kuskar med Fuxar och fuskar med droskkusktaxan.'.
+
 Use the re modules findall function.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -93,10 +107,15 @@ Use the re modules findall function.
  */
 [
 
-"text" => "
-Write a pattern that matches the words in the string 'look, book, hook' but not the words in the string 'cookoff, booklet, hooked'.  
+"text" => <<<EOD
+Write a pattern that matches the words in the string  
+'look, book, hook'  
+but not the words in the string  
+'cookoff, booklet, hooked'.
+
 Use the re modules findall function.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -112,10 +131,13 @@ Use the re modules findall function.
  */
 [
 
-"text" => "
-Write a pattern that matches only the digits in the string 'hej123ko whatup'563' koll726kolla'.  
+"text" => <<<EOD
+Write a pattern that matches only the digits in the string  
+'hej123ko whatup'563' koll726kolla'.
+
 Use the re modules findall function.
-",
+EOD
+,
 
 "answer" => function ()  {
 
@@ -131,10 +153,15 @@ Use the re modules findall function.
  */
 [
 
-"text" => "
-Write a pattern that matches the characters between the commas in the string '[kossor],(blommor),{skor}' and not the characters between the commas in the string 'kossor,blommor,skor'.  
+"text" => <<<EOD
+Write a pattern that matches the characters between the commas in the string  
+'[kossor],(blommor),{skor}'  
+and not the characters between the commas in the string  
+'kossor,blommor,skor'.
+
 Use the re modules findall function.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -150,10 +177,15 @@ Use the re modules findall function.
  */
 [
 
-"text" => "
-Write a pattern that matches the words in the string 'mat, kol, leg' and not the words in the string 'bil, vid, och'.  
+"text" => <<<EOD
+Write a pattern that matches the words in the string  
+'mat, kol, leg'  
+and not the words in the string  
+'bil, vid, och'.
+
 Use the re modules findall function.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -167,10 +199,15 @@ Use the re modules findall function.
  */
 [
 
-"text" => "
-Write a pattern that matches the words in the list ['barbary', 'froufrou', 'mathematic'] and doesnt match the words in the list ['damnably', 'corundum', 'pouchlike'].  
+"text" => <<<EOD
+Write a pattern that matches the words in the list  
+['barbary', 'froufrou', 'mathematic']  
+and doesnt match the words in the list  
+['damnably', 'corundum', 'pouchlike'].
+
 Use the regexOnList function.
-",
+EOD
+,
 
 "answer" => function (){
 
@@ -184,10 +221,16 @@ Use the regexOnList function.
  */
 [
 
-"text" => "
-Write a pattern that matches a username. It can contain the letters 'a' to 'z',  the numbers '0' to '9', underscore, a hyphen and it can be 4 to 14 letters long. It should match the words in the list ['user93namne_', 'froufrou', '4stuff-65_dg'] and not match ['d3y', 'corundum.423', 'gdsgpouchlikefdsfdsf'].  
+"text" => <<<EOD
+Write a pattern that matches a username. It can contain the letters 'a' to 'z',  the numbers '0' to '9', underscore, a hyphen and it can be 4 to 14 letters long.  
+It should match the words in the list  
+['user93namne_', 'froufrou', '4stuff-65_dg']  
+and not match  
+['d3y', 'corundum.423', 'gdsgpouchlikefdsfdsf'].
+
 Use the regexOnList function.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -202,10 +245,15 @@ Use the regexOnList function.
  */
 [
 
-"text" => "
-Write a pattern that matches the emails in the list ['zeldah.-92@dbwebb.se', 'lew53@dbwebb.com', 'mos_@dbwebb.net'] and doesnt match the emails in the list ['fake#29@db-webb.se', 'stealth@dbw_ebb.s', 'master@db.webb.net'].  
+"text" => <<<EOD
+Write a pattern that matches the emails in the list  
+['zeldah.-92@dbwebb.se', 'lew53@dbwebb.com', 'mos_@dbwebb.net']  
+and doesnt match the emails in the list  
+['fake#29@db-webb.se', 'stealth@dbw_ebb.s', 'master@db.webb.net'].
+
 Use the regexOnList function.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -220,17 +268,20 @@ Use the regexOnList function.
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Write a patterna that matches the html tags in the list  
-`['<a href=\"http://dbwebb.se\">Dbwebb</a>', <div>Outer <span>inner</span></div>']` and doesnt match the tags in the list  
-`['<a>a link</b>', '<p>Outer <span>in<br>ner</p></span>']`.  
+`['<a href="http://dbwebb.se">Dbwebb</a>', '<div>Outer<span>inner</span></div>']`  
+and doesnt match the tags in the list  
+`['<a>a link</b>', '<p>Outer<span>in<br>ner</p></span>']`.
+
 Use the regexOnList function.
-",
+EOD
+,
 
 "answer" => function () {
 
 
-	return ['<a href="http://dbwebb.se">Dbwebb</a>', '<div>Outer <span>inner</span></div>'];
+	return ['<a href="http://dbwebb.se">Dbwebb</a>', '<div>Outer<span>inner</span></div>'];
 },
 
 ],
@@ -241,11 +292,16 @@ Use the regexOnList function.
  */
 [
 
-"text" => "
-Write a pattern that matches the last names in the list ['Andreas Arnesson', 'Siv Ohlsson', 'Lena Johansson'] and doesnt match the ones in the list ['Oskar Stenstrom', 'Konrad Ohman', 'Nellie Forsberg'].  
+"text" => <<<EOD
+Write a pattern that matches the last names in the list  
+['Andreas Arnesson', 'Siv Ohlsson', 'Lena Johansson']  
+and doesnt match the ones in the list  
+['Oskar Stenstrom', 'Konrad Ohman', 'Nellie Forsberg'].
+
 Use the regexOnList function.  
 Add '1' as index argument for the regexOnList function.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -260,10 +316,15 @@ Add '1' as index argument for the regexOnList function.
  */
 [
 
-"text" => "
-Write a pattern tha matches the expiry date formats from the list ['09/10', '05-2010', '07-20', '10/1999'] and doesnt match the date in the list ['001-11', '10.15', '01/115', '13-2001'].  
+"text" => <<<EOD
+Write a pattern tha matches the expiry date formats from the list  
+['09/10', '05-2010', '07-20', '10/1999']  
+and doesnt match the date in the list  
+['001-11', '10.15', '01/115', '13-2001'].
+
 Use the regexOnList function.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -278,11 +339,15 @@ Use the regexOnList function.
  */
 [
 
-"text" => "
-Write a pattern tha matches the scheme, the host and the port(if present) from the urls in the string 'https://dbwebb.se/kunskap/uml#sequence, ftp://bth.com:32/files/im.jpeg, file://localhost:8585/zipit, http://v2-dbwebb.se/do%hack'.  
-A tip, create a group for each element. From the first url we want https and dbwebb.se from the second url we want ftp, bth.com and 32.  
+"text" => <<<EOD
+Write a pattern tha matches the scheme, the host and the port(if present) from the urls in the string  
+'https://dbwebb.se/kunskap/uml#sequence, ftp://bth.com:32/files/im.jpeg, file://localhost:8585/zipit, http://v2-dbwebb.se/do%hack'.
+
+A tip, create a group for each element. From the first url we want https and dbwebb.se from the second url we want ftp, bth.com and 32.
+
 Use the re modules findall function. Format the result in to a string and answer with that.
-",
+EOD
+,
 
 "answer" => function () {
 
@@ -305,9 +370,10 @@ Use the re modules findall function. Format the result in to a string and answer
 [
 "title" => "Search and replace",
 
-"intro" => "
+"intro" => <<<EOD
 Use the re modules sub function for all the exercises.
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -320,9 +386,13 @@ Use the re modules sub function for all the exercises.
  */
 [
 
-"text" => "
-Use the sub function to fix the whitespaces in the sentence 'I \nknow\t      H.T.M.L.\n How To      Meet Ladies\t '. One space between each word.
-",
+"text" => <<<EOD
+Use the sub function to fix the whitespaces in the sentence  
+'I \nknow\t      H.T.M.L.\n How To      Meet Ladies\t '. 
+
+One space between each word.
+EOD
+,
 
 "answer" => function () {
 
@@ -339,9 +409,12 @@ Use the sub function to fix the whitespaces in the sentence 'I \nknow\t      H.T
  */
 [
 
-"text" => "
-Use the sub function to switch the place of the numbers and letters in the string 'abc123 efg456' and also add a space between them, so it becomes '123 abc 456 efg'
-",
+"text" => <<<EOD
+Use the sub function to switch the place of the numbers and letters in the string  
+'abc123 efg456'  
+and also add a space between them, so it becomes '123 abc 456 efg'
+EOD
+,
 
 "answer" => function () {
 
@@ -357,9 +430,11 @@ Use the sub function to switch the place of the numbers and letters in the strin
  */
 [
 
-"text" => "
-Use the sub function to remove the last three characters from the string 'Hello world!-.1'.
-",
+"text" => <<<EOD
+Use the sub function to remove the last three characters from the string  
+'Hello world!-.1'.
+EOD
+,
 
 "answer" => function () {
 
@@ -375,9 +450,11 @@ Use the sub function to remove the last three characters from the string 'Hello 
  */
 [
 
-"text" => "
-Use the sub function to remove the commented and the empty line from the string '#Did you back up the system?\n\nprint('hello world')'.
-",
+"text" => <<<EOD
+Use the sub function to remove the commented and the empty line from the string  
+'#Did you back up the system?\n\nprint('hello world')'.
+EOD
+,
 
 "answer" => function () {
 
@@ -393,9 +470,13 @@ Use the sub function to remove the commented and the empty line from the string 
  */
 [
 
-"text" => "
-Use the sub function to format the string 'Ross McFluff: 0456-45324: 155 Elm Street\nRonald Heathmore: 5543-23464: 445 Finley Avenue'. For each person it should look like this: 'Contact\nName: xx yy\nPhone number: 0000-00000\nAdress: 000 zzz zzz'.
-",
+"text" => <<<EOD
+Use the sub function to format the string  
+'Ross McFluff: 0456-45324: 155 Elm Street\nRonald Heathmore: 5543-23464: 445 Finley Avenue'.  
+For each person it should look like this:  
+'Contact\nName: xx yy\nPhone number: 0000-00000\nAdress: 000 zzz zzz'.
+EOD
+,
 
 "answer" => function () {
 

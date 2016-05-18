@@ -15,9 +15,10 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
-v2.2.11* (2016-05-18)
+v2.2.12 (2016-05-18)
 
-* Improved usability in index.php when creating labs, form remebers last input.
+* Converted python labs to Markdown.
+* Improved usability in index.php when creating labs, form remembers last input.
 
 
 v2.2.11 (2016-05-18)

@@ -21,7 +21,7 @@ $q3Use2 = $q3b[rand_int(0, count($q3b)-1)];
 // ################### Connect to Database ##################
 
 try {
-    $mydb = new PDO("sqlite:" . __DIR__ . "/myDB.sqlite");
+    $mydb = new PDO("sqlite:" . __DIR__ . "/lab5_extra/myDB.sqlite");
     $mydb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
 catch(PDOException $e) {
@@ -123,10 +123,12 @@ return [
  */
 "title" => "Lab 5 - Htmlphp",
 
-"intro" => "
-<p>In this lab you will be working with a SQLite database file: 'myDB.sqlite' and PDO. References: http://php.net/manual/en/book.pdo.php, http://dbwebb.se/htmlphp/me/kmom10/guide.php?id=sqlite20#s10
-</p>
-",
+"intro" => <<<EOD
+In this lab you will be working with a SQLite database file: 'myDB.sqlite' and PDO.
+
+Do not forget to check the [PHP Manual on PDO](http://php.net/manual/en/book.pdo.php)
+EOD
+,
 
 
 "sections" => [
@@ -139,10 +141,14 @@ return [
 [
 "title" => "Working with SQLite and PDO",
 
-"intro" => "
-<p>The database has one table called 'people'. 'people' has six columns: 'id', 'firstName', 'lastName', 'born', 'cityOfBirth', 'countryOfBirth'.
-</p>
-",
+"intro" => <<<EOD
+The database has one table called 'people'. 
+
+The table 'people' has six columns:
+
+> 'id', 'firstName', 'lastName', 'born', 'cityOfBirth', 'countryOfBirth'.
+EOD
+,
 
 "shuffle" => false,
 
@@ -155,10 +161,10 @@ return [
  */
 [
 
-"text" => "
-<p>Find the firstnames of the people born in $q1Use. Answer with an array containing the names.
-</p>
-",
+"text" => <<<EOD
+Find the firstnames of the people born in $q1Use. Answer with an array containing their names.
+EOD
+,
 
 "answer" => function () use($answer1) {
 
@@ -174,10 +180,10 @@ return [
  */
 [
 
-"text" => "
-<p>Find the first name and last name of the person born $q2Use. Answer with a string in the format: 'Firstname Lastname'.
-</p>
-",
+"text" => <<<EOD
+Find the first name and last name of the person born $q2Use. Answer with a string in the format: 'Firstname Lastname'.
+EOD
+,
 
 "answer" => function () use($answer2) {
 
@@ -193,10 +199,10 @@ return [
  */
 [
 
-"text" => "
-<p>Sum the years the persons with the lastnames '$q3Use1' and '$q3Use2' were born. Answer with an integer.
-</p>
-",
+"text" => <<<EOD
+Sum the years the persons with the lastnames '$q3Use1' and '$q3Use2' were born. Answer with an integer.
+EOD
+,
 
 "answer" => function () use($answer3) {
 
@@ -212,10 +218,10 @@ return [
  */
 [
 
-"text" => "
-<p>Count the number of entries in the table 'people'. Answer with an integer.
-</p>
-",
+"text" => <<<EOD
+Count the number of entries in the table 'people'. Answer with an integer.
+EOD
+,
 
 "answer" => function () use($answer4) {
 
@@ -231,10 +237,10 @@ return [
  */
 [
 
-"text" => "
-<p>Find which country ('countryOfBirth') the oldest person was born in. Answer with a string.
-</p>
-",
+"text" => <<<EOD
+Find which country ('countryOfBirth') the oldest person was born in. Answer with a string.
+EOD
+,
 
 "answer" => function () use($answer5) {
 
@@ -250,10 +256,10 @@ return [
  */
 [
 
-"text" => "
-<p>What is the average value of the column 'born'? Answer with an integer.
-</p>
-",
+"text" => <<<EOD
+What is the average value of the column 'born'? Answer with an integer.
+EOD
+,
 
 "answer" => function () use($answer6){
 
@@ -269,10 +275,10 @@ return [
  */
 [
 
-"text" => "
-<p>Find the youngest person born in USA. Which city is he/she born in? Answer with a string.
-</p>
-",
+"text" => <<<EOD
+Find the youngest person born in USA. Which city is he/she born in? Answer with a string.
+EOD
+,
 
 "answer" => function () use($answer7){
 
@@ -288,10 +294,14 @@ return [
  */
 [
 
-"text" => "
-<p>Get the first name and lastname of all persons in the database. Order them by their last name, alphabetically and ascending. Answer with an array of strings, ['lastName firstName', 'lastName firstName'].
-</p>
-",
+"text" => <<<EOD
+Get the first name and lastname of all persons in the database. Order them by their last name, alphabetically and ascending.
+
+Answer with an array of strings, like this:
+
+> ['lastName firstName', 'lastName firstName'].
+EOD
+,
 
 "answer" => function () use($answer8){
 

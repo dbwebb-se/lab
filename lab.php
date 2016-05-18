@@ -71,25 +71,26 @@ extract(include $configFile);
 
 // Apply the config to the choosen view
 if ($doLab) {
-    include "view/lab_tpl.php";
+    include "view/generate/lab_tpl.php";
+} else if ($doAnswerPhp) {
+    include "view/generate/answer-php_tpl.php";
+} else if ($doAnswerPhpAssert) {
+    include "view/generate/answer-php-assert_tpl.php";
+} else if ($doAnswerPy) {
+    include "view/generate/answer-py_tpl.php";
+} else if ($doAnswerPyAssert) {
+    include "view/generate/answer-py-assert_tpl.php";
+} else if ($doAnswerBash) {
+    include "view/generate/answer-bash_tpl.php";
+} else if ($doAnswerBashAssert) {
+    include "view/generate/answer-bash-assert_tpl.php";
+
 } else if ($doAnswers) {
     include "view/answers_tpl.php";
 } else if ($doAnswerHtml) {
     include "view/answer-html_tpl.php";
 } else if ($doAnswerJs) {
     include "view/answer-js_tpl.php";
-} else if ($doAnswerPhp) {
-    include "view/answer-php_tpl.php";
-} else if ($doAnswerPhpAssert) {
-    include "view/answer-php-assert_tpl.php";
-} else if ($doAnswerPy) {
-    include "view/answer-py_tpl.php";
-} else if ($doAnswerPyAssert) {
-    include "view/answer-py-assert_tpl.php";
-} else if ($doAnswerBash) {
-    include "view/answer-bash_tpl.php";
-} else if ($doAnswerBashAssert) {
-    include "view/answer-bash-assert_tpl.php";
 } else if ($doAnswerJson) {
     include "view/answer-json_tpl.php";
 } else if ($doAnswerTar) {

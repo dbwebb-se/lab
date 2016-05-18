@@ -10,8 +10,8 @@ include __DIR__ . "/../random.php";
 $books = ["SherlockHolmes", "SleepyHollow", "Grimm", "Frankenstein"];
 $bookNr = rand_int(0, count($books)-1);
 $useThisBook = $books[$bookNr];
-$file1 = file_get_contents(__DIR__ . "/$useThisBook.txt");
-$file2 = file_get_contents(__DIR__ . "/$useThisBook.txt", NULL, NULL, 16, 25);
+$file1 = file_get_contents(__DIR__ . "/lab4_extra/$useThisBook.txt");
+$file2 = file_get_contents(__DIR__ . "/lab4_extra/$useThisBook.txt", NULL, NULL, 16, 25);
 $file3 = explode(PHP_EOL, $file1);
 
 $numbers = [
@@ -47,7 +47,7 @@ $sentances = [
 $sentRand = rand_int(0, count($sentances)-1);
 $useThisSent = $sentances[$sentRand];
 $useThisSentPrint = implode(", ", $useThisSent);
-$file6 = unserialize(file_get_contents(__DIR__ . "/serialized.txt"));
+$file6 = unserialize(file_get_contents(__DIR__ . "/lab4_extra/serialized.txt"));
 // $file6 = serialize($useThisSent);
 // $file6 = unserialize($file6);
 //file_put_contents(__DIR__ . "/temp.txt", $file6);
@@ -106,10 +106,10 @@ return [
  */
 "title" => "Lab 4 - Htmlphp",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => <<<EOD
+This lab pretty much deals with getting youreself acquainted with the PHP Manual. Search, find and read. It will be fun.
+EOD
+,
 
 
 "sections" => [
@@ -122,10 +122,12 @@ return [
 [
 "title" => "Date and time",
 
-"intro" => "
-<p>In this section you will be working with the DateTime-object. If you manipulate the object, such as add or subtract, the original object will be changed, hence you will create new objects from the same date in these exercises. Read more on: http://php.net/manual/en/class.datetime.php.
-</p>
-",
+"intro" => <<<EOD
+In this section you will be working with the DateTime-object. If you manipulate the object, such as add or subtract, the original object will be changed, hence you will create new objects from the same date in these exercises.
+
+Read more on [datetime in the manual](http://php.net/manual/en/class.datetime.php).
+EOD
+,
 
 "shuffle" => false,
 
@@ -138,10 +140,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use 'new DateTime()' to create a new DateTime-object from the date: '$dates[$dateRand]' Format the object to present the year-month-day, 'Y-m-d' and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use 'new DateTime()' to create a new DateTime-object from the date: '$dates[$dateRand]' Format the object to present the year-month-day, 'Y-m-d' and answer with the result.
+EOD
+,
 
 "answer" => function () use($useThisDate) {
 
@@ -157,10 +159,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a new DateTime-object with the same parameters and add 3 months to it. Answer with the result, presented in the format: 'Y-m-d'.
-</p>
-",
+"text" => <<<EOD
+Create a new DateTime-object with the same parameters and add 3 months to it. Answer with the result, presented in the format: 'Y-m-d'.
+EOD
+,
 
 "answer" => function () use($dateAdd) {
 
@@ -176,10 +178,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use one of your DateTime-objects and answer with the time, presented in the format: hours:minutes:seconds.
-</p>
-",
+"text" => <<<EOD
+Use one of your DateTime-objects and answer with the time, presented in the format: hours:minutes:seconds.
+EOD
+,
 
 "answer" => function () use($useThisDate) {
 
@@ -195,10 +197,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a new DateTime-object based on the same date and time and subtract 5 days and 3 hours from it. Answer with the whole date, presented in the format: 'Y-m-d hours:minutes:seconds'.
-</p>
-",
+"text" => <<<EOD
+Create a new DateTime-object based on the same date and time and subtract 5 days and 3 hours from it. Answer with the whole date, presented in the format: 'Y-m-d hours:minutes:seconds'.
+EOD
+,
 
 "answer" => function () use($dateSub) {
 
@@ -223,9 +225,10 @@ return [
 [
 "title" => "Working with files",
 
-"intro" => "
-<p>In this section, you will be working with the file: '$useThisBook.txt'. It contains a paragraph from a book and can be found in the lab folder.</p>
-",
+"intro" => <<<EOD
+In this section, you will be working with the file: '[$useThisBook.txt]($useThisBook.txt)'. It contains a paragraph from a book and can be found in the lab folder.
+EOD
+,
 
 "shuffle" => false,
 
@@ -237,9 +240,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use 'file_get_contents()' to get the file as a string. Save it to a variable called 'fileAsString'. Answer with the variable.</p>
-",
+"text" => <<<EOD
+Use 'file_get_contents()' to get the file as a string. Save it to a variable called 'fileAsString'. Answer with the variable.
+EOD
+,
 
 "answer" => function () use($file1) {
 
@@ -255,9 +259,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use 'file_get_contents()' to get 25 characters, starting on the 17th character.</p>
-",
+"text" => <<<EOD
+Use 'file_get_contents()' to get 25 characters, starting on the 17th character.
+EOD
+,
 
 "answer" => function () use($file2) {
 
@@ -273,9 +278,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use a combination of 'implode()' with a space as a delimiter and 'explode()' to format the file content and remove newline characters. Answer with the result.</p>
-",
+"text" => <<<EOD
+Use a combination of 'implode()' with a space as a delimiter and 'explode()' to format the file content and remove newline characters. Answer with the result.
+EOD
+,
 
 "answer" => function () use($file3) {
 
@@ -300,7 +306,9 @@ return [
 [
 "title" => "Serialize",
 
-"intro" => "",
+"intro" => <<<EOD
+EOD
+,
 
 "shuffle" => false,
 
@@ -313,10 +321,12 @@ return [
  */
 [
 
-"text" => "
-<p>Use the file 'serialized.txt' in your lab folder and read it, unserialize it and put the result in your answer. (Take a peek into your 'serialized.txt' to see how a serialized array looks)
-</p>
-",
+"text" => <<<EOD
+Use the file 'serialized.txt' in your lab folder and read it, unserialize it and put the result in your answer.
+
+(Take a peek into your '[serialized.txt](serialized.txt)' to see how a serialized array looks)
+EOD
+,
 
 "answer" => function () use($file6){
     return $file6;
@@ -340,10 +350,10 @@ return [
 [
 "title" => "Cryptography",
 
-"intro" => "
-<p>Reference to password_hash: http://php.net/manual/en/function.password-hash.php, rot13: http://php.net/manual/en/function.str-rot13.php.
-</p>
-",
+"intro" => <<<EOD
+Reference to [password_hash](http://php.net/manual/en/function.password-hash.php) and [rot13](http://php.net/manual/en/function.str-rot13.php).
+EOD
+,
 
 "shuffle" => false,
 
@@ -356,10 +366,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use password_hash() with the DEFAULT algorithm to create a hash of the password: '$useThisPass'. Test password_verify() with different passwords to see what it returns. Answer with the result, using '$useThisPass'.
-</p>
-",
+"text" => <<<EOD
+Use `password_hash()` with the DEFAULT algorithm to create a hash of the password: '$useThisPass'. Test `password_verify()` with different passwords to see what it returns. Answer with the result, using '$useThisPass'.
+EOD
+,
 
 "answer" => function () use($passResult) {
 
@@ -375,10 +385,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use ROT13 encoding on your password: '$useThisPass'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use ROT13 encoding on your password: '$useThisPass'. Answer with the result.
+EOD
+,
 
 "answer" => function () use($rot) {
 
@@ -395,10 +405,16 @@ return [
  */
 [
 
-"text" => "
-<p>Use ROT13 decoding to find which movies hides in the strings: '$presentCrypts'. Answer with an array containing all answers. (Each movie is comma-separated)
-</p>
-",
+"text" => <<<EOD
+Use ROT13 decoding to find which movies hides in the string:
+
+> "$presentCrypts"
+
+Each movie is comma-separated in the string above.
+
+Answer with an array containing all answers.
+EOD
+,
 
 "answer" => function () use($plain) {
 
@@ -415,10 +431,10 @@ return [
  */
 [
 
-"text" => "
-<p>Calculate the hash of the password '$useThisPass' with md5. Answer with the hash.
-</p>
-",
+"text" => <<<EOD
+Calculate the hash of the password '$useThisPass' with md5. Answer with the hash.
+EOD
+,
 
 "answer" => function () use($mdFive) {
 
@@ -444,7 +460,9 @@ return [
 [
 "title" => "Multibyte strings",
 
-"intro" => "",
+"intro" => <<<EOD
+EOD
+,
 
 "shuffle" => false,
 
@@ -457,10 +475,10 @@ return [
  */
 [
 
-"text" => "
-<p>Set the internal encoding to 'ISO-8859-1'. Answer with the result of 'mb_internal_encoding()'.
-</p>
-",
+"text" => <<<EOD
+Set the internal encoding to 'ISO-8859-1'. Answer with the result of `mb_internal_encoding()`.
+EOD
+,
 
 "answer" => function () use($encAns1) {
 
@@ -476,10 +494,10 @@ return [
  */
 [
 
-"text" => "
-<p>Check the 'strlen()' and 'mb_strlen()' of the word '$useThisEnc'. Answer with the two results as a comma-separated string.
-</p>
-",
+"text" => <<<EOD
+Check the `strlen()` and `mb_strlen()` of the word '$useThisEnc'. Answer with the two results as a comma-separated string.
+EOD
+,
 
 "answer" => function () use($encAns2) {
 
@@ -495,10 +513,10 @@ return [
  */
 [
 
-"text" => "
-<p>Set the internal encoding to 'UTF-8' and check the 'strlen()' and 'mb_strlen()' of the word '$useThisEnc'. Answer with the two results as a comma-separated string.
-</p>
-",
+"text" => <<<EOD
+Set the internal encoding to 'UTF-8' and check the `strlen()` and `mb_strlen()` of the word '$useThisEnc'. Answer with the two results as a comma-separated string.
+EOD
+,
 
 "answer" => function () use($encAns3) {
 

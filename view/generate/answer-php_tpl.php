@@ -35,7 +35,7 @@ $dbwebb = new CDbwebb();
 $sectionId = 0;
 ?>
 /** ===================================================================
- * <?=$title?>
+ * <?= $title . "\n" ?>
  *
  * <?= wrap($intro, "\n * ") ?>
  *
@@ -49,7 +49,7 @@ foreach ($sections as $section) {
     $questionId = 0;
 ?>
 /** -------------------------------------------------------------------
- * Section <?=$sectionId?>. <?=$section['title']?>
+ * Section <?= $sectionId?> . <?=$section['title'] . "\n" ?>
  *
  * <?= wrap($section['intro'], "\n * ") ?>
  *
@@ -68,7 +68,7 @@ foreach ($sections as $section) {
         }
 ?>
 /**
- * Exercise <?="$sectionId.$questionId$points"?>
+ * Exercise <?= "$sectionId.$questionId$points\n" ?>
  *
  * <?= wrap($question['text'], "\n * ") ?>
  *

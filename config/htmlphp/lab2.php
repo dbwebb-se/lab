@@ -149,10 +149,12 @@ return [
  */
 "title" => "Lab 2 - Htmlphp",
 
-"intro" => "
-<p>If you need to peek at examples or just want to know more, take a look at the page: http://php.net/manual/en/langref.php. Here you will find everything this lab will go through and much more.
-</p>
-",
+"intro" => <<<EOD
+If you need to peek at examples or just want to know more, take a look at the [PHP Manual](http://php.net/manual/en/langref.php).
+
+There you will find everything this lab will go through and much more.
+EOD
+,
 
 
 "sections" => [
@@ -178,10 +180,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create an array, called 'countries' with the items: ['$s1_countryPrint']. Answer with the second item in the array.
-</p>
-",
+"text" => <<<EOD
+Create an array, called 'countries' with the items: [$s1_countryPrint].
+
+Answer with the second item in the array.
+EOD
+,
 
 "answer" => function () use($s1_useThisCountryArray) {
 
@@ -197,10 +201,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a new array called 'capitals' with the items: ['$s1_capitalPrint']. Answer with a string containing each country from the 'countries'-array followed by the corresponding capital. Use the format 'country = capital, country = capital...'.
-</p>
-",
+"text" => <<<EOD
+Create a new array called 'capitals' with the items: [$s1_capitalPrint].
+
+Answer with a string containing each country from the 'countries'-array followed by the corresponding capital. Use the format 'country = capital, country = capital...'.
+EOD
+,
 
 "answer" => function () use($s1_useThisCountryArray, $s1_useThisCapitalArray) {
 
@@ -219,10 +225,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create an array, called 'numbers1' with the items: [$s1_arrSelPrint]. Answer with the sum of the first two items.
-</p>
-",
+"text" => <<<EOD
+Create an array, called 'numbers1' with the items: [$s1_arrSelPrint]. Answer with the sum of the first two items.
+EOD
+,
 
 "answer" => function () use($s1_arrSel) {
 
@@ -238,10 +244,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use your arrays 'numbers1' and 'capitals' to change item at index $s1_smallRand2 in 'numbers1' to the item at index $s1_smallRand1 in 'capitols'. Answer with your 'numbers1'-array.
-</p>
-",
+"text" => <<<EOD
+Use your arrays 'numbers1' and 'capitals' to change item at index $s1_smallRand2 in 'numbers1' to the item at index $s1_smallRand1 in 'capitols'. Answer with your 'numbers1'-array.
+EOD
+,
 
 "answer" => function () use($s1_arrSel, $s1_smallRand2, $s1_smallRand1, $s1_useThisCapitalArray) {
 	$s1_arrSel[$s1_smallRand2] = $s1_useThisCapitalArray[$s1_smallRand1];
@@ -258,10 +264,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use your array 'countries' and concatinate the first and the last item as a string. Separate the items with a hyphen (-) and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use your array 'countries' and concatenate the first and the last item as a string. Separate the items with a hyphen (-) and answer with the result.
+EOD
+,
 
 "answer" => function () use($s1_useThisCountryArray) {
 
@@ -286,7 +292,9 @@ return [
 [
 "title" => "Arrays - with keys",
 
-"intro" => "",
+"intro" => <<<EOD
+EOD
+,
 
 "shuffle" => false,
 
@@ -299,10 +307,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use your 'countries' and 'capitals' arrays and create another array called 'keyArray'. The country should be the key and the capital should be the value. Answer with the new array. (hint: 'country'=&gt;'capital')
-</p>
-",
+"text" => <<<EOD
+Use your 'countries' and 'capitals' arrays and create another array called 'keyArray'. The country should be the key and the capital should be the value. Answer with the new array. (hint: 'country' => 'capital')
+EOD
+,
 
 "answer" => function () use($s2_keyArray) {
 
@@ -320,10 +328,10 @@ return [
  */
 [
 
-"text" => "
-<p>Add the key '$s2_addThisKey' with the value '$s2_addThisValue' to your 'keyArray'. Answer with the updated array.
-</p>
-",
+"text" => <<<EOD
+Add the key '$s2_addThisKey' with the value '$s2_addThisValue' to your 'keyArray'. Answer with the updated array.
+EOD
+,
 
 "answer" => function () use($s2_keyArray2) {
 
@@ -341,10 +349,10 @@ return [
  */
 [
 
-"text" => "
-<p>Answer with the value for the key '$s2_randKey'.
-</p>
-",
+"text" => <<<EOD
+Answer with the value for the key '$s2_randKey'.
+EOD
+,
 
 "answer" => function () use($s2_keyArray2, $s2_randKey) {
 	return $s2_keyArray2[$s2_randKey];
@@ -368,7 +376,9 @@ return [
 [
 "title" => "Arrays - built-in functions",
 
-"intro" => "",
+"intro" => <<<EOD
+EOD
+,
 
 "shuffle" => false,
 
@@ -381,10 +391,10 @@ return [
  */
 [
 
-"text" => "
-<p>Find the number of items in the array [$s3_arrSelPrint]. Answer with the result as an integer.
-</p>
-",
+"text" => <<<EOD
+Find the number of items in the array [$s3_arrSelPrint]. Answer with the result as an integer.
+EOD
+,
 
 "answer" => function () use ($s3_arrSel) {
 
@@ -402,10 +412,10 @@ return [
  */
 [
 
-"text" => "
-<p>Sort the array [$s3_arrSel2Print] in ascending order. Make sure that it doesn't maintain the key association. Answer with the sorted array.
-</p>
-",
+"text" => <<<EOD
+Sort the array [$s3_arrSel2Print] in ascending order. Make sure that it does not maintain the key association. Answer with the sorted array.
+EOD
+,
 
 "answer" => function () use ($s3_arrSel2) {
 
@@ -424,10 +434,10 @@ return [
  */
 [
 
-"text" => "
-<p>Sort the array [$s3_arrSelPrint] in decending order. Make sure that it does maintain the key association. Answer with the sorted array.
-</p>
-",
+"text" => <<<EOD
+Sort the array [$s3_arrSelPrint] in decending order. Make sure that it does maintain the key association. Answer with the sorted array.
+EOD
+,
 
 "answer" => function () use ($s3_arrSel) {
 
@@ -446,10 +456,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use pop() on the array [$s3_arrSelPrint] and answer with the popped item.
-</p>
-",
+"text" => <<<EOD
+Use `pop()` on the array [$s3_arrSelPrint] and answer with the popped item.
+EOD
+,
 
 "answer" => function () use ($s3_arrSel) {
 
@@ -468,10 +478,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use push() on the array [$s3_arrSel2Print] and insert the number $s3_single. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Use `push()` on the array [$s3_arrSel2Print] and insert the number $s3_single. Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($s3_arrSel2, $s3_single) {
 
@@ -490,10 +500,10 @@ return [
  */
 [
 
-"text" => "
-<p>Copy your array 'countries' to a new array called 'newArray'. Use shift() on the new array and answer with the shifted item.
-</p>
-",
+"text" => <<<EOD
+Copy your array 'countries' to a new array called 'newArray'. Use `shift()` on the new array and answer with the shifted item.
+EOD
+,
 
 "answer" => function () use ($s3_newArray) {
 
@@ -510,10 +520,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use unshift() on your 'newArray' add the items '$s3_singelState1' and '$s3_singleState2' in the beginning of the array. Answer with the modified array.
-</p>
-",
+"text" => <<<EOD
+Use `unshift()` on your 'newArray' add the items '$s3_singelState1' and '$s3_singleState2' in the beginning of the array. Answer with the modified array.
+EOD
+,
 
 "answer" => function () use ($s3_newArray, $s3_singelState1, $s3_singleState2) {
 
@@ -532,10 +542,10 @@ return [
  */
 [
 
-"text" => "
-<p>Reverse the order of the array [$s3_arrSelPrint]. Answer with the modified array.
-</p>
-",
+"text" => <<<EOD
+Reverse the order of the array [$s3_arrSelPrint]. Answer with the modified array.
+EOD
+,
 
 "answer" => function () use ($s3_arrSel) {
 
@@ -551,10 +561,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use implode() on your 'capital'-array and answer with a string where each item is separated by a hyphen (-).
-</p>
-",
+"text" => <<<EOD
+Use `implode()` on your 'capital'-array and answer with a string where each item is separated by a hyphen (-).
+EOD
+,
 
 "answer" => function () use ($s4_capitals) {
 
@@ -579,7 +589,9 @@ return [
 [
 "title" => "Arrays - for-each loop",
 
-"intro" => "",
+"intro" => <<<EOD
+EOD
+,
 
 "shuffle" => false,
 
@@ -592,10 +604,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create an array, called 'numbers1' with the items: [$s4_printNum1]. Use a for-each loop to sum each item with $s4_smallNum and put them in a new array called 'summedNumbers1'. Answer with the new array.
-</p>
-",
+"text" => <<<EOD
+Create an array, called 'numbers1' with the items: [$s4_printNum1]. Use a for-each loop to sum each item with $s4_smallNum and put them in a new array called 'summedNumbers1'. Answer with the new array.
+EOD
+,
 
 "answer" => function () use ($s4_useThis1, $s4_smallNum) {
 	$summedNumbers1 = [];
@@ -614,10 +626,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a new array called 'numbers2' with the items [$s4_printNum2]. Use at least a for-each loop to add all numbers larger than 20 to a new array called 'largeNumbers'. Answer with the new array.
-</p>
-",
+"text" => <<<EOD
+Create a new array called 'numbers2' with the items [$s4_printNum2]. Use at least a for-each loop to add all numbers larger than 20 to a new array called 'largeNumbers'. Answer with the new array.
+EOD
+,
 
 "answer" => function () use ($s4_useThis2) {
 	$largeNumbers = [];
@@ -638,10 +650,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create an array with the keys: 'one', 'two', 'three', 'four' and 'five' and the values: 1, 2, 3, 4, 5. Use a foreach-loop to add all keys and values to an array in the format: ['key=value', key=value, etc']. Use implode() to make the answer a string with all items separated by a comma (,).
-</p>
-",
+"text" => <<<EOD
+Create an array with the keys: 'one', 'two', 'three', 'four' and 'five' and the values: 1, 2, 3, 4, 5. Use a foreach-loop to add all keys and values to an array in the format: ['key=value', key=value, etc']. Use `implode()` to make the answer a string with all items separated by a comma (,).
+EOD
+,
 
 "answer" => function () use ($s4_foreach1) {
 	$res = [];
@@ -671,7 +683,10 @@ return [
 [
 "title" => "Switch-case",
 
-"intro" => "http://se1.php.net/manual/en/control-structures.switch.php",
+"intro" => <<<EOD
+[PHP Manual about switch](http://se1.php.net/manual/en/control-structures.switch.php)
+EOD
+,
 
 "shuffle" => false,
 
@@ -685,10 +700,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a switch-case statement that returns the continent a certain country resides in. Use the countries: $countriesString1 and the continents: $continentsString1. Answer with a test on the country: $switchCountries1[$switchWich1].
-</p>
-",
+"text" => <<<EOD
+Create a switch-case statement that returns the continent a certain country resides in. Use the countries: $countriesString1 and the continents: $continentsString1.
+
+Answer with a test on the country: $switchCountries1[$switchWich1].
+EOD
+,
 
 "answer" => function () use ($switchContinents1, $switchWich1) {
 
@@ -705,10 +722,12 @@ return [
  */
 [
 
-"text" => "
-<p>A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that returns the corresponding continent. Use the countries: $countriesString2 and the continents: $continentsString1. Answer with a test on the country: $switchCountries2[$switchWich2].
-</p>
-",
+"text" => <<<EOD
+A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that returns the corresponding continent. Use the countries: $countriesString2 and the continents: $continentsString1.
+
+Answer with a test on the country: $switchCountries2[$switchWich2].
+EOD
+,
 
 "answer" => function () use ($switchContinents2, $switchWich2) {
 

@@ -11,7 +11,7 @@
  */
 function wrap($text, $wrapper = "\n# ")
 {
-    $text = wordwrap(trim($text, "\n"));
+    $text = wordwrap(trim($text, "\n"), 75, "\n", true);
     $text = str_replace("\n", $wrapper, $text);
     return "$text\n";
 }

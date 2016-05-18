@@ -84,10 +84,12 @@ return [
  */
 "title" => "Lab 1 - htmlphp",
 
-"intro" => "
-<p>If you need to peek at examples or just want to know more, take a look at the page: http://php.net/manual/en/langref.php. Here you will find everything this lab will go through and much more.
-</p>
-",
+"intro" => <<<EOD
+If you need to peek at examples or just want to know more, take a look at the [PHP manual](http://php.net/manual/en/langref.php).
+
+Here you will find everything this lab will go through and much more.
+EOD
+,
 
 
 "sections" => [
@@ -100,9 +102,10 @@ return [
 [
 "title" => "Integers, floats and basic arithmetics",
 
-"intro" => "
-<p>The foundation of numbers and basic arithmetic.</p>
-",
+"intro" => <<<EOD
+The foundation of numbers and basic arithmetic.
+EOD
+,
 
 "shuffle" => false,
 
@@ -115,10 +118,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create two variables called 'numOne' and 'numTwo' and assign to them the values $s1_numOne and $s1_numTwo. Sum up the variables and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create two variables called 'numOne' and 'numTwo' and assign to them the values $s1_numOne and $s1_numTwo.
+
+Sum up the variables and answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_numOne, $s1_numTwo) {
 
@@ -133,10 +138,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use your two variables 'numOne' and 'numTwo'. Subtract 'numOne' from 'numTwo' and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use your two variables 'numOne' and 'numTwo'. Subtract 'numOne' from 'numTwo' and answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_numOne, $s1_numTwo) {
 
@@ -152,10 +157,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use your two variables 'numOne' and 'numTwo'. Answer with the product of the variables.
-</p>
-",
+"text" => <<<EOD
+Use your two variables 'numOne' and 'numTwo'. Answer with the product of the variables.
+EOD
+,
 
 "answer" => function () use($s1_numOne, $s1_numTwo) {
 
@@ -171,10 +176,10 @@ return [
  */
 [
 
-"text" => "
-<p>Divide 'numOne' with 'numTwo' and use the function round() to round the answer to 1 decimal.
-</p>
-",
+"text" => <<<EOD
+Divide 'numOne' with 'numTwo' and use the function round() to round the answer to 1 decimal.
+EOD
+,
 
 "answer" => function () use($s1_numOne, $s1_numTwo) {
 
@@ -190,10 +195,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable called 'floatOne' and give it the value $s1_floatOne. Create another variable called 'floatTwo' and give it the value $s1_floatTwo. Sum up the variables, round off to 2 decimals and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a variable called 'floatOne' and give it the value $s1_floatOne. Create another variable called 'floatTwo' and give it the value $s1_floatTwo. Sum up the variables, round off to 2 decimals and answer with the result.
+EOD
+,
 
 "answer" => function () use($s1_floatOne, $s1_floatTwo) {
 
@@ -209,10 +214,10 @@ return [
  */
 [
 
-"text" => "
-<p>Subtract 'floatOne' from 'floatTwo', round up to 3 decimals and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Subtract 'floatOne' from 'floatTwo', round up to 3 decimals and answer with the result.
+EOD
+,
 
 "answer" => function () use($s1_floatOne, $s1_floatTwo) {
 
@@ -228,10 +233,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable called 'floatThree' and give it the value $s1_floatThree.  Add 'floatOne' to 'floatTwo' and multiply the result with 'floatThree', take that result and divide it by 'numOne'. Answer with the result rounded to 4 decimals.
-</p>
-",
+"text" => <<<EOD
+Create a variable called 'floatThree' and give it the value $s1_floatThree.  Add 'floatOne' to 'floatTwo' and multiply the result with 'floatThree', take that result and divide it by 'numOne'.
+
+Answer with the result rounded to 4 decimals.
+EOD
+,
 
 "answer" => function () use($s1_floatOne, $s1_floatTwo, $s1_floatThree, $s1_numOne) {
 
@@ -247,10 +254,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable 'modOne' with a value of $s1_modOne and a variable 'modTwo' holding the value $s1_modTwo. Answer with the result of 'modOne' modulo (%) 'modTwo'.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'modOne' with a value of $s1_modOne and a variable 'modTwo' holding the value $s1_modTwo.
+
+Answer with the result of 'modOne' modulo (%) 'modTwo'.
+EOD
+,
 
 "answer" => function () use ($s1_modOne, $s1_modTwo) {
 
@@ -266,10 +275,10 @@ return [
  */
 [
 
-"text" => "
-<p>Answer with the integer value of 'modOne' divided by 'modTwo' by using the function floor().
-</p>
-",
+"text" => <<<EOD
+Answer with the integer value of 'modOne' divided by 'modTwo' by using the function `floor()`.
+EOD
+,
 
 "answer" => function () use ($s1_modOne, $s1_modTwo) {
 
@@ -285,10 +294,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use the function max() to get the highest value from your variables 'modOne', 'modTwo', 'floatOne', 'floatTwo', 'numOne', 'numTwo'.
-</p>
-",
+"text" => <<<EOD
+Use the function `max()` to get the highest value from your variables 'modOne', 'modTwo', 'floatOne', 'floatTwo', 'numOne', 'numTwo'.
+EOD
+,
 
 "answer" => function () use ($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo) {
 
@@ -304,10 +313,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use the function min() to get the smallest value from your variables 'modOne', 'modTwo', 'floatOne', 'floatTwo', 'numOne', 'numTwo'.
-</p>
-",
+"text" => <<<EOD
+Use the function `min()` to get the smallest value from your variables 'modOne', 'modTwo', 'floatOne', 'floatTwo', 'numOne', 'numTwo'.
+EOD
+,
 
 "answer" => function () use ($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo) {
 
@@ -332,9 +341,10 @@ return [
 [
 "title" => "Strings and basic string operations",
 
-"intro" => "
-<p>The foundation for strings.</p>
-",
+"intro" => <<<EOD
+The foundation for strings.
+EOD
+,
 
 "shuffle" => false,
 
@@ -348,10 +358,16 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable called 'wordOne' and assign the word '$s1_singleWord1' to it. Create another variable called 'wordTwo' and assign the word '$s1_singleWord2'. Concatenate the two strings, and separate them by a hyphen (-), into a new variable called 'result'. Answer with the result-variable.
-</p>
-",
+"text" => <<<EOD
+Create a variable called 'wordOne' and assign the word '$s1_singleWord1' to it. 
+
+Create another variable called 'wordTwo' and assign the word '$s1_singleWord2'. 
+
+Concatenate the two strings, and separate them by a hyphen `-`, into a new variable called 'result'.
+
+Answer with the result-variable.
+EOD
+,
 
 "answer" => function () use ($s1_singleWord1, $s1_singleWord2) {
 
@@ -367,10 +383,10 @@ return [
  */
 [
 
-"text" => "
-<p>Concatenate your variable 'wordOne' with your variable 'floatThree', separate the words with a '='. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Concatenate your variable 'wordOne' with your variable 'floatThree', separate the words with a '='. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_singleWord1, $s1_floatThree) {
 
@@ -386,10 +402,10 @@ return [
  */
 [
 
-"text" => "
-<p>Concatenate your variable 'numOne' with your variable 'wordTwo', separate the words with a space. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Concatenate your variable 'numOne' with your variable 'wordTwo', separate the words with a space. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_numOne, $s1_singleWord2) {
 
@@ -405,10 +421,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create the string: \"$s1_sentence\" by combining pure text with the values of your variables 'wordOne', 'wordTwo' and 'numOne'. Store the resulting text in a variable 'sentence'. Answer with the variable.
-</p>
-",
+"text" => <<<EOD
+Create the string: "$s1_sentence" by combining pure text with the values of your variables 'wordOne', 'wordTwo' and 'numOne'. Store the resulting text in a variable 'sentence'. Answer with the variable.
+EOD
+,
 
 "answer" => function () use ($s1_sentence) {
 
@@ -424,10 +440,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use strlen() to find the length of the variable 'sentence'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use `strlen()` to find the length of the variable 'sentence'. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_sentence) {
 
@@ -445,10 +461,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use substr() to find the character at index $s3_sub1 in the word '$s3_word1'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use `substr()` to find the character at index $s3_sub1 in the word '$s3_word1'. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s3_word1, $s3_sub1) {
 
@@ -465,10 +481,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use substr() to find the two characters at index 3 and 4 in the word '$s3_word2'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use `substr()` to find the two characters at index 3 and 4 in the word '$s3_word2'. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s3_word2) {
 
@@ -485,10 +501,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use strpos() to find the first matching index of the character '$s3_strpos1' in the word '$s3_word3'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use `strpos()` to find the first matching index of the character '$s3_strpos1' in the word '$s3_word3'. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s3_word3, $s3_strpos1) {
 
@@ -505,10 +521,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use strpos() to find the first matching, (if any), index of the characters 'xyz' in the word '$s3_word3'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use `strpos()` to find the first matching, (if any), index of the characters 'xyz' in the word '$s3_word3'. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s3_word3) {
 
@@ -534,10 +550,9 @@ return [
 [
 "title" => "Conditions, booleans, if, else and else if",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => <<<EOD
+EOD
+,
 
 "shuffle" => false,
 
@@ -550,10 +565,10 @@ return [
  */
 [
 
-"text" => "
-<p>Store the boolean result of the test: '$s2_numOne is less than $s2_numTwo' in a variable. Answer with the variable.
-</p>
-",
+"text" => <<<EOD
+Store the boolean result of the test: '$s2_numOne is less than $s2_numTwo' in a variable. Answer with the variable.
+EOD
+,
 
 "answer" => function () use ($s2_numOne, $s2_numTwo) {
 
@@ -569,10 +584,10 @@ return [
  */
 [
 
-"text" => "
-<p>Answer with the boolean value of: $s2_numThree is larger than $s2_numFour.
-</p>
-",
+"text" => <<<EOD
+Answer with the boolean value of: $s2_numThree is larger than $s2_numFour.
+EOD
+,
 
 "answer" => function () use ($s2_numThree, $s2_numFour) {
 
@@ -588,10 +603,14 @@ return [
  */
 [
 
-"text" => "
-<p>Sum up the numbers: $s2_small1, $s2_small2, $s2_small3, $s2_small4 and $s2_small5. Save the result in a variable called 'totalSum'. Create an if/elseif-statement to see if 'totalSum' is higher, lower or equal to $s2_smallCompare. Answer with the corresponding result as a string: 'higher', 'lower', 'equal'.
-</p>
-",
+"text" => <<<EOD
+Sum up the numbers: $s2_small1, $s2_small2, $s2_small3, $s2_small4 and $s2_small5. Save the result in a variable called 'totalSum'.
+
+Create an if/elseif-statement to see if 'totalSum' is higher, lower or equal to $s2_smallCompare.
+
+Answer with the corresponding result as a string: 'higher', 'lower', 'equal'.
+EOD
+,
 
 "answer" => function () use ($s2_smallSum, $s2_smallCompare) {
 	$res = "equal";
@@ -614,10 +633,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create an if-statement that checks if a value is between (or equal to) $s2_smallIf1 and  $s2_smallIf2. Use the variable 'totalSum' to test the if-statement. Answer with a boolean true if the value is between the values, otherwise respond with false.
-</p>
-",
+"text" => <<<EOD
+Create an if-statement that checks if a value is between (or equal to) $s2_smallIf1 and  $s2_smallIf2. Use the variable 'totalSum' to test the if-statement. Answer with a boolean true if the value is between the values, otherwise respond with false.
+EOD
+,
 
 "answer" => function () use ($s2_smallSum, $s2_smallIf1, $s2_smallIf2) {
 
@@ -646,10 +665,10 @@ return [
 [
 "title" => "Iteration and loops",
 
-"intro" => "
-<p>For-loops and while-loops.
-</p>
-",
+"intro" => <<<EOD
+For-loops and while-loops.
+EOD
+,
 
 "shuffle" => false,
 
@@ -662,10 +681,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a while-loop that adds $s4_addNum to the number $s4_addTo, $s4_addTimes times. Use variables to store the numbers. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a while-loop that adds $s4_addNum to the number $s4_addTo, $s4_addTimes times. Use variables to store the numbers. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s4_addNum, $s4_addTo, $s4_addTimes) {
 	$result = $s4_addTo;
@@ -686,10 +705,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a while-loop that subtracts $s4_toSub from the number $s4_subFrom until the number is between (not equal to) $s4_toReachLow and $s4_toReachHigh. Answer with the final result as a float, rounded to 2 decimals.
-</p>
-",
+"text" => <<<EOD
+Create a while-loop that subtracts $s4_toSub from the number $s4_subFrom until the number is between (not equal to) $s4_toReachLow and $s4_toReachHigh. Answer with the final result as a float, rounded to 2 decimals.
+EOD
+,
 
 "answer" => function () use($s4_subFrom, $s4_toSub, $s4_toReachLow, $s4_toReachHigh) {
 
@@ -712,10 +731,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a for-loop that iterates from 0 to (including) $s4_forSmall. Add the integer value for each iteration to a string and separate each item with a ','. Answer with the final string without an ending ','.
-</p>
-",
+"text" => <<<EOD
+Create a for-loop that iterates from 0 to (including) $s4_forSmall. Add the integer value for each iteration to a string and separate each item with a ','. Answer with the final string without an ending ','.
+EOD
+,
 
 "answer" => function () use($s4_forSmall) {
 
@@ -737,10 +756,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a for-loop that goes through (and including) the numbers $s4_toReachLow to $s4_toReachHigh. If the current number is even, you should multiply it with PI and add it to a variable 'res'. If the current number is odd, you should subtract the square root of it, from the variable 'res'. If the current number ends with a zero, then ignore it. Answer with the final result of 'res' and round it to the nearest higher integer value.
-</p>
-",
+"text" => <<<EOD
+Create a for-loop that goes through (and including) the numbers $s4_toReachLow to $s4_toReachHigh. If the current number is even, you should multiply it with PI and add it to a variable 'res'. If the current number is odd, you should subtract the square root of it, from the variable 'res'. If the current number ends with a zero, then ignore it. Answer with the final result of 'res' and round it to the nearest higher integer value.
+EOD
+,
 
 "answer" => function () use($s4_toReachLow, $s4_toReachHigh) {
 

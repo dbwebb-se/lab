@@ -56,7 +56,7 @@ if ($doGenerate) {
 // Generate bundle och lab content
 if ($action == "bundle") {
     $key = isset($key) ? $key : $gen_key;
-    include "view/bundle_tpl.php";
+    include "view/generate/bundle_tpl.php";
     die();
 }
 

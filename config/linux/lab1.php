@@ -79,11 +79,12 @@ EOD
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Skapa en variabel `FILE` och tilldela den värdet `$file`.
 
 Svara med variabelns värde, dvs `\$FILE`.
-",
+EOD
+,
 
 "points" => 1,
 
@@ -101,11 +102,12 @@ Svara med variabelns värde, dvs `\$FILE`.
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Använd kommandot `wc` för att räkna ut hur många rader ircloggen består av. Visa endast antalet rader och filens namn, separerade av ett mellanslag.
 
 Spara svaret i en variabel och svara med variabelns innehåll.
-",
+EOD
+,
 
 "points" => 1,
 
@@ -123,11 +125,12 @@ Spara svaret i en variabel och svara med variabelns innehåll.
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Använd `wc` tillsammans med `cut` för att räkna ut hur många ord, words, ircloggen består av.
 
 Spara enbart antalet ord i en variabel och svara med den.
-",
+EOD
+,
 
 "points" => 1,
 
@@ -144,11 +147,12 @@ Spara enbart antalet ord i en variabel och svara med den.
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Hitta raden med 'pansars' åsikt om 'notepad'.
 
 Spara svaret i en variabel och svara med variabelns innehåll.
-",
+EOD
+,
 
 "points" => 1,
 
@@ -165,9 +169,10 @@ Spara svaret i en variabel och svara med variabelns innehåll.
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Hitta de fyra sista raderna i filen.
-",
+EOD
+,
 
 "points" => 1,
 
@@ -186,9 +191,10 @@ Hitta de fyra sista raderna i filen.
  */
 [
 
-"text" => "
+"text" => <<<EOD
 När öppnades ircloggen för första gången? Ledtråd 'Log opened'. Svara med raden som säger när loggen öppnades för första gången.
-",
+EOD
+,
 
 "points" => 1,
 
@@ -205,9 +211,10 @@ När öppnades ircloggen för första gången? Ledtråd 'Log opened'. Svara med 
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Vad innehåller den tredje raden där wasa säger något?
-",
+EOD
+,
 
 "points" => 1,
 
@@ -224,9 +231,10 @@ Vad innehåller den tredje raden där wasa säger något?
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Hur många rader är det som är loggade enligt tiden 11:15?
-",
+EOD
+,
 
 "points" => 1,
 
@@ -243,9 +251,10 @@ Hur många rader är det som är loggade enligt tiden 11:15?
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Hitta de första 10 raderna från dagen 'Wed Jun 17 2015'.
-",
+EOD
+,
 
 "points" => 3,
 
@@ -264,9 +273,10 @@ Hitta de första 10 raderna från dagen 'Wed Jun 17 2015'.
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Hittade raderna som är inlagda angående 'forum' och innehåller detaljer om 'projektet' och 'htmlphp'.
-",
+EOD
+,
 
 "points" => 3,
 
@@ -285,9 +295,10 @@ Hittade raderna som är inlagda angående 'forum' och innehåller detaljer om 'p
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Vad sa 'Bobbzorzen' två rader innan han sa 'cewl'?
-",
+EOD
+,
 
 "points" => 3,
 
@@ -304,9 +315,10 @@ Vad sa 'Bobbzorzen' två rader innan han sa 'cewl'?
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Hur många ord är det i den fjärde till nionde raden, under dagen 'Mon Jun 08 2015'?
-",
+EOD
+,
 
 "points" => 3,
 
@@ -323,9 +335,10 @@ Hur många ord är det i den fjärde till nionde raden, under dagen 'Mon Jun 08 
  */
 [
 
-"text" => "
+"text" => <<<EOD
 Hitta den första raden där 'pansar' säger något när klockan är 07:48.
-",
+EOD
+,
 
 "points" => 3,
 

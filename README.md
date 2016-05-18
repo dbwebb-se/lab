@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.10 (2016-05-18)
+
+* Labtexts in linux and htmlphp is now formatted as Markdown.
+
+
 v2.2.9 (2016-05-18)
 
 * Lab texts now formatted as Markdown.

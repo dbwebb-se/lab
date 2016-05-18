@@ -1,7 +1,25 @@
 <?="<?php\n"?>
+
+<?php 
+$currentVersion = VERSION;
+echo <<< EOD
 /**
  * @preserve <?=$key?>
+ *
+ * $key
+ * $course
+ * $lab
+ * $acronym
+ * $created
+ * $version
+ *
+ * Generated $timestamp_now by dbwebb lab-utility $currentVersion.
+ * https://github.com/mosbth/lab
  */
+EOD;
+?>
+
+<?= $header ?>
 
 // Set error reporting to verbose
 error_reporting(-1);              // Report all type of errors
@@ -16,39 +34,43 @@ $dbwebb = new CDbwebb();
 <?php 
 $sectionId = 0;
 ?>
-
-
 /** ===================================================================
  * <?=$title?>
  *
- * <?=wordwrap(trim(strip_tags($intro), "\n"), 75, "\n * ", true)?>
+ * <?= wrap($intro, "\n * ") ?>
  *
  */
+
+
 
 <?php 
 foreach ($sections as $section) {
     $sectionId++;
     $questionId = 0;
 ?>
-
-
 /** -------------------------------------------------------------------
  * Section <?=$sectionId?>. <?=$section['title']?>
  *
- * <?=wordwrap(trim(strip_tags($section['intro']), "\n"), 75, "\n * ", true)?>
+ * <?= wrap($section['intro'], "\n * ") ?>
  *
  */
+
+
 
 <?php 
     foreach ($section['questions'] as $question) {
         $questionId++;
+
+        // Get points
+        $points = null;
+        if (isset($question["points"])) {
+            $points = " (${question["points"]} points)";
+        }
 ?>
-
-
 /**
- * Exercise <?="$sectionId.$questionId"?>
+ * Exercise <?="$sectionId.$questionId$points"?>
  *
- * <?=wordwrap(trim(strip_tags($question['text']), "\n"), 75, "\n * ", true)?>
+ * <?= wrap($question['text'], "\n * ") ?>
  *
  * Write your code below and put the answer into the variable ANSWER.
  */
@@ -56,17 +78,17 @@ foreach ($sections as $section) {
 
 
 
+
+
 $ANSWER = "Replace this text with the variable holding the answer.";
 
-// Is the answer as expected?
-// When you get stuck - change false to true to get a hint.
+// I will now test your answer - change false to true to get a hint.
 echo $dbwebb->assertEqual("<?="$sectionId.$questionId"?>", $ANSWER, false);
 
 <?php 
     }
 }
 ?>
-
 
 // Wrap it up
 exit($dbwebb->exitWithSummary());

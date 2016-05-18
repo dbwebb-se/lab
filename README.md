@@ -15,6 +15,12 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.9 (2016-05-18)
+
+* Lab texts now formatted as Markdown.
+* Added `header` to lab specs to write additional code at top of generated cli-lab to include/execute extra code. Supported in bash, py and php.
+
+
 v2.2.8 (2016-05-16)
 v2.2.7 (2016-05-16)
 

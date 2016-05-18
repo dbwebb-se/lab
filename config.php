@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.2.8 (2016-05-16)";
+const VERSION = "v2.2.9 (2016-05-18)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -15,6 +15,7 @@ ini_set('display_errors', 1);     // Display all errors
 
 date_default_timezone_set("UTC");
 
+require __DIR__ . "/vendor/autoload.php";
 
 
 /**

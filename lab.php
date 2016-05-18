@@ -6,6 +6,7 @@
 include __DIR__ . "/config.php";
 include __DIR__ . "/functions.php";
 
+$textfilter = new \Mos\TextFilter\CTextFilter();
 
 
 // Incoming

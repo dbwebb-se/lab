@@ -14,45 +14,55 @@ Generated <?=$timestamp_now?> by dbwebb lab-utility <?=VERSION?>.
 https://github.com/mosbth/lab
 """
 
+<?= $header ?>
+
 from Dbwebb import Dbwebb
 
 dbwebb = Dbwebb()
 print(">>> Ready to begin.")
 
 
+
 <?php 
 $sectionId = 0;
-
 ?>
 """
 ==========================================================================
-<?=$title?> 
+<?= $title ?> 
  
-<?=wordwrap(trim(strip_tags($intro), "\n"), 75, "\n", true)?> 
+<?= wrap($intro, "\n") ?> 
 """
+
+
 
 <?php 
 foreach ($sections as $section) {
     $sectionId++;
     $questionId = 0;
-
 ?>
 """
 --------------------------------------------------------------------------
 Section <?=$sectionId?>. <?=$section['title']?> 
  
-<?=wordwrap(trim(strip_tags($section['intro']), "\n"), 75, "\n", true)?> 
+<?= wrap($section['intro'], "\n") ?> 
 """
+
+
 
 <?php 
     foreach ($section['questions'] as $question) {
         $questionId++;
 
+        // Get points
+        $points = null;
+        if (isset($question["points"])) {
+            $points = " (${question["points"]} points)";
+        }
 ?>
 """
-Exercise <?="$sectionId.$questionId"?> 
+Exercise <?="$sectionId.$questionId$points"?> 
  
-<?=wordwrap(trim(strip_tags($question['text']), "\n"), 75, "\n", true)?> 
+<?= wrap($question['text'], "\n") ?> 
 
 Write your code below and put the answer into the variable ANSWER.
 """
@@ -61,10 +71,10 @@ Write your code below and put the answer into the variable ANSWER.
 
 
 
+
 ANSWER = "Replace this text with the variable holding the answer."
 
-# Is the answer as expected?
-# When you get stuck - change False to True to get a hint.
+# I will now test your answer - change false to true to get a hint.
 print(dbwebb.assertEqual("<?="$sectionId.$questionId"?>", ANSWER, False))
 
 <?php 

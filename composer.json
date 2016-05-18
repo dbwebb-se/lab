@@ -1,0 +1,5 @@
+{
+    "require": {
+        "mos/ctextfilter": "^1.2"
+    }
+}

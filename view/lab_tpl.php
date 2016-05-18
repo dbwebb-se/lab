@@ -23,7 +23,7 @@ $version
 <hr>
 
 <h1><?=$title?></h1>
-<?=$intro?>
+<?=parseMarkdown($intro)?>
 
 <?php 
 // How to format the answers
@@ -39,7 +39,7 @@ $questionId = 0;
 ?>
 
 <h2><?=$sectionId . ". " . $section['title']?></h2>
-<?=$section['intro']?>
+<?=parseMarkdown($section['intro'])?>
 
 <?php 
 foreach ($section['questions'] as $question) :
@@ -49,11 +49,11 @@ $questionId++;
 <?php
 $points = null;
 if (isset($question["points"])) {
-    $points = " (${question["points"]} poäng)";
+    $points = " (${question["points"]} points)";
 }
 ?>
 <h3>Exercise <?="$sectionId.$questionId$points"?></h3>
-<?=$question['text']?>
+<?=parseMarkdown($question['text'])?>
 
 
 <?php if ($doAnswers) : ?>

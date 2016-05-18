@@ -24,9 +24,10 @@ return [
 "title" => "Lab 1 - linux",
 
 "intro" => "
-<p>En lab där du använder Unix verktyg som finns tillgängliga via kommandoraden, tillsammans med lite Bash, för att finna och hantera information i en IRC loggfil. 
-</p>
+En lab där du använder Unix verktyg som finns tillgängliga via kommandoraden, tillsammans med lite Bash, för att finna och hantera information i en [IRC loggfil](ircLog.txt).
 ",
+
+"header" => null,
 
 "passPercentage" => 70/100,
 "passDistinctPercentage" => 100/100,
@@ -48,9 +49,24 @@ return [
 [
 "title" => "Bash",
 
-"intro" => "
-<p>Öva Linux kommandon och använd dem tillsammans med Bash. I denna övningen kommer du främst använda kommandon som `grep`, `wc`, `head` och `tail` för att söka ut information i en loggfil från irc-chatten. Sedan kombinerar du utskriften av kommandona in till variabler i Bash. Använd man-sidorna vid behov för att finna informaiton om hur du löser uppgifterna.</p>
-",
+"intro" => <<<EOD
+Öva Linux kommandon och använd dem tillsammans med Bash.
+
+I denna övningen kommer du främst använda kommandon som `grep`, `wc`, `head` och `tail` för att söka ut information i en loggfil från irc-chatten.
+
+Write HTML in text, wrap in backtick `<a href="moped">mask</a>`
+
+Pure link as HTML <a href="moped">mask</a>
+
+```
+<html> 
+```
+
+a > 2
+
+Sedan kombinerar du utskriften av kommandona in till variabler i Bash. Använd man-sidorna vid behov för att finna informaiton om hur du löser uppgifterna.
+EOD
+,
 
 "shuffle" => false,
 
@@ -64,8 +80,9 @@ return [
 [
 
 "text" => "
-<p>Skapa en variabel `FILE` och tilldela den värdet `$file`. Svara med variabelns värde, dvs `\$FILE`.
-</p>
+Skapa en variabel `FILE` och tilldela den värdet `$file`.
+
+Svara med variabelns värde, dvs `\$FILE`.
 ",
 
 "points" => 1,
@@ -85,8 +102,9 @@ return [
 [
 
 "text" => "
-<p>Använd kommandot `wc` för att räkna ut hur många rader ircloggen består av. Visa endast antalet rader och filens namn, separerade av ett mellanslag. Spara svaret i en variabel och svara med variabelns innehåll.
-</p>
+Använd kommandot `wc` för att räkna ut hur många rader ircloggen består av. Visa endast antalet rader och filens namn, separerade av ett mellanslag.
+
+Spara svaret i en variabel och svara med variabelns innehåll.
 ",
 
 "points" => 1,
@@ -106,8 +124,9 @@ return [
 [
 
 "text" => "
-<p>Använd `wc` tillsammans med `cut` för att räkna ut hur många ord, words, ircloggen består av. Spara enbart antalet ord i en variabel och svara med den.
-</p>
+Använd `wc` tillsammans med `cut` för att räkna ut hur många ord, words, ircloggen består av.
+
+Spara enbart antalet ord i en variabel och svara med den.
 ",
 
 "points" => 1,
@@ -126,8 +145,9 @@ return [
 [
 
 "text" => "
-<p>Hitta raden med 'pansars' åsikt om 'notepad'. Spara svaret i en variabel och svara med variabelns innehåll.
-</p>
+Hitta raden med 'pansars' åsikt om 'notepad'.
+
+Spara svaret i en variabel och svara med variabelns innehåll.
 ",
 
 "points" => 1,
@@ -146,8 +166,7 @@ return [
 [
 
 "text" => "
-<p>Hitta de fyra sista raderna i filen.
-</p>
+Hitta de fyra sista raderna i filen.
 ",
 
 "points" => 1,
@@ -168,8 +187,7 @@ return [
 [
 
 "text" => "
-<p>När öppnades ircloggen för första gången? Ledtråd 'Log opened'. Svara med raden som säger när loggen öppnades för första gången.
-</p>
+När öppnades ircloggen för första gången? Ledtråd 'Log opened'. Svara med raden som säger när loggen öppnades för första gången.
 ",
 
 "points" => 1,
@@ -188,8 +206,7 @@ return [
 [
 
 "text" => "
-<p>Vad innehåller den tredje raden där wasa säger något?
-</p>
+Vad innehåller den tredje raden där wasa säger något?
 ",
 
 "points" => 1,
@@ -208,8 +225,7 @@ return [
 [
 
 "text" => "
-<p>Hur många rader är det som är loggade enligt tiden 11:15?
-</p>
+Hur många rader är det som är loggade enligt tiden 11:15?
 ",
 
 "points" => 1,
@@ -228,8 +244,7 @@ return [
 [
 
 "text" => "
-<p>Hitta de första 10 raderna från dagen 'Wed Jun 17 2015'.
-</p>
+Hitta de första 10 raderna från dagen 'Wed Jun 17 2015'.
 ",
 
 "points" => 3,
@@ -250,8 +265,7 @@ return [
 [
 
 "text" => "
-<p>Hittade raderna som är inlagda angående 'forum' och innehåller detaljer om 'projektet' och 'htmlphp'.
-</p>
+Hittade raderna som är inlagda angående 'forum' och innehåller detaljer om 'projektet' och 'htmlphp'.
 ",
 
 "points" => 3,
@@ -272,8 +286,7 @@ return [
 [
 
 "text" => "
-<p>Vad sa 'Bobbzorzen' två rader innan han sa 'cewl'?
-</p>
+Vad sa 'Bobbzorzen' två rader innan han sa 'cewl'?
 ",
 
 "points" => 3,
@@ -292,8 +305,7 @@ return [
 [
 
 "text" => "
-<p>Hur många ord är det i den fjärde till nionde raden, under dagen 'Mon Jun 08 2015'?
-</p>
+Hur många ord är det i den fjärde till nionde raden, under dagen 'Mon Jun 08 2015'?
 ",
 
 "points" => 3,
@@ -312,8 +324,7 @@ return [
 [
 
 "text" => "
-<p>Hitta den första raden där 'pansar' säger något när klockan är 07:48.
-</p>
+Hitta den första raden där 'pansar' säger något när klockan är 07:48.
 ",
 
 "points" => 3,

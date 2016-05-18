@@ -1,4 +1,40 @@
 <?php
+
+
+/**
+ * Get details for key or die.
+ *
+ * @param string $key
+ * @param string $wrapper
+ *
+ * @return Object as resultset
+ */
+function wrap($text, $wrapper = "\n# ")
+{
+    $text = wordwrap(trim($text, "\n"));
+    $text = str_replace("\n", $wrapper, $text);
+    return "$text\n";
+}
+
+
+
+
+/**
+ * Parse text as Markdown.
+ *
+ * @param String $text
+ *
+ * @return string as HTML text
+ */
+function parseMarkdown($text)
+{
+    global $textfilter;
+    $res = $textfilter->parse($text, ["markdown"]);
+    return $res->text;
+}
+
+
+
 /**
  * Get details for key or die.
  *

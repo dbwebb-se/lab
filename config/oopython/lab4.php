@@ -46,7 +46,7 @@ EOD
 "intro" => <<<EOD
 For the exercises where you should match a pattern on strings in lists use  
 'reg.regexOnLists(pattern, matchList, dontMatchList)'.  
-Unless it says in the exercise to send an argument for the index parameter dont. Copy the lists from the exercise description and send as arguments.  
+Unless it says in the exercise to send an argument for the index parameter dont. Copy the lists from the exercise description and send as arguments.
 
 Answer with the result from the function.
 EOD
@@ -65,7 +65,7 @@ EOD
 
 "text" => <<<EOD
 Write a pattern that matches the word '$s1_twisterWord' in the sentence  
-'how can a clam cram in a clean cream can?'.  
+'how can a clam cram in a clean cream can?'.
 
 Use the re modules findall function.
 EOD
@@ -87,7 +87,7 @@ EOD
 
 "text" => <<<EOD
 Write a pattern that only matches the words that starts with a big letter in the sentence  
-'Droskkusken Max kuskar med Fuxar och fuskar med droskkusktaxan.'.  
+'Droskkusken Max kuskar med Fuxar och fuskar med droskkusktaxan.'.
 
 Use the re modules findall function.
 EOD
@@ -111,7 +111,7 @@ EOD
 Write a pattern that matches the words in the string  
 'look, book, hook'  
 but not the words in the string  
-'cookoff, booklet, hooked'.  
+'cookoff, booklet, hooked'.
 
 Use the re modules findall function.
 EOD
@@ -133,7 +133,7 @@ EOD
 
 "text" => <<<EOD
 Write a pattern that matches only the digits in the string  
-'hej123ko whatup'563' koll726kolla'.  
+'hej123ko whatup'563' koll726kolla'.
 
 Use the re modules findall function.
 EOD
@@ -157,7 +157,7 @@ EOD
 Write a pattern that matches the characters between the commas in the string  
 '[kossor],(blommor),{skor}'  
 and not the characters between the commas in the string  
-'kossor,blommor,skor'.  
+'kossor,blommor,skor'.
 
 Use the re modules findall function.
 EOD
@@ -181,7 +181,7 @@ EOD
 Write a pattern that matches the words in the string  
 'mat, kol, leg'  
 and not the words in the string  
-'bil, vid, och'.  
+'bil, vid, och'.
 
 Use the re modules findall function.
 EOD
@@ -203,7 +203,7 @@ EOD
 Write a pattern that matches the words in the list  
 ['barbary', 'froufrou', 'mathematic']  
 and doesnt match the words in the list  
-['damnably', 'corundum', 'pouchlike'].  
+['damnably', 'corundum', 'pouchlike'].
 
 Use the regexOnList function.
 EOD
@@ -226,7 +226,7 @@ Write a pattern that matches a username. It can contain the letters 'a' to 'z', 
 It should match the words in the list  
 ['user93namne_', 'froufrou', '4stuff-65_dg']  
 and not match  
-['d3y', 'corundum.423', 'gdsgpouchlikefdsfdsf'].  
+['d3y', 'corundum.423', 'gdsgpouchlikefdsfdsf'].
 
 Use the regexOnList function.
 EOD
@@ -249,7 +249,7 @@ EOD
 Write a pattern that matches the emails in the list  
 ['zeldah.-92@dbwebb.se', 'lew53@dbwebb.com', 'mos_@dbwebb.net']  
 and doesnt match the emails in the list  
-['fake#29@db-webb.se', 'stealth@dbw_ebb.s', 'master@db.webb.net'].  
+['fake#29@db-webb.se', 'stealth@dbw_ebb.s', 'master@db.webb.net'].
 
 Use the regexOnList function.
 EOD
@@ -270,9 +270,9 @@ EOD
 
 "text" => <<<EOD
 Write a patterna that matches the html tags in the list  
-`['<a href=\"http://dbwebb.se\">Dbwebb</a>', <div>Outer <span>inner</span></div>']`  
+`['<a href="http://dbwebb.se">Dbwebb</a>', '<div>Outer<span>inner</span></div>']`  
 and doesnt match the tags in the list  
-`['<a>a link</b>', '<p>Outer <span>in<br>ner</p></span>']`.  
+`['<a>a link</b>', '<p>Outer<span>in<br>ner</p></span>']`.
 
 Use the regexOnList function.
 EOD
@@ -281,7 +281,7 @@ EOD
 "answer" => function () {
 
 
-	return ['<a href="http://dbwebb.se">Dbwebb</a>', '<div>Outer <span>inner</span></div>'];
+	return ['<a href="http://dbwebb.se">Dbwebb</a>', '<div>Outer<span>inner</span></div>'];
 },
 
 ],
@@ -296,7 +296,7 @@ EOD
 Write a pattern that matches the last names in the list  
 ['Andreas Arnesson', 'Siv Ohlsson', 'Lena Johansson']  
 and doesnt match the ones in the list  
-['Oskar Stenstrom', 'Konrad Ohman', 'Nellie Forsberg'].  
+['Oskar Stenstrom', 'Konrad Ohman', 'Nellie Forsberg'].
 
 Use the regexOnList function.  
 Add '1' as index argument for the regexOnList function.
@@ -320,7 +320,7 @@ EOD
 Write a pattern tha matches the expiry date formats from the list  
 ['09/10', '05-2010', '07-20', '10/1999']  
 and doesnt match the date in the list  
-['001-11', '10.15', '01/115', '13-2001'].  
+['001-11', '10.15', '01/115', '13-2001'].
 
 Use the regexOnList function.
 EOD
@@ -341,9 +341,9 @@ EOD
 
 "text" => <<<EOD
 Write a pattern tha matches the scheme, the host and the port(if present) from the urls in the string  
-'https://dbwebb.se/kunskap/uml#sequence, ftp://bth.com:32/files/im.jpeg, file://localhost:8585/zipit, http://v2-dbwebb.se/do%hack'.  
+'https://dbwebb.se/kunskap/uml#sequence, ftp://bth.com:32/files/im.jpeg, file://localhost:8585/zipit, http://v2-dbwebb.se/do%hack'.
 
-A tip, create a group for each element. From the first url we want https and dbwebb.se from the second url we want ftp, bth.com and 32.  
+A tip, create a group for each element. From the first url we want https and dbwebb.se from the second url we want ftp, bth.com and 32.
 
 Use the re modules findall function. Format the result in to a string and answer with that.
 EOD

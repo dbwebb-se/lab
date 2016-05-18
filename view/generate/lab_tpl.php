@@ -26,11 +26,6 @@ $version
 <?=parseMarkdown($intro)?>
 
 <?php 
-// How to format the answers
-if (!isset($answerFormat)) {
-    $answerFormat = "json";
-}
-
 $sectionId = 0;
 
 foreach ($sections as $section) :
@@ -61,6 +56,11 @@ if (isset($question["points"])) {
 <h4>Answer</h4>
 
 <?php
+// How to format the answers
+if (!isset($answerFormat)) {
+    $answerFormat = "json";
+}
+
 $answer = null;
 if ($answerFormat == "json") {
     $answer = formatAnswerPrintable($question['answer']())

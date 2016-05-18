@@ -62,10 +62,10 @@ if ($action == "bundle") {
 
 
 $title = "Lab generation";
-include "view/header_tpl.php";
-include "view/lab-utility-menu_tpl.php";
-include "view/create-lab_tpl.php";
+include "view/gui/header_tpl.php";
+include "view/gui/lab-utility-menu_tpl.php";
+include "view/gui/create-lab_tpl.php";
 
 $fullMenu = true;
-include "view/details-existing-lab_tpl.php";
-include "view/footer_tpl.php";
+include "view/gui/details-existing-lab_tpl.php";
+include "view/gui/footer_tpl.php";

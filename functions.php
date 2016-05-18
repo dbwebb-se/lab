@@ -2,6 +2,25 @@
 
 
 /**
+ * Compare items to see if they match, return selected if match, useful
+ * for select option lists.
+ *
+ * @param string $key1
+ * @param string key2
+ *
+ * @return string with "selected" or empty string
+ */
+function isSelected($key1, $key2)
+{
+    return $key1 == $key2
+        ? "selected"
+        : "";
+}
+
+
+
+
+/**
  * Get details for key or die.
  *
  * @param string $key

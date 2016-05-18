@@ -437,8 +437,8 @@ Assign each value in the tuple to different variables:
 > 'a','b','c','d','e'.
 
 Answer with the variable: 'd'. Hint: a,b,c = tuple.
-</p>
-",
+EOD
+,
 
 "answer" => function () use ($s2_tuple1) {
 	$temp = $s2_tuple1[3];	
@@ -455,10 +455,16 @@ Answer with the variable: 'd'. Hint: a,b,c = tuple.
  */
 [
 
-"text" => "
-<p>Use the list [$s2_listSerie1Print]. Assign the first two elements to a tuple with a slice on the list. Answer with the first element in the tuple as an integer.
-</p>
-",
+"text" => <<<EOD
+Use the list
+
+> [$s2_listSerie1Print]
+
+Assign the first two elements to a tuple with a slice on the list.
+
+Answer with the first element in the tuple as an integer.
+EOD
+,
 
 "answer" => function () use ($s2_listSerie1) {
 	$temp = (int)$s2_listSerie1[0];	
@@ -475,75 +481,24 @@ Answer with the variable: 'd'. Hint: a,b,c = tuple.
  */
 [
 
-"text" => "
-<p>Create a tuple with ($s2_tuple2Print). Convert it to a list and replace the second element with: '$s2_replWord1'. Convert it back to a tuple and answer with the first three elements in a comma-separated string.
-</p>
-",
+"text" => <<<EOD
+Create a tuple with
+
+> ($s2_tuple2Print)
+
+Convert it to a list and replace the second element with:
+
+> "$s2_replWord1"
+
+Convert it back to a tuple and answer with the first three elements in a comma-separated string.
+EOD
+,
 
 "answer" => function () use ($s2_tuple2, $s2_replWord1) {
 	$temp = $s2_tuple2;
 	$repl = $s2_replWord1;
 	$temp[1] = $repl;
     return (string)implode(",", array_slice($temp, 0, 3));
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-/*[
-
-"text" => "
-<p>Open 'alice.txt' and find the 5 most frequently used words in the text. Answer with a comma-separated string in the format: 'word:number,word:number' etc, in decending order based on the number.
-</p>
-",
-
-"answer" => function () {
-	
-    return "the:66,said:37,and:35,you:34,to:33";
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-/*[
-
-"text" => "
-<p>Use the two tuples: ($s2_tuple1Print) and ($s2_tuple2Print). Name the tuples 'tupleOne' and 'tupletwo' and then swap the values and answer with a float value representing the sum of the second and third element in 'tupleOne';
-</p>
-",
-
-"answer" => function () use ($s2_tuple2) {
-	
-	$val1 = $s2_tuple2[1];
-	$val2 = $s2_tuple2[2];
-    return $val1+$val2;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-/*[
-
-"text" => "
-<p>Open 'httpd-access.txt' and find the ip-adress with the most entries. Answer with sum of all digits in the ip-adress as an integer.
-</p>
-",
-
-"answer" => function () {
-	
-    return 30;
 },
 
 ],

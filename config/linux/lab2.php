@@ -81,7 +81,7 @@ Create another variable called 'numberTwo' and give it the value $numberTwo.
 
 Create a third variable called 'result' and assign to it the sum of the first two variables.
 
-Answer with the result.</p>
+Answer with the result.
 EOD
 ,
 

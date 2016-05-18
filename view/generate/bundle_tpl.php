@@ -29,7 +29,7 @@ $baseurl = $_SERVER["REQUEST_SCHEME"]
 $labCommon = [
     ["filename" => "instruction.html", "action" => "lab"],
     //["filename" => "extra.tar", "action" => "answer-extra"], //OBSOLETE
-    ["dirname" => __DIR__ . "/../config/$course/${lab}_extra"],
+    ["dirname" => __DIR__ . "/../../config/$course/${lab}_extra"],
 ];
 
 //Specific items to create

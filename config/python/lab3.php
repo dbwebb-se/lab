@@ -141,7 +141,9 @@ return [
  */
 "title" => "Lab 3 - python",
 
-"intro" => "",
+"intro" => <<<EOD
+EOD
+,
 
 
 "sections" => [
@@ -154,7 +156,9 @@ return [
 [
 "title" => "List basics",
 
-"intro" => "",
+"intro" => <<<EOD
+EOD
+,
 
 "shuffle" => false,
 
@@ -167,10 +171,12 @@ return [
  */
 [
 
-"text" => "
-<p>Concatenate the two lists [$s1_shortList1Print] and [$s1_shortList2Print]. Answer with your list. 
-</p>
-",
+"text" => <<<EOD
+Concatenate the two lists [$s1_shortList1Print] and [$s1_shortList2Print]. 
+
+Answer with your list. 
+EOD
+,
 
 "answer" => function () use ($s1_shortList1, $s1_shortList2) {
 	$result = array_merge($s1_shortList1, $s1_shortList2);
@@ -187,10 +193,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use the list [$s1_list1Print]. Add the words: '$s1_word1' and '$s1_word2' as the second and third element. Answer with the modified list.
-</p>
-",
+"text" => <<<EOD
+Use the list [$s1_list1Print].
+
+Add the words '$s1_word1' and '$s1_word2' as the second and third element.
+
+Answer with the modified list.
+EOD
+,
 
 "answer" => function () use ($s1_list1, $s1_word1, $s1_word2) {
 	$tempList = $s1_list1;
@@ -209,10 +219,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use the list [$s1_list1Print]. Replace the third word with: '$s1_word3'. Answer with the modified list.
-</p>
-",
+"text" => <<<EOD
+Use the list [$s1_list1Print].
+
+Replace the third word with: '$s1_word3'.
+
+Answer with the modified list.
+EOD
+,
 
 "answer" => function () use ($s1_list1, $s1_word3) {
 
@@ -230,10 +244,14 @@ return [
  */
 [
 
-"text" => "
-<p>Sort the list [$s1_list2Print] in ascending alphabetical order. Answer with the sorted list.
-</p>
-",
+"text" => <<<EOD
+Sort the list
+
+> [$s1_list2Print]
+
+in ascending alphabetical order. Answer with the sorted list.
+EOD
+,
 
 "answer" => function () use ($s1_list2) {
 	$tempList = $s1_list2;
@@ -250,10 +268,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use the list from the last excercise ([$s1_list2Print]) and sort it in decending alphabetical order. Answer with the sorted list.
-</p>
-",
+"text" => <<<EOD
+Use the list from the last excercise
+
+> [$s1_list2Print]
+
+and sort it in decending alphabetical order. Answer with the sorted list.
+EOD
+,
 
 "answer" => function () use ($s1_list2) {
 	$tempList = $s1_list2;
@@ -271,10 +293,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use pop() to get the second and the last element in the list: [$s1_list1Print]. Answer with the popped elements in a new list.
-</p>
-",
+"text" => <<<EOD
+Use `pop()` to get the second and the last element in the list:
+
+> [$s1_list1Print]
+
+Answer with the popped elements in a new list.
+EOD
+,
 
 "answer" => function () use ($s1_list1) {
 	$result = [];
@@ -293,10 +319,18 @@ return [
  */
 [
 
-"text" => "
-<p>Use remove() to delete the word: '$s1_wordToList3' from the list: [$s1_list3Print]. Answer with the modified list.
-</p>
-",
+"text" => <<<EOD
+Use `remove()` to delete the word:
+
+> '$s1_wordToList3'
+
+from the list:
+
+> [$s1_list3Print]
+
+Answer with the modified list.
+EOD
+,
 
 "answer" => function () use ($s1_wordToList3, $s1_list3) {
 
@@ -328,10 +362,10 @@ return [
 [
 "title" => "Built-in list functions",
 
-"intro" => "
-<p>Some basic built-in functions
-</p>
-",
+"intro" => <<<EOD
+Some basic built-in functions.
+EOD
+,
 
 "shuffle" => false,
 
@@ -344,10 +378,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use a built-in function to sum all numbers in the list: [$s2_numSerie1Print]. Answer with the result as an integer.
-</p>
-",
+"text" => <<<EOD
+Use a built-in function to sum all numbers in the list:
+
+> [$s2_numSerie1Print]
+
+Answer with the result as an integer.
+EOD
+,
 
 "answer" => function () use ($s2_numSerie1) {
 
@@ -363,10 +401,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use built-in functions, such as 'sum' and 'len' to get the average value of the list: [$s2_numSerie2Print]. Answer with the result as a float with at most one decimal.
-</p>
-",
+"text" => <<<EOD
+Use built-in functions, such as `sum` and `len` to get the average value of the list:
+
+> [$s2_numSerie2Print]
+
+Answer with the result as a float with at most one decimal.
+EOD
+,
 
 "answer" => function () use ($s2_numSerie2) {
 
@@ -382,10 +424,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use a built-in function to get the lowest number in the list: [$s2_numSerie3Print]. Answer with the result as a integer.
-</p>
-",
+"text" => <<<EOD
+Use a built-in function to get the lowest number in the list:
+
+> [$s2_numSerie3Print]
+
+Answer with the result as a integer.
+EOD
+,
 
 "answer" => function () use ($s2_numSerie3) {
 
@@ -401,10 +447,16 @@ return [
  */
 [
 
-"text" => "
-<p>Use the built-in functions split() and join() to fix this string: '$s2_listSent1' into a real sentence, (without '?'). Answer with the fixed string.
-</p>
-",
+"text" => <<<EOD
+Use the built-in functions `split()` and `join()` to fix this string:
+
+> "$s2_listSent1"
+
+into a real sentence, (without '?').
+
+Answer with the fixed string.
+EOD
+,
 
 "answer" => function () use ($s2_listSent1) {
 
@@ -422,10 +474,16 @@ return [
  */
 [
 
-"text" => "
-<p>Use the string: '$s3_split1Use' and split it with the delimiter ' ' (space). Answer with the element at index $s3_split1AnswerNr.
-</p>
-",
+"text" => <<<EOD
+Use the string:
+
+> "$s3_split1Use"
+
+and split it with the delimiter " " (space).
+
+Answer with the element at index $s3_split1AnswerNr.
+EOD
+,
 
 "answer" => function () use ($s3_split1SingleWordAnswer) {
 
@@ -441,10 +499,18 @@ return [
  */
 [
 
-"text" => "
-<p>Use slice on the list [$s3_slice1PrintList] and replace the second and third element with '$s3_slice1PrintReplace'. Answer with the modified list.
-</p>
-",
+"text" => <<<EOD
+Use slice on the list
+
+> [$s3_slice1PrintList]
+
+and replace the second and third element with
+
+> "$s3_slice1PrintReplace"
+
+Answer with the modified list.
+EOD
+,
 
 "answer" => function () use ($s3_slice1Answer) {
 
@@ -460,10 +526,18 @@ return [
  */
 [
 
-"text" => "
-<p>Use slice on the list [$s3_slice1PrintList] and replace the last two elements with '$s3_slice1PrintReplace'. Answer with the modified list.
-</p>
-",
+"text" => <<<EOD
+Use slice on the list
+
+> [$s3_slice1PrintList]
+
+and replace the last two elements with
+ 
+> "$s3_slice1PrintReplace"
+ 
+Answer with the modified list.
+EOD
+,
 
 "answer" => function () use ($s3_slice2Use) {
 
@@ -479,10 +553,20 @@ return [
  */
 [
 
-"text" => "
-<p>Use slice on the list [$s3_slice1PrintList] and insert the words '$s3_slice1PrintReplace' after the third element. Answer with the modified list.
-</p>
-",
+"text" => <<<EOD
+Use slice on the list
+
+> [$s3_slice1PrintList]
+
+and insert the words
+
+> "$s3_slice1PrintReplace"
+
+after the third element.
+
+Answer with the modified list.
+EOD
+,
 
 "answer" => function () use ($s3_slice3) {
 
@@ -498,10 +582,16 @@ return [
  */
 [
 
-"text" => "
-<p>Use 'del' on the list [$s3_printDel1] and delete the first element. Answer with the modified list.
-</p>
-",
+"text" => <<<EOD
+Use `del` on the list
+
+> [$s3_printDel1]
+
+and delete the first element.
+
+Answer with the modified list.
+EOD
+,
 
 "answer" => function () use ($s3_del1List) {
 
@@ -517,10 +607,16 @@ return [
  */
 [
 
-"text" => "
-<p>Use 'del' on the list [$s3_printDel1] and delete the second and third element. Answer with the modified list.
-</p>
-",
+"text" => <<<EOD
+Use `del` on the list
+
+> [$s3_printDel1]
+
+and delete the second and third element.
+
+Answer with the modified list.
+EOD
+,
 
 "answer" => function () use ($s3_del2List) {
 
@@ -536,10 +632,18 @@ return [
  */
 [
 
-"text" => "
-<p>Assign the list [$s3_aliasPrint] to a variable called 'list1'. Assign the list again, but to another variable called 'list2'. Answer with the result of 'list1 is list2'. 
-</p>
-",
+"text" => <<<EOD
+Assign the list
+
+> [$s3_aliasPrint]
+
+to a variable called 'list1'.
+
+Assign the list again, but to another variable called 'list2'.
+
+Answer with the result of 'list1 is list2'. 
+EOD
+,
 
 "answer" => function () {
 
@@ -555,10 +659,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use your lists from the last exercise. Assign 'list1' to another variable called 'list3' like this: list3 = list1. Answer with the result of 'list1 is list3'.
-</p>
-",
+"text" => <<<EOD
+Use your lists from the last exercise. Assign 'list1' to another variable called 'list3' like this:
+
+> list3 = list1
+
+Answer with the result of 'list1 is list3'.
+EOD
+,
 
 "answer" => function () {
 
@@ -574,10 +682,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use your lists from the last exercise. Change the first element in 'list1' to '$s3_aliasReplaceWith'. Answer with 'list3'.
-</p>
-",
+"text" => <<<EOD
+Use your lists from the last exercise. Change the first element in 'list1' to
+
+> "$s3_aliasReplaceWith"
+
+Answer with 'list3'.
+EOD
+,
 
 "answer" => function () use($s3_aliasUse, $s3_aliasReplaceWith) {
 	$temp = $s3_aliasUse;
@@ -603,10 +715,10 @@ return [
 [
 "title" => "Lists as arguments",
 
-"intro" => "
-<p>Some excercises with passing lists as arguments to a function.
-</p>
-",
+"intro" => <<<EOD
+Some excercises with passing lists as arguments to a function.
+EOD
+,
 
 "shuffle" => false,
 
@@ -619,10 +731,18 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function that returns the list passed as argument sorted in numerical and ascending order. Also multiply all values with 10. Use the list: [$s2_numSerie3Print], and the built-in method 'sort()'. Answer with the sorted list.
-</p>
-",
+"text" => <<<EOD
+Create a function that returns the list passed as argument sorted in numerical and ascending order. Also multiply all values with 10.
+
+Use the list:
+
+> [$s2_numSerie3Print]
+
+and the built-in method `sort()`.
+
+Answer with the sorted list.
+EOD
+,
 
 "answer" => function () use ($s2_numSerie3) {
 
@@ -644,10 +764,18 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function that takes the list: [$s2_numSerie2Print] as argument. The function should multiply all even numbers by $s2_smallInt1 and add $s2_smallInt2 to all odd numbers. Answer with the modified list sorted in numerical order, descending.
-</p>
-",
+"text" => <<<EOD
+Create a function that takes the list:
+
+> [$s2_numSerie2Print]
+
+as argument.
+
+The function should multiply all even numbers by $s2_smallInt1 and add $s2_smallInt2 to all odd numbers.
+
+Answer with the modified list sorted in numerical order, descending.
+EOD
+,
 
 "answer" => function () use ($s2_numSerie2, $s2_smallInt1, $s2_smallInt2) {
 

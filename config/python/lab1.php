@@ -97,10 +97,12 @@ return [
  */
 "title" => "Lab 1 - python",
 
-"intro" => "
-<p>If you need to peek at examples or just want to know more, take a look at the page: https://docs.python.org/3/library/index.html. Here you will find everything this lab will go through and much more.
-</p>
-",
+"intro" => <<<EOD
+If you need to peek at examples or just want to know more, take a look at the [Python manual](https://docs.python.org/3/library/index.html).
+
+There you will find everything this lab will go through and much more.
+EOD
+,
 
 
 "sections" => [
@@ -113,9 +115,10 @@ return [
 [
 "title" => "Integers, strings, floats and basic arithmetics",
 
-"intro" => "
-<p>The foundation of numbers and basic arithmetic.</p>
-",
+"intro" => <<<EOD
+The foundation of numbers and basic arithmetic.
+EOD
+,
 
 "shuffle" => false,
 
@@ -128,10 +131,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable called 'numOne' and give it the value $s1_numOne. Create another variable called 'numTwo' and give it the value $s1_numTwo. Create a third variable called 'result' and assign to it the sum of the first two variables. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a variable called 'numOne' and give it the value $s1_numOne. Create another variable called 'numTwo' and give it the value $s1_numTwo. Create a third variable called 'result' and assign to it the sum of the first two variables.
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_numOne, $s1_numTwo) {
 
@@ -147,10 +152,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable called 'numThree' and give it the value $s1_numThree. Create another variable called 'numFour' and give it the value $s1_numFour. Subtract 'numThree' from 'numFour' and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a variable called 'numThree' and give it the value $s1_numThree. 
+
+Create another variable called 'numFour' and give it the value $s1_numFour. 
+
+Subtract 'numThree' from 'numFour' and answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_numThree, $s1_numFour) {
 
@@ -166,10 +175,10 @@ return [
  */
 [
 
-"text" => "
-<p>Find out the product of 'numOne' and 'numThree' and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Find out the product of 'numOne' and 'numThree' and answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_numOne, $s1_numThree) {
 
@@ -185,10 +194,10 @@ return [
  */
 [
 
-"text" => "
-<p>Divide $s1_divNum with $s1_divNumWith and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Divide $s1_divNum with $s1_divNumWith and answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_divNum, $s1_divNumWith) {
 
@@ -204,10 +213,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable called 'floatOne' and give it the value $s1_floatOne. Create another variable called 'floatTwo' and give it the value $s1_floatTwo. Sum the two values and answer with the result, rounded to 2 decimals.
-</p>
-",
+"text" => <<<EOD
+Create a variable called 'floatOne' and give it the value $s1_floatOne. 
+
+Create another variable called 'floatTwo' and give it the value $s1_floatTwo.
+
+Sum the two values and answer with the result, rounded to 2 decimals.
+EOD
+,
 
 "answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
@@ -223,10 +236,10 @@ return [
  */
 [
 
-"text" => "
-<p>Subtract 'floatTwo' from 'floatOne' and answer with the result. Round to 2 decimals.
-</p>
-",
+"text" => <<<EOD
+Subtract 'floatTwo' from 'floatOne' and answer with the result. Round to 2 decimals.
+EOD
+,
 
 "answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
@@ -242,10 +255,10 @@ return [
  */
 [
 
-"text" => "
-<p>Answer with the product of 'floatOne' and 'floatTwo', rounded to 4 decimals.
-</p>
-",
+"text" => <<<EOD
+Answer with the product of 'floatOne' and 'floatTwo', rounded to 4 decimals.
+EOD
+,
 
 "answer" => function () use ($s1_floatOne, $s1_floatTwo) {
 
@@ -261,10 +274,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create three variables: 'n1' = $s1_numFive, 'n2' = $s1_numSix and 'n3' = $s1_numSeven. Sum up 'n1' and 'n2'. Subtract 'n3' and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create three variables: 'n1' = $s1_numFive, 'n2' = $s1_numSix and 'n3' = $s1_numSeven. Sum up 'n1' and 'n2'. Subtract 'n3' and answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_numFive, $s1_numSix, $s1_numSeven) {
 
@@ -280,10 +293,10 @@ return [
  */
 [
 
-"text" => "
-<p>Answer with the result of $s1_modOne modulo (%) $s1_modTwo.
-</p>
-",
+"text" => <<<EOD
+Answer with the result of $s1_modOne modulo (%) $s1_modTwo.
+EOD
+,
 
 "answer" => function () use ($s1_modOne, $s1_modTwo) {
 
@@ -299,10 +312,10 @@ return [
  */
 [
 
-"text" => "
-<p>Add the word: '$s1_wordOne' to the word: '$s1_wordTwo' and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Add the word: '$s1_wordOne' to the word: '$s1_wordTwo' and answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_wordOne, $s1_wordTwo) {
 
@@ -327,10 +340,9 @@ return [
 [
 "title" => "Conditions, exceptions, booleans, if, else and elif",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => <<<EOD
+EOD
+,
 
 "shuffle" => false,
 
@@ -343,10 +355,10 @@ return [
  */
 [
 
-"text" => "
-<p>Answer with the boolean value of: $s2_numOne is less than $s2_numTwo.
-</p>
-",
+"text" => <<<EOD
+Answer with the boolean value of: $s2_numOne is less than $s2_numTwo.
+EOD
+,
 
 "answer" => function () use ($s2_numOne, $s2_numTwo) {
 
@@ -361,10 +373,10 @@ return [
  */
 [
 
-"text" => "
-<p>Answer with the boolean value of: $s2_numThree is larger than $s2_numFour.
-</p>
-",
+"text" => <<<EOD
+Answer with the boolean value of: $s2_numThree is larger than $s2_numFour.
+EOD
+,
 
 "answer" => function () use ($s2_numThree, $s2_numFour) {
 
@@ -379,10 +391,10 @@ return [
  */
 [
 
-"text" => "
-<p>Answer with the boolean value of: $s2_numOne == $s2_numThree.
-</p>
-",
+"text" => <<<EOD
+Answer with the boolean value of: $s2_numOne == $s2_numThree.
+EOD
+,
 
 "answer" => function () use ($s2_numOne, $s2_numThree) {
 
@@ -397,10 +409,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create three variables representing dice values: 'd1' = $dice1, 'd2' = $dice2 and 'd3' = $dice3. Sum them up and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create three variables representing dice values: 'd1' = $dice1, 'd2' = $dice2 and 'd3' = $dice3. Sum them up and answer with the result.
+EOD
+,
 
 "answer" => function () use ($dice1, $dice2, $dice3) {
 
@@ -415,10 +427,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create an if statement to see if the total value of your dices is 11 or higher. If that is the case, answer with the string: 'big', else answer with the string: 'nothing'. 
-</p>
-",
+"text" => <<<EOD
+Create an if statement to see if the total value of your dices is 11 or higher. If that is the case, answer with the string: 'big', else answer with the string: 'nothing'. 
+EOD
+,
 
 "answer" => function () use ($totVal) {
 
@@ -437,10 +449,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create an elif statement that checks your total dice value. The checks and results should be: three of the same value = 'triple', total of 11 or higher = 'big', total of 10 or lower = 'small'. If you get a triple you should not make more checks.
-</p>
-",
+"text" => <<<EOD
+Create an elif statement that checks your total dice value. The checks and results should be: three of the same value = 'triple', total of 11 or higher = 'big', total of 10 or lower = 'small'. If you get a triple you should not make more checks.
+EOD
+,
 
 "answer" => function () use ($totVal, $dice1, $dice2, $dice3) {
 
@@ -466,31 +478,6 @@ return [
 ],
 
 
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-/* 	Den här ser inte bra ut...
-[
-	
-"text" => '
-<p>Create a try/except statement that should try whether a value is a float or an integer. If the value is an integer, then answer "integer". If the value is a float, answer "float". Otherwise answer "neither". Use the value: ' . $numSerie1[$wordRand2] . ' when you submit your answer.
-</p>
-',
-
-"answer" => function () use ($numSerie1, $wordRand2) {
-
-	$result = "neither";
-	if(is_int($numSerie1[$wordRand2])) {
-		$result = "integer";
-	}
-	if(is_float($numSerie1[$wordRand2])) {
-		$result = "float";
-	}
-	return $result;
-},
-
-],
-	*/ 
 
 /**
  * Closing up this section.
@@ -506,10 +493,10 @@ return [
 [
 "title" => "Built-in functions",
 
-"intro" => "
-<p>Some useful built-in functions
-</p>
-",
+"intro" => <<<EOD
+Some useful built-in functions.
+EOD
+,
 
 "shuffle" => false,
 
@@ -522,10 +509,12 @@ return [
  */
 [
 
-"text" => "
-<p>Use max() to find the largest number in the serie: $s3_numSerieToPrint. Answer with the result. 
-</p>
-",
+"text" => <<<EOD
+Use `max()` to find the largest number in the serie: $s3_numSerieToPrint. 
+
+Answer with the result. 
+EOD
+,
 
 "answer" => function () use ($s3_numSerie) {
 
@@ -542,10 +531,12 @@ return [
  */
 [
 
-"text" => "
-<p>Use min() to find the smallest number in the serie: $s3_numSerieToPrint. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use `min()` to find the smallest number in the serie: $s3_numSerieToPrint.
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s3_numSerie) {
 
@@ -562,10 +553,12 @@ return [
  */
 [
 
-"text" => "
-<p>Use len() to find the number of letters in the word: $s3_word. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use `len()` to find the number of letters in the word: $s3_word.
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s3_word) {
 
@@ -582,10 +575,10 @@ return [
  */
 [
 
-"text" => "
-<p>Convert the number $s3_numOne to a string and add it to the word '$s3_word'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Convert the number $s3_numOne to a string and add it to the word '$s3_word'. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s3_numOne, $s3_word) {
 
@@ -602,10 +595,10 @@ return [
  */
 [
 
-"text" => "
-<p>Convert the number $s3_floatOne to an integer and then to a string. Add it to the beginning of the word: '$s3_word'. Answer with the result. 
-</p>
-",
+"text" => <<<EOD
+Convert the number $s3_floatOne to an integer and then to a string. Add it to the beginning of the word: '$s3_word'. Answer with the result. 
+EOD
+,
 
 "answer" => function () use ($s3_floatOne, $s3_word) {
 
@@ -632,10 +625,10 @@ return [
 [
 "title" => "Functions",
 
-"intro" => "
-<p>Basic functions
-</p>
-",
+"intro" => <<<EOD
+Basic functions.
+EOD
+,
 
 "shuffle" => false,
 
@@ -648,10 +641,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function called 'prodNr' that takes two arguments, $s4_numOne and $s4_numTwo. The function should return the product of the numbers. Answer with a call to the function. 
-</p>
-",
+"text" => <<<EOD
+Create a function called 'prodNr' that takes two arguments, $s4_numOne and $s4_numTwo. The function should return the product of the numbers.
+
+Answer with a call to the function. 
+EOD
+,
 
 "answer" => function () use ($s4_numOne, $s4_numTwo) {
 
@@ -667,10 +662,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function called 'funnyWord' that takes one argument and adds it to the string ' is a funny word'. If the argument is 'water', the function should return: 'water is a funny word'. Use the argument '$s4_word' and answer with a call to the function.
-</p>
-",
+"text" => <<<EOD
+Create a function called 'funnyWord' that takes one argument and adds it to the string ' is a funny word'. If the argument is 'water', the function should return: 'water is a funny word'.
+
+Use the argument '$s4_word' and answer with a call to the function.
+EOD
+,
 
 "answer" => function () use ($s4_word) {
 
@@ -686,10 +683,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function called 'inRange' that takes one argument. The function should return 'true' if the argument is higher than 50 and lower than 100. If the number is out of range, the function should return 'false'. The return type should be boolean. Use the argument $s4_numThree and answer with a call to the function.
-</p>
-",
+"text" => <<<EOD
+Create a function called 'inRange' that takes one argument. The function should return 'true' if the argument is higher than 50 and lower than 100. If the number is out of range, the function should return 'false'. The return type should be boolean.
+
+Use the argument $s4_numThree and answer with a call to the function.
+EOD
+,
 
 "answer" => function () use ($s4_numThree) {
 
@@ -719,10 +718,10 @@ return [
 [
 "title" => "Iteration and loops",
 
-"intro" => "
-<p>For-loops and while-loops. 
-</p>
-",
+"intro" => <<<EOD
+For-loops and while-loops. 
+EOD
+,
 
 "shuffle" => false,
 
@@ -735,10 +734,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a while-loop that adds $s5_addNum to the number $s5_addTo, $s5_addTimes times. Answer with the result. 
-</p>
-",
+"text" => <<<EOD
+Create a while-loop that adds $s5_addNum to the number $s5_addTo, $s5_addTimes times. Answer with the result. 
+EOD
+,
 
 "answer" => function () use ($s5_addNum, $s5_addTo, $s5_addTimes) {
 
@@ -761,10 +760,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a while-loop that subtracts $s5_subNum from $s5_subFrom, $s5_subTimes times. Answer with the result. 
-</p>
-",
+"text" => <<<EOD
+Create a while-loop that subtracts $s5_subNum from $s5_subFrom, $s5_subTimes times. Answer with the result. 
+EOD
+,
 
 "answer" => function () use ($s5_subNum, $s5_subFrom, $s5_subTimes) {
 
@@ -787,10 +786,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a for-loop that counts the number of elements in the serie: $s5_numSeriePrint. Answer with the result. 
-</p>
-",
+"text" => <<<EOD
+Create a for-loop that counts the number of elements in the serie:
+
+> $s5_numSeriePrint
+
+Answer with the result. 
+EOD
+,
 
 "answer" => function () use ($s5_numSerie) {
 
@@ -807,10 +810,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a for-loop that sums up the numbers in the serie: $s5_numSerie2Print. Answer with the result. 
-</p>
-",
+"text" => <<<EOD
+Create a for-loop that sums up the numbers in the serie:
+
+> $s5_numSerie2Print
+
+Answer with the result. 
+EOD
+,
 
 "answer" => function () use ($s5_numSerie2) {
 
@@ -832,10 +839,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a for-loop that finds the largest number in the serie: $s5_numSeriePrint. Answer with the result. 
-</p>
-",
+"text" => <<<EOD
+Create a for-loop that finds the largest number in the serie:
+
+> $s5_numSeriePrint
+
+Answer with the result. 
+EOD
+,
 
 "answer" => function () use ($s5_numSerie) {
 
@@ -859,10 +870,16 @@ return [
  */
 [
 
-"text" => "
-<p>Create a for-loop that goes through the numbers: $s5_numSerie2Print. If the current number is even, you should add it to a variable and if the current number is odd, you should subtract it from the variable. Answer with the final result. 
-</p>
-",
+"text" => <<<EOD
+Create a for-loop that goes through the numbers:
+
+> $s5_numSerie2Print
+
+If the current number is even, you should add it to a variable and if the current number is odd, you should subtract it from the variable.
+
+Answer with the final result. 
+EOD
+,
 
 "answer" => function () use ($s5_numSerie2) {
 

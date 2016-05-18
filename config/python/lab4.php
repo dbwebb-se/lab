@@ -99,10 +99,10 @@ return [
  */
 "title" => "Lab 4 - python",
 
-"intro" => "
-<p>Dictionaries and tuples
-</p>
-",
+"intro" => <<<EOD
+Dictionaries and tuples.
+EOD
+,
 
 
 "sections" => [
@@ -115,9 +115,10 @@ return [
 [
 "title" => "Dictionaries",
 
-"intro" => "
-<p>Some basics with dictionaries.</p>
-",
+"intro" => <<<EOD
+Some basics with dictionaries.
+EOD
+,
 
 "shuffle" => false,
 
@@ -130,10 +131,20 @@ return [
  */
 [
 
-"text" => "
-<p>Create a small phonebook using a dictionary. Use the names as keys and numbers as values. Use '$s1_dictNameSet1Print' and corresponding numbers: '$s1_dictNrSet1Print'. Add the phonenumbers as integers. Answer with the resulting dictionary.
-</p>
-",
+"text" => <<<EOD
+Create a small phonebook using a dictionary. Use the names as keys and numbers as values.
+
+Use
+
+> $s1_dictNameSet1Print
+
+and corresponding numbers
+
+> $s1_dictNrSet1Print
+
+Add the phonenumbers as integers. Answer with the resulting dictionary.
+EOD
+,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
 	
@@ -149,10 +160,10 @@ return [
  */
 [
 
-"text" => "
-<p>How many items are there in the dictionary? 
-</p>
-",
+"text" => <<<EOD
+How many items are there in the dictionary? 
+EOD
+,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
     
@@ -168,10 +179,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use the 'get()' method on your phonebook and answer with the phonenumber of '$s1_name1'. 
-</p>
-",
+"text" => <<<EOD
+Use the `get()` method on your phonebook and answer with the phonenumber of '$s1_name1'.
+EOD
+,
 
 "answer" => function () use ($s1_number1) {
     
@@ -187,10 +198,10 @@ return [
  */
 [
 
-"text" => "
-<p>Get all keys from the dictionary and return them in a sorted list. 
-</p>
-",
+"text" => <<<EOD
+Get all keys from the dictionary and return them in a sorted list. 
+EOD
+,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
     
@@ -208,10 +219,10 @@ return [
  */
 [
 
-"text" => "
-<p>Get all values from the dictionary and return them in a sorted list. 
-</p>
-",
+"text" => <<<EOD
+Get all values from the dictionary and return them in a sorted list. 
+EOD
+,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
     
@@ -229,10 +240,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use the in-operator to test if the name '$s1_name1' exists in the dictionary. Answer with the return boolean value.
-</p>
-",
+"text" => <<<EOD
+Use the in-operator to test if the name '$s1_name1' exists in the dictionary. Answer with the return boolean value.
+EOD
+,
 
 "answer" => function () {
     
@@ -248,10 +259,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use the in-operator to test if the phone number $s1_number1 exists in the dictionary. Answer with the return boolean value.
-</p>
-",
+"text" => <<<EOD
+Use the in-operator to test if the phone number $s1_number1 exists in the dictionary. Answer with the return boolean value.
+EOD
+,
 
 "answer" => function () {
     
@@ -267,10 +278,12 @@ return [
  */
 [
 
-"text" => "
-<p>Use a for-loop to walk through the dictionary and and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order. Answer with the resulting string.
-</p>
-",
+"text" => <<<EOD
+Use a for-loop to walk through the dictionary and and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order.
+
+Answer with the resulting string.
+EOD
+,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
     
@@ -295,10 +308,12 @@ return [
  */
 [
 
-"text" => "
-<p>Convert the phonenumber to a string and add the prefix '+1-', representing the language code, to each phone-number. Answer with the resulting dictionary.
-</p>
-",
+"text" => <<<EOD
+Convert the phonenumber to a string and add the prefix '+1-', representing the language code, to each phone-number.
+
+Answer with the resulting dictionary.
+EOD
+,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
     
@@ -322,10 +337,10 @@ return [
  */
 [
 
-"text" => "
-<p>Get and remove the item '$s1_name1' from the phonebook (use pop()). Answer with the resulting dictionary.
-</p>
-",
+"text" => <<<EOD
+Get and remove the item '$s1_name1' from the phonebook (use pop()). Answer with the resulting dictionary.
+EOD
+,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1, $s1_name1) {
     
@@ -346,10 +361,10 @@ return [
  */
 [
 
-"text" => "
-<p>Add the item you just popped from the phonebook. Answer with the resulting dictionary.
-</p>
-",
+"text" => <<<EOD
+Add the item you just popped from the phonebook. Answer with the resulting dictionary.
+EOD
+,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
     
@@ -358,46 +373,6 @@ return [
     return $res;
 },
 
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-/*
-[
-
-"text" => "
-<p>Open 'alice.txt' and create a dictionary that holds all words as separate keys and the frequency as values. Find out how many times the word: 'youth' is used in the text and answer with the right integer. Hint: For Python 3, use: line = line.translate(str.maketrans('', '', string.punctuation)). May be a mistake in the book. 
-</p>
-",
-
-"answer" => function () {
-	// Use: line = line.translate(str.maketrans("", "", string.punctuation))
-	// Dont use: line = line.translate(string.punctuation)
-    return 6;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-/*[
-
-"text" => "
-<p>Use your dictionary over 'alice.txt' and find the key that has a value of 4 and has exactly 5 characters. Answer with the key as a string. 
-</p>
-",
-
-"answer" => function () {
-	
-	return "other";
-},
 
 ],
 
@@ -417,9 +392,10 @@ return [
 [
 "title" => "Tuples",
 
-"intro" => "
-<p>Some basics with tuples</p>
-",
+"intro" => <<<EOD
+Some basics with tuples.
+EOD
+,
 
 "shuffle" => false,
 
@@ -432,10 +408,10 @@ return [
  */
 [
 
-"text" => "
-<p>Create a tuple with '$s2_tuple1Print'. Answer with the length of the tuple as an integer.
-</p>
-",
+"text" => <<<EOD
+Create a tuple with '$s2_tuple1Print'. Answer with the length of the tuple as an integer.
+EOD
+,
 
 "answer" => function () use ($s2_tuple1) {
 	
@@ -451,8 +427,16 @@ return [
  */
 [
 
-"text" => "
-<p>Create a tuple out of: ($s2_tuple1Print). Assign each value in the tuple to different variables: 'a','b','c','d','e'. Answer with the variable: 'd'. Hint: a,b,c = tuple.
+"text" => <<<EOD
+Create a tuple out of:
+
+> ($s2_tuple1Print).
+
+Assign each value in the tuple to different variables:
+
+> 'a','b','c','d','e'.
+
+Answer with the variable: 'd'. Hint: a,b,c = tuple.
 </p>
 ",
 

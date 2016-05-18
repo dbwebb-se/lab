@@ -60,10 +60,10 @@ return [
  */
 "title" => "Lab 2 - python",
 
-"intro" => "
-<p>Strings and files
-</p>
-",
+"intro" => <<<EOD
+Strings and files.
+EOD
+,
 
 
 "sections" => [
@@ -76,9 +76,10 @@ return [
 [
 "title" => "Strings",
 
-"intro" => "
-<p>The basics of strings</p>
-",
+"intro" => <<<EOD
+The basics of strings.
+EOD
+,
 
 "shuffle" => false,
 
@@ -91,10 +92,10 @@ return [
  */
 [
 
-"text" => "
-<p>Assign the word: '$s1_word' to a variable and put your variable as the answer.
-</p>
-",
+"text" => <<<EOD
+Assign the word: '$s1_word' to a variable and put your variable as the answer.
+EOD
+,
 
 "answer" => function () use ($s1_word) {
 
@@ -110,10 +111,12 @@ return [
  */
 [
 
-"text" => "
-<p>Assign the word '$s1_word' to a variable. Create another variable where you put the first and the last letter in the word. Answer with the second variable.
-</p>
-",
+"text" => <<<EOD
+Assign the word '$s1_word' to a variable. Create another variable where you put the first and the last letter in the word.
+
+Answer with the second variable.
+EOD
+,
 
 "answer" => function () use ($s1_word) {
 
@@ -132,10 +135,10 @@ return [
  */
 [
 
-"text" => "
-<p>Assign the word: $s1_word2 to a variable. Answer with the length of the word as an integer.
-</p>
-",
+"text" => <<<EOD
+Assign the word: $s1_word2 to a variable. Answer with the length of the word as an integer.
+EOD
+,
 
 "answer" => function () use ($s1_word2) {
 
@@ -151,10 +154,10 @@ return [
  */
 [
 
-"text" => "
-<p>Use the 'in-operator' to see if the word: '$s1_word3' contains the letter 'a'. Answer with a boolean result.
-</p>
-",
+"text" => <<<EOD
+Use the 'in-operator' to see if the word: '$s1_word3' contains the letter 'a'. Answer with a boolean result.
+EOD
+,
 
 "answer" => function () use ($s1_word3) {
 
@@ -176,10 +179,10 @@ return [
  */
 [
 
-"text" => "
-<p>Make all the letters in the word '$s1_word2' capitalized. Answer with the capitalized word.
-</p>
-",
+"text" => <<<EOD
+Make all the letters in the word '$s1_word2' capitalized. Answer with the capitalized word.
+EOD
+,
 
 "answer" => function () use ($s1_word2) {
 
@@ -194,10 +197,10 @@ return [
  * A question.
  */
 [
-"text" => "
-<p>Use the built-in function 'startswith()' to see if the word '$s1_word4' starts with the letter '$s1_letter'. Answer with the boolean value.
-</p>
-",
+"text" => <<<EOD
+Use the built-in function `startswith()` to see if the word '$s1_word4' starts with the letter '$s1_letter'. Answer with the boolean value.
+EOD
+,
 
 "answer" => function () use ($s1_word4, $s1_letter) {
 	$result = false;
@@ -217,10 +220,14 @@ return [
  */
 [
 
-"text" => "
-<p>Assign the words: '$s1_word5' and '$s1_word6' to two different variables. Create a function and pass the two words as arguments to it. Your function should return them as a single word. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Assign the words: '$s1_word5' and '$s1_word6' to two different variables. 
+
+Create a function and pass the two words as arguments to it. Your function should return them as a single word.
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_word5, $s1_word6) {
 
@@ -236,10 +243,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function and pass the word: '$s1_word' to it. Your function should return the sentence: 'This word was: $s1_word'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a function and pass the word: '$s1_word' to it. Your function should return the sentence:
+
+> "This word was: $s1_word"
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_word) {
 
@@ -255,10 +266,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function and pass the word: '$s1_word6' to it. Your function should return the string 'yes' if the word is longer than 5 characters. Else return 'no'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a function and pass the word: '$s1_word6' to it.
+
+Your function should return the string 'yes' if the word is longer than 5 characters. Else return 'no'.
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_word6) {
 
@@ -279,10 +294,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function and pass the word: '$s1_word2' to it. Your function should return a string with the word backwards. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a function and pass the word: '$s1_word2' to it.
+
+Your function should return a string with the word backwards.
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_word2) {
 
@@ -303,10 +322,14 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function and pass the word: '$s1_word5' to it. Your function should exclude the first and the last letter of the word and return it. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a function and pass the word: '$s1_word5' to it.
+
+Your function should exclude the first and the last letter of the word and return it.
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_word5) {
 
@@ -327,10 +350,14 @@ return [
  */
 [
 
-"text" => "
-<p>Use str.format() to print out: 'My 'string' has 'integer' 'string''. Use the values: '$s1_f1', '$s1_f2' and '$s1_f3'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use `str.format()` to print out:
+
+> 'My 'string' has 'integer' 'string''.
+
+Use the values: '$s1_f1', '$s1_f2' and '$s1_f3'. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($s1_f1, $s1_f2, $s1_f3) {
 
@@ -346,10 +373,16 @@ return [
  */
 [
 
-"text" => "
-<p>Use 'find' and 'slice' on the string: '$s1_slice1' to get the word inside the parenthesis. Answer with the word as a string.
-</p>
-",
+"text" => <<<EOD
+Use `find` and `slice` on the string:
+
+> "$s1_slice1"
+
+to get the word inside the parenthesis.
+
+Answer with the word as a string.
+EOD
+,
 
 "answer" => function () use ($s1_slice1) {
 
@@ -382,9 +415,10 @@ return [
 [
 "title" => "Files",
 
-"intro" => "
-<p>This section uses the text file: 'httpd-access.txt'</p>
-",
+"intro" => <<<EOD
+This section uses the text file: '[httpd-access.txt](httpd-access.txt)'.
+EOD
+,
 
 "shuffle" => false,
 
@@ -397,10 +431,10 @@ return [
  */
 [
 
-"text" => "
-<p>Open the file and count the number of times a line starts with '81'. Answer with the result as an integer.
-</p>
-",
+"text" => <<<EOD
+Open the file and count the number of times a line starts with '81'. Answer with the result as an integer.
+EOD
+,
 
 "answer" => function () {
 
@@ -416,10 +450,10 @@ return [
  */
 [
 
-"text" => "
-<p>Find out the last 4 digits on line 821 in the file. Answer with the result as an integer.
-</p>
-",
+"text" => <<<EOD
+Find out the last 4 digits on line 821 in the file. Answer with the result as an integer.
+EOD
+,
 
 "answer" => function () {
 	return 2154;
@@ -434,10 +468,12 @@ return [
  */
 [
 
-"text" => "
-<p>Find out which of the ip adresses 81.226.253.26 and 95.19.133.73 that has the highest amount of entries in the file. Answer with the result as an integer.
-</p>
-",
+"text" => <<<EOD
+Find out which of the ip adresses 81.226.253.26 and 95.19.133.73 that has the highest amount of entries in the file.
+
+Answer with the result as an integer.
+EOD
+,
 
 "answer" => function () {
 	return 93;
@@ -452,10 +488,14 @@ return [
  */
 [
 
-"text" => "
-<p>Count the number of periods (.) there are in the file. Use the built-in function count() on the file after you have converted it to a string. Answer with the result as an integer.
-</p>
-",
+"text" => <<<EOD
+Count the number of periods (.) there are in the file.
+
+Use the built-in function `count()` on the file after you have converted it to a string.
+
+Answer with the result as an integer.
+EOD
+,
 
 "answer" => function () {
 	return 5199;
@@ -470,10 +510,12 @@ return [
  */
 [
 
-"text" => "
-<p>Find the characters on line 637 from index 65 to index 75. Make sure that the character at index 75 also gets included. Answer with the piece of string you found.
-</p>
-",
+"text" => <<<EOD
+Find the characters on line 637 from index 65 to index 75. Make sure that the character at index 75 also gets included.
+
+Answer with the piece of string you found.
+EOD
+,
 
 "answer" => function () {
 	return "source.php?";
@@ -488,10 +530,12 @@ return [
  */
 [
 
-"text" => "
-<p>Find the last element (digit) on each line, if there are any, and sum all that are even. Answer with the result as an integer.
-</p>
-",
+"text" => <<<EOD
+Find the last element (digit) on each line, if there are any, and sum all that are even.
+
+Answer with the result as an integer.
+EOD
+,
 
 "answer" => function () {
 	return 2226;

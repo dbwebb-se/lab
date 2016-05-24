@@ -18,6 +18,7 @@ $doAnswerPhp        = isset($_GET['answer-php'])        ? true : false;
 $doAnswerPhpAssert  = isset($_GET['answer-php-assert']) ? true : false;
 $doAnswerPy         = isset($_GET['answer-py'])         ? true : false;
 $doAnswerPyAssert   = isset($_GET['answer-py-assert'])  ? true : false;
+$doAnswerSQLite     = isset($_GET['answer-sqlite'])     ? true : false;
 $doAnswerBash       = isset($_GET['answer-bash'])       ? true : false;
 $doAnswerBashAssert = isset($_GET['answer-bash-assert']) ? true : false;
 $doAnswerNode       = isset($_GET['answer-node'])       ? true : false;
@@ -41,6 +42,7 @@ $key                = isset($_GET['key']) ? $_GET['key'] : null;
     || $doAnswerPyAssert
     || $doAnswerBash
     || $doAnswerBashAssert
+    || $doAnswerSQLite
     || $doAnswerNode
     || $doAnswerNodeAssert
     || $doAnswerJson
@@ -88,6 +90,8 @@ if ($doLab) {
     include "view/generate/answer-bash_tpl.php";
 } else if ($doAnswerBashAssert) {
     include "view/generate/answer-bash-assert_tpl.php";
+} else if ($doAnswerSQLite) {
+    include "view/generate/answer-sqlite_tpl.php";
 } else if ($doAnswerNode) {
     include "view/generate/answer-node_tpl.php";
 } else if ($doAnswerNodeAssert) {
@@ -95,11 +99,11 @@ if ($doLab) {
 } else if ($doAnswerJson) {
     include "view/generate/answer-json_tpl.php";
 } else if ($doAnswerHtml) {
-    include "view/answer-html_tpl.php";
+    include "view/generate/answer-html_tpl.php";
 } else if ($doAnswerJs) {
-    include "view/answer-js_tpl.php";
+    include "view/generate/answer-js_tpl.php";
 } else if ($doAnswerTar) {
-    include "view/answer-tar_tpl.php";
+    include "view/generate/answer-tar_tpl.php";
 
 } else if ($doAnswers) {
     include "view/answers_tpl.php";

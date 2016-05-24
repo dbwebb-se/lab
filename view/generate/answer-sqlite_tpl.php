@@ -59,15 +59,16 @@ foreach ($sections as $section) {
 # 
 # <?= wrap($question['text']) ?>
 #
-# Write your code below and put the answer into the variable ANSWER.
+# Write your SQL-statement(s) below, the last statement will be your ANSWER.
+# Change false to true to get verbose output
 #
 
+#SQL "Replace this text with your SQL statement" false
 
 
 
 
 
-ANSWER="Replace this text with the variable holding the answer."
 
 # I will now test your answer - change false to true to get a hint.
 assertEqual "<?="$sectionId.$questionId"?>" false

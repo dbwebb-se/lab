@@ -7,6 +7,8 @@
 #
 ANSWERS=".answer"
 PROMPT=">>> "
+ANSWER="Replace this text with the variable holding the answer."
+
 
 
 #
@@ -56,19 +58,19 @@ function assertEqual
     if [ "$ANSWER" = "$noanswer" ]; then
         echo "${PROMPT}$question NOT YET DONE. (${points}p)"
         ((LAB_notDone++))
-    
-    elif [ $ANSWER = $answer ]; then
+    elif [ "$ANSWER" = "$answer" ]; then
         printf "%s%s CORRECT. Well done! (%sp)\n%s\n" "$PROMPT" "$question" $points "$ANSWER"
         ((LAB_correct++))
         LAB_mypoints=$((LAB_mypoints + points))
-    
     else
-        printf "%s%s FAIL. ($sp)\n%sYou said:\n%s\n" "$PROMPT" "$question" "$PROMPT" $points "$ANSWER"
+        printf "%s%s FAIL. (%sp)\n%sYou said:\n%s\n" "$PROMPT" "$question" $points "$PROMPT" "$ANSWER"
         if $hint; then
-            printf "%sHint:\n%s\n" "$PROMPT" $answer
+            printf "%sHint:\n%s\n" "$PROMPT" "$answer"
         fi
         ((LAB_failed++))
     fi
+
+    ANSWER="Replace this text with the variable holding the answer."
 }
 
 
@@ -100,4 +102,20 @@ function exitWithSummary
     fi
 
     exit $(( $LAB_mypoints >= $LAB_pass ? 0 : 42 ))
+}
+
+
+
+#
+# Execute SQL query towards SQLite database and save response in ANSWER.
+#
+function SQL
+{
+    ANSWER=$( sqlite3 -header -column db.sqlite "$1" )
+    ANSWER="$ANSWER"
+    
+    if [ "$2" = true ]; then
+        echo "SQL> $1"
+        echo "$ANSWER"
+    fi
 }

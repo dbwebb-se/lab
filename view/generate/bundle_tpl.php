@@ -39,6 +39,11 @@ $labPerType = [
         ["filename" => ".dbwebb.bash", "action" => "answer-bash-assert"],
         ["filename" => "answer.tar",  "action" => "answer-tar"],
     ],
+    "sqlite" => [
+        ["filename" => "answer.bash", "action" => "answer-sqlite", "mode" => "755"],
+        ["filename" => ".dbwebb.bash", "action" => "answer-bash-assert"],
+        ["filename" => "answer.tar",  "action" => "answer-tar"],
+    ],
     "python" => [
         ["filename" => "answer.py", "action" => "answer-py", "mode" => "755"],
         ["filename" => "Dbwebb.py", "action" => "answer-py-assert"],

@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.2.13 (2016-05-18)";
+const VERSION = "v2.2.13* (2016-05-24)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -61,6 +61,7 @@ $VALID_LABS = [
     "htmlphp/lab3" => "config/htmlphp/lab3.php",
     "htmlphp/lab4" => "config/htmlphp/lab4.php",
     "htmlphp/lab5" => "config/htmlphp/lab5.php",
+    "htmlphp/lab6" => "config/htmlphp/lab6.php",
 
     "oophp/lab1" => "config/oophp/lab1.php",
 
@@ -75,7 +76,14 @@ $VALID_LABS = [
 
 // Type of lab
 $LAB_TYPE = [
-    "htmlphp"    => "php",
+    "htmlphp"      => [
+        "lab1" => "php",
+        "lab2" => "php",
+        "lab3" => "php",
+        "lab4" => "php",
+        "lab5" => "php",
+        "lab6" => "sqlite",
+    ],
     "oophp"      => "php",
     "javascript1" => "javascript",
     "webgl"      => "javascript",

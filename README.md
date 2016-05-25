@@ -15,8 +15,9 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
-v2.2.13* (2016-05-24)
+v2.2.14 (2016-05-25)
 
+* Improving gui separating menu items.
 * Added support for SQLite labs together with htmlphp lab6.
 
 

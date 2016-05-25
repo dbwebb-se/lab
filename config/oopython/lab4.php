@@ -7,47 +7,6 @@ include __DIR__ . "/../random.php";
 
 //SECTION 1 ****************************************************
 
-$s1_present         = ["Ozelot", "Kvothe", "It's a very, very, merry, merry christmas. Gonna party on 'til Santa grants my wishes.", rand_int(10000, 15000)];
-$s1_christPresent   = ["Pirate", "Zeldah", "You, oh ,oh, a Christmas. My Christmas tree is delicious", rand_int(20000, 25000)];
-$s1_compPresent     = ["Icecream", "Lew", "That's why I celebrate Christmas 'Cause this overweighted redneck devil is big business", rand_int(1, 20)];
-$s1_searchStrings   = [
-                    ["ew", "False False True "],
-                    ["zel", "True False False "],
-                    ["irat", "False True False "]
-                    ];
-$s1_searchString    = $s1_searchStrings[rand_int(0, count($s1_searchStrings) -1)];
-
-$s1_listYear        = [1993, 1994, 1996, 2000, 2003, 2005, 2010, 2013, 2014, 2016];
-$s1_listMonth       = ["01", "02", "03", "04", "05", "06" , "07", "08", "09", "10" , "11", "12"];
-$s1_listDay         = ["01", "02", "04", "06", "07", "08", "09", "11", "13", "14", "16", "17", "18", "20", "23", "26", "28", "30"];
-$s1_year            = $s1_listYear[rand_int(0, count($s1_listYear)-1)];
-$s1_month           = $s1_listMonth[rand_int(0, count($s1_listMonth)-1)];
-$s1_day             = $s1_listDay[rand_int(0, count($s1_listDay)-1)];
-$s1_year2           = $s1_listYear[rand_int(1, count($s1_listYear)-1)];
-$s1_month2          = $s1_listMonth[rand_int(1, count($s1_listMonth)-1)];
-$s1_day2            = $s1_listDay[rand_int(1, count($s1_listDay)-1)];
-
-$s1_dogNames        = ["Buster", "James", "Zimba", "Goliat"];
-$s1_dogRaces        = ["Shitzu", "Cocker spaniel", "Rottwiler", "Grand danois"];
-$s1_dogSizes        = ["small", "medium", "big", "big"];
-$s1_dogDays         = [rand_int(5, 10), rand_int(7, 14), rand_int(5, 15), rand_int(20, 25)];
-#$s1_dogOrders       = [
-#                    [1,2,3,4],
-#                    [2,4,1,3],
-#                    [4,2,3,1],
-#                    [3,2,1,4]
-#                    ];
-#$s1_dogOrder        = $s1_dogOrders[rand_int(0, count($s1_dogOrders) -1)];
-$s1_dog1            = [$s1_dogNames[0], $s1_dogSizes[0], $s1_dogRaces[0], $s1_dogDays[0]];
-$s1_dog2            = [$s1_dogNames[2], $s1_dogSizes[2], $s1_dogRaces[2], $s1_dogDays[2]];
-$s1_dog3            = [$s1_dogNames[3], $s1_dogSizes[3], $s1_dogRaces[3], $s1_dogDays[3]];
-#$s1_dog4            = [$s1_dogNames[1], $s1_dogSizes[1], $s1_dogRaces[1], $s1_dogDays[1]];
-$s1_priceSmall      = rand_int(100, 120);
-$s1_priceMedium     = rand_int(121, 150);
-$s1_priceBig        = rand_int(151, 200);
-
-//SECTION 1 ****************************************************
-
 $s1_sumTopNr        = rand_int(10, 20);
 $s1_sumTop2Nr       = rand_int(30, 40);
 

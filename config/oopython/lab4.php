@@ -5,50 +5,94 @@
  */
 include __DIR__ . "/../random.php";
 
-// Settings
-$base = __DIR__ . "/lab4_extra";
-$file = "regexOnLists.py";
+//SECTION 1 ****************************************************
+
+$s1_present         = ["Ozelot", "Kvothe", "It's a very, very, merry, merry christmas. Gonna party on 'til Santa grants my wishes.", rand_int(10000, 15000)];
+$s1_christPresent   = ["Pirate", "Zeldah", "You, oh ,oh, a Christmas. My Christmas tree is delicious", rand_int(20000, 25000)];
+$s1_compPresent     = ["Icecream", "Lew", "That's why I celebrate Christmas 'Cause this overweighted redneck devil is big business", rand_int(1, 20)];
+$s1_searchStrings   = [
+                    ["ew", "False False True "],
+                    ["zel", "True False False "],
+                    ["irat", "False True False "]
+                    ];
+$s1_searchString    = $s1_searchStrings[rand_int(0, count($s1_searchStrings) -1)];
+
+$s1_listYear        = [1993, 1994, 1996, 2000, 2003, 2005, 2010, 2013, 2014, 2016];
+$s1_listMonth       = ["01", "02", "03", "04", "05", "06" , "07", "08", "09", "10" , "11", "12"];
+$s1_listDay         = ["01", "02", "04", "06", "07", "08", "09", "11", "13", "14", "16", "17", "18", "20", "23", "26", "28", "30"];
+$s1_year            = $s1_listYear[rand_int(0, count($s1_listYear)-1)];
+$s1_month           = $s1_listMonth[rand_int(0, count($s1_listMonth)-1)];
+$s1_day             = $s1_listDay[rand_int(0, count($s1_listDay)-1)];
+$s1_year2           = $s1_listYear[rand_int(1, count($s1_listYear)-1)];
+$s1_month2          = $s1_listMonth[rand_int(1, count($s1_listMonth)-1)];
+$s1_day2            = $s1_listDay[rand_int(1, count($s1_listDay)-1)];
+
+$s1_dogNames        = ["Buster", "James", "Zimba", "Goliat"];
+$s1_dogRaces        = ["Shitzu", "Cocker spaniel", "Rottwiler", "Grand danois"];
+$s1_dogSizes        = ["small", "medium", "big", "big"];
+$s1_dogDays         = [rand_int(5, 10), rand_int(7, 14), rand_int(5, 15), rand_int(20, 25)];
+#$s1_dogOrders       = [
+#                    [1,2,3,4],
+#                    [2,4,1,3],
+#                    [4,2,3,1],
+#                    [3,2,1,4]
+#                    ];
+#$s1_dogOrder        = $s1_dogOrders[rand_int(0, count($s1_dogOrders) -1)];
+$s1_dog1            = [$s1_dogNames[0], $s1_dogSizes[0], $s1_dogRaces[0], $s1_dogDays[0]];
+$s1_dog2            = [$s1_dogNames[2], $s1_dogSizes[2], $s1_dogRaces[2], $s1_dogDays[2]];
+$s1_dog3            = [$s1_dogNames[3], $s1_dogSizes[3], $s1_dogRaces[3], $s1_dogDays[3]];
+#$s1_dog4            = [$s1_dogNames[1], $s1_dogSizes[1], $s1_dogRaces[1], $s1_dogDays[1]];
+$s1_priceSmall      = rand_int(100, 120);
+$s1_priceMedium     = rand_int(121, 150);
+$s1_priceBig        = rand_int(151, 200);
 
 //SECTION 1 ****************************************************
-$arrayTwister = ["how", "can", "clam", "cram", "clean", "cream", "can"];
-$s1_twisterWord = $arrayTwister[rand_int(0, count($arrayTwister) - 1)];
 
+$s1_sumTopNr        = rand_int(10, 20);
+$s1_sumTop2Nr       = rand_int(30, 40);
 
+$s1_sumArrays       = [
+                [1,2,3,4,5,6,7,8,9],
+                [4,5,6,7,9,1,2,3,8],
+                [6,7,3,1,9,2,5,4,8]
+            ];
+$s1_sumArrayString  = implode(", ", $s1_sumArrays[rand_int(0, count($s1_sumArrays) -1)]);
+$s1_sumArray        = $s1_sumArrays[rand_int(0, count($s1_sumArrays) -1)];
+
+$s1_indexOfSearch   = rand_int(0, count($s1_sumArray) -1);
+$s1_searchFor       = $s1_sumArray[$s1_indexOfSearch];
+
+$s1_powBase         = rand_int(1, 10);
+$s1_powTop          = rand_int(1, 5);
+
+$s1_strings         = ["Frontwards", "Backwards", "switcharoo", "Switchy mc switch"];
+$s1_string          = $s1_strings[rand_int(0, count($s1_strings) -1)];
 
 return [
 
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 4 - oopython",
+"title" => "Lab 4 - Recursion",
 
 "intro" => <<<EOD
-If you need to peek at examples or just want to know more, take a look at the page: https://docs.python.org/2/howto/regex.html. Here you will find everything this lab will go through and much more.
+If you need to peek at examples or just want to know more, take a look at the page: https://docs.python.org/3/library/index.html. Here you will find everything this lab will go through and much more.
 EOD
 ,
 
-"header" => <<<EOD
-import re
-import regexOnLists as reg
-EOD
-,
 
 "sections" => [
 
 
 
-/** ===================================================================================
+/** ===========================================================================
  * New section of exercises.
  */
 [
-"title" => "Regular expressions",
+"title" => "Simple recursion",
 
 "intro" => <<<EOD
-For the exercises where you should match a pattern on strings in lists use  
-'reg.regexOnLists(pattern, matchList, dontMatchList)'.  
-Unless it says in the exercise to send an argument for the index parameter dont. Copy the lists from the exercise description and send as arguments.
-
-Answer with the result from the function.
+Practice on creating recursive functions.
 EOD
 ,
 
@@ -58,443 +102,143 @@ EOD
 
 
 
-/** -----------------------------------------------------------------------------------
+/** ---------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Write a pattern that matches the word '$s1_twisterWord' in the sentence  
-'how can a clam cram in a clean cream can?'.
+Create a recursive function in the code below that calculates the sum from the numbers 1 up to $s1_sumTopNr.
 
-Use the re modules findall function.
+Answer with the sum.
+
 EOD
 ,
 
-"answer" => function () use ($s1_twisterWord) {
-
-    $result = [$s1_twisterWord];
-    return $result;
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Write a pattern that only matches the words that starts with a big letter in the sentence  
-'Droskkusken Max kuskar med Fuxar och fuskar med droskkusktaxan.'.
-
-Use the re modules findall function.
-EOD
-,
-
-"answer" => function () {
-
-    return ['Droskkusken', 'Max', 'Fuxar'];
+"answer" => function () use ($s1_sumTopNr) {
+    $sum = 0;
+    for($i = 1;$i < $s1_sumTopNr+1; $i++){
+        $sum += $i;
+    }
+    return $sum;
 },
 
 ],
 
 
 
-/** -----------------------------------------------------------------------------------
+/** ---------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Write a pattern that matches the words in the string  
-'look, book, hook'  
-but not the words in the string  
-'cookoff, booklet, hooked'.
+Create a recursive function in the code below that calculates the sum from the numbers $s1_sumTopNr up to $s1_sumTop2Nr.
 
-Use the re modules findall function.
+Answer with the sum.
 EOD
 ,
 
-"answer" => function () {
-
-    return ['look', 'book', 'hook'];
+"answer" => function () use ($s1_sumTopNr, $s1_sumTop2Nr) {
+    $sum = 0;
+    for($i = $s1_sumTopNr; $i < $s1_sumTop2Nr+1; $i++){
+        $sum += $i;
+    }
+    return $sum;
 },
 
 ],
 
 
 
-/** -----------------------------------------------------------------------------------
+/** ---------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Write a pattern that matches only the digits in the string  
-'hej123ko whatup'563' koll726kolla'.
+Create a recursive function in the code below that calculates the sum of the numbers in the list [$s1_sumArrayString].
 
-Use the re modules findall function.
+Answer with the sum.
 EOD
 ,
 
-"answer" => function ()  {
+"answer" => function () use ($s1_sumArray) {
 
-    return ['123', '563', '726'];
+    $sum = 0;
+    for($i = 0; $i < count($s1_sumArray); $i++){
+        $sum += $s1_sumArray[$i];
+    }
+    
+    return $sum;
 },
 
 ],
 
 
 
-/** -----------------------------------------------------------------------------------
+/** ---------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Write a pattern that matches the characters between the commas in the string  
-'[kossor],(blommor),{skor}'  
-and not the characters between the commas in the string  
-'kossor,blommor,skor'.
+Create a recursive function in the code below that searches a list for a number and returns the index of the number.  
+Search for the index of $s1_searchFor in the list [$s1_sumArrayString].
 
-Use the re modules findall function.
+Answer with the index.
 EOD
 ,
 
-"answer" => function () {
-
-    return ['[kossor]', '(blommor)', '{skor}'];
+"answer" => function () use ($s1_indexOfSearch){
+    return $s1_indexOfSearch;
 },
 
 ],
 
 
 
-/** -----------------------------------------------------------------------------------
+/** ---------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Write a pattern that matches the words in the string  
-'mat, kol, leg'  
-and not the words in the string  
-'bil, vid, och'.
+Create a recursive function in the code below that claculates $s1_powBase to the power of $s1_powTop.  
 
-Use the re modules findall function.
+Answer with the result.
 EOD
 ,
 
-"answer" => function () {
-
-    return ['mat', 'kol', 'leg'];
-},
-
-],
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Write a pattern that matches the words in the list  
-['barbary', 'froufrou', 'mathematic']  
-and doesnt match the words in the list  
-['damnably', 'corundum', 'pouchlike'].
-
-Use the regexOnList function.
-EOD
-,
-
-"answer" => function (){
-
-    return ['damnably', 'corundum', 'pouchlike'];
-},
-
-],
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Write a pattern that matches a username. It can contain the letters 'a' to 'z',  the numbers '0' to '9', underscore, a hyphen and it can be 4 to 14 letters long.  
-It should match the words in the list  
-['user93namne_', 'froufrou', '4stuff-65_dg']  
-and not match  
-['d3y', 'corundum.423', 'gdsgpouchlikefdsfdsf'].
-
-Use the regexOnList function.
-EOD
-,
-
-"answer" => function () {
-
-    return ['user93namne_', 'froufrou', '4stuff-65_dg'];
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Write a pattern that matches the emails in the list  
-['zeldah.-92@dbwebb.se', 'lew53@dbwebb.com', 'mos_@dbwebb.net']  
-and doesnt match the emails in the list  
-['fake#29@db-webb.se', 'stealth@dbw_ebb.s', 'master@db.webb.net'].
-
-Use the regexOnList function.
-EOD
-,
-
-"answer" => function () {
-
-	return ['zeldah.-92@dbwebb.se', 'lew53@dbwebb.com', 'mos_@dbwebb.net'];
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Write a patterna that matches the html tags in the list  
-`['<a href="http://dbwebb.se">Dbwebb</a>', '<div>Outer<span>inner</span></div>']`  
-and doesnt match the tags in the list  
-`['<a>a link</b>', '<p>Outer<span>in<br>ner</p></span>']`.
-
-Use the regexOnList function.
-EOD
-,
-
-"answer" => function () {
-
-
-	return ['<a href="http://dbwebb.se">Dbwebb</a>', '<div>Outer<span>inner</span></div>'];
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Write a pattern that matches the last names in the list  
-['Andreas Arnesson', 'Siv Ohlsson', 'Lena Johansson']  
-and doesnt match the ones in the list  
-['Oskar Stenstrom', 'Konrad Ohman', 'Nellie Forsberg'].
-
-Use the regexOnList function.  
-Add '1' as index argument for the regexOnList function.
-EOD
-,
-
-"answer" => function () {
-
-	return ['Arnesson', 'Ohlsson', 'Johansson'];
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Write a pattern tha matches the expiry date formats from the list  
-['09/10', '05-2010', '07-20', '10/1999']  
-and doesnt match the date in the list  
-['001-11', '10.15', '01/115', '13-2001'].
-
-Use the regexOnList function.
-EOD
-,
-
-"answer" => function () {
-
-	return ['09/10', '05-2010', '07-20', '10/1999'];
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Write a pattern tha matches the scheme, the host and the port(if present) from the urls in the string  
-'https://dbwebb.se/kunskap/uml#sequence, ftp://bth.com:32/files/im.jpeg, file://localhost:8585/zipit, http://v2-dbwebb.se/do%hack'.
-
-A tip, create a group for each element. From the first url we want https and dbwebb.se from the second url we want ftp, bth.com and 32.
-
-Use the re modules findall function. Format the result in to a string and answer with that.
-EOD
-,
-
-"answer" => function () {
-
-	return "[('https', 'dbwebb.se', ''), ('ftp', 'bth.com', '32'), ('file', 'localhost', '8585'), ('http', 'v2-dbwebb.se', '')]";
-},
-
-],
-
-],
-/**
- * Closing up this section.
- */
-], // EOF questions
-
-
-
-/** ===================================================================================
- * New section of exercises.
- */
-[
-"title" => "Search and replace",
-
-"intro" => <<<EOD
-Use the re modules sub function for all the exercises.
-EOD
-,
-
-"shuffle" => false,
-
-"questions" => [
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the sub function to fix the whitespaces in the sentence  
-'I \nknow\t      H.T.M.L.\n How To      Meet Ladies\t '. 
-
-One space between each word.
-EOD
-,
-
-"answer" => function () {
-
-	return "I know H.T.M.L. How To Meet Ladies";
-
+"answer" => function () use ($s1_powBase, $s1_powTop) {
+    return pow($s1_powBase, $s1_powTop);
 },
 
 ],
 
 
 
-/** -----------------------------------------------------------------------------------
+/** ---------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Use the sub function to switch the place of the numbers and letters in the string  
-'abc123 efg456'  
-and also add a space between them, so it becomes '123 abc 456 efg'
+Create a recursive function in the code below that turns a string backwards. Turn the string "$s1_string" backwards.  
+
+Answer with the backward string.
 EOD
 ,
 
-"answer" => function () {
-
-    return "123 abc 456 efg";
+"answer" => function () use ($s1_string) {
+    return strrev($s1_string);
 },
 
 ],
 
 
 
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the sub function to remove the last three characters from the string  
-'Hello world!-.1'.
-EOD
-,
-
-"answer" => function () {
-
-    return "Hello world!";
-
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the sub function to remove the commented and the empty line from the string  
-'#Did you back up the system?\n\nprint('hello world')'.
-EOD
-,
-
-"answer" => function () {
-
-    return "print('hello world')";
-
-},
-
-],
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the sub function to format the string  
-'Ross McFluff: 0456-45324: 155 Elm Street\nRonald Heathmore: 5543-23464: 445 Finley Avenue'.  
-For each person it should look like this:  
-'Contact\nName: xx yy\nPhone number: 0000-00000\nAdress: 000 zzz zzz'.
-EOD
-,
-
-"answer" => function () {
-
-    return "Contact
-Name: Ross McFluff
-Phonenumber: 0456-45324
-Adress: 155 Elm Street
-Contact
-Name: Ronald Heathmore
-Phonenumber: 5543-23464
-Adress: 445 Finley Avenue";
-
-},
-
-],
-
-
-/**
+/** ---------------------------------------------------------------------------
  * Closing up this section.
  */
 ], // EOF questions
@@ -502,7 +246,7 @@ Adress: 445 Finley Avenue";
 
 
 
-/** -----------------------------------------------------------------------------------
+/** ===========================================================================
  * Closing up all sections.
  */
 ] // EOF sections

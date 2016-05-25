@@ -28,8 +28,10 @@ EOD
 ,
 
 "header" => <<<EOD
+# pylint: disable=unused-import
 import re
 import regexOnLists as reg
+# pylint: enable=unused-import
 EOD
 ,
 

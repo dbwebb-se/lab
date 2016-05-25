@@ -308,15 +308,12 @@ EOD
 [
 
 "text" => <<<EOD
-Use your 'countries' and 'capitals' arrays and create another array called 'keyArray'. The country should be the key and the capital should be the value. Answer with the new array. (hint: 'country' => 'capital')
+Use your 'countries' and 'capitals' arrays and create another array called 'keyArray'. The country should be the key and the capital should be the value. Answer with the new array. (hint: `'country' => 'capital'`)
 EOD
 ,
 
 "answer" => function () use($s2_keyArray) {
-
-
-
-	return $s2_keyArray;
+    return $s2_keyArray;
 },
 
 ],

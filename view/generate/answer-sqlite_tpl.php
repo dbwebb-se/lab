@@ -63,7 +63,7 @@ foreach ($sections as $section) {
 # Change false to true to get verbose output
 #
 
-#SQL "Replace this text with your SQL statement" false
+#SQL 'Replace this text with your SQL statement' false
 
 
 
@@ -71,7 +71,7 @@ foreach ($sections as $section) {
 
 
 # I will now test your answer - change false to true to get a hint.
-assertEqual "<?="$sectionId.$questionId"?>" false
+assertEqual '<?="$sectionId.$questionId"?>' false
 
 <?php 
     }

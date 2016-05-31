@@ -15,6 +15,12 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.15 (2016-05-31)
+
+* Adding sql lab1.
+* Improving bash assert to work with sqlite.
+
+
 v2.2.14 (2016-05-25)
 
 * Improving gui separating menu items.

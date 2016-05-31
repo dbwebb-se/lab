@@ -112,3 +112,6 @@ if ($doLab) {
 } else {
     die("Nothing to do.");
 }
+
+// Remove tempdir if any
+tempDir(false);

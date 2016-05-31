@@ -59,7 +59,7 @@ function assertEqual
         echo "${PROMPT}$question NOT YET DONE. (${points}p)"
         ((LAB_notDone++))
     elif [ "$ANSWER" = "$answer" ]; then
-        printf "%s%s CORRECT. Well done! (%sp)\n%s\n" "$PROMPT" "$question" $points "$ANSWER"
+        printf "%s%s CORRECT. Well done! (%sp)\n" "$PROMPT" "$question" $points
         ((LAB_correct++))
         LAB_mypoints=$((LAB_mypoints + points))
     else
@@ -111,7 +111,7 @@ function exitWithSummary
 #
 function SQL
 {
-    ANSWER=$( sqlite3 -header -column db.sqlite "$1" )
+    ANSWER=$( sqlite3 -header -column db.sqlite "$1" 2>&1 | sed 's/[[:blank:]]*$//' )
     ANSWER="$ANSWER"
     
     if [ "$2" = true ]; then

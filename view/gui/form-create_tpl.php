@@ -22,6 +22,8 @@
         <option value="lab4" <?= isSelected("lab4", $lab) ?>>Lab 4</option>
         <option value="lab5" <?= isSelected("lab5", $lab) ?>>Lab 5</option>
         <option value="lab6" <?= isSelected("lab6", $lab) ?>>Lab 6</option>
+        <option value="sql1" <?= isSelected("sql1", $lab) ?>>SQL 1</option>
+        <option value="sql2" <?= isSelected("sql2", $lab) ?>>SQL 2</option>
         <option value="labtest" <?= isSelected("labtest", $lab) ?>>Lab Test</option>
     </select></label>
 </p>

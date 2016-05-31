@@ -1,6 +1,66 @@
 <?php
 
 
+
+/**
+ * Execute an external command, monitor its status and
+ * return a string with the result separated by \n.
+ *
+ * @param string $command to execute.
+ *
+ * @return string with result from command.
+ */
+function execute($command)
+{
+    $status = null;
+    $output = [];
+
+    exec($command . " 2>&1", $output, $status);
+    $output = implode("\n", $output);
+    if (!empty($output)) {
+        $output .= "\n";
+    }
+
+    if ($status !== 0) {
+        echo "<pre>Command: $command\n";
+        echo "Status: $status\n";
+        echo "Output: $output\n";
+        die();
+    }
+
+    return $output;
+}
+
+
+
+/**
+ * Create a temporary directory, useful when creating labs
+ * and in need of temporary storage.
+ *
+ * @param string $action true of create, false if remove.
+ *
+ * @return string with pathname
+ */
+function tempDir($action = true)
+{
+    static $base1 = null;
+    static $base = null;
+    
+    if ($action) {
+        // Create base for
+        $base1 = tempnam("/tmp", "LAB");
+        $base = "${base1}_";
+        mkdir($base);
+        return $base;
+    } elseif ($base) {
+        // Clean up
+        exec("rm -rf $base");
+        unlink($base1);
+    }
+}
+
+
+
 /**
  * Compare items to see if they match, return selected if match, useful
  * for select option lists.

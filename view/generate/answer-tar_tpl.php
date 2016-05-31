@@ -13,11 +13,13 @@ file_put_contents("$dir/key", $key);
 // Write all answers to file
 $sectionId = 0;
 $sumPoints = null;
+$numQuestions = 0;
 foreach ($sections as $section) {
     $sectionId++;
     $questionId = 0;
 
     foreach ($section['questions'] as $question) {
+        $numQuestions++;
         $questionId++;
         $answer = $question['answer']();
         file_put_contents("$dir/$sectionId.$questionId", $answer);
@@ -31,7 +33,7 @@ foreach ($sections as $section) {
 }
 
 // Summary
-file_put_contents("$dir/summary.total", $questionId);
+file_put_contents("$dir/summary.total", $numQuestions);
 if ($sumPoints) {
     file_put_contents("$dir/summary.points", $sumPoints);
 }

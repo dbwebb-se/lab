@@ -7,12 +7,15 @@ if (is_null($lab)) {
     $course = $res->course;
 }
 
-// Check if valid combination
-if (getConfigurationFor($course, $lab) === false) {
+// Check if valid combination and then create paths to source.
+$srcLab = getConfigurationFor($course, $lab);
+if ($srcLab === false) {
     die("Invalid combination of course and lab.");
 }
+$srcLabName = basename($srcLab, ".php");
+$srcLabExtra = dirname($srcLab) . "/${srcLabName}_extra";
 
-// Create base for 
+// Create base for
 $base1 = tempnam("/tmp", "LAB");
 $base = "${base1}_";
 $bundle = "bundle.tar";
@@ -29,7 +32,7 @@ $baseurl = $_SERVER["REQUEST_SCHEME"]
 $labCommon = [
     ["filename" => "instruction.html", "action" => "lab"],
     //["filename" => "extra.tar", "action" => "answer-extra"], //OBSOLETE
-    ["dirname" => __DIR__ . "/../../config/$course/${lab}_extra"],
+    ["dirname" => __DIR__ . "/../../$srcLabExtra"],
 ];
 
 //Specific items to create

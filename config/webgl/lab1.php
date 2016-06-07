@@ -133,7 +133,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable called 'numberOne' and give it the value $numberOne. Create another variable called 'numberTwo' and give it the value $numberTwo. Create a third variable called 'result' and assign to it the sum of the first two variables. Answer with the result.
+Create a variable called 'numberOne' and give it the value $numberOne. Create another variable called 'numberTwo' and give it the value $numberTwo. Create a third variable called 'result' and assign to it the sum of the first two variables.
+
+Answer with the result.
 EOD
 ,
 
@@ -173,7 +175,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use your two variables, 'numberOne' and 'numberTwo'. Create one more, called 'numberThree' and give it the value: $numberThree. Use your variable 'result' and assign to it the sum of all three variables. Answer with the result.
+Use your two variables, 'numberOne' and 'numberTwo'. Create one more, called 'numberThree' and give it the value: $numberThree. Use your variable 'result' and assign to it the sum of all three variables.
+
+Answer with the result.
 EOD
 ,
 
@@ -193,7 +197,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use your variables 'numberOne', 'numberTwo' and 'numberThree'. Subtract 'numberThree' from the product of the other two variables. Answer with your 'result'-variable.
+Use your variables 'numberOne', 'numberTwo' and 'numberThree'. Subtract 'numberThree' from the product of the other two variables.
+
+Answer with your 'result'-variable.
 EOD
 ,
 
@@ -213,7 +219,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create two variables, 'floatOne' and 'floatTwo'. Give them the values: $floatOne and $floatTwo. Use your 'result'-variable and assign to it the sum of the float numbers. Answer with the result.
+Create two variables, 'floatOne' and 'floatTwo'. Give them the values: $floatOne and $floatTwo. Use your 'result'-variable and assign to it the sum of the float numbers.
+
+Answer with the result.
 EOD
 ,
 
@@ -261,9 +269,8 @@ EOD
 "title" => "Built-in Number- and Math-functions",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:
-
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+If you need a hint, take a look at:  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
 EOD
 ,
@@ -280,7 +287,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the function 'parseInt' to find out the integer representation of the text. Answer with your 'result'-variable.
+Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the function 'parseInt' to find out the integer representation of the text.
+
+Answer with your 'result'-variable.
 EOD
 ,
 
@@ -299,7 +308,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use your variable 'someIntText'. Use the function 'parseFloat' to find out the float representation of the text. Answer with your 'result'-variable.
+Use your variable 'someIntText'. Use the function 'parseFloat' to find out the float representation of the text.
+
+Answer with your 'result'-variable.
 EOD
 ,
 
@@ -318,7 +329,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use the method 'max', in Math, to find out the highest number in the serie: $serie1_imp. Answer with your 'result'-variable.
+Use the method 'max', in Math, to find out the highest number in the serie: $serie1_imp.
+
+Answer with your 'result'-variable.
 EOD
 ,
 
@@ -337,7 +350,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use the method 'min', in Math, to find out the lowest number in the serie: $serie1_imp. Answer with your 'result'-variable.
+Use the method 'min', in Math, to find out the lowest number in the serie: $serie1_imp.
+
+Answer with your 'result'-variable.
 EOD
 ,
 
@@ -356,7 +371,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use the method 'round', in Math, to round the float number: $sect2Float1 to the closest integer. Answer with your 'result'-variable.
+Use the method 'round', in Math, to round the float number: $sect2Float1 to the closest integer.
+
+Answer with your 'result'-variable.
 EOD
 ,
 
@@ -423,8 +440,7 @@ EOD
 "title" => "Strings, String-methods, functions and properties",
 
 "intro" => <<<EOD
-Practice strings and variables. If you need a hint, take a look at:
-
+Practice strings and variables. If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 EOD
 ,
@@ -441,7 +457,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable, named 'firstWord', that holds the word '$firstWord'. Create a second variable, named 'secondWord', that holds the word '$secondWord'. Create a third variable, named 'bothWords', and put together 'firstWord' and 'secondWord' with a space between. Answer with the variable 'bothWords'.
+Create a variable, named 'firstWord', that holds the word '$firstWord'. Create a second variable, named 'secondWord', that holds the word '$secondWord'. Create a third variable, named 'bothWords', and put together 'firstWord' and 'secondWord' with a space between.
+
+Answer with the variable 'bothWords'.
 EOD
 ,
 
@@ -461,7 +479,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'length' to find out the length of the string: '$sect3Word'. Answer with the result.
+Use 'length' to find out the length of the string: '$sect3Word'.
+
+Answer with the result.
 EOD
 ,
 
@@ -481,7 +501,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'substr' to extract the last three characters of the word: '$sect3Word'. Answer with the result.
+Use 'substr' to extract the last three characters of the word: '$sect3Word'.
+
+Answer with the result.
 EOD
 ,
 
@@ -510,8 +532,7 @@ EOD
 "title" => "Date object",
 
 "intro" => <<<EOD
-For more functions and methods, look into:
-
+For more functions and methods, look into:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 EOD
 ,
@@ -528,7 +549,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a Date object called 'myDate' and initiate it with: '$aDate'. Use the built-in function Date.getFullYear to get the year from your Date object. Answer with the result.
+Create a Date object called 'myDate' and initiate it with: '$aDate'. Use the built-in function Date.getFullYear to get the year from your Date object.
+
+Answer with the result.
 EOD
 ,
 
@@ -577,8 +600,7 @@ EOD
 "title" => "If, else if and else",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:
-
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 EOD
 ,
@@ -595,7 +617,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5. Add them up and answer with the result.
+Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5.
+
+Add them up and answer with the result.
 EOD
 ,
 
@@ -614,7 +638,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use an if statement to see if the five cards (card1-card5) have a combined value that is higher than 21. If the value is higher, answer with the string 'busted'. Else answer with the string 'safe'.
+Use an if statement to see if the five cards (card1-card5) have a combined value that is higher than 21.
+
+If the value is higher, answer with the string 'busted'. Else answer with the string 'safe'.
 EOD
 ,
 
@@ -633,7 +659,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use if else statements to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly 21. Answer with lower = 'safe', higher = 'busted', 21 = 'black jack'.
+Use if else statements to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly 21.
+
+Answer with lower = 'safe', higher = 'busted', 21 = 'black jack'.
 EOD
 ,
 
@@ -702,8 +730,7 @@ EOD
 "title" => "Switch, case",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:
-
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
 EOD
 ,
@@ -720,7 +747,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'. Answer with the result where 'myFruit = $fruit'.
+Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'.
+
+Answer with the result where 'myFruit = $fruit'.
 EOD
 ,
 
@@ -740,7 +769,9 @@ EOD
 [
 
 "text" => <<<EOD
-Extend your switch-case statement with a default value. The result should be 'That is an unknown fruit.' when the variable 'myFruit' has an unknown value. Answer with the result where 'myFruit = pear'.
+Extend your switch-case statement with a default value. The result should be 'That is an unknown fruit.' when the variable 'myFruit' has an unknown value.
+
+Answer with the result where 'myFruit = pear'.
 EOD
 ,
 
@@ -769,8 +800,7 @@ EOD
 "title" => "For loops",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:
-
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 EOD
 ,
@@ -787,7 +817,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to increment $loopLarge1 with the value $loopTiny1, $loopSmall1 times. Answer with the result.
+Use a for-loop to increment $loopLarge1 with the value $loopTiny1, $loopSmall1 times.
+
+Answer with the result.
 EOD
 ,
 
@@ -810,7 +842,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to decrement $loopLarge2 with the value $loopTiny2, $loopSmall2 times. Answer with the result.
+Use a for-loop to decrement $loopLarge2 with the value $loopTiny2, $loopSmall2 times.
+
+Answer with the result.
 EOD
 ,
 
@@ -871,8 +905,7 @@ EOD
 "title" => "While loops",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:
-
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
 EOD
 ,
@@ -889,7 +922,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use a while-loop to increment $loopSmall1 with the value $loopTiny1 until it has reached or passed $loopLarge1. Answer with the amount of steps needed.
+Use a while-loop to increment $loopSmall1 with the value $loopTiny1 until it has reached or passed $loopLarge1.
+
+Answer with the amount of steps needed.
 EOD
 ,
 
@@ -915,7 +950,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use a while-loop to subtract $loopTiny2 from $loopLarge2 until the value has reached or passed 0. Answer with the amount of steps needed.
+Use a while-loop to subtract $loopTiny2 from $loopLarge2 until the value has reached or passed 0.
+
+Answer with the amount of steps needed.
 EOD
 ,
 

@@ -131,10 +131,11 @@ return [
  */
 "title" => "Lab 2 - webgl",
 
-"intro" => "
-<p>Practise arrays. You might find useful help here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-</p>
-",
+"intro" => <<<EOD
+Practise arrays. You might find useful help here:  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+EOD
+,
 
 
 "sections" => [
@@ -160,9 +161,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function called 'sumNumbers()'. The function should take two arguments and return the sum of them. Test the function using the arguments $num1 and $num2. Answer with the result.
-</p>",
+"text" => <<<EOD
+Create a function called 'sumNumbers()'. The function should take two arguments and return the sum of them. Test the function using the arguments $num1 and $num2.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($num1, $num2) {
 
@@ -178,9 +182,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function 'sumRangeNumbers()' that returns the sum of all numbers between two chosen numbers. The function should take two arguments, one representing the lowest boundary and one that represents the highest boundary. For example, the arguments 10 and 20 should return the sum of 10+11+12+13...+20. Test it using the values $range1 and $range2 and answer with the result.
-</p>",
+"text" => <<<EOD
+Create a function 'sumRangeNumbers()' that returns the sum of all numbers between two chosen numbers. The function should take two arguments, one representing the lowest boundary and one that represents the highest boundary. For example, the arguments 10 and 20 should return the sum of 10+11+12+13...+20.  
+
+Test it using the values $range1 and $range2 and answer with the result.
+EOD
+,
 
 "answer" => function () use ($range1, $range2) {
 
@@ -200,9 +207,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function called 'fruitColor()' that takes one argument called 'fruit' and returns the color of the fruit. The function should be aware of the following fruits ($fruitString) with respective color ($fruitColorString). Try it out using the fruit '$fruit' and answer with the result.
-</p>",
+"text" => <<<EOD
+Create a function called 'fruitColor()' that takes one argument called 'fruit' and returns the color of the fruit. The function should be aware of the following fruits ($fruitString) with respective color ($fruitColorString).  
+
+Try it out using the fruit '$fruit' and answer with the result.
+EOD
+,
 
 "answer" => function () use ($fruitColor) {
 
@@ -220,9 +230,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a function 'printRange()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers comma-separated in the range. Try it using the arguments $range3 and $range4. Answer with the result.
-</p>",
+"text" => <<<EOD
+Create a function 'printRange()' that takes two arguments 'rangeStart' and 'rangeStop' and returns a string with all numbers comma-separated in the range. Try it using the arguments $range3 and $range4.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($range3, $range4) {
 
@@ -251,9 +264,10 @@ return [
 [
 "title" => "Arrays",
 
-"intro" => "
-<p>To copy an array use array.slice() to make a real copy, not a shallow one.</p>
-",
+"intro" => <<<EOD
+To copy an array use array.slice() to make a real copy, not a shallow one.
+EOD
+,
 
 "shuffle" => false,
 
@@ -266,10 +280,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable 'array1' holding an array with the numbers $array1SelectedString. Answer with the array.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'array1' holding an array with the numbers $array1SelectedString.  
+
+Answer with the array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -285,10 +301,12 @@ return [
  */
 [
 
-"text" => "
-<p>Use the variable 'array1'. How many items does the array have? Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use the variable 'array1'. How many items does the array have?  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($array1Length) {
 
@@ -304,10 +322,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable 'array2' holding an array with the words: $array2SelectedString. Answer with the array.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'array2' holding an array with the words: $array2SelectedString.  
+
+Answer with the array.
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
 
@@ -323,10 +343,12 @@ return [
  */
 [
 
-"text" => "
-<p>Return the element on position: $array2Within in 'array2'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Return the element on position: $array2Within in 'array2'.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($array2Selected, $array2Within) {
 
@@ -342,10 +364,12 @@ return [
  */
 [
 
-"text" => "
-<p>Return element $array2Within in 'array2'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Return element $array2Within in 'array2'.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($array2Selected, $array2Within) {
 
@@ -361,10 +385,12 @@ return [
  */
 [
 
-"text" => "
-<p>Use the variable 'array2'. Concatenate the first item and the last item as a string. Separate the string with '-' Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use the variable 'array2'. Concatenate the first item and the last item as a string. Separate the string with '-'.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
 
@@ -380,10 +406,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a variable 'array21' as a clone of 'array2'. Sort 'array21'. Answer with the resulting array. (Hint: http://stackoverflow.com/questions/3978492/javascript-fastest-way-to-duplicate-an-array-slice-vs-for-loop)
-</p>
-",
+"text" => <<<EOD
+Create a variable 'array21' as a clone of 'array2'. Sort 'array21'. Answer with the resulting array.  
+
+(Hint: http://stackoverflow.com/questions/3978492/javascript-fastest-way-to-duplicate-an-array-slice-vs-for-loop)
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
 
@@ -402,10 +430,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a new array 'messageOfToday'. It should contain all items from 'array2' where each item is concatenated with the string ' is good for you!'. Use the built-in array-function 'forEach()' to solve it. Each sentence shold start with a capital letter. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Create a new array 'messageOfToday'. It should contain all items from 'array2' where each item is concatenated with the string ' is good for you!'. Use the built-in array-function 'forEach()' to solve it. Each sentence shold start with a capital letter.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
 
@@ -436,7 +466,10 @@ return [
 [
 "title" => "Modify arrays",
 
-"intro" => "",
+"intro" => <<<EOD
+Let us modify some arrays!
+EOD
+,
 
 "shuffle" => false,
 
@@ -450,10 +483,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a new array 'myArray' and make it a copy of 'array1'. Get the last element from 'myArray' using the built-in array-function 'pop()'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Create a new array 'myArray' and make it a copy of 'array1'. Get the last element from 'myArray' using the built-in array-function 'pop()'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -473,10 +508,12 @@ return [
  */
 [
 
-"text" => "
-<p>Add the boolean value 'true' to the array 'myArray' using built-in array-function 'push()'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Add the boolean value 'true' to the array 'myArray' using built-in array-function 'push()'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -496,10 +533,12 @@ return [
  */
 [
 
-"text" => "
-<p>Use the built-in array-function 'shift()' to remove the first item from the array 'myArray'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Use the built-in array-function 'shift()' to remove the first item from the array 'myArray'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -520,10 +559,12 @@ return [
  */
 [
 
-"text" => "
-<p>Add the float number '3.14' to the beginning of 'myArray' using built-in array-function 'unshift()'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Add the float number '3.14' to the beginning of 'myArray' using built-in array-function 'unshift()'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -545,10 +586,12 @@ return [
  */
 [
 
-"text" => "
-<p>Change 'myArray' element 3 and 4 to the boolean value 'false' using built-in array-function 'splice()'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Change 'myArray' element 3 and 4 to the boolean value 'false' using built-in array-function 'splice()'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -572,10 +615,12 @@ return [
  */
 [
 
-"text" => "
-<p>Extract the last two elements as a slice from 'myArray' using built-in array-function 'slice()'. Answer with the slice array.
-</p>
-",
+"text" => <<<EOD
+Extract the last two elements as a slice from 'myArray' using built-in array-function 'slice()'.  
+
+Answer with the slice array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -600,10 +645,10 @@ return [
  */
 [
 
-"text" => "
-<p>Remove item 4 and 5 in 'myArray'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Remove item 4 and 5 in 'myArray'. Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -629,10 +674,10 @@ return [
  */
 [
 
-"text" => "
-<p>Insert the string 'MEGA' after item 3 in 'myArray'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Insert the string 'MEGA' after item 3 in 'myArray'. Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -668,9 +713,10 @@ return [
 [
 "title" => "Create object",
 
-"intro" => "
-<p>Start by creating an empty object called 'person' by using the object literal.</p>
-",
+"intro" => <<<EOD
+Start by creating an empty object called 'person' by using the object literal.
+EOD
+,
 
 "shuffle" => false,
 
@@ -683,10 +729,12 @@ return [
  */
 [
 
-"text" => "
-<p>Give your person-object the property 'firstName' with a value of '$person1FirstName'. Add a method called 'print1()' that returns a presentation of the object, like this: 'My name is $person1FirstName.' Use 'this.firstName' to construct the string. Answer with the result from calling 'person.print1()'.
-</p>
-",
+"text" => <<<EOD
+Give your person-object the property 'firstName' with a value of '$person1FirstName'. Add a method called 'print1()' that returns a presentation of the object, like this: 'My name is $person1FirstName.' Use 'this.firstName' to construct the string.  
+
+Answer with the result from calling 'person.print1()'.
+EOD
+,
 
 "answer" => function () use ($person1Print1) {
 
@@ -702,10 +750,12 @@ return [
  */
 [
 
-"text" => "
-<p>Add properties 'lastName' and 'nationality' to your person-object. Their values should be '$person1LastName' and '$person1Nationality'. Create the method 'person.print2()' which should say: '$person1Print2'. Answer with a call to person.print2().
-</p>
-",
+"text" => <<<EOD
+Add properties 'lastName' and 'nationality' to your person-object. Their values should be '$person1LastName' and '$person1Nationality'. Create the method 'person.print2()' which should say: '$person1Print2'.  
+
+Answer with a call to person.print2().
+EOD
+,
 
 "answer" => function () use ($person1Print2) {
 
@@ -721,10 +771,12 @@ return [
  */
 [
 
-"text" => "
-<p>Add the property 'born' with the value of a Date object: '$person1BornFormat'. Create a method 'print3()' that says exactly the same as 'print2()' followed by '$person1Print3'. Answer with a call to person.print3().
-</p>
-",
+"text" => <<<EOD
+Add the property 'born' with the value of a Date object: '$person1BornFormat'. Create a method 'print3()' that says exactly the same as 'print2()' followed by '$person1Print3'.  
+
+Answer with a call to person.print3().
+EOD
+,
 
 "answer" => function () use ($person1Print2, $person1Print3) {
 
@@ -740,10 +792,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a second person, called 'person2' by using built-in function 'Object.create()' with your 'person'-object. The person2 should have the following properties: '$person2FirstName, $person2LastName, $person2Nationality, $person2BornFormat'. Print out details on the second person using 'person2.print3()'.
-</p>
-",
+"text" => <<<EOD
+Create a second person, called 'person2' by using built-in function 'Object.create()' with your 'person'-object. The person2 should have the following properties: '$person2FirstName, $person2LastName, $person2Nationality, $person2BornFormat'.  
+
+Print out details on the second person using 'person2.print3()'.
+EOD
+,
 
 "answer" => function () use ($person2Print2, $person2Print3) {
 
@@ -768,10 +822,10 @@ return [
 [
 "title" => "More on objects",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => <<<EOD
+Like it says, more on objects.
+EOD
+,
 
 "shuffle" => false,
 
@@ -784,10 +838,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a object called 'shape' with the properties: 'x', 'y', 'height', 'width' and 'print'. Create a new object from 'shape' called 'shape1' and initiate the properties with: x:$x1, y:$y1, height:$h1, width: $w1. Use the 'print' method to print out the assigned values as: 'x:?, y:?, height:?, width:?'. Answer with a call to shape.print().
-</p>
-",
+"text" => <<<EOD
+Create a object called 'shape' with the properties: 'x', 'y', 'height', 'width' and 'print'. Create a new object from 'shape' called 'shape1' and initiate the properties with: x:$x1, y:$y1, height:$h1, width: $w1. Use the 'print' method to print out the assigned values as: 'x:?, y:?, height:?, width:?'.  
+
+Answer with a call to shape.print().
+EOD
+,
 
 "answer" => function () use ($x1, $y1, $h1, $w1) {
 
@@ -803,10 +859,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a method 'shape.init(x, y, height, width)' that helps you to initiate a object. Try it out by re-initing 'shape1' using the method. Answer with 'shape1.print()'.
-</p>
-",
+"text" => <<<EOD
+Create a method 'shape.init(x, y, height, width)' that helps you to initiate a object. Try it out by re-initing 'shape1' using the method.   
+
+Answer with 'shape1.print()'.
+EOD
+,
 
 "answer" => function () use ($x1, $y1, $h1, $w1) {
 
@@ -822,10 +880,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create another object from 'shape' called 'shape2' and initiate the properties with: x:$x2, y:$y2, height:$h2, width: $w2. Use the 'print' method to print out the assigned values.
-</p>
-",
+"text" => <<<EOD
+Create another object from 'shape' called 'shape2' and initiate the properties with: x:$x2, y:$y2, height:$h2, width: $w2.  
+
+Use the 'print' method to print out the assigned values.
+EOD
+,
 
 "answer" => function () use ($x2, $y2, $h2, $w2) {
 
@@ -841,10 +901,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a method in 'shape' that calculates and returns the area of the shape. Try it out by calling it for 'shape1' and 'shape2'. Answer with both values, separated by ', '.
-</p>
-",
+"text" => <<<EOD
+Create a method in 'shape' that calculates and returns the area of the shape. Try it out by calling it for 'shape1' and 'shape2'.  
+
+Answer with both values, separated by ', '. (notice the comma+space)
+EOD
+,
 
 "answer" => function () use ($a1, $a2) {
 
@@ -860,10 +922,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a method 'shape.overlapPoint(posX, posY)' that checks if a position x, y is within the current shape. Or, the shape overlaps that position. The shapes position x and y is top left of the shape. Return true or false. Test by checking if x:$x3, y:$y3 is within 'shape1' and if x:$x4, y:$y4 is within 'shape2'. Return the result separated by ', '.
-</p>
-",
+"text" => <<<EOD
+Create a method 'shape.overlapPoint(posX, posY)' that checks if a position x, y is within the current shape. Or, the shape overlaps that position. The shapes position x and y is top left of the shape. Return true or false. Test by checking if x:$x3, y:$y3 is within 'shape1' and if x:$x4, y:$y4 is within 'shape2'.  
+
+Return the result separated by ', '. (notice the comma+space)
+EOD
+,
 
 "answer" => function () use ($a1, $a2) {
 
@@ -879,10 +943,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a method 'shape.overlapShape()' that takes a shape as argument and checks if the shapes overlaps (colliding bodies). Return true or false. Create a new 'shape3' and initiate the properties with: x:$x5, y:$y5, height:$h5, width: $w5. Return the result from checking 'shape1.overlapShape(shape3)'.
-</p>
-",
+"text" => <<<EOD
+Create a method 'shape.overlapShape()' that takes a shape as argument and checks if the shapes overlaps (colliding bodies). Return true or false. Create a new 'shape3' and initiate the properties with: x:$x5, y:$y5, height:$h5, width: $w5.  
+
+Return the result from checking 'shape1.overlapShape(shape3)'.
+EOD
+,
 
 "answer" => function () {
 
@@ -898,10 +964,12 @@ return [
  */
 [
 
-"text" => "
-<p>Create a method 'shape.move(moveX, moveY)' which moves the shape from its current position by adding 'x += moveX' and 'y += moveY'. Try it out by moving 'shape3' using 'moveX: $w1, moveY: $h1'. Re-check if the bodies 'shape1' and 'shape3' collides.
-</p>
-",
+"text" => <<<EOD
+Create a method 'shape.move(moveX, moveY)' which moves the shape from its current position by adding 'x += moveX' and 'y += moveY'. Try it out by moving 'shape3' using 'moveX: $w1, moveY: $h1'.  
+
+Re-check if the bodies 'shape1' and 'shape3' collides.
+EOD
+,
 
 "answer" => function () {
 

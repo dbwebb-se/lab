@@ -274,7 +274,7 @@ EOD
 [
 
 "text" => <<<EOD
-Hittade raderna som är inlagda angående 'forum' och innehåller detaljer om 'projektet' och 'htmlphp'.
+Hitta raderna som är inlagda angående 'forum' och innehåller detaljer om 'projektet' och 'htmlphp'.
 EOD
 ,
 

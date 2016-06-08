@@ -140,10 +140,13 @@ return [
  */
 "title" => "Lab 1 - javascript1",
 
-"intro" => "
-<p>If you need to peek at examples or just want to know more, take a look at the references at MDN's (Mozilla Developers Network) page: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference. Here you will find everything this lab will go through and much more.
-</p>
-",
+"intro" => <<<EOD
+If you need to peek at examples or just want to know more, take a look at the references at MDNs (Mozilla Developers Network) page:  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference.  
+
+Here you will find everything this lab will go through and much more.
+EOD
+,
 
 
 "sections" => [
@@ -156,9 +159,10 @@ return [
 [
 "title" => "Integers, floats and variables",
 
-"intro" => "
-<p>The foundation of variables, numbers, strings and basic arithmetic. In questions 1.5 and 1.6 you are going to work with floats. One way to round a float to a certain amount of decimals is:  Math.round(val*10000)/10000, where 'val' is your float number.</p>
-",
+"intro" => <<<EOD
+The foundation of variables, numbers, strings and basic arithmetic. In questions 1.5 and 1.6 you are going to work with floats. One way to round a float to a certain amount of decimals is:  Math.round(val*10000)/10000, where 'val' is your float number.
+EOD
+,
 
 "shuffle" => false,
 
@@ -167,13 +171,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.1.
  */
 [
 
-"text" => "
-<p>Create a variable called 'numberOne' and give it the value $numberOne. Create another variable called 'numberTwo' and give it the value $numberTwo. Create a third variable called 'result' and assign to it the sum of the first two variables. Answer with the result.</p>
-",
+"text" => <<<EOD
+Create a variable called 'numberOne' and give it the value $numberOne. Create another variable called 'numberTwo' and give it the value $numberTwo. Create a third variable called 'result' and assign to it the sum of the first two variables.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($numberOne, $numberTwo) {
 
@@ -186,14 +193,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.2.
  */
 [
 
-"text" => "
-<p>Use your two variables, 'numberOne' and 'numberTwo'. Create one more, called 'numberThree' and give it the value: $numberThree. Use your variable 'result' and assign to it the sum of all three variables. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use your two variables, 'numberOne' and 'numberTwo'. Create one more, called 'numberThree' and give it the value: $numberThree. Use your variable 'result' and assign to it the sum of all three variables.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($numberOne, $numberTwo, $numberThree) {
 
@@ -206,14 +215,14 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.3.
  */
 [
 
-"text" => "
-<p>Use your variables 'numberOne' and 'numberTwo' and answer with the product of the numbers in your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Use your variables 'numberOne' and 'numberTwo' and answer with the product of the numbers in your 'result'-variable.
+EOD
+,
 
 "answer" => function () use ($numberOne, $numberTwo) {
 
@@ -226,14 +235,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.4.
  */
 [
 
-"text" => "
-<p>Use your variables 'numberOne', 'numberTwo' and 'numberThree'. Subtract 'numberThree' from the product of the other two variables. Answer with your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Use your variables 'numberOne', 'numberTwo' and 'numberThree'. Subtract 'numberThree' from the product of the other two variables.  
+
+Answer with your 'result'-variable.
+EOD
+,
 
 "answer" => function () use ($numberOne, $numberTwo, $numberThree) {
 
@@ -246,14 +257,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.5.
  */
 [
 
-"text" => "
-<p>Create two variables, 'floatOne' and 'floatTwo'. Give them the values: $floatOne and $floatTwo. Use your 'result'-variable and assign to it the sum of the float numbers. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create two variables, 'floatOne' and 'floatTwo'. Give them the values: $floatOne and $floatTwo. Use your 'result'-variable and assign to it the sum of the float numbers.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($floatOne, $floatTwo) {
 
@@ -287,14 +300,14 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.6.
  */
 [
 
-"text" => "
-<p>Answer with the result of $moduloOne modulus (%) $moduloTwo.
-</p>
-",
+"text" => <<<EOD
+Answer with the result of $moduloOne modulus (%) $moduloTwo.
+EOD
+,
 
 "answer" => function () use ($moduloOne, $moduloTwo) {
 
@@ -319,10 +332,11 @@ return [
 [
 "title" => "Built-in Number-methods and functions",
 
-"intro" => "
-<p>If you need a hint, take a look at: <br> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-</p>
-",
+"intro" => <<<EOD
+If you need a hint, take a look at:  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+EOD
+,
 
 "shuffle" => false,
 
@@ -331,14 +345,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.1.
  */
 [
 
-"text" => "
-<p>Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the function 'parseInt' to find out the integer representation of the text. Answer with your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the function 'parseInt' to find out the integer representation of the text.  
+
+Answer with your 'result'-variable.
+EOD
+,
 
 "answer" => function () use ($sect2IntText) {
 
@@ -350,14 +366,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.2.
  */
 [
 
-"text" => "
-<p>Use your variable 'someIntText'. Use the function 'parseFloat' to find out the float representation of the text. Answer with your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Use your variable 'someIntText'. Use the function 'parseFloat' to find out the float representation of the text.  
+
+Answer with your 'result'-variable.
+EOD
+,
 
 "answer" => function () use ($sect2IntText) {
 
@@ -407,11 +425,11 @@ return [
 [
 "title" => "Built-in Math-methods and functions",
 
-"intro" => "
-<p>If you need a hint, take a look at: <br>
+"intro" => <<<EOD
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math
-</p>
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -420,14 +438,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 3.1.
  */
 [
 
-"text" => "
-<p>Use the method 'max', in Math, to find out the highest number in the serie: $serie1_imp. Answer with your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Use the method 'max', in Math, to find out the highest number in the serie: $serie1_imp.  
+
+Answer with your 'result'-variable.
+EOD
+,
 
 "answer" => function () use ($serie1) {
 
@@ -438,14 +458,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 3.2.
  */
 [
 
-"text" => "
-<p>Use the method 'min', in Math, to find out the lowest number in the serie: $serie1_imp. Answer with your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Use the method 'min', in Math, to find out the lowest number in the serie: $serie1_imp.  
+
+Answer with your 'result'-variable.
+EOD
+,
 
 "answer" => function () use ($serie1) {
 
@@ -457,14 +479,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 3.3.
  */
 [
 
-"text" => "
-<p>Use the method 'round', in Math, to round the float number: $sect3Float1 to the closest integer. Answer with your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Use the method 'round', in Math, to round the float number: $sect3Float1 to the closest integer.  
+
+Answer with your 'result'-variable.
+EOD
+,
 
 "answer" => function () use ($sect3Float1) {
 
@@ -476,14 +500,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 3.4.
  */
 [
 
-"text" => "
-<p>Find out the quotient of $sect3BigInt / $sect3SmallInt and use the method 'floor', in Math, to get only the integer value. Use your 'result'-variable in your answer.
-</p>
-",
+"text" => <<<EOD
+Find out the quotient of $sect3BigInt / $sect3SmallInt and use the method 'floor', in Math, to get only the integer value.  
+
+Use your 'result'-variable in your answer.
+EOD
+,
 
 "answer" => function () use ($sect3BigInt, $sect3SmallInt) {
 
@@ -496,14 +522,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 3.5.
  */
 [
 
-"text" => "
-<p>Use the Math property 'E' to get the float value of 'E'. Find the product of 'E' and $e_val. Use the built-in method 'ceil()' to get an integer value of your result.
-</p>
-",
+"text" => <<<EOD
+Use the Math property 'E' to get the float value of 'E'. Find the product of 'E' and $e_val. Use the built-in method 'ceil()' to get an integer value of your result.
+EOD
+,
 
 "answer" => function () use($e_val) {
     $res = M_E * $e_val;
@@ -515,14 +541,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 3.6.
  */
 [
 
-"text" => "
-<p>Use the Math property 'PI' to get the float value of 'Pi'. Round the result to 4 decimals. Answer with your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Use the Math property 'PI' to get the float value of 'Pi'. Round the result to 4 decimals.  
+
+Answer with your 'result'-variable.
+EOD
+,
 
 "answer" => function () {
 
@@ -534,14 +562,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 3.7.
  */
 [
 
-"text" => "
-<p>Use the method 'pow', in Math, to find the power of (base) $sect3SmallInt and (exponent) $sect3TinyInt. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use the method 'pow', in Math, to find the power of (base) $sect3SmallInt and (exponent) $sect3TinyInt.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($sect3SmallInt, $sect3TinyInt) {
 
@@ -566,10 +596,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 "title" => "Strings and variables",
 
-"intro" => "
-<p>Practice strings and variables. If you need a hint, take a look at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String</p>
-
-",
+"intro" => <<<EOD
+Practice strings and variables. If you need a hint, take a look at:  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+EOD
+,
 
 "shuffle" => false,
 
@@ -577,14 +608,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 4.1.
  */
 [
 
-"text" => "
-<p>Create a variable, named 'firstWord', that holds the word '$firstWord'. Create a second variable, named 'secondWord', that holds the word '$secondWord'. Create a third variable, named 'bothWords', and put together 'firstWord' and 'secondWord' with a space between. Answer with the variable 'bothWords'.
-</p>
-",
+"text" => <<<EOD
+Create a variable, named 'firstWord', that holds the word '$firstWord'. Create a second variable, named 'secondWord', that holds the word '$secondWord'. Create a third variable, named 'bothWords', and put together 'firstWord' and 'secondWord' with a space between.  
+
+Answer with the variable 'bothWords'.
+EOD
+,
 
 "answer" => function () use ($firstWord, $secondWord) {
 
@@ -597,14 +630,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 4.2.
  */
 [
 
-"text" => "
-<p>Create a variable called 'wordOne' and assign to it: '$sect4Word'. Add the number $sect4BigInt to the word and answer with the result in your 'result'-variable.
-</p>
-",
+"text" => <<<EOD
+Create a variable called 'wordOne' and assign to it: '$sect4Word'. Add the number $sect4BigInt to the word and answer with the result in your 'result'-variable.
+EOD
+,
 
 "answer" => function () use ($sect4Word, $sect4BigInt) {
     $sum = $sect4Word . $sect4BigInt;
@@ -629,11 +662,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 "title" => "Built-in String-methods, functions and properties",
 
-"intro" => "
-<p>If you need a hint, take a look at: <br>
+"intro" => <<<EOD
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
-</p>
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -642,14 +675,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 5.1.
  */
 [
 
-"text" => "
-<p>Use 'charAt' on a string to return the character at a given index. Use it on the word '$sect5Word' and answer with the character at index $sect5SmallInt.
-</p>
-",
+"text" => <<<EOD
+Use 'charAt' on a string to return the character at a given index. Use it on the word '$sect5Word' and answer with the character at index $sect5SmallInt.
+EOD
+,
 // måste fixa smallnr -1
 "answer" => function () use ($sect5Word, $sect5SmallInt) {
     $result = $sect5Word{$sect5SmallInt};
@@ -661,14 +694,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 5.2.
  */
 [
 
-"text" => "
-<p>Use 'toUpperCase' to transform the string: '$sect5Sentence' to uppercase. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use 'toUpperCase' to transform the string: '$sect5Sentence' to uppercase.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($sect5Sentence) {
     $result = strtoupper($sect5Sentence);
@@ -680,14 +715,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 5.3.
  */
 [
 
-"text" => "
-<p>Use 'length' to find out the length of the string: '$sect5Word'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use 'length' to find out the length of the string: '$sect5Word'.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($sect5Word) {
     $result = strlen($sect5Word);
@@ -699,14 +736,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 5.4.
  */
 [
 
-"text" => "
-<p>Use 'substr' to extract the last three characters of the word: '$sect5Word'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use 'substr' to extract the last three characters of the word: '$sect5Word'.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($sect5Word) {
     $result = substr($sect5Word, (strlen($sect5Word)-3));
@@ -731,11 +770,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 "title" => "Built-in Date-methods and functions",
 
-"intro" => "
-<p>If you need a hint, take a look at: <br>
+"intro" => <<<EOD
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
-</p>
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -744,14 +783,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 6.1.
  */
 [
 
-"text" => "
-<p>Create a Date object called 'myDate' and initiate it with: '$aDate'. Use the built-in function Date.getFullYear to get the year from your Date object. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a Date object called 'myDate' and initiate it with: '$aDate'. Use the built-in function Date.getFullYear to get the year from your Date object.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($aYear) {
 
@@ -762,14 +803,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 6.2.
  */
 [
 
-"text" => "
-<p>Create a new Date object that is equal to 'myDate' plus 30 days. Use Date.getDate and answer with the day of the month.
-</p>
-",
+"text" => <<<EOD
+Create a new Date object that is equal to 'myDate' plus 30 days.  
+
+Use Date.getDate and answer with the day of the month.
+EOD
+,
 
 "answer" => function () use ($aDate) {
     $myDate = new DateTime($aDate);
@@ -797,11 +840,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [
 "title" => "If, else if and else",
 
-"intro" => "
-<p>If you need a hint, take a look at: <br>
+"intro" => <<<EOD
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
-</p>
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -810,14 +853,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 7.1.
  */
 [
 
-"text" => "
-<p>Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5. Add them up and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5.  
+
+Add them up and answer with the result.
+EOD
+,
 
 "answer" => function () use ($card1, $card2, $card3, $card4, $card5) {
 
@@ -829,14 +874,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 7.2.
  */
 [
 
-"text" => "
-<p>Use an if statement to see if the five cards (card1-card5) have a combined value that is higher than 21. If the value is higher, answer with the string 'busted'. Else answer with the string 'safe'.
-</p>
-",
+"text" => <<<EOD
+Use an if statement to see if the five cards (card1-card5) have a combined value that is higher than 21.  
+
+If the value is higher, answer with the string 'busted'. Else answer with the string 'safe'.
+EOD
+,
 
 "answer" => function () use ($cardSum) {
 
@@ -848,14 +895,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 7.3.
  */
 [
 
-"text" => "
-<p>Use if else statements to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly 21. Answer with lower = 'safe', higher = 'busted', 21 = 'black jack'.
-</p>
-",
+"text" => <<<EOD
+Use if else statements to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly 21.  
+
+Answer with lower = 'safe', higher = 'busted', 21 = 'black jack'.
+EOD
+,
 
 "answer" => function () use ($card1, $card2, $card3) {
     $hand = $card1+$card2+$card3;
@@ -876,14 +925,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 7.4.
  */
 [
 
-"text" => "
-<p>Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else and the AND (&&) statements to see what the dealer should do. If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'.
-</p>
-",
+"text" => <<<EOD
+Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else and the AND (&&) statements to see what the dealer should do.  
+
+If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'.
+EOD
+,
 
 "answer" => function () use ($dealerSum) {
 
@@ -921,11 +972,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if.
 [
 "title" => "Switch, case",
 
-"intro" => "
-<p>If you need a hint, take a look at: <br>
+"intro" => <<<EOD
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
-</p>
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -934,14 +985,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 8.1.
  */
 [
 
-"text" => "
-<p>Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'. Answer with the result where 'myFruit = $fruit'.
-</p>
-",
+"text" => <<<EOD
+Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'.  
+
+Answer with the result where 'myFruit = $fruit'.
+EOD
+,
 
 "answer" => function () use ($fruit, $fruitColor) {
 
@@ -954,14 +1007,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 8.2.
  */
 [
 
-"text" => "
-<p>Extend your switch-case statement with a default value. The result should be 'That is an unknown fruit.' when the variable 'myFruit' has an unknown value. Answer with the result where 'myFruit = pear'.
-</p>
-",
+"text" => <<<EOD
+Extend your switch-case statement with a default value. The result should be 'That is an unknown fruit.' when the variable 'myFruit' has an unknown value.  
+
+Answer with the result where 'myFruit = pear'.
+EOD
+,
 
 "answer" => function () {
 
@@ -1061,11 +1116,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/swi
 [
 "title" => "For loops",
 
-"intro" => "
-<p>If you need a hint, take a look at: <br>
+"intro" => <<<EOD
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
-</p>
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -1074,14 +1129,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 9.1.
  */
 [
 
-"text" => "
-<p>Use a for-loop to increment $loopLarge1 with the value $loopTiny1, $loopSmall1 times. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use a for-loop to increment $loopLarge1 with the value $loopTiny1, $loopSmall1 times.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($loopLarge1, $loopSmall1, $loopTiny1) {
 
@@ -1097,14 +1154,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 9.2.
  */
 [
 
-"text" => "
-<p>Use a for-loop to decrement $loopLarge2 with the value $loopTiny2, $loopSmall2 times. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use a for-loop to decrement $loopLarge2 with the value $loopTiny2, $loopSmall2 times.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($loopLarge2, $loopSmall2, $loopTiny2) {
 
@@ -1120,14 +1179,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 9.3.
  */
 [
 
-"text" => "
-<p>Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','. The result should not end with a comma. You should neither have a space after the comma.
-</p>
-",
+"text" => <<<EOD
+Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','. The result should not end with a comma. You should neither have a space after the comma.
+EOD
+,
 
 "answer" => function () use ($loopRange1, $loopRange2) {
 
@@ -1162,11 +1221,11 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
 [
 "title" => "While loops",
 
-"intro" => "
-<p>If you need a hint, take a look at: <br>
+"intro" => <<<EOD
+If you need a hint, take a look at:  
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
-</p>
-",
+EOD
+,
 
 "shuffle" => false,
 
@@ -1175,13 +1234,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/whi
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 10.1.
  */
 [
 
-"text" => "
-<p>Use a while-loop to increment $loopSmall1 with the value $loopTiny1 until it has reached or passed $loopLarge1. Answer with the amount of steps needed.
-</p>",
+"text" => <<<EOD
+Use a while-loop to increment $loopSmall1 with the value $loopTiny1 until it has reached or passed $loopLarge1.  
+
+Answer with the amount of steps needed.
+EOD
+,
 
 "answer" => function () use ($loopLarge1, $loopSmall1, $loopTiny1) {
 
@@ -1200,13 +1262,16 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/whi
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 10.2.
  */
 [
 
-"text" => "
-<p>Use a while-loop to subtract $loopTiny2 from $loopLarge2 until the value has reached or passed 0. Answer with the amount of steps needed.
-</p>",
+"text" => <<<EOD
+Use a while-loop to subtract $loopTiny2 from $loopLarge2 until the value has reached or passed 0.  
+
+Answer with the amount of steps needed.
+EOD
+,
 
 "answer" => function () use ($loopTiny2, $loopLarge2) {
     $result = 0;

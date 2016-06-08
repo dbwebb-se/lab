@@ -85,10 +85,10 @@ return [
  */
 "title" => "Lab 4 - javascript1",
 
-"intro" => "
-<p>Practice basics on objects.
-</p>
-",
+"intro" => <<<EOD
+Practice basics on objects.
+EOD
+,
 
 
 "sections" => [
@@ -101,9 +101,10 @@ return [
 [
 "title" => "Create object",
 
-"intro" => "
-<p>Start by creating an empty object called 'person' by using the object literal.</p>
-",
+"intro" => <<<EOD
+Start by creating an empty object called 'person' by using the object literal.
+EOD
+,
 
 "shuffle" => false,
 
@@ -112,14 +113,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.1.
  */
 [
 
-"text" => "
-<p>Give your person-object the property 'firstName' with a value of '$person1FirstName'. Add a method called 'print1()' that returns a presentation of the object, like this: 'My name is $person1FirstName.' Use 'this.firstName' to construct the string. Answer with the result from calling 'person.print1()'.  
-</p>
-",
+"text" => <<<EOD
+Give your person-object the property 'firstName' with a value of '$person1FirstName'. Add a method called 'print1()' that returns a presentation of the object, like this: 'My name is $person1FirstName.' Use 'this.firstName' to construct the string.  
+
+Answer with the result from calling 'person.print1()'.
+EOD
+,
 
 "answer" => function () use ($person1Print1) {
     
@@ -131,14 +134,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.2.
  */
 [
 
-"text" => "
-<p>Add properties 'lastName' and 'nationality' to your person-object. Their values should be '$person1LastName' and '$person1Nationality'. Create the method 'person.print2()' which should say: '$person1Print2'.
-</p>
-",
+"text" => <<<EOD
+Add properties 'lastName' and 'nationality' to your person-object. Their values should be '$person1LastName' and '$person1Nationality'.  
+
+Create the method 'person.print2()' which should say: '$person1Print2'.
+EOD
+,
 
 "answer" => function () use ($person1Print2) {
     
@@ -150,14 +155,14 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.3.
  */
 [
 
-"text" => "
-<p>Add the property 'born' with the value of a Date object: '$person1BornFormat'. Create a method 'print3()' that says exactly the same as 'print2()' followed by '$person1Print3'.
-</p>
-",
+"text" => <<<EOD
+Add the property 'born' with the value of a Date object: '$person1BornFormat'. Create a method 'print3()' that says exactly the same as 'print2()' followed by '$person1Print3'.
+EOD
+,
 
 "answer" => function () use ($person1Print2, $person1Print3) {
     
@@ -169,14 +174,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.4.
  */
 [
 
-"text" => "
-<p>Create a second person, called 'person2' by using built-in function 'Object.create()'. The person2 should have the following properties: '$person2FirstName, $person2LastName, $person2Nationality, $person2BornFormat'. Print out details on the second person using 'person2.print3()'.
-</p>
-",
+"text" => <<<EOD
+Create a second person, called 'person2' by using built-in function 'Object.create()'. The person2 should have the following properties: '$person2FirstName, $person2LastName, $person2Nationality, $person2BornFormat'.  
+
+Print out details on the second person using 'person2.print3()'.
+EOD
+,
 
 "answer" => function () use ($person2Print2, $person2Print3) {
     
@@ -201,10 +208,10 @@ return [
 [
 "title" => "More on objects",
 
-"intro" => "
-<p>
-</p>
-",
+"intro" => <<<EOD
+Even more on objects!
+EOD
+,
 
 "shuffle" => false,
 
@@ -213,14 +220,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.1.
  */
 [
 
-"text" => "
-<p>Create a object called 'shape' with the properties: 'x', 'y', 'height', 'width' and 'print'. Create a new object from 'shape' called 'shape1' and initiate the properties with: x:$x1, y:$y1, height:$h1, width: $w1. Use the 'print' method to print out the assigned values as: 'x:?, y:?, height:?, width:?'
-</p>
-",
+"text" => <<<EOD
+Create a object called 'shape' with the properties: 'x', 'y', 'height', 'width' and 'print'. Create a new object from 'shape' called 'shape1' and initiate the properties with: x:$x1, y:$y1, height:$h1, width: $w1.  
+
+Use the 'print' method to print out the assigned values as: 'x:?, y:?, height:?, width:?'
+EOD
+,
 
 "answer" => function () use ($x1, $y1, $h1, $w1) {
 
@@ -232,14 +241,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.2.
  */
 [
 
-"text" => "
-<p>Create a method 'shape.init(x, y, height, width)' that helps you to initiate a object. Try it out by re-initing 'shape1' using the method. Answer with 'shape1.print()'.
-</p>
-",
+"text" => <<<EOD
+Create a method 'shape.init(x, y, height, width)' that helps you to initiate a object. Try it out by re-initing 'shape1' using the method.  
+
+Answer with 'shape1.print()'.
+EOD
+,
 
 "answer" => function () use ($x1, $y1, $h1, $w1) {
 
@@ -251,14 +262,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.3.
  */
 [
 
-"text" => "
-<p>Create another object from 'shape' called 'shape2' and initiate the properties with: x:$x2, y:$y2, height:$h2, width: $w2. Use the 'print' method to print out the assigned values.
-</p>
-",
+"text" => <<<EOD
+Create another object from 'shape' called 'shape2' and initiate the properties with: x:$x2, y:$y2, height:$h2, width: $w2.  
+
+Use the 'print' method to print out the assigned values.
+EOD
+,
 
 "answer" => function () use ($x2, $y2, $h2, $w2) {
 
@@ -270,14 +283,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.4.
  */
 [
 
-"text" => "
-<p>Create a method in 'shape' that calculates and returns the area of the shape. Try it out by calling it for 'shape1' and 'shape2'. Answer with both values, separated by ', '. 
-</p>
-",
+"text" => <<<EOD
+Create a method in 'shape' that calculates and returns the area of the shape. Try it out by calling it for 'shape1' and 'shape2'.  
+
+Answer with both values, separated by ', ' (notice the space after the comma).
+EOD
+,
 
 "answer" => function () use ($a1, $a2) {
 
@@ -289,14 +304,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.5.
  */
 [
 
-"text" => "
-<p>Create a method 'shape.overlapPoint(posX, posY)' that checks if a position x, y is within the current shape. Or, the shape overlaps that position. The shapes position x and y is top left of the shape. Return true or false. Test by checking if x:$x3, y:$y3 is within 'shape1' and if x:$x4, y:$y4 is within 'shape2'. Return the result separated by ', '.
-</p>
-",
+"text" => <<<EOD
+Create a method 'shape.overlapPoint(posX, posY)' that checks if a position x, y is within the current shape. Or, the shape overlaps that position. The shapes position x and y is top left of the shape. Return true or false. Test by checking if x:$x3, y:$y3 is within 'shape1' and if x:$x4, y:$y4 is within 'shape2'.  
+
+Return the result separated by ', ' (notice the space after the comma).
+EOD
+,
 
 "answer" => function () use ($a1, $a2) {
 
@@ -308,14 +325,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.6.
  */
 [
 
-"text" => "
-<p>Create a method 'shape.overlapShape()' that takes a shape as argument and checks if the shapes overlaps (colliding bodies). Return true or false. Create a new 'shape3' and initiate the properties with: x:$x5, y:$y5, height:$h5, width: $w5. Return the result from checking 'shape1.overlapShape(shape3)'.
-</p>
-",
+"text" => <<<EOD
+Create a method 'shape.overlapShape()' that takes a shape as argument and checks if the shapes overlaps (colliding bodies). Return true or false. Create a new 'shape3' and initiate the properties with: x:$x5, y:$y5, height:$h5, width: $w5.  
+
+Return the result from checking 'shape1.overlapShape(shape3)'.
+EOD
+,
 
 "answer" => function () {
 
@@ -327,14 +346,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.7.
  */
 [
 
-"text" => "
-<p>Create a method 'shape.move(moveX, moveY)' which moves the shape from its current position by adding 'x += moveX' and 'y += moveY'. Try it out by moving 'shape3' using 'moveX: $w1, moveY: $h1'. Re-check if the bodies 'shape1' and 'shape3' collides.
-</p>
-",
+"text" => <<<EOD
+Create a method 'shape.move(moveX, moveY)' which moves the shape from its current position by adding 'x += moveX' and 'y += moveY'. Try it out by moving 'shape3' using 'moveX: $w1, moveY: $h1'.  
+
+Re-check if the bodies 'shape1' and 'shape3' collides.
+EOD
+,
 
 "answer" => function () {
 

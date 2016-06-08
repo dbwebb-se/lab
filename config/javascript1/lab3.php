@@ -42,10 +42,11 @@ return [
  */
 "title" => "Lab 3 - javascript1",
 
-"intro" => "
-<p>Practise arrays. You might find useful help here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-</p>
-",
+"intro" => <<<EOD
+Practise arrays. You might find useful help here:  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+EOD
+,
 
 
 "sections" => [
@@ -58,7 +59,10 @@ return [
 [
 "title" => "Arrays",
 
-"intro" => "To copy an array use array.slice() to make a real copy, not a shallow one.",
+"intro" => <<<EOD
+To copy an array use array.slice() to make a real copy, not a shallow one.
+EOD
+,
 
 "shuffle" => false,
 
@@ -67,14 +71,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.1.
  */
 [
 
-"text" => "
-<p>Create a variable 'array1' holding an array with the numbers $array1SelectedString. Answer with the array.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'array1' holding an array with the numbers $array1SelectedString.  
+
+Answer with the array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
     
@@ -86,14 +92,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.2.
  */
 [
 
-"text" => "
-<p>Use the variable 'array1'. How many items does the array have? Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use the variable 'array1'. How many items does the array have?   
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($array1Length) {
         
@@ -105,14 +113,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.3.
  */
 [
 
-"text" => "
-<p>Create a variable 'array2' holding an array with the words: $array2SelectedString. Answer with the array.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'array2' holding an array with the words: $array2SelectedString.  
+
+Answer with the array.
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
     
@@ -124,14 +134,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.4.
  */
 [
 
-"text" => "
-<p>Return the element on position: $array2Within in 'array2'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Return the element on position: $array2Within in 'array2'.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($array2Selected, $array2Within) {
         
@@ -143,14 +155,14 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.5.
  */
 [
 
-"text" => "
-<p>Return element $array2Within in 'array2'. Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Return element $array2Within in 'array2'. Answer with the result.
+EOD
+,
 
 "answer" => function () use ($array2Selected, $array2Within) {
         
@@ -162,14 +174,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.6.
  */
 [
 
-"text" => "
-<p>Use the variable 'array2'. Concatenate the first item and the last item as a string. Separate the string with '-' Answer with the result.
-</p>
-",
+"text" => <<<EOD
+Use the variable 'array2'. Concatenate the first item and the last item as a string. Separate the string with '-'.  
+
+Answer with the result.
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
         
@@ -181,14 +195,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.7.
  */
 [
 
-"text" => "
-<p>Merge the two arrays 'array1' and 'array2' into a third variable 'array3'. Answer with 'array3'.
-</p>
-",
+"text" => <<<EOD
+Merge the two arrays 'array1' and 'array2' into a third variable 'array3'.  
+
+Answer with 'array3'.
+EOD
+,
 
 "answer" => function () use ($array1Selected, $array2Selected) {
     
@@ -202,14 +218,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.8.
  */
 [
 
-"text" => "
-<p>Reverse the order of the elements in array 'array3'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Reverse the order of the elements in array 'array3'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected, $array2Selected) {
     
@@ -224,14 +242,15 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.9.
  */
 [
 
-"text" => "
-<p>Create a variable 'array21' as a clone of 'array2'. Sort 'array21'. Answer with the resulting array. (Hint: http://stackoverflow.com/questions/3978492/javascript-fastest-way-to-duplicate-an-array-slice-vs-for-loop)
-</p>
-",
+"text" => <<<EOD
+Create a variable 'array21' as a clone of 'array2'. Sort 'array21'. Answer with the resulting array.  
+(Hint: http://stackoverflow.com/questions/3978492/javascript-fastest-way-to-duplicate-an-array-slice-vs-for-loop)
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
     
@@ -247,14 +266,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.10.
  */
 [
 
-"text" => "
-<p>Create a variable 'array11' as a copy of 'array1'. Sort 'array11' according to its values. The smallest value comes first and the largest value comes last. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'array11' as a copy of 'array1'. Sort 'array11' according to its values. The smallest value comes first and the largest value comes last.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
     
@@ -271,14 +292,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.11.
  */
 [
 
-"text" => "
-<p>Create a variable 'array22' which holds the same content as 'array2' - but all strings are uppercase. Use the built-in Array-function 'map()' to solve it. Answer with the array.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'array22' which holds the same content as 'array2' - but all strings are uppercase. Use the built-in Array-function 'map()' to solve it.  
+
+Answer with the array.
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
     
@@ -292,14 +315,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.12.
  */
 [
 
-"text" => "
-<p>Create a new array 'messageOfToday'. It should contain all items from 'array2' where each item is concatenated with the string ' is good for you!'. Use the built-in array-function 'forEach()' to solve it. Each sentence shold start with a capital letter. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Create a new array 'messageOfToday'. It should contain all items from 'array2' where each item is concatenated with the string ' is good for you!'. Use the built-in array-function 'forEach()' to solve it. Each sentence shold start with a capital letter.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
     
@@ -317,14 +342,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.13.
  */
 [
 
-"text" => "
-<p>Create a new array 'array12'. It should contain all positive numbers from the 'array1'. Use the built-in array-function 'filter()' to solve it. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Create a new array 'array12'. It should contain all positive numbers from the 'array1'. Use the built-in array-function 'filter()' to solve it.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
     
@@ -340,14 +367,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.14.
  */
 [
 
-"text" => "
-<p>Create a variable 'iLike'. It should contain the string 'I like ' and then all items from 'array2' separated with ', '. End the string with a '!'. Use the built-in array-function 'join()' to solve it. Answer with the string.
-</p>
-",
+"text" => <<<EOD
+Create a variable 'iLike'. It should contain the string 'I like ' and then all items from 'array2' separated with ', '. End the string with a '!'. Use the built-in array-function 'join()' to solve it.  
+
+Answer with the string.
+EOD
+,
 
 "answer" => function () use ($array2Selected) {
     
@@ -362,14 +391,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.15.
  */
 [
 
-"text" => "
-<p>Create a function 'arraySum' that takes one array as argument and returns the sum of all elements in that array. Try out the function using 'array1' and answer with the result.
-</p>
-",
+"text" => <<<EOD
+Create a function 'arraySum' that takes one array as argument and returns the sum of all elements in that array.  
+
+Try out the function using 'array1' and answer with the result.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
     
@@ -387,14 +418,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 1.16.
  */
 [
 
-"text" => "
-<p>Create a function 'arrayAverage' that takes one array as argument and returns the average of all elements in that array. Try out the function using 'array1' and answer with the rounded integer result.
-</p>
-",
+"text" => <<<EOD
+Create a function 'arrayAverage' that takes one array as argument and returns the average of all elements in that array.  
+
+Try out the function using 'array1' and answer with the rounded integer result.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
     
@@ -426,7 +459,10 @@ return [
 [
 "title" => "Modify arrays",
 
-"intro" => "",
+"intro" => <<<EOD
+Learn how to modify arrays.
+EOD
+,
 
 "shuffle" => false,
 
@@ -436,14 +472,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.1.
  */
 [
 
-"text" => "
-<p>Create a new array 'myArray' and make it a copy of 'array1'. Get the last element from 'myArray' using the built-in array-function 'pop()'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Create a new array 'myArray' and make it a copy of 'array1'. Get the last element from 'myArray' using the built-in array-function 'pop()'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
     
@@ -459,14 +497,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.2.
  */
 [
 
-"text" => "
-<p>Add the boolean value 'true' to the array 'myArray' using built-in array-function 'push()'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Add the boolean value 'true' to the array 'myArray' using built-in array-function 'push()'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -482,14 +522,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.3.
  */
 [
 
-"text" => "
-<p>Use the built-in array-function 'shift()' to remove the first item from the array 'myArray'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Use the built-in array-function 'shift()' to remove the first item from the array 'myArray'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -506,14 +548,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.4.
  */
 [
 
-"text" => "
-<p>Add the float number '3.14' to the beginning of 'myArray' using built-in array-function 'unshift()'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Add the float number '3.14' to the beginning of 'myArray' using built-in array-function 'unshift()'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -531,14 +575,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.5.
  */
 [
 
-"text" => "
-<p>Change 'myArray' element 3 and 4 to the boolean value 'false' using built-in array-function 'splice()'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Change 'myArray' element 3 and 4 to the boolean value 'false' using built-in array-function 'splice()'.  
+
+Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -558,14 +604,16 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.6.
  */
 [
 
-"text" => "
-<p>Extract the last two elements as a slice from 'myArray' using built-in array-function 'slice()'. Answer with the slice array.
-</p>
-",
+"text" => <<<EOD
+Extract the last two elements as a slice from 'myArray' using built-in array-function 'slice()'.  
+
+Answer with the slice array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -586,14 +634,14 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.7.
  */
 [
 
-"text" => "
-<p>Remove item 4 and 5 in 'myArray'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Remove item 4 and 5 in 'myArray'. Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 
@@ -615,14 +663,14 @@ return [
 
 
 /** -----------------------------------------------------------------------------------
- * A question.
+ * A question, 2.8.
  */
 [
 
-"text" => "
-<p>Insert the string 'MEGA' after item 3 in 'myArray'. Answer with the resulting array.
-</p>
-",
+"text" => <<<EOD
+Insert the string 'MEGA' after item 3 in 'myArray'. Answer with the resulting array.
+EOD
+,
 
 "answer" => function () use ($array1Selected) {
 

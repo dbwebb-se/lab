@@ -495,7 +495,7 @@ EOD
 [
 
 "text" => <<<EOD
-Check the `strlen()` and `mb_strlen()` of the word '$useThisEnc'. Answer with the two results as a comma-separated string.
+Check the `strlen()` and `mb_strlen()` of the word '$useThisEnc'. Answer with the two results as a comma and space-separated string.
 EOD
 ,
 

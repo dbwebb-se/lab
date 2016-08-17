@@ -77,7 +77,7 @@ EOD
 
 "header" => null,
 
-"passPercentage" => 90/100,
+"passPercentage" => 68.75/100,
 "passDistinctPercentage" => 100/100,
 /*
 */
@@ -127,7 +127,7 @@ Svara sedan med resultatet från:
 
 > `SELECT * FROM TABLE Games;`
 
-Det är den sista SQL-satsen som innehåller själva svaret på varje uppgift, det är så labbverktyget fungerar.
+Det är den sista SQL-satsen som innehåller själva svaret på varje uppgift, det är så labbverktyget fungerar. I detta fallet blir resultatet helt tomt, men vi har ännu inte lagt in några värden i tabellen så det är helt i sin ordning.
 
 EOD
 ,

@@ -124,8 +124,8 @@ $s4_foreach1 = ["one"=>1, "two"=>2, "three"=>3, "four"=>4, "five"=>5];
 $switchCountries1 = ["Sweden", "Brazil", "China", "Australia", "Canada"];
 $switchCountries2 = ["Sweden", "Denmark", "Finland", "Brazil", "China", "Australia", "Canada"];
 
-$switchContinents1 = ["Europa", "South America", "Asia", "Oceania", "North America"];
-$switchContinents2 = ["Europa", "Europa", "Europa", "South America", "Asia", "Oceania", "North America"];
+$switchContinents1 = ["Europe", "South America", "Asia", "Oceania", "North America"];
+$switchContinents2 = ["Europe", "Europe", "Europe", "South America", "Asia", "Oceania", "North America"];
 
 $countriesString1 = implode(", ", $switchCountries1);
 $countriesString2 = implode(", ", $switchCountries2);

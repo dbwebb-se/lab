@@ -9,6 +9,13 @@ include __DIR__ . "/../random.php";
 
 $s1_numOne 			= rand_int(10, 500);
 $s1_numTwo 			= rand_int(10, 500);
+
+while ($s1_numOne % $s1_numTwo == 0) {
+    $s1_numTwo 			= rand_int(10, 500);
+}
+
+// $s1_numOne 			= rand_int(10, 500);
+// $s1_numTwo 			= rand_int(10, 500);
 $s1_numThree		= rand_int(100, 500);
 $s1_numFour			= rand_int(10, 99);
 

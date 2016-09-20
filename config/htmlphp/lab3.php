@@ -219,7 +219,7 @@ EOD
 "text" => <<<EOD
 Create a function called 'euroToDollar' that takes one argument, the euro amount to convert to dollars. Count 1 Euro as $s1_dollars dollars. Return the dollar amount of $s1_euroToConvert Euros.
 
-Answer with the result as a float with 4 decimals.
+Answer with the result as a double with 4 decimals.
 EOD
 ,
 

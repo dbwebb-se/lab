@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.17 (2016-09-26)
+
+* Tested and minor updates to lab sql1.
+
+
 v2.2.16 (2016-08-17)
 
 * Update with new version of CImage.

@@ -40,4 +40,4 @@ INSERT INTO Games
 .mode columns
 
 -- Inspektera datat
-SELECT * from Games;
+SELECT * FROM Games;

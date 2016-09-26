@@ -121,11 +121,11 @@ EOD
 [
 
 "text" => <<<EOD
-Titta i filen `$sqlFile` och kopiera de inledande SQL satser för `DROP TABLE` och `CREATE TABLE`. Exekvera dem i varsin SQL sats.
+Titta i filen `$sqlFile` och kopiera SQL-satserna för `DROP TABLE` och `CREATE TABLE`. Exekvera dem i varsin SQL sats.
 
 Svara sedan med resultatet från:
 
-> `SELECT * FROM TABLE Games;`
+> `SELECT * FROM Games;`
 
 Det är den sista SQL-satsen som innehåller själva svaret på varje uppgift, det är så labbverktyget fungerar. I detta fallet blir resultatet helt tomt, men vi har ännu inte lagt in några värden i tabellen så det är helt i sin ordning.
 
@@ -210,7 +210,7 @@ Titta i filen `$sqlFile` och kopiera den SQL sats som börjar med `INSERT INTO`.
 
 Svara sedan med resultatet från:
 
-> `SELECT * FROM TABLE Games;`
+> `SELECT * FROM Games;`
 
 EOD
 ,

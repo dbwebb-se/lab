@@ -22,7 +22,7 @@ v2.2.17 (2016-09-26)
 
 v2.2.16 (2016-08-17)
 
-* Update with new version of CImage.
+* Update with new version of CTextFilter.
 
 
 v2.2.15 (2016-05-31)

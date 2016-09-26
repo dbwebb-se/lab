@@ -11,6 +11,10 @@ $base = __DIR__ . "/lab1_extra";
 $file = "ircLog.txt";
 
 
+// For shell exec to get correct 
+putenv('LANG=C.UTF-8');
+
+
 
 return [
 

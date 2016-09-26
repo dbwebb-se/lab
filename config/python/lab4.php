@@ -147,7 +147,7 @@ EOD
 ,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-	
+
     return array_combine($s1_dictNameSet1, $s1_dictNrSet1);
 },
 
@@ -161,12 +161,12 @@ EOD
 [
 
 "text" => <<<EOD
-How many items are there in the dictionary? 
+How many items are there in the dictionary?
 EOD
 ,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-    
+
     return count(array_combine($s1_dictNameSet1, $s1_dictNrSet1));
 },
 
@@ -185,7 +185,7 @@ EOD
 ,
 
 "answer" => function () use ($s1_number1) {
-    
+
     return (int)$s1_number1;
 },
 
@@ -199,12 +199,12 @@ EOD
 [
 
 "text" => <<<EOD
-Get all keys from the dictionary and return them in a sorted list. 
+Get all keys from the dictionary and return them in a sorted list.
 EOD
 ,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-    
+
     $res = $s1_dictNameSet1;
     sort($res);
     return $res;
@@ -220,12 +220,12 @@ EOD
 [
 
 "text" => <<<EOD
-Get all values from the dictionary and return them in a sorted list. 
+Get all values from the dictionary and return them in a sorted list.
 EOD
 ,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-    
+
     $res = $s1_dictNrSet1;
     sort($res);
     return $res;
@@ -246,7 +246,7 @@ EOD
 ,
 
 "answer" => function () {
-    
+
     return true;
 },
 
@@ -265,7 +265,7 @@ EOD
 ,
 
 "answer" => function () {
-    
+
     return true;
 },
 
@@ -279,14 +279,14 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to walk through the dictionary and and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order.
+Use a for-loop to walk through the dictionary and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order.
 
 Answer with the resulting string.
 EOD
 ,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-    
+
     $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
     ksort($res);
 
@@ -316,7 +316,7 @@ EOD
 ,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-    
+
     $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
 
     $res = array_map( function($val) {
@@ -343,7 +343,7 @@ EOD
 ,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1, $s1_name1) {
-    
+
     $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
 
     unset($res[$s1_name1]);
@@ -367,7 +367,7 @@ EOD
 ,
 
 "answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-    
+
     $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
 
     return $res;
@@ -414,7 +414,7 @@ EOD
 ,
 
 "answer" => function () use ($s2_tuple1) {
-	
+
     return count($s2_tuple1);
 },
 
@@ -441,7 +441,7 @@ EOD
 ,
 
 "answer" => function () use ($s2_tuple1) {
-	$temp = $s2_tuple1[3];	
+	$temp = $s2_tuple1[3];
 
     return $temp;
 },
@@ -467,7 +467,7 @@ EOD
 ,
 
 "answer" => function () use ($s2_listSerie1) {
-	$temp = (int)$s2_listSerie1[0];	
+	$temp = (int)$s2_listSerie1[0];
 
     return $temp;
 },

@@ -181,9 +181,10 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base, $file) {
-    $res = [];
-    exec("cd $base && tail -4 $file", $res);
-    return implode("\n", $res);
+    //$res = [];
+    //exec("cd $base && tail -4 $file", $res);
+    //return implode("\n", $res) . "\n";
+    return execute("cd $base && tail -4 $file");
 },
 
 ],

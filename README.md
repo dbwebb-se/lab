@@ -15,6 +15,12 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.17* (2016-09-26)
+
+* Corrected linux 1.5 was wrong in answers.
+* Corrected locale in linux lab1.
+
+
 v2.2.17 (2016-09-26)
 
 * Tested and minor updates to lab sql1.

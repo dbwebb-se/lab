@@ -322,8 +322,6 @@ EOD;
 "text" => <<<EOD
 Visa namnen på de två klubbarna som var med och spelade den allra första matchen. Rubriken kan vara "Hemmalag" för `teamA` och "Bortalag" för `teamB`.
 
-Hur du väljer att ta reda på vilken den första matchen är, spelar ingen roll.
-
 EOD
 ,
 
@@ -336,7 +334,7 @@ SELECT
     teamB AS Bortalag
 FROM Games
 WHERE
-    start = "2016-04-08 20:20"
+    start = "2016-04-08 17:00"
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -385,7 +383,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Visa namnen på de lag som deltog i finalspelet, ta bort eventuella dubletter i resultatet (tips `DISTINCT`). Sortera per lagnamn i stigande ordning (tips `ORDER BY`). Döp rubriken till "Deltagare i SM-final".
+Visa namnen på de lag som deltog i finalspelet, ta bort eventuella dubletter i resultatet (tips `DISTINCT`). Sortera per lagnamn i stigande ordning (tips `ORDER BY`). Döp rubriken till "Deltagare i SM-slutspel".
 
 Använd den kunskapen du har om datamängden i tabellen, för att göra en enkel SQL-sats.
 
@@ -397,7 +395,7 @@ EOD
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
 SELECT DISTINCT
-    teamA AS "Deltagare i SM-final"
+    teamA AS "Deltagare i SM-slutspel"
 FROM Games
 ORDER BY teamA
 ;
@@ -527,7 +525,7 @@ EOD
 [
 
 "text" => <<<EOD
-Varje match har totalt 20 poäng. Vi vet sedan tidigare att det fanns 9 matcher. Det kan totalt bli 20 * 9 poäng i respektive kolumn "Poäng hemma" samt "Poäng borta".  Om det är mindre beror det på att någon delmatch blivit oavgjord.
+Varje match har totalt 20 poäng. Vi vet sedan tidigare att det fanns 9 matcher. Det kan totalt bli 20 * 9 poäng i respektive kolumn "Poäng hemma" samt "Poäng borta".  Om det är mindre beror det på att någon delmatch blivit oavgjord, eller att man avslutat matchen i förtid.
 
 Skriv en SELECT sats som summerar totalen ("Total") av de poäng (samtliga `scoreA` plus samtliga `scoreB`) som tagits.
 
@@ -566,7 +564,7 @@ EOD
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
 SELECT
-    SUM(scoreA) + SUM(scoreB) - (20 * 9) AS "Total"
+    (20 * 9) - SUM(scoreA) - SUM(scoreB) AS "Total"
 FROM Games
 ;
 EOD;
@@ -647,9 +645,9 @@ EOD
 [
 
 "text" => <<<EOD
-Visa de matcher som spelades i matchserien "Semifinal B". För varje match visa "Hemmalag", "Bortalag" samt en sammanslagen kolumn som visar "scoreA - scoreB" i formen "12 - 8". Lös det genom att skapa en sträng via strängkonkatenering.
+Visa de matcher som spelades i matchserien "Semifinal A". För varje match visa "Hemmalag", "Bortalag" samt en sammanslagen kolumn som visar "scoreA - scoreB" i formen "12 - 8". Lös det genom att skapa en sträng via strängkonkatenering.
 
-I SQLite är `||` operatorn för strängkonkatenering. Döp kolumnen till "Resultat".
+I SQLite är `||` operatorn för strängkonkatenering. Döp kolumnen till "Total".
 
 Lägg till ytterligare en kolumn som du döper till "Diff" som visar differensen mellan `scoreA` och `scoreB`.
 
@@ -960,6 +958,8 @@ EOD;
 "text" => <<<EOD
 Då gör vi rapporten för matchtabellen. Börja med att lägga till så rapporten innehållar "Lag", "Spelade" som antal matcher spelade, "Poäng" som totalt antal poäng samlade via vunna eller oavgjorda matcher. Sortera per "Poäng" i sjunkande ordning.
 
+Plocka endast ut de lag som spelar "Final"-matchen.
+
 Använd din vy `GameList`. Tips `GROUP BY`.
 
 EOD
@@ -1178,7 +1178,7 @@ FROM Games
 
 SELECT
     Lag,
-    COUNT(Lag) AS "Matcher",
+    COUNT(Lag) AS "Spelade",
     SUM(Vunna) AS "Vunna",
     SUM(Oavgjorda) AS "Oavgjorda",
     SUM(Förlorade) AS "Förlorade",
@@ -1218,7 +1218,7 @@ EOD
     $sql = <<<EOD
 SELECT
     Lag,
-    COUNT(Lag) AS "Matcher",
+    COUNT(Lag) AS "Spelade",
     SUM(Vunna) AS "Vunna",
     SUM(Oavgjorda) AS "Oavgjorda",
     SUM(Förlorade) AS "Förlorade",

@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.19 (2016-09-27)
+
+* Updated and corrected sql1 after tests.
+
+
 v2.2.18 (2016-09-26)
 
 * Corrected linux 1.5 was wrong in answers.

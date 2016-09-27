@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.2.18 (2016-09-26)";
+const VERSION = "v2.2.19 (2016-09-27)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 

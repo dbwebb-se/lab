@@ -504,9 +504,9 @@ EOD;
 "title" => "Beräknade värden",
 
 "intro" => <<<EOD
-I en databas vill man inte dubbellagra information. Man lagrar endast det som behövs och går saker att räkna ut, med hjälp av befintlig data, så räcker det.
+I en databas vill man inte dubbellagra information. Man lagrar endast det som behövs. Saker som går att räkna fram, med hjälp av befintlig data, behöver inte dubbellagras. Tänk till exempel på födelsedatum kontra ålder.
 
-Om man dubbellagrar data riskerar man att missa en del av datat vid till exempel en `UPDATE`.
+Om man dubbellagrar data riskerar man att missa en del av datat vid till exempel en `UPDATE`. Man vill inte göra en `UPDATE` på två platser, om det är "samma" värde (födelsedatum, ålder).
 
 I en databas som är *normaliserad* brukar det inte finnas duplicerad data.
 
@@ -525,7 +525,9 @@ EOD
 [
 
 "text" => <<<EOD
-Varje match har totalt 20 poäng. Vi vet sedan tidigare att det fanns 9 matcher. Det kan totalt bli 20 * 9 poäng i respektive kolumn "Poäng hemma" samt "Poäng borta".  Om det är mindre beror det på att någon delmatch blivit oavgjord, eller att man avslutat matchen i förtid.
+En match spelas om 4 serier och i varje serie spelar lagen om 5 poäng. Varje lag är indelat i fyra tvåmannalag som spelar om 4 poäng per serie. Den 5:e poängen kommer från lagens totala slagning per serie.
+
+I varje match spelar man alltså om 20 poäng. Om resultatet visar på färre poäng på en match så beror det på att någon delmatch blivit oavgjord, eller att man avslutat matchen i förtid på grund av att det ena laget redan har vunnit och sista serien behövs inte spelas.
 
 Skriv en SELECT sats som summerar totalen ("Total") av de poäng (samtliga `scoreA` plus samtliga `scoreB`) som tagits.
 
@@ -554,7 +556,9 @@ EOD;
 [
 
 "text" => <<<EOD
-Använd föregående sats och minska värdet på "Total" med antalet delmatcher (20 * 9) för att räkna ut antalet oavgjorda, eller icke avslutade, delmatcher.
+Ta nu reda på om några matcher inte blev färdigspelade, eller om några delmatcher blev oavgjorda. Gör det genom att räkna ut det totala antalet möjliga poäng (20 x antalet matcher) och minska med de poäng som tagits i matcherna (samtliga `scoreA` + samtliga `scoreB`).
+
+Du får fram en siffra som säger hur många delmatcher inte spelades eller blev oavgjorda. Vid oavgjord match får inget lag poäng.
 
 EOD
 ,
@@ -564,7 +568,7 @@ EOD
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
 SELECT
-    (20 * 9) - SUM(scoreA) - SUM(scoreB) AS "Total"
+    COUNT(scoreA) * 20 - SUM(scoreA) - SUM(scoreB) AS "Total"
 FROM Games
 ;
 EOD;
@@ -584,6 +588,10 @@ EOD;
 Skriv en SELECT sats som endast visar de matcher där `scoreA + scoreB` inte blir 20.
 
 Ta med kolumnerna "Omgång", "Hemmalag", "Bortalag", "Poäng hemma", "Poäng borta" samt "Total" som är totalt antal poäng för matchen.
+
+Rapporten du får fram bör du kunna jämföra med siffran i föregående uppgift och se kopplingen.
+
+Som databasmänniska vill man ibland plocka fram samma information på olika sätt för att jämföra att det känns logiskt och korrekt.
 
 EOD
 ,

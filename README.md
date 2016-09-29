@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.20 (2016-09-29)
+
+* Corrected sql1 section 5.
+
+
 v2.2.19 (2016-09-27)
 
 * Updated and corrected sql1 after tests.

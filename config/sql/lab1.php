@@ -556,9 +556,11 @@ EOD;
 [
 
 "text" => <<<EOD
-Ta nu reda på om några matcher inte blev färdigspelade, eller om några delmatcher blev oavgjorda. Gör det genom att räkna ut det totala antalet möjliga poäng (20 x antalet matcher) och minska med de poäng som tagits i matcherna (samtliga `scoreA` + samtliga `scoreB`).
+Ta nu reda på om några matcher inte blev färdigspelade, eller om några delmatcher blev oavgjorda. Vid oavgjord match får inget lag poäng.
 
-Du får fram en siffra som säger hur många delmatcher inte spelades eller blev oavgjorda. Vid oavgjord match får inget lag poäng.
+Gör detta genom att räkna ut det totala antalet möjliga poäng (20 x antalet matcher) och minska med de poäng som tagits i matcherna (samtliga `scoreA` + samtliga `scoreB`).
+
+Du får fram en siffra ("Total"), som säger hur många delmatcher som inte spelades eller blev oavgjorda.
 
 EOD
 ,

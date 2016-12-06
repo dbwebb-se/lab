@@ -296,9 +296,9 @@ EOD
 
 "text" => <<<EOD
 Write a pattern that matches the last names in the list  
-['Andreas Arnesson', 'Siv Ohlsson', 'Lena Johansson']  
+['Thorborg Stendahl', 'Erna Pilkvist', 'Erik Nylund']
 and doesnt match the ones in the list  
-['Oskar Stenstrom', 'Konrad Ohman', 'Nellie Forsberg'].
+['Mathilda Norling', 'Malena Jensson', 'Knut Stenberg'].
 
 Use the regexOnList function.  
 Add '1' as index argument for the regexOnList function.
@@ -307,7 +307,7 @@ EOD
 
 "answer" => function () {
 
-	return ['Arnesson', 'Ohlsson', 'Johansson'];
+	return ['Stendahl', 'Pilkvist', 'Nylund'];
 },
 
 ],

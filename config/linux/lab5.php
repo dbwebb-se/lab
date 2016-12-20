@@ -40,7 +40,7 @@ return [
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 2 - linux",
+"title" => "Lab 3 - linux",
 
 "intro" => <<<EOD
 JavaScript using nodejs.

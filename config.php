@@ -69,6 +69,8 @@ $VALID_LABS = [
     "linux/lab1" => "config/linux/lab1.php",
     "linux/lab2" => "config/linux/lab2.php",
     "linux/lab3" => "config/linux/lab3.php",
+    "linux/lab4" => "config/linux/lab4.php",
+    "linux/lab5" => "config/linux/lab5.php",
 
     "webgl/lab1" => "config/webgl/lab1.php",
     "webgl/lab2" => "config/webgl/lab2.php",
@@ -95,5 +97,7 @@ $LAB_TYPE = [
         "lab1" => "bash",
         "lab2" => "bash",
         "lab3" => "node",
+        "lab4" => "node",
+        "lab5" => "node",
     ],
 ];

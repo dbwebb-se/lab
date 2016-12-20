@@ -25,7 +25,7 @@ return [
  */
 "answerFormat" => "text",
 
-"title" => "Lab 1 - linux",
+"title" => "Lab 2 - linux",
 
 "intro" => "
 En lab där du använder Unix verktyg som finns tillgängliga via kommandoraden, tillsammans med lite Bash, för att finna och hantera information i en [IRC loggfil](ircLog.txt).

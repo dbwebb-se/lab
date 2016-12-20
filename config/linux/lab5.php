@@ -40,7 +40,7 @@ return [
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 3 - linux",
+ "title" => "Lab 5 - JavaScript med Nodejs",
 
 "intro" => <<<EOD
 JavaScript using nodejs.

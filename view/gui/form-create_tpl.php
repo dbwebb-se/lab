@@ -10,6 +10,7 @@
         <option value="oopython" <?= isSelected("oopython", $course) ?>>oopython</option>
         <option value="python" <?= isSelected("python", $course) ?>>python</option>
         <option value="webgl" <?= isSelected("webgl", $course) ?>>webgl</option>
+        <option value="dbjs" <?= isSelected("dbjs", $course) ?>>dbjs</option>
     </select></label>
 </p>
 

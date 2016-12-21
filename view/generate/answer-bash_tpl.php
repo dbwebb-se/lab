@@ -70,7 +70,7 @@ foreach ($sections as $section) {
 ANSWER="Replace this text with the variable holding the answer."
 
 # I will now test your answer - change false to true to get a hint.
-assertEqual "<?="$sectionId.$questionId"?>" false
+assertEqual "<?="$sectionId.$questionId"?>" false "$ANSWER"
 
 <?php 
     }

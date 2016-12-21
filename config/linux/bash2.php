@@ -66,7 +66,9 @@ Pure link as HTML <a href="moped">mask</a>
 <html> 
 ```
 
+```
 a > 2
+```
 
 Sedan kombinerar du utskriften av kommandona in till variabler i Bash. Använd man-sidorna vid behov för att finna informaiton om hur du löser uppgifterna.
 EOD

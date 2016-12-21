@@ -7,7 +7,7 @@
 #
 ANSWERS=".answer"
 PROMPT=">>> "
-ANSWER="Replace this text with the variable holding the answer."
+NOANSWER="Replace this text with the variable holding the answer."
 
 
 
@@ -47,7 +47,7 @@ function assertEqual
 {
     local question=$1
     local hint=$2
-    local noanswer="Replace this text with the variable holding the answer."
+    local theAnswer=$3
     local answer=$( cat "$ANSWERS/$question" )
     local points=1
     
@@ -55,22 +55,20 @@ function assertEqual
         points=$( cat "$ANSWERS/$question.points" )
     fi
 
-    if [ "$ANSWER" = "$noanswer" ]; then
+    if [ "$theAnswer" = "$NOANSWER" ]; then
         echo "${PROMPT}$question NOT YET DONE. (${points}p)"
         ((LAB_notDone++))
-    elif [ "$ANSWER" = "$answer" ]; then
-        printf "%s%s CORRECT. Well done! (%sp)\n" "$PROMPT" "$question" $points
+    elif [ "$theAnswer" = "$answer" ]; then
+        printf "%s%s CORRECT. Well done! (%sp)\n" "$PROMPT" "$question" "$points"
         ((LAB_correct++))
         LAB_mypoints=$((LAB_mypoints + points))
     else
-        printf "%s%s FAIL. (%sp)\n%sYou said:\n%s\n" "$PROMPT" "$question" $points "$PROMPT" "$ANSWER"
+        printf "%s%s FAIL. (%sp)\n%sYou said:\n%s\n" "$PROMPT" "$question" "$points" "$PROMPT" "$theAnswer"
         if $hint; then
             printf "%sHint:\n%s\n" "$PROMPT" "$answer"
         fi
         ((LAB_failed++))
     fi
-
-    ANSWER="Replace this text with the variable holding the answer."
 }
 
 
@@ -82,26 +80,24 @@ function assertEqual
 #
 function exitWithSummary
 {
-    local green='\[\031[0;32m\]'
-
-    printf "%sDone with status %d/%d/%d/%d (Total/Correct/Failed/Not done).\n" "$PROMPT" $LAB_answers $LAB_correct $LAB_failed $LAB_notDone
+    printf "%sDone with status %d/%d/%d/%d (Total/Correct/Failed/Not done).\n" "$PROMPT" "$LAB_answers" "$LAB_correct" "$LAB_failed" "$LAB_notDone"
     
-    printf "%sPoints earned: %sp of %sp (PASS=>%sp" "$PROMPT" $LAB_mypoints $LAB_points $LAB_pass
-    if [ $LAB_distinct -ne -1 ]; then
-        printf ", PASS W DISTINCTION=>%sp" $LAB_distinct
+    printf "%sPoints earned: %sp of %sp (PASS=>%sp" "$PROMPT" "$LAB_mypoints" "$LAB_points" "$LAB_pass"
+    if [ "$LAB_distinct" -ne -1 ]; then
+        printf ", PASS W DISTINCTION=>%sp" "$LAB_distinct"
     fi
     printf ").\n"
 
     # Grading
-    if [ $LAB_distinct -ne -1 -a $LAB_mypoints -ge $LAB_distinct ]; then
+    if [ "$LAB_distinct" -ne -1 -a "$LAB_mypoints" -ge "$LAB_distinct" ]; then
         printf "\e[0;36m%sGrade: PASS WITH DISTINCTION!!! :-D\e[m\n" "$PROMPT"
-    elif [ $LAB_mypoints -ge $LAB_pass ]; then
+    elif [ "$LAB_mypoints" -ge "$LAB_pass" ]; then
         printf "\e[0;32m%sGrade: PASS! :-)\e[m\n" "$PROMPT"
     else
         printf "\e[1;33m%sGrade: Thou Did Not Pass. :-|\e[m\n" "$PROMPT"
     fi
 
-    exit $(( $LAB_mypoints >= $LAB_pass ? 0 : 42 ))
+    exit $(( LAB_mypoints >= LAB_pass ? 0 : 42 ))
 }
 
 

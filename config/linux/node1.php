@@ -75,7 +75,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable called 'numberOne' and give it the value $numberOne. 
+Create a variable called 'numberOne' and give it the value $numberOne.
 
 Create another variable called 'numberTwo' and give it the value $numberTwo.
 

@@ -81,7 +81,7 @@ function isSelected($key1, $key2)
 
 
 /**
- * Get details for key or die.
+ * Wrap descriptive text as comments.
  *
  * @param string $key
  * @param string $wrapper
@@ -92,6 +92,7 @@ function wrap($text, $wrapper = "\n# ")
 {
     $text = wordwrap(trim($text, "\n"), 75, "\n", true);
     $text = str_replace("\n", $wrapper, $text);
+    $text = preg_replace("#[ \t]+\n#", "\n", $text);
     return "$text\n";
 }
 

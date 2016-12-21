@@ -1,7 +1,8 @@
 /**
  * Dbwebb lab assert using nodejs as base.
  */
-var fs = require('fs');
+var fs      = require('fs');
+var path    = require('path');
 
 
 /**
@@ -44,7 +45,8 @@ var dbwebb = {
 
 
     "loadAnswersFromFile": function () {
-        var data = fs.readFileSync(".answer.json");
+        var file = path.join(__dirname, ".answer.json");
+        var data = fs.readFileSync(file);
         var answers = JSON.parse(data);
         this.answers = answers.answers;
     },

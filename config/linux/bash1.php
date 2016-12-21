@@ -8,10 +8,9 @@ include __DIR__ . "/../random.php";
 
 // Settings
 $base = __DIR__ . "/bash1_extra";
-$file = "ircLog.txt";
 
 
-// For shell exec to get correct 
+// For shell exec to get correct
 putenv('LANG=C.UTF-8');
 
 
@@ -25,15 +24,15 @@ return [
  */
 "answerFormat" => "text",
 
-"title" => "Lab 1 - linux",
+"title" => "Bash 1 - linux",
 
 "intro" => "
-En lab där du använder Unix verktyg som finns tillgängliga via kommandoraden, tillsammans med lite Bash, för att finna och hantera information i en [IRC loggfil](ircLog.txt).
+En lab där du använder Unix kommandon som finns tillgängliga via kommandoraden för att kopiera, flytta och hitta i en katalogstruktur.
 ",
 
 "header" => null,
 
-"passPercentage" => 70/100,
+"passPercentage" => 100/100,
 "passDistinctPercentage" => 100/100,
 
 /*
@@ -54,21 +53,10 @@ En lab där du använder Unix verktyg som finns tillgängliga via kommandoraden,
 "title" => "Bash",
 
 "intro" => <<<EOD
-Öva Linux kommandon och använd dem tillsammans med Bash.
+Öva Linux kommandon för att ta sig runt och ändra i en katalogstruktur.
 
-I denna övningen kommer du främst använda kommandon som `grep`, `wc`, `head` och `tail` för att söka ut information i en loggfil från irc-chatten.
+I denna övningen kommer du främst använda kommandon som `cp`, `mv`, `find`, `chmod` och `chown` för att ändra i en katalogstruktur.
 
-Write HTML in text, wrap in backtick `<a href="moped">mask</a>`
-
-Pure link as HTML <a href="moped">mask</a>
-
-```
-<html> 
-```
-
-a > 2
-
-Sedan kombinerar du utskriften av kommandona in till variabler i Bash. Använd man-sidorna vid behov för att finna informaiton om hur du löser uppgifterna.
 EOD
 ,
 
@@ -80,21 +68,19 @@ EOD
 
 /** ---------------------------------------------------------------------------
  * A question.
- */
+
 [
 
 "text" => <<<EOD
-Skapa en variabel `FILE` och tilldela den värdet `$file`.
+Använd kommandot `pwd` för att skriva ut din nuvarande plats i katalogstrukturen.
 
-Svara med variabelns värde, dvs `\$FILE`.
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($file) {
-
-    return $file;
+"answer" => function () use ($base) {
+    return execute("pwd");
 },
 
 ],
@@ -107,17 +93,16 @@ EOD
 [
 
 "text" => <<<EOD
-Använd kommandot `wc` för att räkna ut hur många rader ircloggen består av. Visa endast antalet rader och filens namn, separerade av ett mellanslag.
 
-Spara svaret i en variabel och svara med variabelns innehåll.
+Använd kommandot `find` för att hitta filen `apache2.conf`
+
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && wc -l $file");
-    //return trim(exec("cd $base && wc -l $file")); // Mac OS
+"answer" => function () use ($base) {
+    return execute("cd $base && find . -name 'apache2.conf'");
 },
 
 ],
@@ -130,19 +115,21 @@ EOD
 [
 
 "text" => <<<EOD
-Använd `wc` tillsammans med `cut` för att räkna ut hur många ord, words, ircloggen består av.
 
-Spara enbart antalet ord i en variabel och svara med den.
+Skriv ut filen du nyss hittade `apache2.conf` filens rättigheter i oktal format
+
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($base, $file) {
-    return exec("cd $base &&  wc -w $file | cut -d' ' -f1");
+"answer" => function () use ($base) {
+    $file = execute("cd $base && find . -name 'apache2.conf'");
+    return exec("cd $base && stat -c '%a' $file");
 },
 
 ],
+
 
 
 
@@ -152,16 +139,19 @@ EOD
 [
 
 "text" => <<<EOD
-Hitta raden med 'pansars' åsikt om 'notepad'.
 
-Spara svaret i en variabel och svara med variabelns innehåll.
+Kopiera filen `ports.conf` till en ny katalog `/apache2/db`
+
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && cat $file | grep pansar | grep notepad");
+"answer" => function () use ($base) {
+    // $file = exec("cd $base && find . -name 'ports.conf'");
+    // exec("cd $base && mkdir ./apache2/db && chmod 777 ./apache2/db");
+    // exec("cd $base && cp $file ./apache2/db/");
+    return file_exists("$base/apache2/db/ports.conf");
 },
 
 ],
@@ -174,22 +164,20 @@ EOD
 [
 
 "text" => <<<EOD
-Hitta de fyra sista raderna i filen.
+
+Ändra filen `/apache2/conf-available/charset.conf` rättigheter till `-rw-rw-r--`
+
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($base, $file) {
-    //$res = [];
-    //exec("cd $base && tail -4 $file", $res);
-    //return implode("\n", $res) . "\n";
-    return execute("cd $base && tail -4 $file");
+"answer" => function () use ($base) {
+    // exec("cd $base && chmod 664 ./etc/db/pdo.ini");
+    return substr(sprintf('%o', fileperms($base."/apache2/conf-available/charset.conf")), -4) == "664";
 },
 
 ],
-
-
 
 /** ---------------------------------------------------------------------------
  * A question.
@@ -197,18 +185,18 @@ EOD
 [
 
 "text" => <<<EOD
-När öppnades ircloggen för första gången? Ledtråd 'Log opened'. Svara med raden som säger när loggen öppnades för första gången.
+Ändra gruppen till `www-data` på filen `/apache2/sites-enabled/000-default.conf`
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && grep 'Log opened' $file | head -1");
+"answer" => function () use ($base) {
+    $filename = "$base/apache2/sites-enabled/000-default.conf";
+    return posix_getgrgid(filegroup($filename))["name"] == "www-data";
 },
 
 ],
-
 
 
 /** ---------------------------------------------------------------------------
@@ -217,14 +205,19 @@ EOD
 [
 
 "text" => <<<EOD
-Vad innehåller den tredje raden där wasa säger något?
+
+Flytta all filer som slutar med filändelsen `.conf` i katalogen: `/apache2/mods-enabled/`
+till katalogen: `/apache2/db/`
+
+Tips använd kommandot `mv`
+
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && grep '<@wasa>' $file | head -3 | tail -1");
+"answer" => function () use ($base) {
+    return count(glob("$base/apache2/db/*.conf")) > 0 && count(glob("$base/apache2/mods-enabled/*.conf")) < 1;
 },
 
 ],
@@ -237,121 +230,18 @@ EOD
 [
 
 "text" => <<<EOD
-Hur många rader är det som är loggade enligt tiden 11:15?
+Ta bort `conf-available` katalogen som finns '/apache2/conf-available'
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && grep '11:15' $file | wc -l");
+"answer" => function () use ($base) {
+    return !file_exists("$base/apache2/conf-available");
 },
 
 ],
 
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Hitta de första 10 raderna från dagen 'Wed Jun 17 2015'.
-EOD
-,
-
-"points" => 3,
-
-"answer" => function () use ($base, $file) {
-    $res = [];
-    exec("cd $base && grep -A 10 'Day changed Wed Jun 17 2015' $file | tail -10", $res);
-    return implode("\n", $res);
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Hitta raderna som är inlagda angående 'forum' och innehåller detaljer om 'projektet' och 'htmlphp'.
-EOD
-,
-
-"points" => 3,
-
-"answer" => function () use ($base, $file) {
-    $res = [];
-    exec("cd $base && grep Forum $file | grep htmlphp | grep projektet", $res);
-    return implode("\n", $res);
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Vad sa 'Bobbzorzen' två rader innan han sa 'cewl'?
-EOD
-,
-
-"points" => 3,
-
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && grep '<@Bobbzorzen>' $file | grep -B 2 cewl | head -1");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Hur många ord är det i den fjärde till nionde raden, under dagen 'Mon Jun 08 2015'?
-EOD
-,
-
-"points" => 3,
-
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && grep -A 9 'Mon Jun 08 2015' $file | tail -6 | wc -w");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Hitta den första raden där 'pansar' säger något när klockan är 07:48.
-EOD
-,
-
-"points" => 3,
-
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && grep 07:48 $file | grep pansar | head -1");
-},
-
-],
 
 
 

@@ -7,7 +7,7 @@ include __DIR__ . "/../random.php";
 
 
 // Settings
-$base = __DIR__ . "/lab1_extra";
+$base = __DIR__ . "/bash2_extra";
 $file = "ircLog.txt";
 
 

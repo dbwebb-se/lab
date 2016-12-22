@@ -48,9 +48,11 @@ function assertEqual
     local question=$1
     local hint=$2
     local theAnswer=$3
-    local answer=$( cat "$ANSWERS/$question" )
+    local answer
     local points=1
-    
+
+    answer=$( cat "$ANSWERS/$question" )
+
     if [ -f "$ANSWERS/$question.points" ]; then
         points=$( cat "$ANSWERS/$question.points" )
     fi
@@ -89,7 +91,7 @@ function exitWithSummary
     printf ").\n"
 
     # Grading
-    if [ "$LAB_distinct" -ne -1 -a "$LAB_mypoints" -ge "$LAB_distinct" ]; then
+    if [ "$LAB_distinct" -ne -1 ] && [ "$LAB_mypoints" -ge "$LAB_distinct" ]; then
         printf "\e[0;36m%sGrade: PASS WITH DISTINCTION!!! :-D\e[m\n" "$PROMPT"
     elif [ "$LAB_mypoints" -ge "$LAB_pass" ]; then
         printf "\e[0;32m%sGrade: PASS! :-)\e[m\n" "$PROMPT"

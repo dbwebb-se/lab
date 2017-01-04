@@ -5,7 +5,7 @@
         <a href="lab.php?lab&amp;key=<?=$gen_key?>">Lab</a> | 
         <a href="lab.php?lab&amp;answers&amp;key=<?=$gen_key?>">Lab with answers</a> | 
         <a href="?action=bundle&amp;key=<?=$gen_key?>">Bundle</a> | 
-        <a href="lab.php?answer-extra&amp;key=<?=$gen_key?>">Answer-extras</a> |
+        <a href="lab.php?answer-extra&amp;key=<?=$gen_key?>">(Answer-extras)</a> |
         </td> 
     </tr>
 

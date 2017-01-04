@@ -83,7 +83,7 @@ $keyPart = "key=$key";
 foreach ($labs as $lab) {
     if (isset($lab["dirname"])) {
         if (is_dir($lab["dirname"])) {
-            system("cp ${lab["dirname"]}/* $base/");
+            system("cp -r ${lab["dirname"]}/* $base/");
         }
         continue;
     }

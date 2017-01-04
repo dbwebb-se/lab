@@ -159,28 +159,30 @@
         },
         {
             "name": "mos/ctextfilter",
-            "version": "v1.2.13",
+            "version": "v1.2.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mosbth/ctextfilter.git",
-                "reference": "d79520290b8d48a6f62547391f01a4b68f16ed29"
+                "reference": "39af7891a10eed403ab503572b9d464d1a182fae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mosbth/ctextfilter/zipball/d79520290b8d48a6f62547391f01a4b68f16ed29",
-                "reference": "d79520290b8d48a6f62547391f01a4b68f16ed29",
+                "url": "https://api.github.com/repos/mosbth/ctextfilter/zipball/39af7891a10eed403ab503572b9d464d1a182fae",
+                "reference": "39af7891a10eed403ab503572b9d464d1a182fae",
                 "shasum": ""
             },
             "require": {
                 "ezyang/htmlpurifier": "4.*",
                 "michelf/php-markdown": "1.6.*",
-                "michelf/php-smartypants": "1.6.x-dev",
+                "michelf/php-smartypants": "1.6.*",
                 "php": ">=5.4",
                 "scrivo/highlight.php": "^9.0"
             },
             "suggest": {
                 "ext-json": "*",
-                "ext-yaml": "*"
+                "ext-yaml": "*",
+                "mustangostang/spyc": "^0.6",
+                "symfony/yaml": "^3.1"
             },
             "type": "library",
             "extra": {
@@ -216,7 +218,7 @@
                 "markdown",
                 "shortcode"
             ],
-            "time": "2016-08-23 11:14:57"
+            "time": "2016-11-28 14:53:40"
         },
         {
             "name": "scrivo/highlight.php",

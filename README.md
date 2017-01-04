@@ -15,6 +15,11 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.22 (2017-01-04)
+
+* Enable to copy directory structure in lab_extra.
+
+
 v2.2.21 (2016-10-07)
 
 * Corrected text in sql1 section 5.2.

@@ -19,12 +19,12 @@ EOD;
 
 <?php if (isset($header)) echo $header ?>
 
-(function(dbwebb){
-    "use strict";
+(function(dbwebb) {
+"use strict";
 
-    var ANSWER = null;
+var ANSWER = null;
 
-    console.log("Ready to begin.");
+console.log("Ready to begin.");
 
 
 <?php
@@ -87,6 +87,6 @@ dbwebb.assert("<?="$sectionId.$questionId"?>", ANSWER, false);
 }
 ?>
 
-    console.log(dbwebb.exitWithSummary());
+console.log(dbwebb.exitWithSummary());
 
 }(window.dbwebb));

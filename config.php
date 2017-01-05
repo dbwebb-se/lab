@@ -75,7 +75,7 @@ $VALID_LABS = [
     "webgl/lab1" => "config/webgl/lab1.php",
     "webgl/lab2" => "config/webgl/lab2.php",
 
-    "dbjs/lab1" => "config/dbjs/lab1.php",
+    "dbjs/javascript1" => "config/dbjs/javascript1.php",
     "dbjs/lab2" => "config/dbjs/lab2.php",
     "dbjs/lab3" => "config/dbjs/lab3.php",
     "dbjs/lab4" => "config/dbjs/lab4.php",
@@ -100,7 +100,9 @@ $LAB_TYPE = [
     "webgl"      => "javascript",
     "python"     => "python",
     "oopython"   => "python",
-    "dbjs" => "sqlite",
+    "dbjs" => [
+        "javascript1" => "javascript",
+    ],
     "linux"      => [
         "bash1" => "bash",
         "bash2" => "bash",

@@ -15,6 +15,12 @@ This work is licensed under the Creative Commons Attribution-NonCommercial-Share
 History
 -------------------
 
+v2.2.22* (2017-01-04)
+
+* Change intendation on javascript1/dbjs lab1 to pass validation.
+* Adding labb dbjs javascript1.
+
+
 v2.2.22 (2017-01-04)
 
 * Enable to copy directory structure in lab_extra.

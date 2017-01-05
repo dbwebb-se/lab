@@ -218,7 +218,10 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    execute("cd $base && mkdir -p ./apache2/md/");
+    // Funkar inte eftersom labben skapas via webben och det är apache-användaren som kör programmet ofh utför mkdir
+    // Dessutom hade du redigerat orginal-katalogen om du hade lyckats.
+    // Tänk att din apache2-katalog måste vara readonly. Den får inte redigeras när man skapar facit och det får inte redigeras lokalt när användaren kör labben.
+    //execute("cd $base && mkdir -p ./apache2/md/");
     return execute("cd $base && du -h ./apache2/md/");
 },
 

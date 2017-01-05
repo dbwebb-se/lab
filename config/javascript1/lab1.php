@@ -141,10 +141,9 @@ return [
 "title" => "Lab 1 - javascript1",
 
 "intro" => <<<EOD
-If you need to peek at examples or just want to know more, take a look at the references at MDNs (Mozilla Developers Network) page:  
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference.  
+If you need to peek at examples or just want to know more, take a look at the references at [MDNs (Mozilla Developers Network)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference.)
 
-Here you will find everything this lab will go through and much more.
+There you will find everything this lab will go through and much more.
 EOD
 ,
 
@@ -160,7 +159,12 @@ EOD
 "title" => "Integers, floats and variables",
 
 "intro" => <<<EOD
-The foundation of variables, numbers, strings and basic arithmetic. In questions 1.5 and 1.6 you are going to work with floats. One way to round a float to a certain amount of decimals is:  Math.round(val*10000)/10000, where 'val' is your float number.
+The foundation of variables, numbers, strings and basic arithmetic. In questions 1.5 and 1.6 you are going to work with floats. One way to round a float to a certain amount of decimals is:
+
+```javascript
+Math.round(val*10000)/10000
+```
+Where `val` is your float number.
 EOD
 ,
 

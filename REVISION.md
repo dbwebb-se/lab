@@ -2,12 +2,18 @@ Revision history
 ===================
 
 
+v2.2.23* (2017-01-05)
+-------------------
+
+* Make oopython lab1 pass validation.
+
+
 v2.2.23 (2017-01-05)
 -------------------
 
 * Make nodejs assert pass enhanced validation.
 * Change intendation on javascript1/dbjs lab1 to pass validation.
-* Adding labb dbjs javascript1.
+* Adding lab dbjs javascript1.
 
 
 v2.2.22 (2017-01-04)

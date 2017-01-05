@@ -40,7 +40,7 @@ return [
 "title" => "Lab 1 - oopython",
 
 "intro" => <<<EOD
-If you need to peek at examples or just want to know more, take a look at the page: https://docs.python.org/3/library/index.html. Here you will find everything this lab will go through and much more.
+If you need to peek at examples or just want to know more, take a look at the [Python documentation](https://docs.python.org/3/library/index.html). Here you will find everything this lab will go through and much more.
 EOD
 ,
 
@@ -72,12 +72,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a class called Cat in a new file. Give the Cat the attributes eyeColor and name in the constructor.  
+Create a class called Cat in a new file. Give the Cat the attributes `eyeColor` and `name` in the constructor.
+
 Dont forget to import the file.
 
-In the code below initiate a variable named cat with a Cat object, give it eye color $s1_catEyeColor and name $s1_catName. 
+In the code below initiate a variable named `cat` with a *Cat object*, give it eye color "$s1_catEyeColor" and name "$s1_catName". 
 
-Answer with the string 'My cats name is <cat name> and has <cat eyeColor> eyes.'.
+Answer with the string "My cats name is `name` and has `eyeColor` eyes.".
 EOD
 ,
 
@@ -96,8 +97,9 @@ EOD
 [
 
 "text" => <<<EOD
-Expand your Cat class with the variables livesLeft.  
-Initialize the attribute in the constructor to -1. In the code below change the value to $s1_livesLeft. 
+Expand your Cat class with the variables `livesLeft`.
+
+Initialize the attribute in the constructor to `-1`. In the code below change the value to "$s1_livesLeft".
 
 Answer with number of lives the cat has left.
 EOD
@@ -118,9 +120,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new function in the Cat class, called description, that returns the string 'My cats name is <name>, has <color> eyes and has <livesLeft> lives left to live.'
+Create a new function in the Cat class, called `description()`, that returns the string "My cats name is `name`, has `color` eyes and has `livesLeft` lives left to live.".
 
-Answer with the description function of cat.
+Answer with the result returned from the function.
 EOD
 ,
 
@@ -206,9 +208,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a static variable in the Cat class that contains the number of paws a cat have, $s1_CatNrOfPaws. Set its value to $s1_CatNrOfPaws in the declaration.  
+Create a static variable in the Cat class that contains the number of paws a cat have. Set its value to `$s1_CatNrOfPaws` in the declaration.  
 
-Answer with the string "<$s1_catName> has <cat.nrOfPaws> paws."
+Answer with the string "`cat.name` has `cat.nrOfPaws` paws."
 EOD
 ,
 
@@ -226,9 +228,9 @@ EOD
 
 "text" => <<<EOD
 
-In the code below assign number of paws variable for cat to $s1_catNrOfPaws.
+In the code below assign number of paws variable for cat to `$s1_catNrOfPaws`.
 
-Answer with the string "<$s1_catName> has <cat.nrOfPaws paws> but cats have <Cat.nrOfpaws> paws"
+Answer with the string "`cat.name` has `cat.nrOfPaws` paws but cats have `Cat.nrOfpaws` paws".
 EOD
 ,
 
@@ -373,17 +375,19 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new class called BankAccount.  
-Declare the attributes balance and owner in the constructor. balance should be a private attribute. 
+Create a new class called BankAccount.
 
-The constructor should take the name for the owner as argument. Balance should be initalized to $s2_acBalance in the constructor.  
+Declare the attributes balance and owner in the constructor. balance should be a private attribute.
+
+The constructor should take the name for the owner as argument. Balance should be initalized to $s2_acBalance in the constructor.
 
 BankAccount should also have three functions, showBalance, depositMoney and withdrawMoney.  
-ShowBalance returns '<owner> has <balance> kr'.  
+ShowBalance returns '`owner` has `balance` kr'.
+
 DepositMoney takes one argument, amount, and adds the amount to the balance.  
 WithdrawMoney draws the amount of money sent as an argument from balance. 
 
-In the code below create a function, where you create a new instance of the class BankAccount, the function should take the owner name as argument, and return the created object.  
+In the code below create a function, where you create a new instance of the class BankAccount, the function should take the owner name as argument, and return the created object.
 
 Create a new variable called bankAccount1 and initialize it with the create bank account function, name the owner $s2_ac1Owner.  
 Deposit $s2_firstDeposit kr to the account and answer with the showBalance function.
@@ -392,7 +396,7 @@ EOD
 
 "answer" => function () use ($s2_balanceAfterFirstDeposit, $s2_ac1Owner) {
 
-	return "$s2_ac1Owner has $s2_balanceAfterFirstDeposit kr";
+    return "$s2_ac1Owner has $s2_balanceAfterFirstDeposit kr";
 },
 
 ],

@@ -1,6 +1,8 @@
 /**
  * Dbwebb lab assert using nodejs as base.
  */
+"use strict";
+
 var fs      = require('fs');
 var path    = require('path');
 
@@ -8,21 +10,25 @@ var path    = require('path');
 /**
  * Compare arrays.
  */
+/* jshint freeze: false */
 Array.prototype.equals = function (array) {
     // if the other array is a falsy value, return
-    if (!array)
+    if (!array) {
         return false;
+    }
 
     // compare lengths - can save a lot of time
-    if (this.length != array.length)
+    if (this.length != array.length) {
         return false;
+    }
 
     for (var i = 0, l = this.length; i < l; i++) {
         // Check if we have nested arrays
         if (this[i] instanceof Array && array[i] instanceof Array) {
             // recurse into the nested arrays
-            if (!this[i].equals(array[i]))
+            if (!this[i].equals(array[i])) {
                 return false;
+            }
         }
         else if (this[i] !== array[i]) {
             // Warning - two different object instances will never be equal: {x:20} != {x:20}
@@ -31,6 +37,7 @@ Array.prototype.equals = function (array) {
     }
     return true;
 };
+/* jshint freeze: true */
 
 
 
@@ -71,8 +78,7 @@ var dbwebb = {
         if (answer === noanswer) {
             status = this.prompt + question + " NOT YET DONE.";
             this.notDone += 1;
-        } else if (answer === this.answers[question]
-                   || this.arrayCheck(answer, this.answers[question])) {
+        } else if (answer === this.answers[question] || this.arrayCheck(answer, this.answers[question])) {
             status = this.prompt + question + " CORRECT. Well done!\n" + JSON.stringify(answer) + " (" + typeof answer + ")";
             this.correct += 1;
         } else {

@@ -222,7 +222,8 @@ EOD
     // Dessutom hade du redigerat orginal-katalogen om du hade lyckats.
     // Tänk att din apache2-katalog måste vara readonly. Den får inte redigeras när man skapar facit och det får inte redigeras lokalt när användaren kör labben.
     //execute("cd $base && mkdir -p ./apache2/md/");
-    return execute("cd $base && du -h ./apache2/md/");
+    //return execute("cd $base && du -h ./apache2/md/");
+    return execute("cd $base");
 },
 
 ],
@@ -244,7 +245,9 @@ EOD
 
 "answer" => function () use ($base) {
     $file = execute("cd $base && find . -name 'ports.conf'");
-    execute("cd $base && rsync $file ./apache2/md/");
+    
+    // Tänk om hur denna kan fungera med tanke på kommentaren ovan.
+    //execute("cd $base && rsync $file ./apache2/md/");
     return execute("cd $base && find . -name 'ports.conf'");
 },
 

@@ -18,8 +18,8 @@ $s1_searchStrings   = [
 $s1_searchString    = $s1_searchStrings[rand_int(0, count($s1_searchStrings) -1)];
 
 $s1_listYear        = [1993, 1994, 1996, 2000, 2003, 2005, 2010, 2013, 2014, 2016];
-$s1_listMonth       = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10" , "11", "12"];
-$s1_listDay         = ["1", "2", "4", "6", "7", "8", "9", "11", "13", "14", "16", "17", "18", "20", "23", "26", "28", "30"];
+$s1_listMonth       = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10" , "11", "12"];
+$s1_listDay         = ["01", "02", "04", "06", "07", "08", "09", "11", "13", "14", "16", "17", "18", "20", "23", "26", "28", "30"];
 $s1_year            = $s1_listYear[rand_int(0, count($s1_listYear)-1)];
 $s1_month           = $s1_listMonth[rand_int(0, count($s1_listMonth)-1)];
 $s1_day             = $s1_listDay[rand_int(0, count($s1_listDay)-1)];
@@ -91,7 +91,8 @@ EOD
 "text" => <<<EOD
 Create a new class named Date.  
 Declare the variables `year`, `month` and `day` in the constructor.  
-Give it a `info` method that returns a date as a string with the format "dd:mm:year".
+Give it a `info` method that returns a date as a string with the format "year-mm-dd". Numbers below 10 should have a leading zero when printed in the info method.
+
 
 Initialize a new variable called `date1` which containts a *Date object*, give it year `$s1_year`, month `$s1_month` and day `$s1_day`.
 
@@ -101,7 +102,7 @@ EOD
 ,
 
 "answer" => function () use ($s1_year, $s1_month, $s1_day) {
-    return "$s1_year:$s1_month:$s1_day";
+    return "$s1_year-$s1_month-$s1_day";
 },
 
 ],

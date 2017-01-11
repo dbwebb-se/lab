@@ -379,20 +379,20 @@ EOD
 "text" => <<<EOD
 Create a new class called BankAccount.
 
-Declare the attributes `balance` and `owner` in the constructor. `balance` should be a private attribute.
+Declare the attributes `balance` and `owner` in the constructor. `owner` should be a private attribute.
 
 The constructor should take the name for the owner as argument. Balance should be initalized to `$s2_acBalance` in the constructor.
 
-BankAccount should also have three functions, `showBalance`, `depositMoney` and `withdrawMoney`.  
-ShowBalance returns "`$s2_ac1Owner` has `$s2_balanceAfterFirstDeposit` kr".
-
-DepositMoney takes one argument, `amount`, and adds the amount to the balance.  
-WithdrawMoney draws the `amount` of money sent as an argument from balance. 
+BankAccount should also have four functions: `accountInfo` `getBalance`, `depositMoney` and `withdrawMoney`.  
+accountInfo returns "`$s2_ac1Owner` has `$s2_balanceAfterFirstDeposit` kr".  
+getBalance returns the balance.  
+depositMoney takes one argument, `amount`, and adds the amount to the balance.  
+withdrawMoney draws the `amount` of money sent as an argument from balance.
 
 In the code below create a function, where you create a *new instance of the class BankAccount*, the function should take the `owner` name as argument, and return the created object.
 
 Create a new variable called `bankAccount1` and initialize it with the create bank account function, name the owner "$s2_ac1Owner".  
-Deposit `$s2_firstDeposit` kr to the account and answer with the showBalance function.
+Deposit `$s2_firstDeposit` kr to the account and answer with the `accountInfo` function.
 EOD
 ,
 
@@ -436,7 +436,7 @@ Overload the *iadd(+=)* function for the BankAccount class. The function should 
 
 Update `bankAccount1` with `bankAccount1 += bankAccount2`. 
 
-Answer with `showBalance` for bankAccount1.
+Answer with `accountInfo` for bankAccount1.
 EOD
 ,
 
@@ -459,7 +459,7 @@ To minize code size of the class, create a private function where you do the sha
 
 calculate `bankAccount2 += bankAccount1 + 5`.
 
-Answer with bankAccount2.showBalance()
+Answer with bankAccount2.accountInfo()
 EOD
 ,
 

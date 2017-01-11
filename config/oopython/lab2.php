@@ -94,7 +94,7 @@ Declare the variables `year`, `month` and `day` in the constructor.
 Give it a `info` method that returns a date as a string with the format "year-mm-dd". Numbers below 10 should have a leading zero when printed in the info method.
 
 
-Initialize a new variable called `date1` which containts a *Date object*, give it year `$s1_year`, month `$s1_month` and day `$s1_day`.
+Initialize a new variable called `date1` which contains a *Date object*, give it year `$s1_year`, month `$s1_month` and day `$s1_day`.
 
 Answer with the result from the info method.
 
@@ -177,13 +177,13 @@ EOD
 [
 
 "text" => <<<EOD
-The next class that you will create will hold dogs of a certain type. Eg. one instance of this class will hold all the small dogs, contain the size of the dogs, how many dogs of the type are allowed and how much a small dog costs per day.
+The next class that you will create will hold dogs of a certain type. Eg. small, medium or big sized.
 
-Create a new class called DogType. In the constructor declare the variables `size`, `cost`, `numberOfAllowedDogs` and a private list that will containts *Dog*s. Delcare the list with `Dogs` to an empty list in the constructor. 
-Give it a new method called `addDog`, it should take a `Dog object` as parameter. In the method add the Dog to the list if you have room for it and it has the correct size.  If you add the dog return `True` otherwise return `False`.
+Create a new class called DogType. In the constructor declare the variables `size`, `cost` (per day), `numberOfAllowedDogs` and a private list that will contain *Dog objects*. Declare the list with `Dogs` to an empty list in the constructor.  
+Give the class a new method called `addDog`, it should take a Dog object as parameter. In the method add the Dog to the list if you have room for it and it has the correct size. If you add the dog return `True` otherwise return `False`.
 
-Initialize a new DogType variable in the code below, calle it `smallDogs`, set `size` to "small", `cost` to `$s1_priceSmall` and `numberOfAllowedDogs` to `3`. 
-Use the add method to add the dog1 variable from previous exercise.
+Initialize a new DogType variable in the code below, name it `smallDogs`, set `size` to "small", `cost` to `$s1_priceSmall` and `numberOfAllowedDogs` to `3`. 
+Use the add method to add dog1.
 
 Answer with the result from adding `dog1` to `smallDogs`.
 EOD
@@ -203,7 +203,7 @@ EOD
 [
 
 "text" => <<<EOD
-In the DogType class create a new method called `retrieveDog`, take a `name` as parameter. If the dogs name is the same as a dog  in the list remove it from the list and return the object, otherwise reutn `False`.
+In the DogType class create a new method called `retrieveDog`, take a `name` as parameter. If the dogs name is the same as a dog  in the list remove it from the list and return the object, otherwise return `False`.
 
 In the code below retrieve "$s1_dog1[0]" from `smallDogs`. 
 

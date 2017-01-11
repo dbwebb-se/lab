@@ -128,7 +128,7 @@ EOD
 
 "answer" => function () use ($s1_catName, $s1_catEyeColor, $s1_livesLeft) {
 
-    return "My cats name is $s1_catName, has $s1_catEyeColor eyes and has $s1_livesLeft lives left to live.";
+    return "My cats name is $s1_catName, has $s1_catEyeColor eyes and $s1_livesLeft lives left to live.";
 },
 
 ],
@@ -285,7 +285,7 @@ EOD
 
 "answer" => function () use ($s1_catName, $s1_catEyeColor, $s1_livesLeft, $s1_dogName, $s1_dogEyeColor) {
 
-	return "My cats name is $s1_catName, has $s1_catEyeColor eyes and has $s1_livesLeft lives left to live. My dogs name is $s1_dogName, has $s1_dogEyeColor eyes and has 1 lives left to live.";
+	return "My cats name is $s1_catName, has $s1_catEyeColor eyes and $s1_livesLeft lives left to live. My dogs name is $s1_dogName, has $s1_dogEyeColor eyes and 1 lives left to live.";
 
 },
 

@@ -28,7 +28,9 @@ return [
 "title" => "Bash 1 - linux",
 
 "intro" => "
-En lab där du använder Unix kommandon som finns tillgängliga via kommandoraden för att hitta, skriva ut information om filer och ändra i en katalogstruktur.
+En lab där du använder Unix kommandon som finns tillgängliga via kommandoraden för att lista, hitta, skriva ut information om filer och ändra i en katalogstruktur.
+
+Labben använder sig av en apache2 katalogstruktur som finns på denna sökväg './apache2'.
 ",
 
 "header" => null,
@@ -51,18 +53,11 @@ En lab där du använder Unix kommandon som finns tillgängliga via kommandorade
  * New section of exercises.
  */
 [
-"title" => "Bash",
+"title" => "ls",
 
 "intro" => <<<EOD
-Öva Linux kommandon för att ta sig runt och ändra i en katalogstruktur.
 
-I denna övningen kommer du främst använda kommandon som `stat`, `find`, `du` för att bekanta dig med en katalogstruktur.
-
-Övningen baseras på katalogen `apache2/` och alla filer som ska hittas och kopieras för finns i denna katalogstruktur.
-
-För att din bash kod ska köras använd `` runt ditt kommand, ex.: `kommando`.
-
-Använd bash-variabler för att strukturera och underlätta i koden. `&&` kan användas för att köra flera kommandon efter varann.
+I denna del använder vi kommandot `ls` för att lista filer och kataloger.
 
 EOD
 ,
@@ -80,7 +75,9 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta filen `apache2.conf`
+Använd kommandot `ls` för att lista filerna i apache2 katalogen, lista filerna så varje ny fil hamnar på en egen rad.
+
+Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
 
 EOD
 ,
@@ -88,7 +85,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && find . -name 'apache2.conf'");
+    return execute("cd $base && ls -1 ./apache2");
 },
 
 ],
@@ -102,9 +99,9 @@ EOD
 
 "text" => <<<EOD
 
-Vilka rättigheter har filen `apache2.conf`? Svara med dess rättigheter i oktal format.
+Använd kommandot `ls` för att lista filerna i apache2 katalogen, använd en flagga så alla kataloger får ett snedstreck (`/`) efter namnet. Lista filerna så varje ny fil hamnar på en egen rad.
 
-Tips: använd `stat` och `man`.
+Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
 
 EOD
 ,
@@ -112,8 +109,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    $file = execute("cd $base && find . -name 'apache2.conf'");
-    return exec("cd $base && stat -c '%a' $file");
+    return execute("cd $base && ls -1p ./apache2");
 },
 
 ],
@@ -127,7 +123,9 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta alla tomma filer.
+Använd kommandot `ls` för att lista filerna i apache2/mods-available katalogen. Lista bara filer som börjar på 'a' och har filändelsen '.conf'. Lista filerna så varje ny fil hamnar på en egen rad.
+
+Tips: Använd ett wildcard `*` för att matcha mot flera filer.
 
 EOD
 ,
@@ -135,7 +133,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && find . -type f -empty");
+    return execute("cd $base && ls -1 ./apache2/mods-available/a*.conf");
 },
 
 ],
@@ -149,9 +147,7 @@ EOD
 
 "text" => <<<EOD
 
-Skriv ut hur stor katalogen `apache2/sites-available` i human-readable format.
-
-Tips: Använd kommandot `du`.
+Lista alla, även dolda, filer och kataloger i `apache2/sites-available` katalogen, lista filerna så varje ny fil hamnar på en egen rad.
 
 EOD
 ,
@@ -159,7 +155,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && du -h ./apache2/sites-available/");
+    return execute("cd $base && ls -1a ./apache2/sites-available");
 },
 
 ],
@@ -173,9 +169,7 @@ EOD
 
 "text" => <<<EOD
 
-Summera katalogen `apache2/` storlek i human-readable format
-
-Tips: Använd kommandot `du`.
+Lista alla filer och kataloger i `apache2/conf-available`, sortera filerna i storleksordning med den minsta filen först. Lista filerna så varje ny fil hamnar på en egen rad.
 
 EOD
 ,
@@ -183,7 +177,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && du -sch ./apache2/");
+    return execute("cd $base && ls -1rS ./apache2/conf-available");
 },
 
 ],
@@ -202,14 +196,11 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "Bash",
+"title" => "file",
 
 "intro" => <<<EOD
-Öva Linux kommandon för att ta sig runt och ändra i en katalogstruktur.
 
-I denna del kommer du främst använda kommandon som `cp`, `rsync` och `find` för att ändra i en katalogstruktur.
-
-Övningen baseras nu på en kopia av katalogen `apache2/`, som du själv skapar i första övningen. Alla filer som ska hittas och kopieras finns i denna kopierade katalogstruktur.
+I denna del använder vi kommandot `file` för att ta reda på information om filerna i katalogstrukturen.
 
 EOD
 ,
@@ -227,57 +218,9 @@ EOD
 
 "text" => <<<EOD
 
-Ta bort en eventuell `/tmp/apache2_copy/` katalog. Använd kommandot `rsync` för att kopiera `apache2` till en nya katalogen `/tmp/apache2_copy`. Skriv ut den totala summerade storleken i human-readable format för den nya katalogen.
+Använd kommandot `ls` för att lista filerna i apache2 katalogen, lista filerna så varje ny fil hamnar på en egen rad.
 
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base, $tmpBase) {
-    execute("rm -rf /tmp/apache2_copy");
-    execute("cd $base && rsync -rl apache2/ /tmp/apache2_copy/");
-    return execute("du -sch /tmp/apache2_copy/");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Användaren av apache2-katalogen har gjort 3 egna konfigurationsfiler i `sites-available` katalogen.
-De två som ska finnas i denna katalog är 000-default.conf och default-ssl.conf. Ta bort de andra filerna från `/tmp/apache2_copy/sites-available` och skriv ut storleken på `/tmp/apache2_copy/sites-available` i human-readable format.
-
-Tips: Använd find tillsammans med exec.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($tmpBase) {
-    execute("find /tmp/apache2_copy/ -name '*default*.conf' -exec rm -rf {} \;");
-    return execute("du -h /tmp/apache2_copy/sites-available/");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Använd kommandot `find` för att hitta alla filer med rättigheterna 664
+Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
 
 EOD
 ,
@@ -285,7 +228,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && find . -type f -perm 0664 -print");
+    return execute("cd $base && ls -1 ./apache2");
 },
 
 ],
@@ -299,18 +242,85 @@ EOD
 
 "text" => <<<EOD
 
-Ta bort alla tomma filer i `/tmp/apache2_copy` katalogen. Skriv ut den totala summerade storleken på hela `/tmp/apache2_copy` katalogen i human-readable format.
+Använd kommandot `ls` för att lista filerna i apache2 katalogen, använd en flagga så alla kataloger får ett snedstreck (`/`) efter namnet. Lista filerna så varje ny fil hamnar på en egen rad.
 
-Tips: Använd find tillsammans.
+Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($tmpBase) {
-    $file = execute("find /tmp/apache2_copy -empty -type f -delete");
-    return execute("du -sch /tmp/apache2_copy/");
+"answer" => function () use ($base) {
+    return execute("cd $base && ls -1p ./apache2");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Använd kommandot `ls` för att lista filerna i apache2/mods-available katalogen. Lista bara filer som börjar på 'a' och har filändelsen '.conf'. Lista filerna så varje ny fil hamnar på en egen rad.
+
+Tips: Använd ett wildcard `*` för att matcha mot flera filer.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && ls -1 ./apache2/mods-available/a*.conf");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Lista alla, även dolda, filer och kataloger i `apache2/sites-available` katalogen, lista filerna så varje ny fil hamnar på en egen rad.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && ls -1a ./apache2/sites-available");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Lista alla filer och kataloger i `apache2/conf-available`, sortera filerna i storleksordning med den minsta filen först. Lista filerna så varje ny fil hamnar på en egen rad.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && ls -1rS ./apache2/conf-available");
 },
 
 ],
@@ -322,6 +332,8 @@ EOD
  */
 ], // EOF questions
 ], // EOF section
+
+
 
 /** ===========================================================================
  * Closing up all sections.

@@ -123,7 +123,9 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `ls` för att lista filerna i apache2/mods-available katalogen. Lista bara filer som börjar på 'a' och har filändelsen '.conf'. Lista filerna så varje ny fil hamnar på en egen rad.
+Gä först till katalogen `apache2/mods-available` och använd  här kommandot `ls` för att lista filerna i  katalogen. Lista bara filer som börjar på 'a' och har filändelsen '.conf'. Lista filerna så varje ny fil hamnar på en egen rad.
+
+Du kan använda `&&` för att kedja ihop två eller fler kommandon på samma rad.
 
 Tips: Använd ett wildcard `*` för att matcha mot flera filer.
 
@@ -133,7 +135,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && ls -1 ./apache2/mods-available/a*.conf");
+    return execute("cd $base && cd ./apache2/mods-available/ && ls -1 a*.conf");
 },
 
 ],
@@ -218,6 +220,227 @@ EOD
 
 "text" => <<<EOD
 
+Använd kommandot `file` för att skriva ut filtypen för alla filer och kataloger i `apache2`.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && file apache2/*");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Använd kommandot `file` för att skriva ut filtypen för alla filer och kataloger i `apache2`. Denna gång skriv bara ut filtypen utan filnamn.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && file -b apache2/*");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Använd kommandot `file` för att skriva ut filtypen för alla filer och kataloger i `apache2`. Denna gång skriv bara ut filtypen utan filnamn.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && file -b apache2/*");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===========================================================================
+ * New section of exercises.
+ */
+[
+"title" => "cp, mv, mkdir och rm",
+
+"intro" => <<<EOD
+
+I denna del använder vi kommandona  `cp`, `mv`, `mkdir` och `rm` för att ändra i en katalogstruktur.
+
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Använd kommandot `mkdir` för att skapa en katalog med namnet `backup` om katalogen inte redan finns. Kopiera alla filer som har filändelsen `.conf` i `apache2/mods-available` till en ny katalog i `backup` med namnet `conf`.
+
+Lista alla filer i den nya `backup/conf` katalogen, sortera filerna i storleksordning med den största filen först. Lista filerna så varje ny fil hamnar på en egen rad.
+
+Tips: Använd `&&` för att exekverera flera kommandon i rad och `man mkdir` för att hitta rätt flagga.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base, $tmpBase) {
+    execute("cd $tmpBase && mkdir -p backup && mkdir -p backup/conf");
+    execute("cd $base && cp apache2/mods-available/*.conf $tmpBase/backup/conf");
+    return execute("cd $tmpBase && ls -1S ./backup/conf");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Använd kommandot `mkdir` för att skapa en ny underkatalog `backup/php` om den inte redan finns.
+Flytta alla filer som börjar med 'php' till den nya katalogen.
+
+Lista alla filer i `backup/conf` katalogen. Lista filerna så varje ny fil hamnar på en egen rad.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base, $tmpBase) {
+    return execute("cd $tmpBase && mkdir -p backup/php && mv backup/conf/php* backup/php && ls -1 ./backup/conf");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Ta bort alla filer som börjar med 'proxy' från `backup/conf`.
+
+Lista alla filer i `backup/conf` katalogen. Lista filerna så varje ny fil hamnar på en egen rad.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base, $tmpBase) {
+    return execute("cd $tmpBase && rm backup/conf/proxy* && ls -1 ./backup/conf");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Flytta alla filer från `backup/php` till `backup` och ta sedan bort hela `backup/php` katalogen.
+
+Lista alla filer och kataloger i `backup` katalogen, använd en flagga så alla kataloger får ett snedstreck (`/`) efter namnet. Lista filerna så varje ny fil hamnar på en egen rad.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base, $tmpBase) {
+    return execute("cd $tmpBase && mv backup/php/* backup/ && rm -rf backup/php && ls -1p ./backup/");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===========================================================================
+ * New section of exercises.
+ */
+[
+"title" => "find",
+
+"intro" => <<<EOD
+
+I denna del använder vi kommandot `find` för att ta hitta i en katalogstruktur.
+
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
 Använd kommandot `ls` för att lista filerna i apache2 katalogen, lista filerna så varje ny fil hamnar på en egen rad.
 
 Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
@@ -229,98 +452,6 @@ EOD
 
 "answer" => function () use ($base) {
     return execute("cd $base && ls -1 ./apache2");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Använd kommandot `ls` för att lista filerna i apache2 katalogen, använd en flagga så alla kataloger får ett snedstreck (`/`) efter namnet. Lista filerna så varje ny fil hamnar på en egen rad.
-
-Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return execute("cd $base && ls -1p ./apache2");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Använd kommandot `ls` för att lista filerna i apache2/mods-available katalogen. Lista bara filer som börjar på 'a' och har filändelsen '.conf'. Lista filerna så varje ny fil hamnar på en egen rad.
-
-Tips: Använd ett wildcard `*` för att matcha mot flera filer.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return execute("cd $base && ls -1 ./apache2/mods-available/a*.conf");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Lista alla, även dolda, filer och kataloger i `apache2/sites-available` katalogen, lista filerna så varje ny fil hamnar på en egen rad.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return execute("cd $base && ls -1a ./apache2/sites-available");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Lista alla filer och kataloger i `apache2/conf-available`, sortera filerna i storleksordning med den minsta filen först. Lista filerna så varje ny fil hamnar på en egen rad.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return execute("cd $base && ls -1rS ./apache2/conf-available");
 },
 
 ],

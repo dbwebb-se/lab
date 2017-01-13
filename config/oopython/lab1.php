@@ -128,7 +128,7 @@ EOD
 
 "answer" => function () use ($s1_catName, $s1_catEyeColor, $s1_livesLeft) {
 
-    return "My cats name is $s1_catName, has $s1_catEyeColor eyes and has $s1_livesLeft lives left to live.";
+    return "My cats name is $s1_catName, has $s1_catEyeColor eyes and $s1_livesLeft lives left to live.";
 },
 
 ],
@@ -146,13 +146,15 @@ Create a new class named Dog, it should look the same as the Cat class. But in t
 In the constructor set lives left to live to `1`. Dont forget to import the new class.
 Initiate a new variable called `dog` with the *Dog class*, give dog the name "$s1_dogName" and eye color "$s1_dogEyeColor".
 
-Put cat and dog variables in a list. Iterate through the list and put their discriptions together in string without any sepereation between the two and answer with it.
+Put cat and dog variables in a list. Iterate through the list and put their descriptions together in a string without any seperation between the two.
+
+Answer with the string.
 EOD
 ,
 
 "answer" => function () use ($s1_catName, $s1_catEyeColor, $s1_livesLeft, $s1_dogName, $s1_dogEyeColor) {
 
-    return "My cats name is $s1_catName, has $s1_catEyeColor eyes and has $s1_livesLeft lives left to live.My dogs name is $s1_dogName, has $s1_dogEyeColor eyes and has 1 lives left to live.";
+    return "My cats name is $s1_catName, has $s1_catEyeColor eyes and $s1_livesLeft lives left to live.My dogs name is $s1_dogName, has $s1_dogEyeColor eyes and 1 lives left to live.";
 },
 
 ],
@@ -166,7 +168,7 @@ EOD
 
 "text" => <<<EOD
 Create a private variable for the Cat class called `evil`.  
-In the constructor the variable should be set to "true" by default if no argument is given.
+In the constructor the variable should be set to `True` by default if no argument is given.
 
 Create a function in the class that returns if the cat is evil or not. 
 
@@ -230,13 +232,13 @@ EOD
 
 In the code below assign the number of paws variable for `cat` to `$s1_catNrOfPaws`.
 
-Answer with the string "`$s1_catName` has `$s1_catNrOfPaws` paws but cats have `<Cat.nrOfpaws>` paws".
+Answer with the string "`$s1_catName` has `$s1_catNrOfPaws` paws but cats have `<Cat.nrOfpaws>` paws.".
 EOD
 ,
 
 "answer" => function () use ($s1_catName, $s1_catNrOfPaws) {
 
-    return "$s1_catName has $s1_catNrOfPaws paws but cats have 4 paws";
+    return "$s1_catName has $s1_catNrOfPaws paws but cats have 4 paws.";
 },
 
 ],
@@ -283,7 +285,7 @@ EOD
 
 "answer" => function () use ($s1_catName, $s1_catEyeColor, $s1_livesLeft, $s1_dogName, $s1_dogEyeColor) {
 
-	return "My cats name is $s1_catName, has $s1_catEyeColor eyes and has $s1_livesLeft lives left to live. My dogs name is $s1_dogName, has $s1_dogEyeColor eyes and has 1 lives left to live.";
+	return "My cats name is $s1_catName, has $s1_catEyeColor eyes and $s1_livesLeft lives left to live. My dogs name is $s1_dogName, has $s1_dogEyeColor eyes and 1 lives left to live.";
 
 },
 
@@ -377,20 +379,20 @@ EOD
 "text" => <<<EOD
 Create a new class called BankAccount.
 
-Declare the attributes `balance` and `owner` in the constructor. `balance` should be a private attribute.
+Declare the attributes `balance` and `owner` in the constructor. `owner` should be a private attribute.
 
 The constructor should take the name for the owner as argument. Balance should be initalized to `$s2_acBalance` in the constructor.
 
-BankAccount should also have three functions, `showBalance`, `depositMoney` and `withdrawMoney`.  
-ShowBalance returns "`$s2_ac1Owner` has `$s2_balanceAfterFirstDeposit` kr".
-
-DepositMoney takes one argument, `amount`, and adds the amount to the balance.  
-WithdrawMoney draws the `amount` of money sent as an argument from balance. 
+BankAccount should also have four functions: `accountInfo` `getBalance`, `depositMoney` and `withdrawMoney`.  
+accountInfo returns "`$s2_ac1Owner` has `$s2_balanceAfterFirstDeposit` kr".  
+getBalance returns the balance.  
+depositMoney takes one argument, `amount`, and adds the amount to the balance.  
+withdrawMoney draws the `amount` of money sent as an argument from balance.
 
 In the code below create a function, where you create a *new instance of the class BankAccount*, the function should take the `owner` name as argument, and return the created object.
 
 Create a new variable called `bankAccount1` and initialize it with the create bank account function, name the owner "$s2_ac1Owner".  
-Deposit `$s2_firstDeposit` kr to the account and answer with the showBalance function.
+Deposit `$s2_firstDeposit` kr to the account and answer with the `accountInfo` function.
 EOD
 ,
 
@@ -434,7 +436,7 @@ Overload the *iadd(+=)* function for the BankAccount class. The function should 
 
 Update `bankAccount1` with `bankAccount1 += bankAccount2`. 
 
-Answer with `showBalande` for bankAccount1.
+Answer with `accountInfo` for bankAccount1.
 EOD
 ,
 
@@ -457,7 +459,7 @@ To minize code size of the class, create a private function where you do the sha
 
 calculate `bankAccount2 += bankAccount1 + 5`.
 
-Answer with bankAccount2.showBalance()
+Answer with bankAccount2.accountInfo()
 EOD
 ,
 

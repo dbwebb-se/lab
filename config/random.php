@@ -40,3 +40,16 @@ function rand_float($min, $max, $precision)
     $factor = pow(10, $precision);
     return mt_rand($min*$factor, $max*$factor) / $factor;
 }
+
+
+
+/**
+ * Create random value from an array of values.
+ */
+function rand_array($array)
+{
+    mt_srand(md5_to_int(KEY));
+    $len = count($array);
+    $which = mt_rand(0, $len - 1);
+    return $array[$which];
+}

@@ -76,6 +76,8 @@ $VALID_LABS = [
     "webgl/lab2" => "config/webgl/lab2.php",
 
     "dbjs/javascript1" => "config/dbjs/javascript1.php",
+    "dbjs/sql1" => "config/dbjs/sql1.php",
+
     "dbjs/lab2" => "config/dbjs/lab2.php",
     "dbjs/lab3" => "config/dbjs/lab3.php",
     "dbjs/lab4" => "config/dbjs/lab4.php",
@@ -102,6 +104,7 @@ $LAB_TYPE = [
     "oopython"   => "python",
     "dbjs" => [
         "javascript1" => "javascript",
+        "sql1" => "bash",
     ],
     "linux"      => [
         "bash1" => "bash",

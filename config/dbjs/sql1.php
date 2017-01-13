@@ -8,6 +8,20 @@ include __DIR__ . "/../random.php";
 $owner = rand_array(["Adam", "Berit", "Ceasar"]);
 $ownerChar = rand_array(["a", "e"]);
 
+$sortOrder = [
+    [
+        "text" => "sjunkande",
+        "sql" => "DESC"
+    ],
+    [
+        "text" => "stigande",
+        "sql" => "ASC"
+    ]
+];
+$sortWhich = rand_int(0, 1);
+$sortOrder1 = $sortOrder[$sortWhich];
+$sortOrder2 = $sortOrder[!$sortWhich];
+
 
 
 // Settings
@@ -49,7 +63,7 @@ Lek runt med inledande SQL-satser i SQLite. Det är bra om du har manualen för 
 
 Du får en databas att jobba med och du skall använda SQL för att hämta ut och presentera information från databasen. Databasen är den som du jobbat med i övningen "[Kom igång med databasen SQLite](https://dbwebb.se/kunskap/kom-igang-med-databasen-sqlite)".
 
-I andra delen av labben bygger vi ut databasen och använder joins för att joina innehållet från olika tabeller.
+Efterhand så bygger vi ut databasen till fler tabeller och avslutar med att använda joins för att joina innehållet från olika tabeller.
 
 **Tips.**
 
@@ -247,18 +261,19 @@ EOD
 [
 
 "text" => <<<EOD
-Visa namnet för `boatType` på de båtar som ligger inlagda. Rubriken för kolumnen skall vara "Type".
+Visa namnet för `boatType` på de båtar som ligger inlagda. Rubriken för kolumnen skall vara "Type". Sortera resultatet i ${sortOrder1["text"]} ordning baserat på båtens typ.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite) {
+"answer" => function () use ($sqlite, $sortOrder1) {
     $sql = <<<EOD
 SELECT
     boatType AS "Type"
 FROM  Jetty
+ORDER BY boatType ${sortOrder1["sql"]}
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -274,19 +289,20 @@ EOD;
 [
 
 "text" => <<<EOD
-Visa namnet på samtliga ägare och vilken båttyp som de har. Rubriken för ägaren skall vara "Owner" och för båtens typ "Type".
+Visa namnet på samtliga ägare och vilken båttyp som de har. Rubriken för ägaren skall vara "Owner" och för båtens typ "Type". Sortera resultatet i ${sortOrder2["text"]} ordning baserat på ägarens namn.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite) {
+"answer" => function () use ($sqlite, $sortOrder2) {
     $sql = <<<EOD
 SELECT
     ownerName AS Name,
     boatType AS Type
 FROM Jetty
+ORDER BY ownerName ${sortOrder2["sql"]}
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -331,14 +347,14 @@ EOD;
 [
 
 "text" => <<<EOD
-Visa båttyp ("Type"), båtens motor ("Engine") och ägarens namn ("Owner") för alla ägarens namn som innehåller ett `$ownerChar`.
+Visa båttyp ("Type"), båtens motor ("Engine") och ägarens namn ("Owner") för alla ägarens namn som innehåller ett `$ownerChar`. Sortera per ägarens namn, i ${sortOrder1["text"]} ordning.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite, $ownerChar) {
+"answer" => function () use ($sqlite, $ownerChar, $sortOrder1) {
     $sql = <<<EOD
 SELECT
     boatType AS Type,
@@ -347,6 +363,7 @@ SELECT
 FROM Jetty
 WHERE
     ownerName LIKE "%$ownerChar%"
+ORDER BY ownerName ${sortOrder1["sql"]}
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -490,17 +507,18 @@ Det har tillkommit ytterligare båtar som skall läggas in i tabellen. Lägg til
 |-----|-------|-------|-------|-------|
 | Seadoo Spark | Rotax 90hk | 305 | 118 | Debbie |
 | Plastic skiff | Oar | 220 | 99 | Debbie |
+| Seadoo Spark | Rotax 90hk | 305 | 118 | Berit |
 
-Svara sedan med `SELECT *` och sortera på båtens ägare i sjunkande ordning.
+Svara sedan med `SELECT *` och sortera på båtens ägare i ${sortOrder2["text"]} ordning.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite) {
+"answer" => function () use ($sqlite, $sortOrder2) {
     $sql = <<<EOD
-INSERT INTO Jetty (boatType, boatEngine, boatLength, boatWidth, ownerName) VALUES ("Seadoo Spark", "Rotax 90hk", 305, 118, "Debbie"), ("Plastic skiff", "Oar", 220, 99, "Debbie")
+INSERT INTO Jetty (boatType, boatEngine, boatLength, boatWidth, ownerName) VALUES ("Seadoo Spark", "Rotax 90hk", 305, 118, "Debbie"), ("Plastic skiff", "Oar", 220, 99, "Debbie"), ("Seadoo Spark", "Rotax 90hk", 305, 118, "Berit")
 ;
 EOD;
     execute("$sqlite '$sql'");
@@ -509,7 +527,195 @@ EOD;
 SELECT
     *
 FROM Jetty
-ORDER BY ownerName DESC;
+ORDER BY ownerName ${sortOrder2["sql"]};
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Adam köper vattenskootern SeaDoo Spark av Berit. Uppdatera i databasen.
+
+Svara sedan med `SELECT *` och sortera på båtens ägare i ${sortOrder1["text"]} ordning.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite, $sortOrder1) {
+    $sql = <<<EOD
+UPDATE Jetty
+SET 
+    ownerName = "Adam"
+WHERE
+    boatType = "Seadoo Spark" AND
+    ownerName = "Berit"
+;
+EOD;
+    execute("$sqlite '$sql'");
+
+    $sql = <<<EOD
+SELECT
+    *
+FROM Jetty
+ORDER BY ownerName ${sortOrder1["sql"]};
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Debbie byter ut sin plasteka mot en ny Buster M (längd 4,75m och bredd 1,86m) som har en motor Yamaha 50hk. Uppdatera i databasen.
+
+Svara sedan med `SELECT *` och sortera på båtens ägare i ${sortOrder2["text"]} ordning.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite, $sortOrder2) {
+    $sql = <<<EOD
+UPDATE Jetty
+SET 
+    boatType   = "Buster M",
+    boatEngine = "Yamaha 50hk",
+    boatLength = 475,
+    boatWidth  = 186
+WHERE
+    boatType = "Plastic skiff"
+;
+EOD;
+    execute("$sqlite '$sql'");
+
+    $sql = <<<EOD
+SELECT
+    *
+FROM Jetty
+ORDER BY ownerName ${sortOrder2["sql"]};
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===========================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Modfiera tabellstruktur",
+
+"intro" => <<<EOD
+Se hur du kan modifiera en befintlig tabellstruktur via `ALTER TABLE`.
+
+Båtklubben expanderar och har fått två nya fina bryggor och väljer att placera båtarna vid namngivna båtplatser.
+
+
+```text
+--------------------------------
+|                              |
+| Brygga A (A1 - A6)           |
+|                              |
+--------------------------------
+
+--------------------------------
+|                              |
+| Brygga B (B1 - B6)           |
+|                              |
+--------------------------------
+```
+
+Varje brygga har 6 båtplatser vardera, namngivna enligt A1-A6 och B1-B6.
+
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Uppdatera tabellen så att du lägger till en kolumn `berth` som kan innehålla båtens plats vid en brygga.
+
+Utför ändringen i databasen med hjälp av `ALTER TABLE`.
+
+Placera sedan ut båtarna på platserna enligt följande.
+
+| Owner  | Type          | Berth      |
+|--------|---------------|------------|
+| Adam   | Buster XXL    | A1         |
+| Adam   | Seadoo Spark  | A2         |
+| Berit  | Buster M      | A3         |
+| Ceasar | Linder 440    | B4         |
+| Debbie | Seadoo Spark  | B5         |
+| Debbie | Buster M      | B6         |
+
+Svara sedan med SQL-satsen som visar ovanstående tabell.
+
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite) {
+    $sql = <<<EOD
+ALTER TABLE Jetty ADD COLUMN berth TEXT NOT NULL DEFAULT "";
+
+UPDATE Jetty SET berth = "A1" WHERE jettyposition = 1;
+UPDATE Jetty SET berth = "A2" WHERE jettyposition = 6;
+UPDATE Jetty SET berth = "A3" WHERE jettyposition = 2;
+UPDATE Jetty SET berth = "B4" WHERE jettyposition = 3;
+UPDATE Jetty SET berth = "B5" WHERE jettyposition = 4;
+UPDATE Jetty SET berth = "B6" WHERE jettyposition = 5;
+ 
+EOD;
+    execute("$sqlite '$sql'");
+
+    $sql = <<<EOD
+SELECT
+    ownerName AS "Owner",
+    boatType AS "Type",
+    berth AS "Berth"
+FROM Jetty
+ORDER BY berth ASC
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -534,7 +740,7 @@ EOD;
 "title" => "Aggregerande funktioner",
 
 "intro" => <<<EOD
-Använd `SELECT FROM` tillsammans med aggregerande funktioner för att svara på följande frågor.
+Använd `SELECT` och aggregerande funktioner för att svara på följande frågor.
 
 EOD
 ,
@@ -551,7 +757,7 @@ EOD
 [
 
 "text" => <<<EOD
-Räkna ut antalet matcher som har spelats. Döp rubriken till "Antal matcher". Tips `COUNT()`.
+Räkna antalet båtar i tabellen med `COUNT()` och ge rubriken "Total".
 
 EOD
 ,
@@ -561,8 +767,8 @@ EOD
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
 SELECT
-    Count(id) AS "Antal matcher"
-FROM Games
+    Count(berth) AS "Total"
+FROM Jetty
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -578,7 +784,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Summera antalet poäng som hemmalagen tagit ("Poäng hemma"), samt antalet poäng som bortalagen tagit ("Poäng borta"). Tips `SUM()`.
+Räkna hur många båtar som har en längd större än 4m. Ge rubriken "Total".
 
 EOD
 ,
@@ -588,9 +794,125 @@ EOD
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
 SELECT
-    SUM(scoreA) AS "Poäng hemma",
-    SUM(scoreB) AS "Poäng borta"
-FROM Games
+    Count(berth) AS "Total"
+FROM Jetty
+WHERE
+    boatLength > 400
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Använd `MAX()` för att visa den bredaste båten. Svara med båtens typ ("Type") och bredd ("Width").
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite) {
+    $sql = <<<EOD
+SELECT
+    boatType AS Type,
+    MAX(boatWidth) AS "Width"
+FROM Jetty
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Använd `MIN()` för att visa den kortaste båten. Svara med båtens typ ("Type") och längd ("Length").
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite) {
+    $sql = <<<EOD
+SELECT
+    boatType AS Type,
+    MIN(boatLength) AS "Length"
+FROM Jetty
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Använd `SUM()` för att summera längden på alla båtar som har en större längd än den kortaste båten. Svara med summan ("Total length").
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite) {
+    $sql = <<<EOD
+SELECT
+    SUM(boatLength) AS "Total length"
+FROM Jetty
+WHERE
+    boatLength > 305
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Hur många båtar är längre än den kortaste båten?. Svara med antalet båtar ("Total").
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite) {
+    $sql = <<<EOD
+SELECT
+    COUNT(boatLength) AS "Total"
+FROM Jetty
+WHERE
+    boatLength > 305
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -612,14 +934,10 @@ EOD;
  * New section of exercises.
  */
 [
-"title" => "Beräknade värden",
+"title" => "Inbyggda funktioner",
 
 "intro" => <<<EOD
-I en databas vill man inte dubbellagra information. Man lagrar endast det som behövs. Saker som går att räkna fram, med hjälp av befintlig data, behöver inte dubbellagras. Tänk till exempel på födelsedatum kontra ålder.
-
-Om man dubbellagrar data riskerar man att missa en del av datat vid till exempel en `UPDATE`. Man vill inte göra en `UPDATE` på två platser, om det är "samma" värde (födelsedatum, ålder).
-
-I en databas som är *normaliserad* brukar det inte finnas duplicerad data.
+En databasmotor innehåller en uppsättning av inbyggda funktioner som kan användas för att till exempel formattera och förbereda resultatet.
 
 EOD
 ,
@@ -636,11 +954,7 @@ EOD
 [
 
 "text" => <<<EOD
-En match spelas om 4 serier och i varje serie spelar lagen om 5 poäng. Varje lag är indelat i fyra tvåmannalag som spelar om 4 poäng per serie. Den 5:e poängen kommer från lagens totala slagning per serie.
-
-I varje match spelar man alltså om 20 poäng. Om resultatet visar på färre poäng på en match så beror det på att någon delmatch blivit oavgjord, eller att man avslutat matchen i förtid på grund av att det ena laget redan har vunnit och sista serien behövs inte spelas.
-
-Skriv en SELECT sats som summerar totalen ("Total") av de poäng (samtliga `scoreA` plus samtliga `scoreB`) som tagits.
+Vilken är medellängden på samtliga båtar ("Length")? Avrunda svaret till en decimal.
 
 EOD
 ,
@@ -650,8 +964,8 @@ EOD
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
 SELECT
-    SUM(scoreA) + SUM(scoreB) AS "Total"
-FROM Games
+    Round(AVG(boatLength), 1) AS "Length"
+FROM Jetty
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -667,22 +981,22 @@ EOD;
 [
 
 "text" => <<<EOD
-Ta nu reda på om några matcher inte blev färdigspelade, eller om några delmatcher blev oavgjorda. Vid oavgjord match får inget lag poäng.
+Ta båtägarens namn och båtens typ, slå samman de båda strängarna, separera dem med ett mellanslag och visa dem ("String"). Ta dessutom den strängen och visa den som ett hexadecimalt värde ("Hex").
 
-Gör detta genom att räkna ut det totala antalet möjliga poäng (20 x antalet matcher) och minska med de poäng som tagits i matcherna (samtliga `scoreA` + samtliga `scoreB`).
-
-Du får fram en siffra ("Total"), som säger hur många delmatcher som inte spelades eller blev oavgjorda.
-
+Visa resultatet och sortera per hex-värdet i ${sortOrder1["text"]} ordning.
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite) {
+"answer" => function () use ($sqlite, $sortOrder1) {
     $sql = <<<EOD
 SELECT
-    COUNT(scoreA) * 20 - SUM(scoreA) - SUM(scoreB) AS "Total"
-FROM Games
+    ownerName || " " || boatType AS "String",
+    hex(ownerName || " " || boatType) AS "Hex"
+FROM Jetty
+ORDER BY
+    Hex ${sortOrder1["sql"]}
 ;
 EOD;
     return execute("$sqlite '$sql'");

@@ -16,3 +16,19 @@ div.answer {
 .success {
     color: green;
 }
+
+table, th, td {
+    border: 1px solid #666;
+}
+
+code {
+    background-color: #eee;
+    border: 1px solid #999;
+    padding: 2px;
+}
+
+pre code {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}

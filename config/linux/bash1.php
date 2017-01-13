@@ -252,7 +252,25 @@ EOD
 "text" => <<<EOD
 
 Användaren av apache2-katalogen har gjort 3 egna konfigurationsfiler i `sites-available` katalogen.
-De två som ska finnas /** ---------------------------------------------------------------------------
+De två som ska finnas i denna katalog är 000-default.conf och default-ssl.conf. Ta bort de andra filerna från `/tmp/apache2_copy/sites-available` och skriv ut storleken på `/tmp/apache2_copy/sites-available` i human-readable format.
+
+Tips: Använd find tillsammans med exec.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($tmpBase) {
+    execute("find /tmp/apache2_copy/ -name '*default*.conf' -exec rm -rf {} \;");
+    return execute("du -h /tmp/apache2_copy/sites-available/");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
  * A question.
  */
 [
@@ -268,20 +286,6 @@ EOD
 
 "answer" => function () use ($base) {
     return execute("cd $base && find . -type f -perm 0664 -print");
-},
-
-],i denna katalog är 000-default.conf och default-ssl.conf. Ta bort de andra filerna från `/tmp/apache2_copy/sites-available` och skriv ut storleken på `/tmp/apache2_copy/sites-available` i human-readable format.
-
-Tips: Använd find tillsammans med exec.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($tmpBase) {
-    execute("find /tmp/apache2_copy/ -name '*default*.conf' -exec rm -rf {} \;");
-    return execute("du -h /tmp/apache2_copy/sites-available/");
 },
 
 ],

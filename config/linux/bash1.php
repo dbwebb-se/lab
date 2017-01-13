@@ -8,6 +8,7 @@ include __DIR__ . "/../random.php";
 
 // Settings
 $base = __DIR__ . "/bash1_extra";
+$tmpBase = "/tmp";
 
 
 // For shell exec to get correct
@@ -27,7 +28,7 @@ return [
 "title" => "Bash 1 - linux",
 
 "intro" => "
-En lab där du använder Unix kommandon som finns tillgängliga via kommandoraden för att kopiera, flytta och hitta i en katalogstruktur.
+En lab där du använder Unix kommandon som finns tillgängliga via kommandoraden för att hitta, skriva ut information om filer och ändra i en katalogstruktur.
 ",
 
 "header" => null,
@@ -55,11 +56,11 @@ En lab där du använder Unix kommandon som finns tillgängliga via kommandorade
 "intro" => <<<EOD
 Öva Linux kommandon för att ta sig runt och ändra i en katalogstruktur.
 
-I denna övningen kommer du främst använda kommandon som `cp`, `mv`, `find`, `chmod` och `chown` för att ändra i en katalogstruktur.
+I denna övningen kommer du främst använda kommandon som `stat`, `find`, `du` för att bekanta dig med en katalogstruktur.
 
-Övningen baseras på katalogen `apache2/` och alla filer som ska hittas, flyttas, kopieras och ändras rättigheter för finns i denna katalogstruktur.
+Övningen baseras på katalogen `apache2/` och alla filer som ska hittas och kopieras för finns i denna katalogstruktur.
 
-För att din bash kod ska köras använd `` runt ditt kommand, ex.: `kommando`
+För att din bash kod ska köras använd `` runt ditt kommand, ex.: `kommando`.
 
 Använd bash-variabler för att strukturera och underlätta i koden. `&&` kan användas för att köra flera kommandon efter varann.
 
@@ -69,6 +70,7 @@ EOD
 "shuffle" => false,
 
 "questions" => [
+
 
 
 /** ---------------------------------------------------------------------------
@@ -100,7 +102,9 @@ EOD
 
 "text" => <<<EOD
 
-Skriv ut filen du nyss hittade `apache2.conf` filens rättigheter i oktal format
+Vilka rättigheter har filen `apache2.conf`? Svara med dess rättigheter i oktal format.
+
+Tips: använd `stat` och `man`.
 
 EOD
 ,
@@ -123,7 +127,7 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta alla filer med rättigheterna 664
+Använd kommandot `find` för att hitta alla tomma filer.
 
 EOD
 ,
@@ -131,7 +135,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return exec("cd $base && find . -type f -perm 0664 -print");
+    return execute("cd $base && find . -type f -empty");
 },
 
 ],
@@ -145,28 +149,9 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta alla tomma filer
+Skriv ut hur stor katalogen `apache2/sites-available` i human-readable format.
 
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return exec("cd $base && find . -type f -empty");
-},
-
-],
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Skriv ut hur stor katalogen `apache2/sites-available` är i human-readable format
+Tips: Använd kommandot `du`.
 
 EOD
 ,
@@ -190,6 +175,8 @@ EOD
 
 Summera katalogen `apache2/` storlek i human-readable format
 
+Tips: Använd kommandot `du`.
+
 EOD
 ,
 
@@ -204,54 +191,32 @@ EOD
 
 
 /** ---------------------------------------------------------------------------
- * A question.
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===========================================================================
+ * New section of exercises.
  */
 [
+"title" => "Bash",
 
-"text" => <<<EOD
+"intro" => <<<EOD
+Öva Linux kommandon för att ta sig runt och ändra i en katalogstruktur.
 
-Kolla om katalogen `apache2/md/` finns och om den inte gör det skapa den. Skriv ut storleken i human-readable formatet för den nya katalogen.
+I denna del kommer du främst använda kommandon som `cp`, `rsync` och `find` för att ändra i en katalogstruktur.
+
+Övningen baseras nu på en kopia av katalogen `apache2/`, som du själv skapar i första övningen. Alla filer som ska hittas och kopieras finns i denna kopierade katalogstruktur.
 
 EOD
 ,
 
-"points" => 1,
+"shuffle" => false,
 
-"answer" => function () use ($base) {
-    // Funkar inte eftersom labben skapas via webben och det är apache-användaren som kör programmet ofh utför mkdir
-    // Dessutom hade du redigerat orginal-katalogen om du hade lyckats.
-    // Tänk att din apache2-katalog måste vara readonly. Den får inte redigeras när man skapar facit och det får inte redigeras lokalt när användaren kör labben.
-    //execute("cd $base && mkdir -p ./apache2/md/");
-    //return execute("cd $base && du -h ./apache2/md/");
-    return execute("cd $base");
-},
-
-],
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Använd kommandot `rsync` för att kopiera filen `ports.conf` till katalogen `apache2/db/` och använd `find` för att skriva ut sökvägen till båda `ports.conf` filerna
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    $file = execute("cd $base && find . -name 'ports.conf'");
-    
-    // Tänk om hur denna kan fungera med tanke på kommentaren ovan.
-    //execute("cd $base && rsync $file ./apache2/md/");
-    return execute("cd $base && find . -name 'ports.conf'");
-},
-
-],
+"questions" => [
 
 
 
@@ -262,17 +227,17 @@ EOD
 
 "text" => <<<EOD
 
-Ändra filen `apache2/conf-available/charset.conf` rättigheter till `-rw-rw-r--` och skriv ut filens rättigheter i oktal format
+Ta bort en eventuell `/tmp/apache2_copy/` katalog. Använd kommandot `rsync` för att kopiera `apache2` till en nya katalogen `/tmp/apache2_copy`. Skriv ut den totala summerade storleken i human-readable format för den nya katalogen.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($base) {
-    $file = execute("cd $base && find ./apache2/conf-available/ -name 'charset.conf'");
-    execute("cd base && chmod 664 $file");
-    return execute("cd $base && stat -c '%a' $file");
+"answer" => function () use ($base, $tmpBase) {
+    execute("rm -rf /tmp/apache2_copy");
+    execute("cd $base && rsync -rl apache2/ /tmp/apache2_copy/");
+    return execute("du -sch /tmp/apache2_copy/");
 },
 
 ],
@@ -286,9 +251,15 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `rsync` för att kopiera alla filer som slutar med filändelsen `.conf` i katalogen: `apache2/mods-available/`
-till katalogen: `apache2/db/`
+Användaren av apache2-katalogen har gjort 3 egna konfigurationsfiler i `sites-available` katalogen.
+De två som ska finnas /** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
 
+"text" => <<<EOD
+
+Använd kommandot `find` för att hitta alla filer med rättigheterna 664
 
 EOD
 ,
@@ -296,7 +267,46 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return count(glob("$base/apache2/db/*.conf")) > 0 && count(glob("$base/apache2/mods-enabled/*.conf")) < 1;
+    return execute("cd $base && find . -type f -perm 0664 -print");
+},
+
+],i denna katalog är 000-default.conf och default-ssl.conf. Ta bort de andra filerna från `/tmp/apache2_copy/sites-available` och skriv ut storleken på `/tmp/apache2_copy/sites-available` i human-readable format.
+
+Tips: Använd find tillsammans med exec.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($tmpBase) {
+    execute("find /tmp/apache2_copy/ -name '*default*.conf' -exec rm -rf {} \;");
+    return execute("du -h /tmp/apache2_copy/sites-available/");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Ta bort alla tomma filer i `/tmp/apache2_copy` katalogen. Skriv ut den totala summerade storleken på hela `/tmp/apache2_copy` katalogen i human-readable format.
+
+Tips: Använd find tillsammans.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($tmpBase) {
+    $file = execute("find /tmp/apache2_copy -empty -type f -delete");
+    return execute("du -sch /tmp/apache2_copy/");
 },
 
 ],
@@ -308,8 +318,6 @@ EOD
  */
 ], // EOF questions
 ], // EOF section
-
-
 
 /** ===========================================================================
  * Closing up all sections.

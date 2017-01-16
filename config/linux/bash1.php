@@ -258,28 +258,6 @@ EOD
 
 
 /** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Använd kommandot `file` för att skriva ut filtypen för alla filer och kataloger i `apache2`. Denna gång skriv bara ut filtypen utan filnamn.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return execute("cd $base && file -b apache2/*");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
  * Closing up this section.
  */
 ], // EOF questions
@@ -425,6 +403,8 @@ EOD
 
 I denna del använder vi kommandot `find` för att ta hitta i en katalogstruktur.
 
+I denna del av labben arbetar du med ursprungskatalogen `apache2/`.
+
 EOD
 ,
 
@@ -441,9 +421,7 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `ls` för att lista filerna i apache2 katalogen, lista filerna så varje ny fil hamnar på en egen rad.
-
-Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
+Använd kommandot `find` för att hitta filen `ssl.conf`.
 
 EOD
 ,
@@ -451,7 +429,73 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && ls -1 ./apache2");
+    return execute("cd $base && find . -name 'apache2.conf'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Använd kommandot `find` för att hitta alla tomma filer i katalog strukturen.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && find . -type f -empty");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Använd kommandot `find` för att hitta alla kataloger som avslutas med `-enabled`.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && find . -type d -name '*-enabled'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Använd kommandot `find` för att hitta alla filer som har `ssl` i filnamnet och har filändelsen `.conf`, sök i de två katalogerna `apache2/sites-available` och `apache2/mods-available`.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && find ./apache2/sites-available ./apache2/mods-available -type f -name '*ssl*.conf'");
 },
 
 ],

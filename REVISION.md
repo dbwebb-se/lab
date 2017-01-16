@@ -2,9 +2,10 @@ Revision history
 ===================
 
 
-v2.2.23* (2017-01-05)
+v2.2.24 (2017-01-16)
 -------------------
 
+* Publish dbjs sql1.
 * Make oopython lab1 pass validation.
 
 

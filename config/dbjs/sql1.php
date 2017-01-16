@@ -899,7 +899,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Hur många båtar är längre än den kortaste båten?. Svara med antalet båtar ("Total").
+Hur många båtar är längre än den kortaste båten? Svara med antalet båtar ("Total").
 
 EOD
 ,
@@ -913,6 +913,40 @@ SELECT
 FROM Jetty
 WHERE
     boatLength > 305
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Visa båtägare ("Owner") och den sammalagda längden ("Total") för deras båt/båtar. Dvs, summera båtarnas längd, och visa svaret för respektive ägare. Tips `GROUP BY`.
+
+Sortera på totalen i ${sortOrder1["text"]} ordning.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite, $sortOrder1) {
+    $sql = <<<EOD
+SELECT
+    ownerName AS "Owner",
+    SUM(boatLength) AS "Total"
+FROM Jetty
+GROUP BY
+    ownerName
+ORDER BY
+    Total ${sortOrder1["sql"]};
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -981,7 +1015,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Ta båtägarens namn och båtens typ, slå samman de båda strängarna, separera dem med ett mellanslag och visa dem ("String"). Ta dessutom den strängen och visa den som ett hexadecimalt värde ("Hex").
+Ta båtägarens namn och båtens typ, slå samman de båda strängarna, separera dem med ett mellanslag och visa dem ("Boat"). Ta dessutom den strängen och visa den som ett hexadecimalt värde ("Hex").
 
 Visa resultatet och sortera per hex-värdet i ${sortOrder1["text"]} ordning.
 EOD
@@ -992,7 +1026,7 @@ EOD
 "answer" => function () use ($sqlite, $sortOrder1) {
     $sql = <<<EOD
 SELECT
-    ownerName || " " || boatType AS "String",
+    ownerName || " " || boatType AS "Boat",
     hex(ownerName || " " || boatType) AS "Hex"
 FROM Jetty
 ORDER BY
@@ -1012,13 +1046,42 @@ EOD;
 [
 
 "text" => <<<EOD
-Skriv en SELECT sats som endast visar de matcher där `scoreA + scoreB` inte blir 20.
+Visa bryggans namn, följt av ett minustecken omgivet av mellanslag, följt av båtens typ, mellanslag och ägarens namn inom parantes. Lägg allt i en sträng ("Boats") och sortera i ${sortOrder2["text"]} ordning.
 
-Ta med kolumnerna "Omgång", "Hemmalag", "Bortalag", "Poäng hemma", "Poäng borta" samt "Total" som är totalt antal poäng för matchen.
+EOD
+,
 
-Rapporten du får fram bör du kunna jämföra med siffran i föregående uppgift och se kopplingen.
+"points" => 1,
 
-Som databasmänniska vill man ibland plocka fram samma information på olika sätt för att jämföra att det känns logiskt och korrekt.
+"answer" => function () use ($sqlite, $sortOrder2) {
+    $sql = <<<EOD
+    SELECT
+         substr(berth, 1, 1) || " - " || ownerName || " (" || boatType || ")" AS "Boats"
+    FROM Jetty
+    ORDER BY
+        Boats ${sortOrder2["sql"]}
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Du tänker börja använda datum i din databas, men först måste du träna dig.
+
+Den första måndagen i september 1990 startade programmet Programvaruteknik för första gången. I Svängsta, utanför Karlshamn, av alla platser.
+
+Använd SQL för att klura ut vilken datum det var.
+
+Använd sedan det datumet och svara med en SQL-sats som räknar ut Julian day för den dagen ("Julian day").
 
 EOD
 ,
@@ -1027,16 +1090,36 @@ EOD
 
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
-SELECT
-    name AS "Omgång",
-    teamA AS "Hemmalag",
-    teamB AS "Bortalag",
-    scoreA AS "Poäng hemma",
-    scoreB AS "Poäng borta",
-    scoreA + scoreB AS "Total"
-FROM Games
-WHERE
-    scoreA + scoreB != 20
+    SELECT
+         strftime("%J", "1990-09-03") AS "Julian day"
+;
+EOD;
+    return execute("$sqlite '$sql'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+De första studenterna från programmet Programvaruteknik, examinerades två år senare, den första veckan i juni. Låt säga att det var på fredagen. Det var nog omtentavecka så ingen har nog egentligen koll. Platsen var iallafall Ronneby, Soft Center.
+
+Använd SQL för att räkna ut vilket datum det var. Använd sedan det datumet och via SQL plussa på 25 år för att svara med när det borde vara/varit 25 års jubileum för de första utexaminerade programvaruteknikerna ("Party").
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($sqlite) {
+    $sql = <<<EOD
+    SELECT
+         date("1992-06-05", "25 years") AS "Party"
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -1058,12 +1141,18 @@ EOD;
  * New section of exercises.
  */
 [
-"title" => "Inbyggda funktioner",
+"title" => "Strukturera i fler tabeller och joina",
 
 "intro" => <<<EOD
-Databaser har inbyggda funktioner som hjälper oss att förbereda rapporterna. Det finns inbyggda funktioner för stränghantering, datum och andra bra att ha funktioner.
+Styrelsen i marinan har beslutat att börja ta betalt för båtplatserna. De vill lägga till en årskostnad för de olika båtplatserna som de kan fakturera varje år.
 
-Låt oss använda några av de inbyggda funktionera.
+Du behöver börja spara adressen till båtägarna och priserna på respektive båtplats.
+
+Dessutom bygger de olika bryggplatser med olika storlek, för att maximera hur många båtar de kan ta in på bryggorna.
+
+Du behöver spara storleken på varje båtplats.
+
+Dags att börja bygga fler tabeller.
 
 EOD
 ,
@@ -1080,99 +1169,67 @@ EOD
 [
 
 "text" => <<<EOD
-Visa de matcher som spelades i matchserien "Semifinal A". För varje match visa "Hemmalag", "Bortalag" samt en sammanslagen kolumn som visar "scoreA - scoreB" i formen "12 - 8". Lös det genom att skapa en sträng via strängkonkatenering.
+Skapa en ny tabell "Berth" som innehåller samtliga båtplatser, deras storlek och dess årskostnad, enligt följande. Låt båtplatsens id vara den primära nyckeln. Kolumnnamnen skall ha små bokstäver.
 
-I SQLite är `||` operatorn för strängkonkatenering. Döp kolumnen till "Total".
+| Id  | Width   | Length  |  Price  |
+|-----|---------|---------|---------|
+| A1  | 350     | 600     |  800    |
+| A2  | 350     | 600     |  800    |
+| A3  | 350     | 600     |  800    |
+| A4  | 250     | 500     |  500    |
+| A5  | 250     | 500     |  500    |
+| A6  | 250     | 500     |  500    |
+| B1  | 300     | 600     |  600    |
+| B2  | 300     | 600     |  600    |
+| B3  | 300     | 600     |  600    |
+| B4  | 150     | 450     |  450    |
+| B5  | 150     | 450     |  450    |
+| B6  | 150     | 450     |  450    |
 
-Lägg till ytterligare en kolumn som du döper till "Diff" som visar differensen mellan `scoreA` och `scoreB`.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($sqlite) {
-    $sql = <<<EOD
-SELECT
-    teamA as "Hemmalag",
-    teamB AS "Bortalag",
-    scoreA || " - " || scoreB AS "Total",
-    scoreA - scoreB AS "Diff"
-FROM Games
-WHERE
-    name = "Semifinal A"
-;
-EOD;
-    return execute("$sqlite '$sql'");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * Closing up this section.
- */
-], // EOF questions
-], // EOF section
-
-
-
-/** ===========================================================================
- * New section of exercises.
- */
-[
-"title" => "Rapporter",
-
-"intro" => <<<EOD
-Med aningen mer avancerad SQL kan man skapa rapporter direkt från informationen i databasen. Kanske trodde man att det behövdes extra programmeringsstöd, men se när vi nu skapar en resultattabell för matcherna.
-
-I varje match tävlar man om 20 poäng, den som har flest vinner matchen och får 2 matchpoäng. Vid lika delar man 1 matchpoäng per lag.
-
-Du kan skapa IF-satser med [SQLites CASE konstruktion](http://www.sqlite.org/lang_expr.html#case).
-
-Vår mål är att skapa en tabell som ser ut ungefär så här.
-
-| Lag | S | V | O | F | TOTAL | D | P |
-|-----|---|---|---|---|-------|---|---|
-| Team Clan BK | 3 | 2 | 0 | 1 | 29 - 29 | 0 | 4 |
-| Team Pergamon BC | 3 | 1 | 0 | 2 | 29 - 29 | 0 | 2 |
-
-EOD
-,
-
-"shuffle" => false,
-
-"questions" => [
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Skapa en rapport som visar varje match med tidpunkt ("Tid"), teamA ("Hemmalag"), teamB ("Bortalag") samt en sträng om vem som vann. "Lag A", "Lag B" eller "Lika".
+Svara med tabellen enligt ovan och sortera på priset i ${sortOrder2["text"]} ordning.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite) {
+"answer" => function () use ($sqlite, $sortOrder2) {
+    $sql = <<<EOD
+CREATE TABLE Berth
+(
+    id TEXT PRIMARY KEY NOT NULL,
+    width INTEGER NOT NULL,
+    length INTEGER NOT NULL,
+    price INTEGER NOT NULL
+);
+
+INSERT INTO Berth VALUES 
+    ("A1", 350, 600, 800),
+    ("A2", 350, 600, 800),
+    ("A3", 350, 600, 800),
+    ("A4", 250, 500, 500),
+    ("A5", 250, 500, 500),
+    ("A6", 250, 500, 500),
+    ("B1", 300, 600, 600),
+    ("B2", 300, 600, 600),
+    ("B3", 300, 600, 600),
+    ("B4", 150, 450, 450),
+    ("B5", 150, 450, 450),
+    ("B6", 150, 450, 450)
+;
+
+EOD;
+    execute("$sqlite '$sql'");
+
     $sql = <<<EOD
 SELECT
-    start AS "Tid",
-    teamA AS "Hemmalag",
-    teamB AS "Bortalag",
-    CASE WHEN scoreA > scoreB THEN "Lag A"
-        WHEN scoreA = scoreB THEN "Lika"
-        ELSE "Lag B"
-        END
-        AS "Vinnare"
-    
-FROM Games
+    id AS "Id",
+    width as "Width",
+    length AS "Length",
+    price AS "price"
+FROM Berth
+ORDER BY
+    price ${sortOrder2["sql"]};
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -1188,37 +1245,26 @@ EOD;
 [
 
 "text" => <<<EOD
-Det fanns inga matcher som var lika, men låt oss ändra det. Skriv en `UPDATE` sats som ändrar matchen som spelades "2016-04-08 20:20" så att ställningen blev 10-10. Gör samma sak för matchen som spelades "2016-04-09 09:00". Använd endast en `UPDATE` sats för att göra båda ändringarna (tips `IN`).
+Joina tabellerna och visa hur mycket varje person ("Owner") skall faktureras ("Cost") per båtplats ("Position").
 
-Skapa en matchlista som består av `name` ("Omgång"), `teamA` ("Lag") och "Poäng" där poäng är 2 om `teamA` vann matchen, 1 om matchen var lika och 0 vid förlorad match.
-
-Vi vill alltså bara se matcher som `teamA` spelat. Till att börja med.
+Sortera per båtplatsen i ${sortOrder1["text"]} ordning.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite) {
+"answer" => function () use ($sqlite, $sortOrder1) {
     $sql = <<<EOD
-UPDATE Games SET
-    scoreA = 10,
-    scoreB = 10
-WHERE
-    start IN (
-        "2016-04-08 20:20",
-        "2016-04-09 09:00"
-    )
-;
-SELECT 
-    name AS "Omgång",
-    teamA AS "Lag",
-    CASE WHEN scoreA > scoreB THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
+SELECT
+    J.ownerName AS "Owner",
+    B.price AS "Cost",
+    B.id AS "Position"
+FROM Jetty AS J
+INNER JOIN Berth AS B
+    ON J.berth = B.id
+ORDER BY
+    B.id ${sortOrder1["sql"]};
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -1228,31 +1274,34 @@ EOD;
 
 
 
-
 /** ---------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Skapa en exakt likadan matchlista för bortalaget `teamB`.
+Joina tabellerna och visa hur mycket varje person ("Owner") skall faktureras totalt ("Total").
+
+Du skall alltså summera hur mycket varje person skall betala. Tips `GROUP BY`.
+
+Sortera per totalen i ${sortOrder2["text"]} ordning.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite) {
+"answer" => function () use ($sqlite, $sortOrder2) {
     $sql = <<<EOD
-SELECT 
-    name AS "Omgång",
-    teamB AS "Lag",
-    CASE WHEN scoreB > scoreA THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
+SELECT
+    J.ownerName AS "Owner",
+    SUM(B.price) AS "Total"
+FROM Jetty AS J
+INNER JOIN Berth AS B
+    ON J.berth = B.id
+GROUP BY J.ownerName
+ORDER BY
+    Total ${sortOrder2["sql"]};
 ;
 EOD;
     return execute("$sqlite '$sql'");
@@ -1268,406 +1317,36 @@ EOD;
 [
 
 "text" => <<<EOD
-Slå samman resultaten från de båda matchlistorna (1, 2) med `UNION ALL` (3) så att det blir en gemensam lista.
+Skriv en SQL-sats som visar om respektive båt passar in i båtplatsen. Visa båtplatsen ("Position"), båtens typ ("Type"), båtens längd ("Length") och bredd ("Width") samt båtplatsens maxlängd ("MaxLength") och maxbredd ("MaxWidth").
+
+Lägg dessutom till en extra kolumn ("OK") som säger "OK" om båten passar in på platsen, annars visa den "NOK". Tips `CASE`.
+
+Sortera på båtplatsen i ${sortOrder1["text"]} ordning.
 
 EOD
 ,
 
 "points" => 1,
 
-"answer" => function () use ($sqlite) {
+"answer" => function () use ($sqlite, $sortOrder1) {
     $sql = <<<EOD
 SELECT
-    name AS "Omgång",
-    teamA AS "Lag",
-    CASE WHEN scoreA > scoreB THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
-
-UNION ALL
-
-SELECT 
-    name AS "Omgång",
-    teamB AS "Lag",
-    CASE WHEN scoreB > scoreA THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
+    B.id AS "Position",
+    J.boatType AS "Type",
+    J.boatLength AS "Length",
+    J.boatWidth AS "Width",
+    B.length AS "MaxLength",
+    B.width AS "MaxWidth",
+    CASE WHEN J.boatLength <= B.length AND J.boatWidth <= B.width 
+        THEN "OK"
+        ELSE "NOK"
+    END AS "OK"
+FROM Jetty AS J
+INNER JOIN Berth AS B
+    ON J.berth = B.id
+ORDER BY
+    B.id ${sortOrder1["sql"]};
 ;
-EOD;
-    return execute("$sqlite '$sql'");
-},
-
-],
-
-
-
-
-
-/** ---------------------------------------------------------------------------
- * Closing up this section.
- */
-], // EOF questions
-], // EOF section
-
-
-
-/** ===========================================================================
- * New section of exercises.
- */
-[
-"title" => "Vyer",
-
-"intro" => <<<EOD
-Vyer är som tabeller. Man kan skapa vyer från andra rapporter, som `UNION ALL` satsen vi precis såg. Det gör det enklare att jobba med SQL-frågor som blir allt större, vi kan helt enkelt dela in dem i vyer. Tips `CREATE VIEW`.
-
-EOD
-,
-
-"shuffle" => false,
-
-"questions" => [
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Skapa en vy `GameList` från SQL-satsen med `UNION ALL`.
-
-Svara med `SELECT * FROM GameList`.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($sqlite) {
-    $sql = <<<EOD
-CREATE VIEW GameList AS
-SELECT
-    name AS "Omgång",
-    teamA AS "Lag",
-    CASE WHEN scoreA > scoreB THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
-
-UNION ALL
-
-SELECT 
-    name AS "Omgång",
-    teamB AS "Lag",
-    CASE WHEN scoreB > scoreA THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
-;
-SELECT * FROM GameList;
-
-EOD;
-    return execute("$sqlite '$sql'");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Då gör vi rapporten för matchtabellen. Börja med att lägga till så rapporten innehållar "Lag", "Spelade" som antal matcher spelade, "Poäng" som totalt antal poäng samlade via vunna eller oavgjorda matcher. Sortera per "Poäng" i sjunkande ordning.
-
-Plocka endast ut de lag som spelar "Final"-matchen.
-
-Använd din vy `GameList`. Tips `GROUP BY`.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($sqlite) {
-    $sql = <<<EOD
-SELECT
-    Lag,
-    COUNT(Lag) AS "Spelade",
-    SUM(Poäng) AS "Poäng"
-FROM 
-    GameList
-WHERE
-    Omgång = "Final"
-GROUP BY Lag
-ORDER BY Poäng DESC
-;
-
-EOD;
-    return execute("$sqlite '$sql'");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Bygg vidare på rapporten för matchtabellen. Lägg till "Total" och "Diff", så som det visas i exemplet här under.
-
-| Lag | Spelade | V | O | F | Total | Diff | Poäng |
-|-----|:---:|:---:|:---:|:---:|:-------:|:---:|:---:|
-| Team Clan BK | 3 | 2 | 0 | 1 | 29 - 29 | 0 | 4 |
-| Team Pergamon BC | 3 | 1 | 0 | 2 | 29 - 29 | 0 | 2 |
-
-Du skall nu ha en tabell som innehåller "Lag", "Spelade", "Total", "Diff", "Poäng".
-
-Tips. Skapa en ny vy GameListNew som innehåller den informationen du behöver.
- 
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($sqlite) {
-    $sql = <<<EOD
-CREATE VIEW GameListNew AS
-SELECT
-    name AS "Omgång",
-    teamA AS "Lag",
-    scoreA AS "SerierVunna",
-    scoreB AS "SerierFörlorade",
-    CASE WHEN scoreA > scoreB THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
-
-UNION ALL
-
-SELECT 
-    name AS "Omgång",
-    teamB AS "Lag",
-    scoreB AS "SerierVunna",
-    scoreA AS "SerierFörlorade",
-    CASE WHEN scoreB > scoreA THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
-;
-
-SELECT
-    Lag,
-    COUNT(Lag) AS "Spelade",
-    SUM(serierVunna) || " - " || SUM(serierFörlorade) AS "Total",
-    SUM(serierVunna) - SUM(serierFörlorade) AS "Diff",
-    SUM(Poäng) AS "Poäng"
-FROM 
-    GameListNew
-WHERE
-    Omgång = "Final"
-GROUP BY Lag
-ORDER BY Poäng DESC
-;
-
-EOD;
-    return execute("$sqlite '$sql'");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Pröva nu samma rapport på matchserien "Semifinal A". Om matchpoängen är lika så använder man "Diff" för att välja ut den som vinner.
- 
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($sqlite) {
-    $sql = <<<EOD
-SELECT
-    Lag,
-    COUNT(Lag) AS "Spelade",
-    SUM(serierVunna) || " - " || SUM(serierFörlorade) AS "Total",
-    SUM(serierVunna) - SUM(serierFörlorade) AS "Diff",
-    SUM(Poäng) AS "Poäng"
-FROM 
-    GameListNew
-WHERE
-    Omgång = "Semifinal A"
-GROUP BY Lag
-ORDER BY Poäng DESC, DIFF DESC
-;
-
-EOD;
-    return execute("$sqlite '$sql'");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Bygg färdigt rapporten för matchtabellen. Lägg till "Vunna", "Oavgjorda" och "Förlorade", så som det visas i exemplet här under.
-
-| Lag | Spelade | Vunna | Oavgjorda | Förlorade | Total | Diff | Poäng |
-|-----|:---:|:---:|:---:|:---:|:-------:|:---:|:---:|
-| Team Clan BK | 3 | 2 | 0 | 1 | 29 - 29 | 0 | 4 |
-| Team Pergamon BC | 3 | 1 | 0 | 2 | 29 - 29 | 0 | 2 |
-
-Du skall nu ha en tabell som motsvarar tabellen ovan.
-
-Tips. Skapa en ny vy GameListComplete som innehåller den informationen du behöver.
- 
-EOD
-,
-
-"points" => 5,
-
-"answer" => function () use ($sqlite) {
-    $sql = <<<EOD
-CREATE VIEW GameListComplete AS
-SELECT
-    name AS "Omgång",
-    teamA AS "Lag",
-    CASE WHEN scoreA > scoreB THEN 1
-        ELSE 0
-        END
-        AS "Vunna",
-    CASE WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Oavgjorda",
-    CASE WHEN scoreA < scoreB THEN 1
-        ELSE 0
-        END
-        AS "Förlorade",
-    scoreA AS "SerierVunna",
-    scoreB AS "SerierFörlorade",
-    CASE WHEN scoreA > scoreB THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
-
-UNION ALL
-
-SELECT 
-    name AS "Omgång",
-    teamB AS "Lag",
-    CASE WHEN scoreA < scoreB THEN 1
-        ELSE 0
-        END
-        AS "Vunna",
-    CASE WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Oavgjorda",
-    CASE WHEN scoreA > scoreB THEN 1
-        ELSE 0
-        END
-        AS "Förlorade",
-    scoreB AS "SerierVunna",
-    scoreA AS "SerierFörlorade",
-    CASE WHEN scoreB > scoreA THEN 2
-        WHEN scoreA = scoreB THEN 1
-        ELSE 0
-        END
-        AS "Poäng"
-FROM Games
-;
-
-SELECT
-    Lag,
-    COUNT(Lag) AS "Spelade",
-    SUM(Vunna) AS "Vunna",
-    SUM(Oavgjorda) AS "Oavgjorda",
-    SUM(Förlorade) AS "Förlorade",
-    SUM(serierVunna) || " - " || SUM(serierFörlorade) AS "Total",
-    SUM(serierVunna) - SUM(serierFörlorade) AS "Diff",
-    SUM(Poäng) AS "Poäng"
-FROM 
-    GameListComplete
-WHERE
-    Omgång = "Final"
-GROUP BY Lag
-ORDER BY Poäng DESC
-;
-
-EOD;
-    return execute("$sqlite '$sql'");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Kontrollera att din sista matchrapport även fungerar på matchserien "Semifinal B".
- 
-EOD
-,
-
-"points" => 5,
-
-"answer" => function () use ($sqlite) {
-    $sql = <<<EOD
-SELECT
-    Lag,
-    COUNT(Lag) AS "Spelade",
-    SUM(Vunna) AS "Vunna",
-    SUM(Oavgjorda) AS "Oavgjorda",
-    SUM(Förlorade) AS "Förlorade",
-    SUM(serierVunna) || " - " || SUM(serierFörlorade) AS "Total",
-    SUM(serierVunna) - SUM(serierFörlorade) AS "Diff",
-    SUM(Poäng) AS "Poäng"
-FROM 
-    GameListComplete
-WHERE
-    Omgång = "Semifinal B"
-GROUP BY Lag
-ORDER BY Poäng DESC, Diff DESC
-;
-
 EOD;
     return execute("$sqlite '$sql'");
 },

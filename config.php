@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.2.24 (2017-01-16)";
+const VERSION = "v2.2.25 (2017-01-16)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -76,6 +76,7 @@ $VALID_LABS = [
     "webgl/lab2" => "config/webgl/lab2.php",
 
     "dbjs/javascript1" => "config/dbjs/javascript1.php",
+    "dbjs/javascript2" => "config/dbjs/javascript2.php",
     "dbjs/sql1" => "config/dbjs/sql1.php",
 
     "dbjs/lab2" => "config/dbjs/lab2.php",
@@ -104,6 +105,7 @@ $LAB_TYPE = [
     "oopython"   => "python",
     "dbjs" => [
         "javascript1" => "javascript",
+        "javascript2" => "javascript",
         "sql1" => "bash",
     ],
     "linux"      => [

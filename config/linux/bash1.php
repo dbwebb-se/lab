@@ -171,7 +171,9 @@ EOD
 
 "text" => <<<EOD
 
-Lista alla filer och kataloger i `apache2/conf-available`, sortera filerna i storleksordning med den minsta filen först. Lista filerna så varje ny fil hamnar på en egen rad.
+Lista filer och kataloger i `apache2/conf-available`, sortera filerna i storleksordning med den minsta filen först. Lista filerna så varje ny fil hamnar på en egen rad.
+
+Visa inte dolda filer.
 
 EOD
 ,
@@ -293,7 +295,7 @@ EOD
 
 Använd kommandot `mkdir` för att skapa en katalog med namnet `backup/` om katalogen inte redan finns. Kopiera alla filer som har filändelsen `.conf` i `apache2/mods-available` till en ny katalog i `backup/` med namnet `conf/`.
 
-Lista alla filer i den nya `backup/conf/` katalogen, sortera filerna i storleksordning med den största filen först. Lista filerna så varje ny fil hamnar på en egen rad.
+Lista filerna i den nya `backup/conf/` katalogen, sortera filerna i storleksordning med den största filen först. Lista filerna så varje ny fil hamnar på en egen rad.
 
 Tips: Använd `&&` för att exekverera flera kommandon i rad och `man mkdir` för att hitta rätt flagga.
 
@@ -322,7 +324,7 @@ EOD
 Använd kommandot `mkdir` för att skapa en ny underkatalog `backup/php/` om den inte redan finns.
 Använd kommandot `mv` för att flytta alla filer som börjar med 'php' från `backup/conf` till den nya katalogen `backup/php/`.
 
-Lista alla filer i `backup/conf/` katalogen. Lista filerna så varje ny fil hamnar på en egen rad.
+Lista filerna i `backup/conf/` katalogen så varje ny fil hamnar på en egen rad.
 
 EOD
 ,
@@ -346,7 +348,7 @@ EOD
 
 Ta bort alla filer som börjar med 'proxy' från `backup/conf`.
 
-Lista alla filer i `backup/conf` katalogen. Lista filerna så varje ny fil hamnar på en egen rad.
+Lista filerna i `backup/conf` katalogen så varje ny fil hamnar på en egen rad.
 
 EOD
 ,
@@ -370,7 +372,7 @@ EOD
 
 Använd kommandot `cp` för att flytta alla filer från `backup/php` till `backup` och ta sedan bort hela `backup/php` katalogen.
 
-Lista alla filer och kataloger i `backup` katalogen, använd en flagga så alla kataloger får ett snedstreck (`/`) efter namnet. Lista filerna så varje ny fil hamnar på en egen rad.
+Lista filer och kataloger i `backup` katalogen, använd en flagga så alla kataloger får ett snedstreck (`/`) efter namnet. Lista filerna så varje ny fil hamnar på en egen rad.
 
 EOD
 ,
@@ -429,7 +431,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && find ./apache2 -name 'apache2.conf'");
+    return execute("cd $base && find apache2 -name 'apache2.conf'");
 },
 
 ],
@@ -451,7 +453,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && find ./apache2 -type f -empty");
+    return execute("cd $base && find apache2 -type f -empty");
 },
 
 ],
@@ -465,7 +467,8 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta alla kataloger som avslutas med `-enabled` i `apache2/` katalogen.
+Använd kommandot `find` för att hitta alla kataloger som har 'conf' i filnamnet i `apache2/` katalogen.
+Sök endast i `apache2/` katalogen och inte i de underliggande katalogerna.
 
 EOD
 ,
@@ -473,7 +476,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && find . -type d -name '*-enabled'");
+    return execute("cd $base && find apache2 -maxdepth 1 -type d -name '*conf*'");
 },
 
 ],
@@ -495,7 +498,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($base) {
-    return execute("cd $base && find ./apache2/sites-available ./apache2/mods-available -type f -name '*ssl*.conf'");
+    return execute("cd $base && find apache2/sites-available apache2/mods-available -type f -name '*ssl*.conf'");
 },
 
 ],

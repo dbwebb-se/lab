@@ -2,6 +2,12 @@ Revision history
 ===================
 
 
+v2.2.26 (2017-01-20)
+-------------------
+
+* Disabled jshint maxcomplexity in JavaScript client labs.
+
+
 v2.2.25 (2017-01-16)
 -------------------
 

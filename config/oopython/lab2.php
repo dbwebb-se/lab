@@ -116,7 +116,7 @@ EOD
 
 "text" => <<<EOD
 Overload the `smaller than method(<)` in the Date class.  
-It should return if a date comes before the other.
+It should return True if date comes before the other.
 
 Initialize a new Date variable called `date2` , give it year `$s1_year2`, month `$s1_month2` and day `$s1_day2`.
 

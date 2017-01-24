@@ -328,8 +328,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a static method in Dog called `interact`. Its input parameter should be another class.  
-If the argument is of type Cat the string "Chase!" should be returned otherwise return "Lick!".
+Create a static method in Dog called `interact`. Its input parameter should be an object.
+If the argument is of class Cat return the string "Chase!" otherwise return "Lick!".
 
 Answer with dog interact function and pass $s3_animalSpeak as argument.
 EOD

@@ -19,6 +19,7 @@ EOD;
 
 <?php if (isset($header)) echo $header ?>
 
+/*jshint maxcomplexity:false */
 (function(dbwebb) {
 "use strict";
 

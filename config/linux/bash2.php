@@ -188,7 +188,7 @@ EOD
 
 "text" => <<<EOD
 
-
+Find the last four rows in the logfile.
 
 EOD
 ,
@@ -329,7 +329,7 @@ EOD
 
 "text" => <<<EOD
 
-What did 'Bobbzorzen' say two lines before he said 'cewl'?
+What did 'Bobbzorzen' say on the line, two lines before he said 'cewl'?
 
 EOD
 ,

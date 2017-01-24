@@ -90,6 +90,10 @@ function isSelected($key1, $key2)
  */
 function wrap($text, $wrapper = "\n# ")
 {
+    if (empty(trim($text))) {
+        return "\n";
+    }
+
     $text = wordwrap(trim($text, "\n"), 75, "\n", true);
     $text = str_replace("\n", $wrapper, $text);
     $text = preg_replace("#[ \t]+\n#", "\n", $text);

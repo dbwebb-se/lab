@@ -49,7 +49,7 @@ $labPerType = [
     ],
     "python" => [
         ["filename" => "answer.py", "action" => "answer-py", "mode" => "755"],
-        ["filename" => "Dbwebb.py", "action" => "answer-py-assert"],
+        ["filename" => "dbwebb.py", "action" => "answer-py-assert"],
         //["filename" => ".answer.json",  "action" => "answer-json"],
         ["filename" => "answer.json",  "action" => "answer-json"],
     ],

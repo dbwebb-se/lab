@@ -11,7 +11,7 @@ $base = __DIR__ . "/bash2_extra";
 $file = "ircLog.txt";
 
 
-// For shell exec to get correct 
+// For shell exec to get correct
 putenv('LANG=C.UTF-8');
 
 
@@ -28,7 +28,7 @@ return [
 "title" => "Lab 2 - linux",
 
 "intro" => "
-En lab där du använder Unix verktyg som finns tillgängliga via kommandoraden, tillsammans med lite Bash, för att finna och hantera information i en [IRC loggfil](ircLog.txt).
+A lab where you use Unix tools available from the command line interface together with a little Bash, to find and handle information in a [IRC loggfil](ircLog.txt).
 ",
 
 "header" => null,
@@ -54,23 +54,24 @@ En lab där du använder Unix verktyg som finns tillgängliga via kommandoraden,
 "title" => "Bash",
 
 "intro" => <<<EOD
-Öva Linux kommandon och använd dem tillsammans med Bash.
+Train Linux commands and use them together with Bash.
 
-I denna övningen kommer du främst använda kommandon som `grep`, `wc`, `head` och `tail` för att söka ut information i en loggfil från irc-chatten.
+I this exercise you will mainly use comands like `grep`, `wc`, `head` and `tail` to search for information in a log file from the irc-chat.
 
 Write HTML in text, wrap in backtick `<a href="moped">mask</a>`
 
 Pure link as HTML <a href="moped">mask</a>
 
 ```
-<html> 
+<html>
 ```
 
 ```
 a > 2
 ```
 
-Sedan kombinerar du utskriften av kommandona in till variabler i Bash. Använd man-sidorna vid behov för att finna informaiton om hur du löser uppgifterna.
+Then you combine the output of the commands to variables in Bash. Use the man-pages when needed to find information on haow to solve the exercises.
+
 EOD
 ,
 
@@ -86,9 +87,11 @@ EOD
 [
 
 "text" => <<<EOD
-Skapa en variabel `FILE` och tilldela den värdet `$file`.
 
-Svara med variabelns värde, dvs `\$FILE`.
+Create a variable named `FILE` and give it the value `$file`.
+
+Answer with the value of `\$FILE`.
+
 EOD
 ,
 
@@ -109,9 +112,11 @@ EOD
 [
 
 "text" => <<<EOD
-Använd kommandot `wc` för att räkna ut hur många rader ircloggen består av. Visa endast antalet rader och filens namn, separerade av ett mellanslag.
 
-Spara svaret i en variabel och svara med variabelns innehåll.
+Use the `wc` command to count the number of lines in the irc log. Show only the number of lines and the name of the file, seperated by a space.
+
+Save the answer in a variable and answer with that variable.
+
 EOD
 ,
 
@@ -132,9 +137,13 @@ EOD
 [
 
 "text" => <<<EOD
-Använd `wc` tillsammans med `cut` för att räkna ut hur många ord, words, ircloggen består av.
 
-Spara enbart antalet ord i en variabel och svara med den.
+Use `wc` together with `cut` to count the number of words in the irc log.
+
+Save only the number of words in a variable and answer with the variable.
+
+Tip: Use the pipe (`|`) command.
+
 EOD
 ,
 
@@ -154,9 +163,11 @@ EOD
 [
 
 "text" => <<<EOD
-Hitta raden med 'pansars' åsikt om 'notepad'.
 
-Spara svaret i en variabel och svara med variabelns innehåll.
+Find the row with 'pansars' opinion of 'notepad'.
+
+Save the answer in a variable and answer with that variable.
+
 EOD
 ,
 
@@ -176,7 +187,9 @@ EOD
 [
 
 "text" => <<<EOD
-Hitta de fyra sista raderna i filen.
+
+
+
 EOD
 ,
 
@@ -199,7 +212,11 @@ EOD
 [
 
 "text" => <<<EOD
-När öppnades ircloggen för första gången? Ledtråd 'Log opened'. Svara med raden som säger när loggen öppnades för första gången.
+
+When was the log opened for the first time? Hint: 'Log opened'.
+
+Answer with the row that says when the log was opened for the first time.
+
 EOD
 ,
 
@@ -219,7 +236,9 @@ EOD
 [
 
 "text" => <<<EOD
-Vad innehåller den tredje raden där wasa säger något?
+
+What does the third line where 'wasa' says something say?
+
 EOD
 ,
 
@@ -239,7 +258,9 @@ EOD
 [
 
 "text" => <<<EOD
-Hur många rader är det som är loggade enligt tiden 11:15?
+
+How many lines is logged at the time 11:15?
+
 EOD
 ,
 
@@ -259,7 +280,9 @@ EOD
 [
 
 "text" => <<<EOD
-Hitta de första 10 raderna från dagen 'Wed Jun 17 2015'.
+
+Find the first 10 lines from 'Wed Jun 17 2015'.
+
 EOD
 ,
 
@@ -281,7 +304,9 @@ EOD
 [
 
 "text" => <<<EOD
-Hitta raderna som är inlagda angående 'forum' och innehåller detaljer om 'projektet' och 'htmlphp'.
+
+Find the lines that are from the 'forum' and contains details about 'projektet' and 'htmlphp'.
+
 EOD
 ,
 
@@ -303,7 +328,9 @@ EOD
 [
 
 "text" => <<<EOD
-Vad sa 'Bobbzorzen' två rader innan han sa 'cewl'?
+
+What did 'Bobbzorzen' say two lines before he said 'cewl'?
+
 EOD
 ,
 
@@ -323,7 +350,9 @@ EOD
 [
 
 "text" => <<<EOD
-Hur många ord är det i den fjärde till nionde raden, under dagen 'Mon Jun 08 2015'?
+
+How many words are there in the fourth to ninth row, under the day 'Mon Jun 08 2015'?
+
 EOD
 ,
 
@@ -343,7 +372,9 @@ EOD
 [
 
 "text" => <<<EOD
-Hitta den första raden där 'pansar' säger något när klockan är 07:48.
+
+Find the first row where 'pansar' says something when the time is 07:48.
+
 EOD
 ,
 

@@ -28,9 +28,9 @@ return [
 "title" => "Bash 1 - linux",
 
 "intro" => "
-En lab där du använder Unix kommandon som finns tillgängliga via kommandoraden för att lista, hitta, skriva ut information om filer och ändra i en katalogstruktur.
+A lab where you use Unix commands to list, find, and change i directory structure.
 
-Labben använder sig av en apache2 katalogstruktur som finns på denna sökväg './apache2'.
+The entire lab uses the apache2 configuration directory from '/etc/apache2' in linux installations.
 ",
 
 "header" => null,
@@ -57,7 +57,7 @@ Labben använder sig av en apache2 katalogstruktur som finns på denna sökväg 
 
 "intro" => <<<EOD
 
-I denna del använder vi kommandot `ls` för att lista filer och kataloger.
+In this section we use the `ls` command to list files in the directory structure.
 
 EOD
 ,
@@ -75,9 +75,9 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `ls` för att lista filerna i apache2 katalogen, lista filerna så varje ny fil hamnar på en egen rad.
+Use the command `ls` to list the files in the `apache2` directory, list one file per line.
 
-Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
+Tip: Use the command `man ls` to see the flags that can be used for the `ls` command.
 
 EOD
 ,
@@ -99,9 +99,9 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `ls` för att lista filerna i apache2 katalogen, använd en flagga så alla kataloger får ett snedstreck (`/`) efter namnet. Lista filerna så varje ny fil hamnar på en egen rad.
+Use the command `ls` to list the files in the `apache2` directory. Use a flag so every directory gets a slash (`/`) after the name, list one file per line.
 
-Tips: Använd kommandot `man ls` för att se de olika flaggor man kan använda för ls.
+Tip: Use the command `man ls` to see the flags that can be used for the `ls` command.
 
 EOD
 ,
@@ -123,11 +123,13 @@ EOD
 
 "text" => <<<EOD
 
-Gä först till katalogen `apache2/mods-available` och använd  här kommandot `ls` för att lista filerna i katalogen. Lista bara filer som börjar på 'a' och har filändelsen '.conf'. Lista filerna så varje ny fil hamnar på en egen rad.
+First change directory to `apache2/mods-available` and use the `ls` command to list the files in the directory.
 
-Du kan använda `&&` för att kedja ihop två eller fler kommandon på samma rad.
+List only files beginning with 'a' and have the file extension '.conf'. List one file per line.
 
-Tips: Använd ett wildcard `*` för att matcha mot flera filer.
+You can use `&&` to chain two or more commands on the same line.
+
+Tip: Use a wildcard `*` to match against more than one file.
 
 EOD
 ,
@@ -149,7 +151,7 @@ EOD
 
 "text" => <<<EOD
 
-Lista alla, även dolda, filer och kataloger i `apache2/sites-available` katalogen, lista filerna så varje ny fil hamnar på en egen rad.
+List all, even hidden, files and directories in the `apache2/sites-available` directory. List one file per line.
 
 EOD
 ,
@@ -171,9 +173,11 @@ EOD
 
 "text" => <<<EOD
 
-Lista filer och kataloger i `apache2/conf-available`, sortera filerna i storleksordning med den minsta filen först. Lista filerna så varje ny fil hamnar på en egen rad.
+List files and directories in `apache2/conf-available`, sort the files in file size order with the smallest file first.
 
-Visa inte dolda filer.
+List one file per line.
+
+Do not show hidden files.
 
 EOD
 ,
@@ -204,7 +208,7 @@ EOD
 
 "intro" => <<<EOD
 
-I denna del använder vi kommandot `file` för att ta reda på information om filerna i katalogstrukturen.
+In this section we will use the `file` command to get information on the files in the directory structure.
 
 EOD
 ,
@@ -222,7 +226,7 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `file` för att skriva ut filtypen för alla filer och kataloger i `apache2`.
+Use the `file` command to show the file name and type for the files and directories in `apache2`.
 
 EOD
 ,
@@ -244,7 +248,7 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `file` för att skriva ut filtypen för alla filer och kataloger i `apache2`. Denna gång skriv bara ut filtypen utan filnamn.
+Use the `file` command to show only the file type for the files and directories in `apache2`.
 
 EOD
 ,
@@ -275,7 +279,7 @@ EOD
 
 "intro" => <<<EOD
 
-I denna del använder vi kommandona  `cp`, `mv`, `mkdir` och `rm` för att ändra i en katalogstruktur.
+In this section we use the `cp`, `mv`, `mkdir` and `rm` to change in the directory structure.
 
 EOD
 ,
@@ -293,11 +297,13 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `mkdir` för att skapa en katalog med namnet `backup/` om katalogen inte redan finns. Kopiera alla filer som har filändelsen `.conf` i `apache2/mods-available` till en ny katalog i `backup/` med namnet `conf/`.
+Use the `mkdir` command to create a directory called `backup/` if the directory does not exist.
 
-Lista filerna i den nya `backup/conf/` katalogen, sortera filerna i storleksordning med den största filen först. Lista filerna så varje ny fil hamnar på en egen rad.
+Copy all files with the file extension `.conf` from `apache2/mods-available` to a new directory `backup/conf/`, create the directory if it does not exist.
 
-Tips: Använd `&&` för att exekverera flera kommandon i rad och `man mkdir` för att hitta rätt flagga.
+Lista the files in the new directory `backup/conf/`, sort the files according to file size, with the biggest file first. List one file per line.
+
+Tip: Use `&&` to execute more than one command and `man mkdir` to find the correct flag.
 
 EOD
 ,
@@ -321,10 +327,11 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `mkdir` för att skapa en ny underkatalog `backup/php/` om den inte redan finns.
-Använd kommandot `mv` för att flytta alla filer som börjar med 'php' från `backup/conf` till den nya katalogen `backup/php/`.
+Use the `mkdir` command to create a new subdirectory `backup/php/` if it does not exist.
 
-Lista filerna i `backup/conf/` katalogen så varje ny fil hamnar på en egen rad.
+Use the `mv` command to move all files beginning with 'php' from `backup/conf/` to the new directory.
+
+List the files in the `backup/conf/` directory. List one file per line.
 
 EOD
 ,
@@ -346,9 +353,9 @@ EOD
 
 "text" => <<<EOD
 
-Ta bort alla filer som börjar med 'proxy' från `backup/conf`.
+Remove all files the begins with 'proxy' from `backup/conf/`.
 
-Lista filerna i `backup/conf` katalogen så varje ny fil hamnar på en egen rad.
+List the files in the `backup/conf/` directory. List one file per line.
 
 EOD
 ,
@@ -370,9 +377,11 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `cp` för att flytta alla filer från `backup/php` till `backup` och ta sedan bort hela `backup/php` katalogen.
+Use the `cp` command to copy all files from the `backup/php/` directory to the `backup/` directory.
 
-Lista filer och kataloger i `backup` katalogen, använd en flagga så alla kataloger får ett snedstreck (`/`) efter namnet. Lista filerna så varje ny fil hamnar på en egen rad.
+Remove the entire `backup/php/` directory.
+
+List files and directories in the `backup/` directory, use a flag so that all directories gets a slash (`/`) at the end of the file name. List one file per line.
 
 EOD
 ,
@@ -403,9 +412,9 @@ EOD
 
 "intro" => <<<EOD
 
-I denna del använder vi kommandot `find` för att ta hitta i en katalogstruktur.
+In this section we use the `find` to find files and directories in a directory structure.
 
-I denna del av labben arbetar du med ursprungskatalogen `apache2/`.
+In this section you work with the original directory `apache2/`.
 
 EOD
 ,
@@ -423,7 +432,7 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta filen `apache2.conf` i `apache2/` katalogen.
+Use the `find` command to find the `apache2.conf` file in the `apache2/` directory.
 
 EOD
 ,
@@ -445,7 +454,7 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta alla tomma filer i `apache2/` katalogen.
+Use the `find` command to find all empty files in the `apache2/` directory.
 
 EOD
 ,
@@ -467,8 +476,9 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta alla kataloger som har 'conf' i filnamnet i `apache2/` katalogen.
-Sök endast i `apache2/` katalogen och inte i de underliggande katalogerna.
+Use the `find` command to find all directories which have 'conf' in the file name in the `apache2/` directory.
+
+Search only in the `apache2/` directory and not inte subdirectories.
 
 EOD
 ,
@@ -490,7 +500,9 @@ EOD
 
 "text" => <<<EOD
 
-Använd kommandot `find` för att hitta alla filer som har `ssl` i filnamnet och har filändelsen `.conf`, sök i de två katalogerna `apache2/sites-available` och `apache2/mods-available`.
+Use the `find` command to find all files which contain 'ssl' in the name and has the file extension '.conf'.
+
+Search only in the `apache2/sites-available` and `apache2/mods-available` directories.
 
 EOD
 ,

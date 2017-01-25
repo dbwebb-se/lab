@@ -86,7 +86,7 @@ EOD
 "title" => "nodejs built-ins",
 
 "intro" => <<<EOD
-In this section we try out some of the new ES6 features.
+In this section we try out some of the new nodejs and ES6 features.
 EOD
 ,
 
@@ -103,7 +103,7 @@ EOD
 
 "text" => <<<EOD
 
-Create a variable called 'numbersArray' holding the numbers $numberArrayString.
+Create a variable called `numbersArray` holding the numbers $numberArrayString.
 
 Use find to get the first occurence of a number bigger than or equal to 42.
 
@@ -129,7 +129,7 @@ EOD
 
 "text" => <<<EOD
 
-Find the smallest number in 'numbersArray' by using the spread operator '...'.
+Find the smallest number in `numbersArray` by using the spread operator `...` and the function `Math.min()`.
 
 Answer with the smallest number.
 
@@ -152,10 +152,11 @@ EOD
 
 "text" => <<<EOD
 
-Create a function called 'meaningOfLife()' with one parameter, which have a default parameter with a value of 42.
+Create a function called `meaningOfLife()` with one default parameter with the value of 42.
 
 The function should return the sentence 'The meaning of life is ' concatenated with the parameter.
-Answer with a call to the function without any parameters.
+
+Answer with a call to the `meaningOfLife()` function without any parameters.
 
 EOD
 ,
@@ -177,7 +178,7 @@ EOD
 
 Check if the word $randomWord contains the letters 'oo'. Return true or false depending on the answer.
 
-Tip: Use ES6 functions.
+Tip: Use nodejs function `includes`.
 
 EOD
 ,
@@ -199,7 +200,7 @@ EOD
 
 Check if the word $randomWord starts with the letters 'El'. Return true or false depending on the answer.
 
-Tip: Use ES6 functions.
+Tip: Use nodejs function `startsWith`.
 
 EOD
 ,
@@ -223,7 +224,7 @@ EOD
 "title" => "Filtering arrays",
 
 "intro" => <<<EOD
-In this section we filter arrays in 3 different ways.
+In this section we filter arrays in different ways.
 EOD
 ,
 
@@ -240,11 +241,12 @@ EOD
 
 "text" => <<<EOD
 
-Use 'numbersArray' from above holding the numbers $numberArrayString.
+Use `numbersArray` from above holding the numbers $numberArrayString.
 
-Use a for-loop to filter out all numbers bigger than or equal to 42.
+Use a for-loop to save all numbers smaller than 42 in a new array.
 
 Answer with the resulting array.
+
 EOD
 ,
 
@@ -268,14 +270,14 @@ EOD
 
 "text" => <<<EOD
 
-Create a variable called 'moreNumbersArray' holding the numbers $numberArrayAddedString.
+Create a variable called `moreNumbersArray` holding the numbers $numberArrayAddedString.
 
-Use the built-in higher-order function 'filter' and a callback function to filter out all numbers bigger than or equal to 42.
+Use the built-in higher-order function `filter` and a callback function to filter out all numbers bigger than or equal to 42.
 
 Use arrow-notation to keep the code short and concise.
 
-
 Answer with the resulting array.
+
 EOD
 ,
 
@@ -284,37 +286,6 @@ EOD
     for ($i=0; $i < count($numberArrayAdded); $i++) {
         if ($numberArrayAdded[$i] < 42) {
             $resultArray[] = $numberArrayAdded[$i];
-        }
-    }
-    return $resultArray;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Create a variable called 'evenMoreNumbersArray' holding the numbers $numberArrayMoreString.
-
-Use the built-in higher-order function 'filter' and a callback function to filter out all numbers bigger than or equal to 42.
-
-Use the function you created during exercise 1.1 to seperate iteration and logic.
-
-Answer with the resulting array.
-EOD
-,
-
-"answer" => function () use ($numberArrayMore) {
-    $resultArray = [];
-    for ($i=0; $i < count($numberArrayMore); $i++) {
-        if ($numberArrayMore[$i] < 42) {
-            $resultArray[] = $numberArrayMore[$i];
         }
     }
     return $resultArray;
@@ -356,11 +327,11 @@ EOD
 
 "text" => <<<EOD
 
-Create a variable called 'stringArray' holding the strings $stringArrayString.
+Create a variable called `stringArray` holding the strings $stringArrayString.
 
 Use a for-loop to concatenate the string ' was on the apollo $apolloMission' too each name in the array.
 
-Answer with the resulting array.
+Store the result in a new array and answer with that array.
 
 EOD
 ,
@@ -414,7 +385,7 @@ EOD
 
 Create a variable called 'maybePrimeNumber' holding the numbers $reduceArrayString.
 
-In a for-loop sum all primenumbers from 'maybePrimeNumber'.
+In a for-loop sum all prime numbers from 'maybePrimeNumber', you need to find out whether or not the number is a prime number.
 
 Answer with the resulting sum.
 
@@ -442,7 +413,7 @@ EOD
 
 "text" => <<<EOD
 
-Create a function 'isPrime()' that takes one parameter (an integer) and tests if that number is a prime number. If the number is prime, the number is returned otherwise return 0.
+Create a function 'isNotPrime()' that takes one parameter (an integer) and tests if that number is a prime number. If the number is not prime, the number is returned otherwise return 0.
 
 Use the built-in higher-order functions 'reduce' to sum all numbers that are NOT prime numbers.
 

@@ -10,22 +10,22 @@ include __DIR__ . "/../random.php";
 // SECTION 1 ****************************************************
 
 $wordArray = ["Elephant", "Kangaroo", "Wildebeast", "Crocodile", "Antilope"];
-$randomWordIndex = rand(0, count($wordArray) - 1);
+$randomWordIndex = rand_int(0, count($wordArray) - 1);
 $randomWord = $wordArray[$randomWordIndex];
+
+$numberArrays = [[3, 43, 23, 15, 87], [2, 48, 19, 12, 93], [6, 46, 12, 19, 82], [4, 51, 33, 11, 94]];
+$randomOfArrays = rand_int(0, count($numberArrays) - 1);
+$numberArray = $numberArrays[$randomOfArrays];
+$numberArrayString = implode(",", $numberArray);
 
 
 
 // SECTION 2 ****************************************************
 
-$numberArrays = [[3, 43, 23, 15, 87], [2, 48, 19, 12, 93], [6, 46, 12, 19, 82], [4, 51, 33, 11, 94]];
-$randomOfArrays = rand(0, count($numberArrays) - 1);
-$numberArray = $numberArrays[$randomOfArrays];
-$numberArrayString = implode(",", $numberArray);
-
-$numberArrayAdded = array_merge($numberArray, [rand(60, 79), rand(20, 40)]);
+$numberArrayAdded = array_merge($numberArray, [rand_int(60, 79), rand_int(20, 40)]);
 $numberArrayAddedString = implode(",", $numberArrayAdded);
 
-$numberArrayMore = array_merge($numberArrayAdded, [rand(60, 79), rand(20, 40)]);
+$numberArrayMore = array_merge($numberArrayAdded, [rand_int(60, 79), rand_int(20, 40)]);
 $numberArrayMoreString = implode(",", $numberArrayMore);
 
 
@@ -35,7 +35,7 @@ $numberArrayMoreString = implode(",", $numberArrayMore);
 $stringArrays = [["Neil Armstrong", "Michael Collins", "Buzz Aldrin"],
                  ["Pete Conrad", "Richard F. Gordon Jr.", "Alan Bean"],
                  ["Jim Lovell", "Jack Swigert", "Fred Haise"],];
-$randomStringIndex = rand(0, count($stringArrays) - 1);
+$randomStringIndex = rand_int(0, count($stringArrays) - 1);
 $stringArray = $stringArrays[$randomStringIndex];
 $stringArrayString = implode(",", $stringArray);
 $apolloMission = 10 + $randomStringIndex + 1;
@@ -45,12 +45,12 @@ $reduceArrays = [[5, 8, 11, 14, 17, 20, 23, 28, 31],
                  [37, 42, 43, 48, 53, 58, 61, 68, 71],
                  [73, 78, 83, 88, 97, 102, 103, 106, 109],
                  [113, 128, 131, 136, 139, 148, 151, 156, 163]];
-$randomReduceIndex = rand(0, count($reduceArrays) - 1);
+$randomReduceIndex = rand_int(0, count($reduceArrays) - 1);
 $reduceArray = $reduceArrays[$randomReduceIndex];
 $reduceArrayString = implode(",", $reduceArray);
 
 
-
+// Function to decide whether or not a number is prime
 function isPrime($number) {
     $start = 2;
     while ($start <= sqrt($number)) {
@@ -272,6 +272,9 @@ Create a variable called 'moreNumbersArray' holding the numbers $numberArrayAdde
 
 Use the built-in higher-order function 'filter' and a callback function to filter out all numbers bigger than or equal to 42.
 
+Use arrow-notation to keep the code short and concise.
+
+
 Answer with the resulting array.
 EOD
 ,
@@ -290,7 +293,6 @@ EOD
 
 
 
-
 /** -----------------------------------------------------------------------------------
  * A question.
  */
@@ -302,7 +304,7 @@ Create a variable called 'evenMoreNumbersArray' holding the numbers $numberArray
 
 Use the built-in higher-order function 'filter' and a callback function to filter out all numbers bigger than or equal to 42.
 
-Use arrow notation to make the function call concise.
+Use the function you created during exercise 1.1 to seperate iteration and logic.
 
 Answer with the resulting array.
 EOD
@@ -319,6 +321,8 @@ EOD
 },
 
 ],
+
+
 
 /**
  * Closing up this section.
@@ -354,7 +358,7 @@ EOD
 
 Create a variable called 'stringArray' holding the strings $stringArrayString.
 
-Use a for-loop to add the string ' was on the apollo $apolloMission' too each name in the array.
+Use a for-loop to concatenate the string ' was on the apollo $apolloMission' too each name in the array.
 
 Answer with the resulting array.
 
@@ -380,7 +384,7 @@ EOD
 
 "text" => <<<EOD
 
-Use the 'stringArray' from above and the built-in higher-order function 'map' and a callback function to add the string ' was not on apollo $notApolloMission'.
+Use the 'stringArray' from above and the built-in higher-order function 'map' to concatenate the string ' was not on the apollo $notApolloMission' and each name.
 
 Use arrow notation to keep the code simple and concise.
 
@@ -410,11 +414,10 @@ EOD
 
 Create a variable called 'maybePrimeNumber' holding the numbers $reduceArrayString.
 
-Create a function 'isPrime()' that takes one parameter (an integer) and tests if that number is a prime number.
-
-Use 'isPrime' in a for-loop to sum all numbers in 'maybePrimeNumber' that are prime numbers.
+In a for-loop sum all primenumbers from 'maybePrimeNumber'.
 
 Answer with the resulting sum.
+
 EOD
 ,
 
@@ -439,11 +442,12 @@ EOD
 
 "text" => <<<EOD
 
-Use 'maybePrimeNumber' and 'isPrime()' from above.
+Create a function 'isPrime()' that takes one parameter (an integer) and tests if that number is a prime number. If the number is prime, the number is returned otherwise return 0.
 
-Use the built-in higher-order function 'reduce' to sum all numbers that are NOT prime numbers.
+Use the built-in higher-order functions 'reduce' to sum all numbers that are NOT prime numbers.
 
 Answer with the resulting sum.
+
 EOD
 ,
 

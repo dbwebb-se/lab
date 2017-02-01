@@ -119,3 +119,16 @@ function SQL
         echo "$ANSWER"
     fi
 }
+
+
+
+#
+# Check for command, abort if not exists.
+#
+function checkCommandOrAbort
+{
+    if ! hash $1 2> /dev/null; then
+        printf "\e[1;33mFAILED: I require $1 but it's not installed. Aborting.\e[m\n"
+        exit 1;
+    fi
+}

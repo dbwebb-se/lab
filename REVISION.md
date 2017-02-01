@@ -2,6 +2,12 @@ Revision history
 ===================
 
 
+v2.2.28* (2017-02-01)
+-------------------
+
+* Bash assert add function to check if command is installed.
+
+
 v2.2.28 (2017-02-01)
 -------------------
 

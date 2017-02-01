@@ -21,6 +21,7 @@ EOD;
 
 . .dbwebb.bash
 echo "${PROMPT}Ready to begin."
+checkCommandOrAbort "sqlite3"
 
 
 

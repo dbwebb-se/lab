@@ -35,14 +35,20 @@ $tableA = "Games";
 
 $sqlCreate = <<<EOD
 DROP TABLE IF EXISTS "Jetty";
-CREATE TABLE "Jetty" ("jettyPosition" INTEGER PRIMARY KEY  NOT NULL  UNIQUE , "boatType" VARCHAR(20) NOT NULL , "boatEngine" VARCHAR(20) NOT NULL , "boatLength" INTEGER, "boatWidth" INTEGER, "ownerName" VARCHAR(20));
+CREATE TABLE "Jetty" (
+    "jettyPosition" INTEGER PRIMARY KEY  NOT NULL  UNIQUE,
+    "boatType" VARCHAR(20) NOT NULL,
+    "boatEngine" VARCHAR(20) NOT NULL,
+    "boatLength" INTEGER,
+    "boatWidth" INTEGER,
+    "ownerName" VARCHAR(20)
+);
 EOD;
 
 $sqlInsert = <<<EOD
-INSERT INTO "Jetty" VALUES
-(1,'Buster XXL','Yamaha 115hk',635,240,'Adam'),
-(2,'Buster M','Yamaha 40hk',460,186,'Berit'),
-(3,'Linder 440','Tohatsu 4hk',431,164,'Ceasar');
+INSERT INTO "Jetty" VALUES(1,"Buster XXL","Yamaha 115hk",635,240,"Adam");
+INSERT INTO "Jetty" VALUES(2,"Buster M","Yamaha 40hk",460,186,"Berit");
+INSERT INTO "Jetty" VALUES(3,"Linder 440","Tohatsu 4hk",431,164,"Ceasar");
 EOD;
 
 
@@ -61,13 +67,13 @@ return [
 "intro" => <<<EOD
 Lek runt med inledande SQL-satser i SQLite. Det är bra om du har manualen för SQLite uppe, där kan du se [syntaxen för SQL-satserna](https://www.sqlite.org/lang.html) och du kan se vilka [extra funktioner som stöds](https://www.sqlite.org/lang_corefunc.html).
 
-Du får en databas att jobba med och du skall använda SQL för att hämta ut och presentera information från databasen. Databasen är den som du jobbat med i övningen "[Kom igång med databasen SQLite](https://dbwebb.se/kunskap/kom-igang-med-databasen-sqlite)".
+Du får grunden till en databas, i form av SQL-kommandon. Du skall sedan använda SQL för att hämta ut och presentera information från databasen. Databasen är den som du jobbat med i övningen "[Kom igång med databasen SQLite](https://dbwebb.se/kunskap/kom-igang-med-databasen-sqlite)".
 
 Efterhand så bygger vi ut databasen till fler tabeller och avslutar med att använda joins för att joina innehållet från olika tabeller.
 
 **Tips.**
 
-I labben skapas en databas `$dbname` och du kan använda följande kommando för att jobba mot den databasen.
+I labben skapas en databas `$dbname` och du kan använda följande kommando för att jobba direkt mot den databasen i en separat terminal.
 
 > `sqlite3 -header -column $dbname`
 
@@ -78,8 +84,8 @@ EOD
 
 "header" => null,
 
-"passPercentage" => 68.75/100,
-"passDistinctPercentage" => 100/100,
+"passPercentage" => 100/100,
+//"passDistinctPercentage" => 100/100,
 /*
 */
 
@@ -101,7 +107,7 @@ EOD
 "title" => "CREATE TABLE Jetty",
 
 "intro" => <<<EOD
-Vi har nu en tom databas och skall återskapa databasen med innehåll från övningen med `boats.sqlite` och tabellen Jetty.
+Vi börjar med ingenting och skall nu återskapa databasen med innehåll från övningen med `boats.sqlite` och tabellen Jetty.
 
 Till att börja med skapar vi tabellen Jetty.
 
@@ -136,7 +142,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($sqlite, $sqlCreate) {
-    execute("$sqlite \"$sqlCreate\"");
+    execute("$sqlite '$sqlCreate'");
     return execute("$sqlite \"select * from Jetty\"");
 },
 
@@ -156,7 +162,9 @@ Börja med att inspektera strukturen av tabellen. Olika databasmotorer har olika
 
 I labben gör du en rad som ser ut så här:
 
-> `SQL ".schema Jetty" false`
+> `SQL '.schema Jetty' false`
+
+Du kan alltså exekvera hjälp- och admin-kommandon, precis som om du jobbar i sqlite3-klienten.
 
 Notera att du _inte avslutar_ med semikolon nu. Det gör du endast när du skriver ren SQL.
 
@@ -221,7 +229,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($sqlite, $sqlInsert) {
-    execute("$sqlite \"$sqlInsert\"");
+    execute("$sqlite '$sqlInsert'");
     return execute("$sqlite \"select * from Jetty\"");
 },
 
@@ -261,7 +269,7 @@ EOD
 [
 
 "text" => <<<EOD
-Visa namnet för `boatType` på de båtar som ligger inlagda. Rubriken för kolumnen skall vara "Type". Sortera resultatet i ${sortOrder1["text"]} ordning baserat på båtens typ.
+Visa namnet på båtens typ (`boatType`) på de båtar som ligger i tabellen. Rubriken för kolumnen skall vara "Type". Sortera resultatet i ${sortOrder1["text"]} ordning baserat på båtens typ.
 
 EOD
 ,
@@ -299,7 +307,7 @@ EOD
 "answer" => function () use ($sqlite, $sortOrder2) {
     $sql = <<<EOD
 SELECT
-    ownerName AS Name,
+    ownerName AS Owner,
     boatType AS Type
 FROM Jetty
 ORDER BY ownerName ${sortOrder2["sql"]}

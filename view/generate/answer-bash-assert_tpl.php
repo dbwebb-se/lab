@@ -8,6 +8,7 @@
 ANSWERS=".answer"
 PROMPT=">>> "
 NOANSWER="Replace this text with the variable holding the answer."
+ANSWER="$NOANSWER"
 
 
 
@@ -47,7 +48,7 @@ function assertEqual
 {
     local question=$1
     local hint=$2
-    local theAnswer=$3
+    local theAnswer="$ANSWER"
     local answer
     local points=1
 
@@ -71,6 +72,8 @@ function assertEqual
         fi
         ((LAB_failed++))
     fi
+    
+    ANSWER="$NOANSWER"
 }
 
 
@@ -110,8 +113,7 @@ function exitWithSummary
 function SQL
 {
     ANSWER=$( sqlite3 -header -column db.sqlite "$1" 2>&1 | sed 's/[[:blank:]]*$//' )
-    ANSWER="$ANSWER"
-    
+
     if [ "$2" = true ]; then
         echo "SQL> $1"
         echo "$ANSWER"

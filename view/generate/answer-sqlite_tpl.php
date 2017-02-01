@@ -59,11 +59,12 @@ foreach ($sections as $section) {
 # 
 # <?= wrap($question['text']) ?>
 #
-# Write your SQL-statement(s) below, the last statement will be your ANSWER.
-# Change false to true to get verbose output
+# Write your SQL-statement(s) below, the last statement will be your final
+# ANSWER. Change false to true to get verbose output of your SQL query and
+# view its result.
 #
 
-#SQL 'Replace this text with your SQL statement' false
+#SQL 'Uncomment this and replace this text with your SQL statement' false
 
 
 

@@ -106,7 +106,7 @@ $LAB_TYPE = [
     "dbjs" => [
         "javascript1" => "javascript",
         "javascript2" => "javascript",
-        "sql1" => "bash",
+        "sql1" => "sqlite",
     ],
     "linux"      => [
         "bash1" => "bash",

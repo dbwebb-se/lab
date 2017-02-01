@@ -460,7 +460,7 @@ EOD
     $sql = <<<EOD
 SELECT
     boatType AS Type,
-    boatLength AS Length
+    boatEngine AS Engine
 FROM Jetty
 WHERE
     (boatLength > 450 AND
@@ -880,6 +880,8 @@ EOD;
 "text" => <<<EOD
 Använd `SUM()` för att summera längden på alla båtar som har en större längd än den kortaste båten. Svara med summan ("Total length").
 
+Det är okey att hårdkoda värdet för den kortaste båten. Som överkurs kan du försöka att skriva SQL-satsen så att du dynamiskt tar reda på kortaste båten (men det är inget vi lärt oss så här långt).
+
 EOD
 ,
 
@@ -1064,7 +1066,7 @@ EOD
 "answer" => function () use ($sqlite, $sortOrder2) {
     $sql = <<<EOD
     SELECT
-         substr(berth, 1, 1) || " - " || ownerName || " (" || boatType || ")" AS "Boats"
+         substr(berth, 1, 1) || " - " || boatType || " (" || ownerName || ")" AS "Boats"
     FROM Jetty
     ORDER BY
         Boats ${sortOrder2["sql"]}

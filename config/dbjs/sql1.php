@@ -35,7 +35,7 @@ $tableA = "Games";
 
 $sqlCreate = <<<EOD
 DROP TABLE IF EXISTS "Jetty";
-CREATE TABLE "Jetty" (
+CREATE TABLE IF NOT EXISTS "Jetty_mos" (
     "jettyPosition" INTEGER PRIMARY KEY  NOT NULL  UNIQUE,
     "boatType" VARCHAR(20) NOT NULL,
     "boatEngine" VARCHAR(20) NOT NULL,

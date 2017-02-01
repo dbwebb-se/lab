@@ -7,29 +7,9 @@ include __DIR__ . "/../random.php";
 
 // Mixed variables n stuff
 
-/*
- *   Tror inte dessa används, har ctrl-F:at dem men jag vågar inte ta bort dem... :o
-
-    $numberFour     = rand_int(110, 450);
-    $lowNr          = rand_int(1, 100); //15; // 0 - 100
-    $highNr         = rand_int(500, 999); //625; // 500 - 999
-    $smallNr        = rand_int(1, 5); //2; // 1-5
-    $smallRandNr    = rand_int(0, 9); //3; // 0-9
-    $caseNrs        = [1, 2, 3, 4, 5];
-    $smallestRandNr = rand_int(0, 2); //1; // 0-2
-    $wordSerie1     = ['bulldog', 'rabbit', 'chicken', 'mouse', 'horse', 'camel', 'crocodile', 'werewolf', 'reindeer', 'elephant'];
-    $wordSerie2     = ['guitar', 'violin', 'drums'];
-    $sentenceSerie1 = ['I am in a glass case of emotion.', 'If peeing your pants is cool, consider me Miles Davis.', 'Do you want to hear the most annoying sound in the world?', 'Thank you very little.', 'Tigers love pepper, they hate cinnamon.', 'I wake up in the morning and I piss excellence.', 'I think most Scottish cuisine is based on a dare.', 'I do not know, I mostly just hurt people.', 'I aim to misbehave.', 'I wish monkeys could Skype.'];
-
-*/
-
-
-
 // SECTION 1 ****************************************************
-
-$numberOne      = rand_int(20, 999);// 100-999
-$numberTwo      = rand_int(20, 999);// 100-999
-$numberThree    = rand_int(20, 999);
+$file_long = "linux.txt";
+$file_short = "abstract.txt";
 
 
 
@@ -40,7 +20,7 @@ return [
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 4 - JavaScript med Nodejs",
+"title" => "Lab 4 - JavaScript with Nodejs",
 
 "intro" => <<<EOD
 JavaScript using nodejs.
@@ -56,7 +36,7 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "Integers, floats and variables",
+"title" => "Filesystem",
 
 "intro" => <<<EOD
 Some nice text.
@@ -75,18 +55,50 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable called 'numberOne' and give it the value $numberOne. 
-
-Create another variable called 'numberTwo' and give it the value $numberTwo.
-
-Create a third variable called 'result' and assign to it the sum of the first two variables.
-
-Answer with the result.
+Hej hopp 1
 EOD
 ,
 
-"answer" => function () use ($numberOne, $numberTwo) {
-    $sum = $numberOne + $numberTwo;
+"answer" => function () {
+    $sum = 1;
+    return $sum;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Hej hopp 2
+EOD
+,
+
+"answer" => function () {
+    $sum = 1;
+    return $sum;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Hej hopp 3
+EOD
+,
+
+"answer" => function () {
+    $sum = 1;
     return $sum;
 },
 

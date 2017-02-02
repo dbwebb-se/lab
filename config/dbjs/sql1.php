@@ -1237,7 +1237,7 @@ SELECT
     id AS "Id",
     width as "Width",
     length AS "Length",
-    price AS "price"
+    price AS "Price"
 FROM Berth
 ORDER BY
     price ${sortOrder2["sql"]};

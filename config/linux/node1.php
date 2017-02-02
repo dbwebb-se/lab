@@ -37,7 +37,7 @@ $stringArrays = [["Neil Armstrong", "Michael Collins", "Buzz Aldrin"],
                  ["Jim Lovell", "Jack Swigert", "Fred Haise"],];
 $randomStringIndex = rand_int(0, count($stringArrays) - 1);
 $stringArray = $stringArrays[$randomStringIndex];
-$stringArrayString = implode(",", $stringArray);
+$stringArrayString = "'".implode("','", $stringArray)."'";
 $apolloMission = 10 + $randomStringIndex + 1;
 $notApolloMission = 10 + $randomStringIndex;
 
@@ -355,7 +355,7 @@ EOD
 
 "text" => <<<EOD
 
-Use the 'stringArray' from above and the built-in higher-order function 'map' to concatenate the string ' was not on the apollo $notApolloMission' and each name.
+Use the `stringArray` from above and the built-in higher-order function `map` to concatenate the string ' was not on the apollo $notApolloMission' and each name.
 
 Use arrow notation to keep the code simple and concise.
 
@@ -383,9 +383,9 @@ EOD
 
 "text" => <<<EOD
 
-Create a variable called 'maybePrimeNumber' holding the numbers $reduceArrayString.
+Create a variable called `maybePrimeNumber` holding the numbers $reduceArrayString.
 
-In a for-loop sum all prime numbers from 'maybePrimeNumber', you need to find out whether or not the number is a prime number.
+In a for-loop sum all prime numbers from `maybePrimeNumber`, you need to find out whether or not the number is a prime number.
 
 Answer with the resulting sum.
 
@@ -413,9 +413,9 @@ EOD
 
 "text" => <<<EOD
 
-Create a function 'isNotPrime()' that takes one parameter (an integer) and tests if that number is a prime number. If the number is not prime, the number is returned otherwise return 0.
+Create a function `isNotPrime()` that takes one parameter (an integer) and tests if that number is a prime number. If the number is not prime, the number is returned otherwise return 0.
 
-Use the built-in higher-order functions 'reduce' to sum all numbers that are NOT prime numbers.
+Use the built-in higher-order functions `reduce` to sum all numbers that are NOT prime numbers.
 
 Answer with the resulting sum.
 

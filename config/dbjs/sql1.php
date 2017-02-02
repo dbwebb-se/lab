@@ -1057,7 +1057,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Visa bryggans namn, följt av ett minustecken omgivet av mellanslag, följt av båtens typ, mellanslag och ägarens namn inom parantes. Lägg allt i en sträng ("Boats") och sortera i ${sortOrder2["text"]} ordning.
+Visa bryggans namn (enbart bokstaven), följt av ett minustecken omgivet av mellanslag, följt av båtens typ, mellanslag och ägarens namn inom parantes. Lägg allt i en sträng ("Boats") och sortera i ${sortOrder2["text"]} ordning.
 
 EOD
 ,

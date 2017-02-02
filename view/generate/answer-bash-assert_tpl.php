@@ -8,7 +8,7 @@
 ANSWERS=".answer"
 PROMPT=">>> "
 NOANSWER="Replace this text with the variable holding the answer."
-export ANSWER="$NOANSWER"
+ANSWER="$NOANSWER"
 
 
 

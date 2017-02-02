@@ -450,7 +450,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Skriv ett `WHERE`-villkor som uppfyller regeln att visa de båtar som är längre än 4.5 meter och kortare än 7 meter och har en båtmotor från Yamaha, eller båtar som har en motor från Tohatsu. Visa båtens typ ("Type") och båtens motor ("Engine").
+Skriv ett `WHERE`-villkor som uppfyller regeln att visa de båtar som är längre än 4.5 meter och kortare än 6 meter och har en båtmotor från Yamaha, samt de båtar som har en motor från Tohatsu (oavsett längd). Visa båtens typ ("Type") och båtens motor ("Engine").
 
 EOD
 ,

@@ -57,6 +57,8 @@ EOD
 The lab consists of three sections. In section one you will practice regex on strings. In section two you will practice regex on the content from a file, the irc log. In section three you will practice on replacing text in strings.
 In section two, use your patterns on the variable `IRCLOG`.
 
+Use double backslashes (`\\`) or raw string notation to avoid validation errors.
+
 Answer with the result from the re functions unless specified differently in the assignment.
 EOD
 ,

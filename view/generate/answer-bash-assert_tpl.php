@@ -127,8 +127,8 @@ function SQL
 #
 function checkCommandOrAbort
 {
-    if ! hash $1 2> /dev/null; then
-        printf "\e[1;33mFAILED: I require $1 but it's not installed. Aborting.\e[m\n"
+    if ! hash "$1" 2> /dev/null; then
+        printf "\e[1;33mFAILED: I require %s but it's not installed. Aborting.\e[m\n" "$1"
         exit 1;
     fi
 }

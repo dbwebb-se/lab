@@ -450,7 +450,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Skriv ett `WHERE`-villkor som uppfyller regeln att visa de båtar som är längre än 4.5 meter och kortare än 7 meter och har en båtmotor från Yamaha, eller båtar som har en motor från Tohatsu. Visa båtens typ ("Type") och båtens motor ("Engine").
+Skriv ett `WHERE`-villkor som uppfyller regeln att visa de båtar som är längre än 4.5 meter och kortare än 6 meter och har en båtmotor från Yamaha, samt de båtar som har en motor från Tohatsu (oavsett längd). Visa båtens typ ("Type") och båtens motor ("Engine").
 
 EOD
 ,
@@ -1057,7 +1057,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Visa bryggans namn, följt av ett minustecken omgivet av mellanslag, följt av båtens typ, mellanslag och ägarens namn inom parantes. Lägg allt i en sträng ("Boats") och sortera i ${sortOrder2["text"]} ordning.
+Visa bryggans namn (enbart bokstaven), följt av ett minustecken omgivet av mellanslag, följt av båtens typ, mellanslag och ägarens namn inom parantes. Lägg allt i en sträng ("Boats") och sortera i ${sortOrder2["text"]} ordning.
 
 EOD
 ,
@@ -1237,7 +1237,7 @@ SELECT
     id AS "Id",
     width as "Width",
     length AS "Length",
-    price AS "price"
+    price AS "Price"
 FROM Berth
 ORDER BY
     price ${sortOrder2["sql"]};

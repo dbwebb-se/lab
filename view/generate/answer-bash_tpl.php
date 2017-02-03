@@ -19,6 +19,7 @@ EOD;
 
 <?php if (isset($header)) echo $header ?>
 
+export ANSWER
 . .dbwebb.bash
 echo "${PROMPT}Ready to begin."
 

@@ -28,6 +28,7 @@
         <option value="bash1" <?= isSelected("bash1", $lab) ?>>Bash 1</option>
         <option value="bash2" <?= isSelected("bash2", $lab) ?>>Bash 2</option>
         <option value="javascript1" <?= isSelected("javascript1", $lab) ?>>JavaScript 1</option>
+        <option value="javascript2" <?= isSelected("javascript2", $lab) ?>>JavaScript 2</option>
         <option value="node1" <?= isSelected("node1", $lab) ?>>Node 1</option>
         <option value="node2" <?= isSelected("node2", $lab) ?>>Node 2</option>
         <option value="node3" <?= isSelected("node3", $lab) ?>>Node 3</option>

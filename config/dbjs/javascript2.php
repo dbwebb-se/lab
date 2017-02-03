@@ -1,1 +1,1 @@
-../javascript1/lab1.php
+../javascript1/lab2.php

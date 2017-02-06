@@ -85,8 +85,11 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($s1_twisterWord) {
-
-    $result = [$s1_twisterWord];
+    if ($s1_twisterWord == "can") {
+        $result = ["can", "can"];
+    } else {
+        $result = [$s1_twisterWord];
+    }
     return $result;
 },
 

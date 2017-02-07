@@ -79,7 +79,8 @@ return [
 "title" => "Lab 4 - JavaScript with Nodejs",
 
 "intro" => <<<EOD
-JavaScript using nodejs. These exercises are directed at the [nodejs api](https://nodejs.org/api/) and how to use the api documentation during coding.
+JavaScript using nodejs. During these exercises we train on the built-in nodejs modules filesystem, querystring and crypto.
+Documentation can be found at [nodejs api](https://nodejs.org/api/).
 EOD
 ,
 
@@ -95,7 +96,7 @@ EOD
 "title" => "Filesystem",
 
 "intro" => <<<EOD
-This section is about the built-in module filesystem and how to read files synchronously.
+This section is about the built-in module filesystem and how to read and write files synchronously.
 EOD
 ,
 
@@ -153,8 +154,10 @@ EOD
 [
 
 "text" => <<<EOD
-Write line number $lineNumber of `$file` to a new file synchronously that you create called `$highlightsFile`. Replace `$highlightsFile` if it already exists.
+Write line number $lineNumber of `$file` to a new file that you create called `$highlightsFile`. Replace `$highlightsFile` if it already exists.
 Answer with characters 7 through 10 from `$highlightsFile`.
+
+Tip: Use the function `writeFileSync()` when writing to files.
 EOD
 ,
 
@@ -183,7 +186,7 @@ EOD
 "title" => "querystring",
 
 "intro" => <<<EOD
-This section is about the built-in module querystring and how to parse query strings.
+This section is about the built-in module querystring and how to parse and encode query strings.
 EOD
 ,
 
@@ -201,7 +204,7 @@ EOD
 "text" => <<<EOD
 Start by requiring the querystring module `querystring` and assign the module to a variable called `querystring`.
 
-Use the new `querystring` variable and to parse to parse a query string '$queryString'. Answer with the the value of $queryKey.
+Use the new `querystring` variable to parse a query string '$queryString'. Answer with the value of $queryKey.
 EOD
 ,
 
@@ -220,7 +223,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the parsed query string from above to concatenate the astronaut's fullname with the string ' was on the ' and the mission that the astronaut was on.
+Use the parsed query string from above to concatenate the astronaut's full name with the string ' was on the ' and the mission that the astronaut was on.
 EOD
 ,
 
@@ -245,7 +248,7 @@ Create a javascript object with the following attributes and values:
 $objectString
 ```
 
-Encode the javascript object as a querystring.
+Encode the javascript object as a querystring and answer with the encoded query string.
 
 EOD
 ,
@@ -273,7 +276,7 @@ EOD
 "title" => "crypto",
 
 "intro" => <<<EOD
-This section is about the built-in module crypto and how to encrypt and decrypt data with nodejs.
+This section is about the built-in module crypto and how to encrypt data with nodejs.
 EOD
 ,
 
@@ -369,7 +372,7 @@ EOD
 [
 
 "text" => <<<EOD
-Using `cryptoStrings` create a hash of the elements containing both an 'i', an 'e' and a 'm', check both capital and non-capital letters.
+Use `filter` to keep all elements in `cryptoStrings` that contains both an 'i', an 'e', and a 'm', check both capital and non-capital letters.
 
 For the remaining elements create a hex digest of a hash created with with the `sha256` algorithm of each remaining element.
 

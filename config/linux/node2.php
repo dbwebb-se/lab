@@ -42,16 +42,32 @@ $values = ["https://dbwebb.se/", ["42", "17", "414", "415"], "aHR0cHM6Ly9kYndlYm
 $object = assembleObject($keys, $values);
 $objectString = "";
 foreach ($object as $key => $value) {
-    $objectString .= "$key = $value\n<br>";
+    $objectString .= "$key = $value\n";
 }
 
 
 
 // SECTION 3 ****************************************************
-$cryptoStrings = ["So close, no matter how far", "Couldn't be much more from the heart", "Forever trusting who we are", "And nothing else matters", "Never opened myself this way", "Life is ours, we live it our way", "All these words I don't just say", "And nothing else matters"];
-$cryptoRandomIndex = rand_int(0, count($cryptoStrings) - 2);
-$cryptoString1 = $cryptoStrings[$cryptoRandomIndex];
-$cryptoString2 = $cryptoStrings[$cryptoRandomIndex + 1];
+$allCryptoStrings = ["So close, no matter how far",
+                    "Couldnt be much more from the heart",
+                    "Forever trusting who we are",
+                    "And nothing else matters",
+                    "Never opened myself this way",
+                    "Life is ours, we live it our way",
+                    "All these words I dont just say",
+                    "And nothing else matters"];
+$cryptoRandomIndex = rand_int(0, count($allCryptoStrings) - 4);
+$cryptoStrings = [$allCryptoStrings[$cryptoRandomIndex],
+                    $allCryptoStrings[$cryptoRandomIndex + 1],
+                    $allCryptoStrings[$cryptoRandomIndex + 2],
+                    $allCryptoStrings[$cryptoRandomIndex + 3]];
+
+$cryptoString1 = $cryptoStrings[0];
+$cryptoStringsString = "'" . implode("', '", $cryptoStrings) . "'";
+
+$hmacedStrings = ["2sQc86l8abV9vEACt5ayaTOaSQ6cUKQnCF3LwNVwIUc="];
+
+
 
 return [
 
@@ -95,9 +111,9 @@ EOD
 [
 
 "text" => <<<EOD
-Start by require the filesystem module `fs` and assign the module to a variable called `fs`.
+Start by requiring the filesystem module `fs` and assign the module to a variable called `fs`.
 
-Use the new `fs` variable and the function `readFileSync` to read the entire `$file` into a variable in UTF-8 encoding. Answer with the number of characters in the file.
+Use the new `fs` variable and the function `readFileSync` to read the entire `$file` in UTF-8 encoding into a variable. Answer with the number of characters in the file.
 EOD
 ,
 
@@ -137,7 +153,7 @@ EOD
 [
 
 "text" => <<<EOD
-Write the third row of `$file` to a new file that you create called `$highlightsFile`. Replace `$highlightsFile` if it already exists.
+Write line number $lineNumber of `$file` to a new file synchronously that you create called `$highlightsFile`. Replace `$highlightsFile` if it already exists.
 Answer with characters 7 through 10 from `$highlightsFile`.
 EOD
 ,
@@ -183,7 +199,7 @@ EOD
 [
 
 "text" => <<<EOD
-Start by require the querystring module `querystring` and assign the module to a variable called `querystring`.
+Start by requiring the querystring module `querystring` and assign the module to a variable called `querystring`.
 
 Use the new `querystring` variable and to parse to parse a query string '$queryString'. Answer with the the value of $queryKey.
 EOD
@@ -225,7 +241,9 @@ EOD
 "text" => <<<EOD
 Create a javascript object with the following attributes and values:
 
+```json
 $objectString
+```
 
 Encode the javascript object as a querystring.
 
@@ -271,7 +289,7 @@ EOD
 [
 
 "text" => <<<EOD
-Start by require the crypto module `crypto` and assign the module to a variable called `crypto`.
+Start by requiring the crypto module `crypto` and assign the module to a variable called `crypto`.
 
 Use the new `crypto` variable to create a hash of '$cryptoString1' using the `sha256` algorithm.
 
@@ -281,6 +299,115 @@ EOD
 
 "answer" => function () use ($cryptoString1){
     return hash("sha256", $cryptoString1);
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create an array called `cryptoStrings` holding the strings $cryptoStringsString.
+
+Use filter to create an array only containing elements that has the string 'nothing else matters' in them.
+
+Answer with the array.
+EOD
+,
+
+"answer" => function () use ($cryptoStrings){
+    $return_arr = [];
+    for ($i = 0; $i < count($cryptoStrings); $i++) {
+        if (strpos($cryptoStrings[$i], 'nothing else matters') !== false) {
+            $return_arr[] = $cryptoStrings[$i];
+        }
+    }
+
+    return $return_arr;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Use the array from above only containing elements with 'nothing else matters'.
+
+For the elements in the array create a hex digest of a hash created with with the `sha256` algorithm of each element.
+
+Answer with the array of hashes.
+EOD
+,
+
+"answer" => function () use ($cryptoStrings){
+    $return_arr = [];
+    for ($i = 0; $i < count($cryptoStrings); $i++) {
+        if (strpos($cryptoStrings[$i], 'nothing else matters') !== false) {
+            $return_arr[] = hash("sha256", $cryptoStrings[$i]);
+        }
+    }
+
+    return $return_arr;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Using `cryptoStrings` create a hash of the elements containing both an 'i', an 'e' and a 'm', check both capital and non-capital letters.
+
+For the remaining elements create a hex digest of a hash created with with the `sha256` algorithm of each remaining element.
+
+Answer with the array of hashes.
+EOD
+,
+
+"answer" => function () use ($cryptoStrings){
+    $return_arr = [];
+    for ($i = 0; $i < count($cryptoStrings); $i++) {
+        if (strpos(strtolower($cryptoStrings[$i]), 'i') !== false && strpos(strtolower($cryptoStrings[$i]), 'e') !== false && strpos(strtolower($cryptoStrings[$i]), 'm') !== false) {
+            $return_arr[] = hash("sha256", $cryptoStrings[$i]);
+        }
+    }
+
+    return $return_arr;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Using the same `cryptoStrings` array from above, create a hash of the elements containing 'matters', check both capital and non-capital letters.
+
+For the remaining elements create a HMAC using the `sha256` algorithm and the secret 'metallica' for each element. Create a `base64` digest of the HMAC for each element.
+
+Answer with the array of HMACs.
+EOD
+,
+
+"answer" => function () use ($hmacedStrings) {
+    return $hmacedStrings;
 },
 
 ],

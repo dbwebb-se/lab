@@ -11,15 +11,18 @@ $s1_sumTopNr        = rand_int(10, 20);
 $s1_sumTop2Nr       = rand_int(30, 40);
 
 $s1_sumArrays       = [
-                [1,2,3,4,5,6,7,8,9],
-                [4,5,6,7,9,1,2,3,8],
-                [6,7,3,1,9,2,5,4,8]
+                [1,2,3,4,13,6,7,8,9],
+                [4,5,6,11,9,1,2,3,8],
+                [6,7,3,14,9,2,5,4,8]
             ];
-$s1_sumArrayString  = implode(", ", $s1_sumArrays[rand_int(0, count($s1_sumArrays) -1)]);
-$s1_sumArray        = $s1_sumArrays[rand_int(0, count($s1_sumArrays) -1)];
+$s1_cantFindNumbers = [10, 12, 15, 16, 17, 18, 19, 20];
 
-$s1_indexOfSearch   = rand_int(0, count($s1_sumArray) -1);
+$s1_sumArray        = $s1_sumArrays[rand_int(0, count($s1_sumArrays) -1)];
+$s1_sumArrayString  = implode(", ", $s1_sumArray);
+$s1_indexOfSearch   = rand_int(2, count($s1_sumArray) -1);
 $s1_searchFor       = $s1_sumArray[$s1_indexOfSearch];
+
+$s1_cantFind        = $s1_cantFindNumbers[rand_int(0, count($s1_cantFindNumbers) -1)];
 
 $s1_powBase         = rand_int(1, 10);
 $s1_powTop          = rand_int(1, 5);
@@ -52,6 +55,7 @@ EOD
 
 "intro" => <<<EOD
 Practice on creating recursive functions.
+
 EOD
 ,
 
@@ -67,32 +71,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a recursive function in the code below that calculates the sum from the numbers 1 up to $s1_sumTopNr.
-
-Answer with the sum.
-
-EOD
-,
-
-"answer" => function () use ($s1_sumTopNr) {
-    $sum = 0;
-    for($i = 1;$i < $s1_sumTopNr+1; $i++){
-        $sum += $i;
-    }
-    return $sum;
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a recursive function in the code below that calculates the sum from the numbers $s1_sumTopNr up to $s1_sumTop2Nr.
+Create a recursive function in the code below that calculates the sum of the numbers `$s1_sumTopNr` up to `$s1_sumTop2Nr`.
 
 Answer with the sum.
 EOD
@@ -116,7 +95,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a recursive function in the code below that calculates the sum of the numbers in the list [$s1_sumArrayString].
+Create a recursive function in the code below that calculates the sum of the numbers in the list `[$s1_sumArrayString]`.  
+If its an empty list return `0`.
 
 Answer with the sum.
 EOD
@@ -128,7 +108,7 @@ EOD
     for($i = 0; $i < count($s1_sumArray); $i++){
         $sum += $s1_sumArray[$i];
     }
-    
+
     return $sum;
 },
 
@@ -143,7 +123,8 @@ EOD
 
 "text" => <<<EOD
 Create a recursive function in the code below that searches a list for a number and returns the index of the number.  
-Search for the index of $s1_searchFor in the list [$s1_sumArrayString].
+Find the index of `$s1_searchFor` in the list `[$s1_sumArrayString]`.  
+If the number cant be found, return -1.
 
 Answer with the index.
 EOD
@@ -163,7 +144,28 @@ EOD
 [
 
 "text" => <<<EOD
-Create a recursive function in the code below that claculates $s1_powBase to the power of $s1_powTop.  
+Use the function from the previous assignment to find the number `$s1_cantFind` in the list `[$s1_sumArrayString]`.
+
+Answer with the index.
+
+EOD
+,
+
+"answer" => function () {
+    return -1;
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a recursive function in the code below that claculates `$s1_powBase` to the power of `$s1_powTop`.
 
 Answer with the result.
 EOD

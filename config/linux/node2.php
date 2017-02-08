@@ -112,9 +112,9 @@ EOD
 [
 
 "text" => <<<EOD
-Start by requiring the filesystem module `fs` and assign the module to a variable called `fs`.
+Start by importing the filesystem module `fs`.
 
-Use the new `fs` variable and the function `readFileSync` to read the entire `$file` in UTF-8 encoding into a variable. Answer with the number of characters in the file.
+Use the `fs` module and the function `readFileSync` to read the entire `$file` in UTF-8 encoding into a variable. Answer with the number of characters in the file.
 EOD
 ,
 
@@ -202,9 +202,9 @@ EOD
 [
 
 "text" => <<<EOD
-Start by requiring the querystring module `querystring` and assign the module to a variable called `querystring`.
+Start by importing the querystring module `querystring`.
 
-Use the new `querystring` variable to parse a query string '$queryString'. Answer with the value of $queryKey.
+Use the `querystring` module to parse a query string '$queryString'. Answer with the value of $queryKey.
 EOD
 ,
 
@@ -292,9 +292,9 @@ EOD
 [
 
 "text" => <<<EOD
-Start by requiring the crypto module `crypto` and assign the module to a variable called `crypto`.
+Start by importing the `crypto` module.
 
-Use the new `crypto` variable to create a hash of '$cryptoString1' using the `sha256` algorithm.
+Use the `crypto` module to create a hash of '$cryptoString1' using the `sha256` algorithm.
 
 Answer with a digest of the hash in `hex` format.
 EOD

@@ -552,7 +552,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Adam köper vattenskootern SeaDoo Spark av Berit. Uppdatera i databasen.
+Adam köper vattenskootern Seadoo Spark av Berit. Uppdatera i databasen.
 
 Svara sedan med `SELECT *` och sortera på båtens ägare i ${sortOrder1["text"]} ordning.
 

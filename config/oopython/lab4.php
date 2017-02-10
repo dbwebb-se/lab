@@ -165,7 +165,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a recursive function in the code below that claculates `$s1_powBase` to the power of `$s1_powTop`.
+Create a recursive function in the code below that calculates `$s1_powBase` to the power of `$s1_powTop`.
 
 Answer with the result.
 EOD

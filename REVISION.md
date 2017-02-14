@@ -2,9 +2,11 @@ Revision history
 ===================
 
 
-v2.2.28* (2017-02-01)
+v2.2.29 (2017-02-14)
 -------------------
 
+* Make node labs work without babel.
+* Add lab node1 to dbjs.
 * Bash assert add function to check if command is installed.
 
 

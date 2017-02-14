@@ -22,7 +22,8 @@ EOD;
 
 <?php if (isset($header)) echo $header ?>
 
-import dbwebb from "./.dbwebb.js";
+//import dbwebb from "./.dbwebb.js";
+const dbwebb = require("./.dbwebb.js");
 
 var ANSWER = null;
 console.log(dbwebb.prompt + "Ready to begin.");

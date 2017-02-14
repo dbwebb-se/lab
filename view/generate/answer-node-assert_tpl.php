@@ -127,4 +127,5 @@ var dbwebb = {
 
 dbwebb.loadAnswersFromFile();
 
-export default dbwebb;
+//export default dbwebb;
+module.exports = dbwebb;

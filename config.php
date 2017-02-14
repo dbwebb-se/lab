@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.2.29 (2017-02-14)";
+const VERSION = "v2.2.30 (2017-02-14)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -62,7 +62,7 @@ $VALID_LABS = [
     "htmlphp/lab4" => "config/htmlphp/lab4.php",
     "htmlphp/lab5" => "config/htmlphp/lab5.php",
     "htmlphp/sql1" => "config/sql/lab1.php",
-    "htmlphp/sql2" => "config/sql/lab2.php",
+    //"htmlphp/sql2" => "config/sql/lab2.php",
 
     "oophp/lab1" => "config/oophp/lab1.php",
 

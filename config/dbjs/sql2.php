@@ -727,7 +727,7 @@ EOD
 [
 
 "text" => <<<EOD
-Skapa en rapport som visar varje match med tidpunkt ("Tid"), teamA ("Hemmalag"), teamB ("Bortalag") samt en sträng om vem som vann. "Lag A", "Lag B" eller "Lika".
+Skapa en rapport som visar varje match med tidpunkt ("Tid"), teamA ("Hemmalag"), teamB ("Bortalag") samt en sträng om vem som vann. "Lag A", "Lag B" eller "Lika" döpa kolumnen till "Vinnare".
 
 EOD
 ,
@@ -745,7 +745,7 @@ SELECT
         ELSE "Lag B"
         END
         AS "Vinnare"
-    
+
 FROM Games
 ;
 EOD;
@@ -784,7 +784,7 @@ WHERE
         "2016-04-09 09:00"
     )
 ;
-SELECT 
+SELECT
     name AS "Omgång",
     teamA AS "Lag",
     CASE WHEN scoreA > scoreB THEN 2
@@ -818,7 +818,7 @@ EOD
 
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
-SELECT 
+SELECT
     name AS "Omgång",
     teamB AS "Lag",
     CASE WHEN scoreB > scoreA THEN 2
@@ -863,7 +863,7 @@ FROM Games
 
 UNION ALL
 
-SELECT 
+SELECT
     name AS "Omgång",
     teamB AS "Lag",
     CASE WHEN scoreB > scoreA THEN 2
@@ -922,7 +922,7 @@ Svara med `SELECT * FROM GameList`.
 EOD
 ,
 
-"points" => 1,
+"points" => 2,
 
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
@@ -939,7 +939,7 @@ FROM Games
 
 UNION ALL
 
-SELECT 
+SELECT
     name AS "Omgång",
     teamB AS "Lag",
     CASE WHEN scoreB > scoreA THEN 2
@@ -982,7 +982,7 @@ SELECT
     Lag,
     COUNT(Lag) AS "Spelade",
     SUM(Poäng) AS "Poäng"
-FROM 
+FROM
     GameList
 WHERE
     Omgång = "Final"
@@ -1014,11 +1014,11 @@ Bygg vidare på rapporten för matchtabellen. Lägg till "Total" och "Diff", så
 Du skall nu ha en tabell som innehåller "Lag", "Spelade", "Total", "Diff", "Poäng".
 
 Tips. Skapa en ny vy GameListNew som innehåller den informationen du behöver.
- 
+
 EOD
 ,
 
-"points" => 1,
+"points" => 2,
 
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
@@ -1037,7 +1037,7 @@ FROM Games
 
 UNION ALL
 
-SELECT 
+SELECT
     name AS "Omgång",
     teamB AS "Lag",
     scoreB AS "SerierVunna",
@@ -1056,7 +1056,7 @@ SELECT
     SUM(serierVunna) || " - " || SUM(serierFörlorade) AS "Total",
     SUM(serierVunna) - SUM(serierFörlorade) AS "Diff",
     SUM(Poäng) AS "Poäng"
-FROM 
+FROM
     GameListNew
 WHERE
     Omgång = "Final"
@@ -1079,11 +1079,11 @@ EOD;
 
 "text" => <<<EOD
 Pröva nu samma rapport på matchserien "Semifinal A". Om matchpoängen är lika så använder man "Diff" för att välja ut den som vinner.
- 
+
 EOD
 ,
 
-"points" => 1,
+"points" => 3,
 
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
@@ -1093,7 +1093,7 @@ SELECT
     SUM(serierVunna) || " - " || SUM(serierFörlorade) AS "Total",
     SUM(serierVunna) - SUM(serierFörlorade) AS "Diff",
     SUM(Poäng) AS "Poäng"
-FROM 
+FROM
     GameListNew
 WHERE
     Omgång = "Semifinal A"
@@ -1115,7 +1115,7 @@ EOD;
 [
 
 "text" => <<<EOD
-Bygg färdigt rapporten för matchtabellen. Lägg till "Vunna", "Oavgjorda" och "Förlorade", så som det visas i exemplet här under.
+Bygg färdigt rapporten för matchtabellen för finalomgången. Lägg till "Vunna", "Oavgjorda" och "Förlorade", så som det visas i exemplet här under.
 
 | Lag | Spelade | Vunna | Oavgjorda | Förlorade | Total | Diff | Poäng |
 |-----|:---:|:---:|:---:|:---:|:-------:|:---:|:---:|
@@ -1125,11 +1125,11 @@ Bygg färdigt rapporten för matchtabellen. Lägg till "Vunna", "Oavgjorda" och 
 Du skall nu ha en tabell som motsvarar tabellen ovan.
 
 Tips. Skapa en ny vy GameListComplete som innehåller den informationen du behöver.
- 
+
 EOD
 ,
 
-"points" => 5,
+"points" => 3,
 
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
@@ -1160,7 +1160,7 @@ FROM Games
 
 UNION ALL
 
-SELECT 
+SELECT
     name AS "Omgång",
     teamB AS "Lag",
     CASE WHEN scoreA < scoreB THEN 1
@@ -1194,7 +1194,7 @@ SELECT
     SUM(serierVunna) || " - " || SUM(serierFörlorade) AS "Total",
     SUM(serierVunna) - SUM(serierFörlorade) AS "Diff",
     SUM(Poäng) AS "Poäng"
-FROM 
+FROM
     GameListComplete
 WHERE
     Omgång = "Final"
@@ -1217,11 +1217,11 @@ EOD;
 
 "text" => <<<EOD
 Kontrollera att din sista matchrapport även fungerar på matchserien "Semifinal B".
- 
+
 EOD
 ,
 
-"points" => 5,
+"points" => 3,
 
 "answer" => function () use ($sqlite) {
     $sql = <<<EOD
@@ -1234,7 +1234,7 @@ SELECT
     SUM(serierVunna) || " - " || SUM(serierFörlorade) AS "Total",
     SUM(serierVunna) - SUM(serierFörlorade) AS "Diff",
     SUM(Poäng) AS "Poäng"
-FROM 
+FROM
     GameListComplete
 WHERE
     Omgång = "Semifinal B"

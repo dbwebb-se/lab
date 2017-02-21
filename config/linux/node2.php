@@ -401,7 +401,7 @@ EOD
 [
 
 "text" => <<<EOD
-Using the same `cryptoStrings` array from above, create a hash of the elements containing 'matters', check both capital and non-capital letters.
+Using the same `cryptoStrings` array from above remove all elements that does NOT contain 'matters', check both capital and non-capital letters.
 
 For the remaining elements create a HMAC using the `sha256` algorithm and the secret 'metallica' for each element. Create a `base64` digest of the HMAC for each element.
 

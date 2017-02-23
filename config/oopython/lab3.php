@@ -322,6 +322,8 @@ EOD
 "text" => <<<EOD
 Find all the users who talk about themselves.
 
+(Example: `17:03 < Aurora> här skriver Aurora om sig själv`)
+
 Tip, create a group and reference to it.
 Answer with the usernames.
 EOD

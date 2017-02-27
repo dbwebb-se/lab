@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.2.30 (2017-02-14)";
+const VERSION = "v2.2.31 (2017-02-27)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -80,12 +80,7 @@ $VALID_LABS = [
     "dbjs/sql1" => "config/dbjs/sql1.php",
     "dbjs/sql2" => "config/dbjs/sql2.php",
     "dbjs/node1" => "config/dbjs/node1.php",
-
-    "dbjs/lab2" => "config/dbjs/lab2.php",
-    "dbjs/lab3" => "config/dbjs/lab3.php",
-    "dbjs/lab4" => "config/dbjs/lab4.php",
-    "dbjs/lab5" => "config/dbjs/lab5.php",
-    "dbjs/lab6" => "config/dbjs/lab6.php",
+    "dbjs/node2" => "config/dbjs/node2.php",
 
 ];
 
@@ -111,12 +106,12 @@ $LAB_TYPE = [
         "sql1" => "sqlite",
         "sql2" => "sqlite",
         "node1" => "node",
+        "node2" => "node",
     ],
     "linux"      => [
         "bash1" => "bash",
         "bash2" => "bash",
         "node1" => "node",
         "node2" => "node",
-        "node3" => "node",
     ],
 ];

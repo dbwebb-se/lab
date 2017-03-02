@@ -24,8 +24,8 @@ $s1_searchFor       = $s1_sumArray[$s1_indexOfSearch];
 
 $s1_cantFind        = $s1_cantFindNumbers[rand_int(0, count($s1_cantFindNumbers) -1)];
 
-$s1_powBase         = rand_int(1, 10);
-$s1_powTop          = rand_int(1, 5);
+$s1_powBase         = rand_int(3, 12);
+$s1_powTop          = rand_int(3, 7);
 
 $s1_strings         = ["Frontwards", "Backwards", "switcharoo", "Switchy mc switch"];
 $s1_string          = $s1_strings[rand_int(0, count($s1_strings) -1)];

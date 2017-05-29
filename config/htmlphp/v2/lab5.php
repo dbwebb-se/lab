@@ -10,8 +10,8 @@ include LAB_INSTALL_DIR . "/config/random.php";
 $books = ["SherlockHolmes", "SleepyHollow", "Grimm", "Frankenstein"];
 $bookNr = rand_int(0, count($books)-1);
 $useThisBook = $books[$bookNr];
-$file1 = file_get_contents(__DIR__ . "/lab4_extra/$useThisBook.txt");
-$file2 = file_get_contents(__DIR__ . "/lab4_extra/$useThisBook.txt", NULL, NULL, 16, 25);
+$file1 = file_get_contents(__DIR__ . "/lab5_extra/$useThisBook.txt");
+$file2 = file_get_contents(__DIR__ . "/lab5_extra/$useThisBook.txt", NULL, NULL, 16, 25);
 $file3 = explode(PHP_EOL, $file1);
 
 $numbers = [
@@ -47,7 +47,7 @@ $sentances = [
 $sentRand = rand_int(0, count($sentances)-1);
 $useThisSent = $sentances[$sentRand];
 $useThisSentPrint = implode(", ", $useThisSent);
-$file6 = unserialize(file_get_contents(__DIR__ . "/lab4_extra/serialized.txt"));
+$file6 = unserialize(file_get_contents(__DIR__ . "/lab5_extra/serialized.txt"));
 // $file6 = serialize($useThisSent);
 // $file6 = unserialize($file6);
 //file_put_contents(__DIR__ . "/temp.txt", $file6);
@@ -99,7 +99,8 @@ $mdFive = md5($useThisPass);
 
 return [
 
-
+"passPercentage" => 13/19,
+"passDistinctPercentage" => 19/19,
 
 /**
  * Titel and introduction to the lab.
@@ -141,9 +142,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'new DateTime()' to create a new DateTime-object from the date: '$dates[$dateRand]' Format the object to present the year-month-day, 'Y-m-d' and answer with the result.
+Use `new DateTime()` to create a new DateTime-object from the date: `$dates[$dateRand]`. Format the object to present the year-month-day, `Y-m-d` and answer with the result.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($useThisDate) {
 
@@ -160,9 +163,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new DateTime-object with the same parameters and add 3 months to it. Answer with the result, presented in the format: 'Y-m-d'.
+Create a new DateTime-object with the same parameters and add 3 months to it. Answer with the result, presented in the format: `Y-m-d`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($dateAdd) {
 
@@ -179,32 +184,15 @@ EOD
 [
 
 "text" => <<<EOD
-Use one of your DateTime-objects and answer with the time, presented in the format: hours:minutes:seconds.
+Use one of your DateTime-objects and answer with the time, presented in the format: `hours:minutes:seconds`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($useThisDate) {
 
     return date_format($useThisDate, "H:i:s");
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a new DateTime-object based on the same date and time and subtract 5 days and 3 hours from it. Answer with the whole date, presented in the format: 'Y-m-d hours:minutes:seconds'.
-EOD
-,
-
-"answer" => function () use($dateSub) {
-
-    return date_format($dateSub, "Y-m-d H:i:s");
 },
 
 ],
@@ -226,7 +214,7 @@ EOD
 "title" => "Working with files",
 
 "intro" => <<<EOD
-In this section, you will be working with the file: '[$useThisBook.txt]($useThisBook.txt)'. It contains a paragraph from a book and can be found in the lab folder.
+In this section, you will be working with the file: `$useThisBook.txt`. It contains a paragraph from a book and can be found in the lab folder.
 EOD
 ,
 
@@ -241,9 +229,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'file_get_contents()' to get the file as a string. Save it to a variable called 'fileAsString'. Answer with the variable.
+Use `file_get_contents()` to get the file as a string. Save it to a variable called `fileAsString`. Answer with the variable.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($file1) {
 
@@ -260,32 +250,15 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'file_get_contents()' to get 25 characters, starting on the 17th character.
+Use `file_get_contents()` to get 25 characters, starting on the 17th character.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($file2) {
 
     return $file2;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use a combination of 'implode()' with a space as a delimiter and 'explode()' to format the file content and remove newline characters. Answer with the result.
-EOD
-,
-
-"answer" => function () use($file3) {
-
-    return implode(" ",$file3);
 },
 
 ],
@@ -310,6 +283,8 @@ EOD
 EOD
 ,
 
+"points" => 1,
+
 "shuffle" => false,
 
 "questions" => [
@@ -322,11 +297,13 @@ EOD
 [
 
 "text" => <<<EOD
-Use the file 'serialized.txt' in your lab folder and read it, unserialize it and put the result in your answer.
+Use the file `serialized.txt` in your lab folder and read it, unserialize it and put the result in your answer.
 
-(Take a peek into your '[serialized.txt](serialized.txt)' to see how a serialized array looks)
+(Tips: Take a peek into your 'serialized.txt' to see how a serialized array looks)
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($file6){
     return $file6;
@@ -367,9 +344,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use `password_hash()` with the DEFAULT algorithm to create a hash of the password: '$useThisPass'. Test `password_verify()` with different passwords to see what it returns. Answer with the result, using '$useThisPass'.
+Use `password_hash()` with the DEFAULT algorithm to create a hash of the password: `"$useThisPass"`. Test `password_verify()` with different passwords to see what it returns. Answer with the result, using `"$useThisPass"`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($passResult) {
 
@@ -386,9 +365,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use ROT13 encoding on your password: '$useThisPass'. Answer with the result.
+Use `ROT13` encoding on your password: `"$useThisPass"`. Answer with the result.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($rot) {
 
@@ -406,7 +387,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use ROT13 decoding to find which movies hides in the string:
+Use `ROT13` decoding to find which movies hides in the string:
 
 > "$presentCrypts"
 
@@ -415,6 +396,8 @@ Each movie is comma-separated in the string above.
 Answer with an array containing all answers.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($plain) {
 
@@ -432,9 +415,11 @@ EOD
 [
 
 "text" => <<<EOD
-Calculate the hash of the password '$useThisPass' with md5. Answer with the hash.
+Calculate the hash of the password `"$useThisPass"` with `md5`. Answer with the hash.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($mdFive) {
 
@@ -476,9 +461,11 @@ EOD
 [
 
 "text" => <<<EOD
-Set the internal encoding to 'ISO-8859-1'. Answer with the result of `mb_internal_encoding()`.
+Set the internal encoding to `ISO-8859-1`. Answer with the result of `mb_internal_encoding()`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($encAns1) {
 
@@ -495,9 +482,11 @@ EOD
 [
 
 "text" => <<<EOD
-Check the `strlen()` and `mb_strlen()` of the word '$useThisEnc'. Answer with the two results as a comma and space-separated string.
+Check the `strlen()` and `mb_strlen()` of the word `"$useThisEnc"`. Answer with the two results as a comma and space-separated string.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($encAns2) {
 
@@ -514,13 +503,80 @@ EOD
 [
 
 "text" => <<<EOD
-Set the internal encoding to 'UTF-8' and check the `strlen()` and `mb_strlen()` of the word '$useThisEnc'. Answer with the two results as a comma-separated string.
+Set the internal encoding to `UTF-8` and check the `strlen()` and `mb_strlen()` of the word `"$useThisEnc"`. Answer with the two results as a comma-separated string.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($encAns3) {
 
     return $encAns3;
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+These questions are worth 3 points each. Solve them for extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a new DateTime-object based on the same date and time and subtract 5 days and 3 hours from it. Answer with the whole date, presented in the format: `Y-m-d hours:minutes:seconds`.
+EOD
+,
+
+"points" => 3,
+
+"answer" => function () use($dateSub) {
+
+    return date_format($dateSub, "Y-m-d H:i:s");
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Use a combination of `implode()` with a space as a delimiter and `explode()` to format the file content and remove newline characters. Answer with the result.
+EOD
+,
+
+"points" => 3,
+
+"answer" => function () use($file3) {
+
+    return implode(" ",$file3);
 },
 
 ],

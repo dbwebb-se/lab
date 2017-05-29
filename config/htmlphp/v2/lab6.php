@@ -3,7 +3,7 @@
 /**
  * Generate random values to use in lab.
  */
-include __DIR__ . "/../random.php";
+include LAB_INSTALL_DIR . "/config/random.php";
 
 // ################### QUERY DATA ##################
 
@@ -121,7 +121,7 @@ return [
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 5 - Htmlphp",
+"title" => "Lab 6 - Htmlphp",
 
 "intro" => <<<EOD
 In this lab you will be working with a SQLite database file: 'myDB.sqlite' and PDO.

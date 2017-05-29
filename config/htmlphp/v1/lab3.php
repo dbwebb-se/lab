@@ -3,7 +3,7 @@
 /**
  * Generate random values to use in lab.
  */
-include __DIR__ . "/../random.php";
+include LAB_INSTALL_DIR . "/config/random.php";
 
 // ################### SECTION 1 ##################
 

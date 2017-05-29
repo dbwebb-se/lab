@@ -3,7 +3,7 @@
 /**
  * Generate random values to use in lab.
  */
-include __DIR__ . "/../random.php";
+include LAB_INSTALL_DIR . "/config/random.php";
 
 // ################### SECTION 1 ##################
 $s1_countries = [
@@ -145,7 +145,7 @@ return [
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 2 - Htmlphp",
+"title" => "Lab 3 - Htmlphp",
 
 "intro" => <<<EOD
 If you need to peek at examples or just want to know more, take a look at the [PHP Manual](http://php.net/manual/en/langref.php).

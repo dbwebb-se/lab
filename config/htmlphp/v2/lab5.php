@@ -3,7 +3,7 @@
 /**
  * Generate random values to use in lab.
  */
-include __DIR__ . "/../random.php";
+include LAB_INSTALL_DIR . "/config/random.php";
 
 // ################### Files ##################
 
@@ -104,7 +104,7 @@ return [
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 4 - Htmlphp",
+"title" => "Lab 5 - Htmlphp",
 
 "intro" => <<<EOD
 This lab pretty much deals with getting youreself acquainted with the PHP Manual. Search, find and read. It will be fun.

@@ -140,7 +140,8 @@ $switchWich2 = rand_int(0, 2);
 
 return [
 
-
+"passPercentage" => 18/21,
+"passDistinctPercentage" => 21/21,
 
 /**
  * Titel and introduction to the lab.
@@ -179,11 +180,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create an array, called 'countries' with the items: [$s1_countryPrint].
+Create an array, called `countries` with the items: `[$s1_countryPrint]`.
 
 Answer with the second item in the array.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($s1_useThisCountryArray) {
 
@@ -200,11 +203,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new array called 'capitals' with the items: [$s1_capitalPrint].
+Create a new array called `capitals` with the items: [$s1_capitalPrint].
 
-Answer with a string containing each country from the 'countries'-array followed by the corresponding capital. Use the format 'country = capital, country = capital...'.
+Answer with a string containing each country from the `countries`-array followed by the corresponding capital. Use the format `"country = capital, country = capital..."`
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($s1_useThisCountryArray, $s1_useThisCapitalArray) {
 
@@ -224,9 +229,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create an array, called 'numbers1' with the items: [$s1_arrSelPrint]. Answer with the sum of the first two items.
+Create an array, called `numbers1` with the items: `[$s1_arrSelPrint]`. Answer with the sum of the first two items.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($s1_arrSel) {
 
@@ -243,9 +250,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use your arrays 'numbers1' and 'capitals' to change item at index $s1_smallRand2 in 'numbers1' to the item at index $s1_smallRand1 in 'capitals'. Answer with your 'numbers1'-array.
+Use your arrays `numbers1` and `capitals` to change item at index $s1_smallRand2 in `numbers1` to the item at index $s1_smallRand1 in `capitals`. Answer with the array `numbers1`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($s1_arrSel, $s1_smallRand2, $s1_smallRand1, $s1_useThisCapitalArray) {
 	$s1_arrSel[$s1_smallRand2] = $s1_useThisCapitalArray[$s1_smallRand1];
@@ -263,9 +272,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use your array 'countries' and concatenate the first and the last item as a string. Separate the items with a hyphen (-) and answer with the result.
+Use your array `countries` and concatenate the first and the last item as a string. Separate the items with a hyphen `-` and answer with the result.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($s1_useThisCountryArray) {
 
@@ -306,9 +317,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use your 'countries' and 'capitals' arrays and create another array called 'keyArray'. The country should be the key and the capital should be the value. Answer with the new array. (hint: `'country' => 'capital'`)
+Use your `countries` and `capitals` arrays and create another array called `keyArray`. The country should be the key and the capital should be the value. Answer with the new array. (hint: `"country" => "capital"`)
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($s2_keyArray) {
     return $s2_keyArray;
@@ -324,9 +337,11 @@ EOD
 [
 
 "text" => <<<EOD
-Add the key '$s2_addThisKey' with the value '$s2_addThisValue' to your 'keyArray'. Answer with the updated array.
+Add the key `"$s2_addThisKey"` with the value `"$s2_addThisValue"` to your `keyArray`. Answer with the updated array.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($s2_keyArray2) {
 
@@ -344,9 +359,11 @@ EOD
 [
 
 "text" => <<<EOD
-Answer with the value for the key '$s2_randKey'.
+Answer with the value for the key `"$s2_randKey"`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($s2_keyArray2, $s2_randKey) {
 	return $s2_keyArray2[$s2_randKey];
@@ -386,9 +403,11 @@ EOD
 [
 
 "text" => <<<EOD
-Find the number of items in the array [$s3_arrSelPrint]. Answer with the result as an integer.
+Find the number of items in the array `[$s3_arrSelPrint]`. Answer with the result as an integer.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s3_arrSel) {
 
@@ -407,31 +426,11 @@ EOD
 [
 
 "text" => <<<EOD
-Sort the array [$s3_arrSel2Print] in ascending order. Make sure that it does not maintain the key association. Answer with the sorted array.
+Sort the array `[$s3_arrSelPrint]` in decending order. Make sure that it does maintain the key association. Answer with the sorted array.
 EOD
 ,
 
-"answer" => function () use ($s3_arrSel2) {
-
-	sort($s3_arrSel2);
-
-	return $s3_arrSel2;
-
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Sort the array [$s3_arrSelPrint] in decending order. Make sure that it does maintain the key association. Answer with the sorted array.
-EOD
-,
+"points" => 1,
 
 "answer" => function () use ($s3_arrSel) {
 
@@ -451,9 +450,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use `pop()` on the array [$s3_arrSelPrint] and answer with the popped item.
+Use `pop()` on the array `[$s3_arrSelPrint]` and answer with the popped item.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s3_arrSel) {
 
@@ -473,9 +474,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use `push()` on the array [$s3_arrSel2Print] and insert the number $s3_single. Answer with the resulting array.
+Use `push()` on the array `[$s3_arrSel2Print]` and insert the number $s3_single. Answer with the resulting array.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s3_arrSel2, $s3_single) {
 
@@ -495,9 +498,11 @@ EOD
 [
 
 "text" => <<<EOD
-Copy your array 'countries' to a new array called 'newArray'. Use `shift()` on the new array and answer with the shifted item.
+Copy your array `countries` to a new array called `newArray`. Use `shift()` on the new array and answer with the shifted item.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s3_newArray) {
 
@@ -515,9 +520,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use `unshift()` on your 'newArray' add the items '$s3_singelState1' and '$s3_singleState2' in the beginning of the array. Answer with the modified array.
+Use `unshift()` on your `newArray` add the items `"$s3_singelState1"` and `"$s3_singleState2"` in the beginning of the array. Answer with the modified array.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s3_newArray, $s3_singelState1, $s3_singleState2) {
 
@@ -537,9 +544,11 @@ EOD
 [
 
 "text" => <<<EOD
-Reverse the order of the array [$s3_arrSelPrint]. Answer with the modified array.
+Reverse the order of the array `[$s3_arrSelPrint]`. Answer with the modified array.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s3_arrSel) {
 
@@ -556,9 +565,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use `implode()` on your 'capital'-array and answer with a string where each item is separated by a hyphen (-).
+Use `implode()` on your `capital`-array and answer with a string where each item is separated by a hyphen `-`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s4_capitals) {
 
@@ -599,9 +610,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create an array, called 'numbers1' with the items: [$s4_printNum1]. Use a for-each loop to sum each item with $s4_smallNum and put them in a new array called 'summedNumbers1'. Answer with the new array.
+Create an array, called `numbers1` with the items: `[$s4_printNum1]`. Use a for-each loop to sum each item with $s4_smallNum and put them in a new array called `summedNumbers1`. Answer with the new array.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s4_useThis1, $s4_smallNum) {
 	$summedNumbers1 = [];
@@ -621,9 +634,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new array called 'numbers2' with the items [$s4_printNum2]. Use at least a for-each loop to add all numbers larger than 20 to a new array called 'largeNumbers'. Answer with the new array.
+Create a new array called `numbers2` with the items `[$s4_printNum2]`. Use at least a for-each loop to add all numbers larger than 20 to a new array called `largeNumbers`. Answer with the new array.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s4_useThis2) {
 	$largeNumbers = [];
@@ -645,9 +660,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create an array with the keys: 'one', 'two', 'three', 'four' and 'five' and the values: 1, 2, 3, 4, 5. Use a foreach-loop to add all keys and values to an array in the format: ['key=value', key=value, etc']. Use `implode()` to make the answer a string with all items separated by a comma (,).
+Create an array with the keys: `"one"`, `"two"`, `"three"`, `"four"` and `"five"` and the values: 1, 2, 3, 4, 5. Use a foreach-loop to add all keys and values to an array in the format: `["key"=value, "key"=value, etc]`. Use `implode()` to make the answer a string with all items separated by a comma `,`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s4_foreach1) {
 	$res = [];
@@ -688,18 +705,19 @@ EOD
 
 
 
-
 /** -----------------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Create a switch-case statement that returns the continent a certain country resides in. Use the countries: $countriesString1 and the continents: $continentsString1.
+Create a switch-case statement that returns the continent a certain country resides in. Use the countries: `"$countriesString1"` and the continents: `"$continentsString1"`.
 
-Answer with a test on the country: $switchCountries1[$switchWich1].
+Answer with a test on the country: `"$switchCountries1[$switchWich1]"`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($switchContinents1, $switchWich1) {
 
@@ -717,15 +735,66 @@ EOD
 [
 
 "text" => <<<EOD
-A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that returns the corresponding continent. Use the countries: $countriesString2 and the continents: $continentsString1.
+A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that returns the corresponding continent. Use the countries: `"$countriesString2"` and the continents: `"$continentsString1"`.
 
-Answer with a test on the country: $switchCountries2[$switchWich2].
+Answer with a test on the country: `"$switchCountries2[$switchWich2]"`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($switchContinents2, $switchWich2) {
 
     return $switchContinents2[$switchWich2];
+
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+These questions are worth 3 points each. Solve them for extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Sort the array `[$s3_arrSel2Print]` in ascending order. Make sure that it does not maintain the key association. Answer with the sorted array.
+EOD
+,
+
+"points" => 3,
+
+"answer" => function () use ($s3_arrSel2) {
+
+	sort($s3_arrSel2);
+
+	return $s3_arrSel2;
 
 },
 

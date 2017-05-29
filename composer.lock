@@ -4,25 +4,27 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2f5fefb2f77e880a8809f50b5665bbf4",
-    "content-hash": "7781369a2e1f2d7fba6594b098c29934",
+    "content-hash": "798ce4098069ff08d6f9b51990b6a5d7",
     "packages": [
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.8.0",
+            "version": "v4.9.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2"
+                "reference": "6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
-                "reference": "d0c392f77d2f2a3dcf7fcb79e2a1e2b8804e75b2",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4",
+                "reference": "6d50e5282afdfdfc3e0ff6d192aff56c5629b3d4",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
+            },
+            "require-dev": {
+                "simpletest/simpletest": "^1.1"
             },
             "type": "library",
             "autoload": {
@@ -49,7 +51,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2016-07-16 12:58:58"
+            "time": "2017-03-13T06:30:53+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -100,20 +102,20 @@
             "keywords": [
                 "markdown"
             ],
-            "time": "2015-12-24 01:37:31"
+            "time": "2015-12-24T01:37:31+00:00"
         },
         {
             "name": "michelf/php-smartypants",
-            "version": "dev-lib",
+            "version": "1.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/michelf/php-smartypants.git",
-                "reference": "e4a873d4a4e0f3dd6fbf5b9e017362f174eb28df"
+                "reference": "674badae316a957173c67dd3184e21cb6807d7fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/michelf/php-smartypants/zipball/e4a873d4a4e0f3dd6fbf5b9e017362f174eb28df",
-                "reference": "e4a873d4a4e0f3dd6fbf5b9e017362f174eb28df",
+                "url": "https://api.github.com/repos/michelf/php-smartypants/zipball/674badae316a957173c67dd3184e21cb6807d7fb",
+                "reference": "674badae316a957173c67dd3184e21cb6807d7fb",
                 "shasum": ""
             },
             "require": {
@@ -138,16 +140,16 @@
                 {
                     "name": "Michel Fortin",
                     "email": "michel.fortin@michelf.ca",
-                    "homepage": "http://michelf.ca/",
+                    "homepage": "https://michelf.ca/",
                     "role": "Developer"
                 },
                 {
                     "name": "John Gruber",
-                    "homepage": "http://daringfireball.net/"
+                    "homepage": "https://daringfireball.net/"
                 }
             ],
             "description": "PHP SmartyPants",
-            "homepage": "http://michelf.ca/projects/php-smartypants/",
+            "homepage": "https://michelf.ca/projects/php-smartypants/",
             "keywords": [
                 "dashes",
                 "quotes",
@@ -155,20 +157,20 @@
                 "typographer",
                 "typography"
             ],
-            "time": "2013-08-02 10:48:47"
+            "time": "2016-10-10T18:14:08+00:00"
         },
         {
             "name": "mos/ctextfilter",
-            "version": "v1.2.19",
+            "version": "v1.2.20",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mosbth/ctextfilter.git",
-                "reference": "39af7891a10eed403ab503572b9d464d1a182fae"
+                "reference": "f324263f13fdc931982648443bb54da8ce5ad0c6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mosbth/ctextfilter/zipball/39af7891a10eed403ab503572b9d464d1a182fae",
-                "reference": "39af7891a10eed403ab503572b9d464d1a182fae",
+                "url": "https://api.github.com/repos/mosbth/ctextfilter/zipball/f324263f13fdc931982648443bb54da8ce5ad0c6",
+                "reference": "f324263f13fdc931982648443bb54da8ce5ad0c6",
                 "shasum": ""
             },
             "require": {
@@ -218,7 +220,7 @@
                 "markdown",
                 "shortcode"
             ],
-            "time": "2016-11-28 14:53:40"
+            "time": "2017-02-06T23:08:34+00:00"
         },
         {
             "name": "scrivo/highlight.php",
@@ -252,15 +254,13 @@
                 "highlight.php",
                 "syntax"
             ],
-            "time": "2016-01-01 14:08:00"
+            "time": "2016-01-01T14:08:00+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "michelf/php-smartypants": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

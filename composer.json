@@ -1,6 +1,5 @@
 {
     "require": {
-        "mos/ctextfilter": "^1.2",
-        "michelf/php-smartypants": "1.6.x-dev"
+        "mos/ctextfilter": "^1.2"
     }
 }

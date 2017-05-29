@@ -136,8 +136,6 @@ $continentsString2 = implode(", ", $switchContinents2);
 $switchWich1 = rand_int(1, count($switchCountries1)-1);
 $switchWich2 = rand_int(0, 2);
 
-// $switchAns1 =
-
 
 
 return [
@@ -245,7 +243,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use your arrays 'numbers1' and 'capitals' to change item at index $s1_smallRand2 in 'numbers1' to the item at index $s1_smallRand1 in 'capitols'. Answer with your 'numbers1'-array.
+Use your arrays 'numbers1' and 'capitals' to change item at index $s1_smallRand2 in 'numbers1' to the item at index $s1_smallRand1 in 'capitals'. Answer with your 'numbers1'-array.
 EOD
 ,
 
@@ -332,9 +330,8 @@ EOD
 
 "answer" => function () use($s2_keyArray2) {
 
-
-
 	return $s2_keyArray2;
+
 },
 
 ],

@@ -23,6 +23,12 @@
         <option value="lab4" <?= isSelected("lab4", $lab) ?>>Lab 4</option>
         <option value="lab5" <?= isSelected("lab5", $lab) ?>>Lab 5</option>
         <option value="lab6" <?= isSelected("lab6", $lab) ?>>Lab 6</option>
+        <option value="lab01" <?= isSelected("lab01", $lab) ?>>Lab 01 v2</option>
+        <option value="lab02" <?= isSelected("lab02", $lab) ?>>Lab 02 v2</option>
+        <option value="lab03" <?= isSelected("lab03", $lab) ?>>Lab 03 v2</option>
+        <option value="lab04" <?= isSelected("lab04", $lab) ?>>Lab 04 v2</option>
+        <option value="lab05" <?= isSelected("lab05", $lab) ?>>Lab 05 v2</option>
+        <option value="lab06" <?= isSelected("lab06", $lab) ?>>Lab 06 v2</option>
         <option value="sql1" <?= isSelected("sql1", $lab) ?>>SQL 1</option>
         <option value="sql2" <?= isSelected("sql2", $lab) ?>>SQL 2</option>
         <option value="bash1" <?= isSelected("bash1", $lab) ?>>Bash 1</option>

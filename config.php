@@ -5,6 +5,8 @@
 const VERSION = "v2.2.31 (2017-02-27)";
 $timestamp_now = date('Y-m-d H:i:s');
 
+const LAB_INSTALL_DIR = __DIR__;
+
 
 
 /**
@@ -15,7 +17,7 @@ ini_set('display_errors', 1);     // Display all errors
 
 date_default_timezone_set("UTC");
 
-require __DIR__ . "/vendor/autoload.php";
+require LAB_INSTALL_DIR . "/vendor/autoload.php";
 
 
 /**
@@ -56,11 +58,19 @@ $VALID_LABS = [
     "oopython/lab4" => "config/oopython/lab4.php",
     "oopython/lab5" => "config/oopython/lab5.php",
 
-    "htmlphp/lab1" => "config/htmlphp/lab1.php",
-    "htmlphp/lab2" => "config/htmlphp/lab2.php",
-    "htmlphp/lab3" => "config/htmlphp/lab3.php",
-    "htmlphp/lab4" => "config/htmlphp/lab4.php",
-    "htmlphp/lab5" => "config/htmlphp/lab5.php",
+    "htmlphp/lab1" => "config/htmlphp/v1/lab1.php",
+    "htmlphp/lab2" => "config/htmlphp/v1/lab2.php",
+    "htmlphp/lab3" => "config/htmlphp/v1/lab3.php",
+    "htmlphp/lab4" => "config/htmlphp/v1/lab4.php",
+    "htmlphp/lab5" => "config/htmlphp/v1/lab5.php",
+
+    "htmlphp/lab01" => "config/htmlphp/v2/lab1.php",
+    "htmlphp/lab02" => "config/htmlphp/v2/lab2.php",
+    "htmlphp/lab03" => "config/htmlphp/v2/lab3.php",
+    "htmlphp/lab04" => "config/htmlphp/v2/lab4.php",
+    "htmlphp/lab05" => "config/htmlphp/v2/lab5.php",
+    "htmlphp/lab06" => "config/htmlphp/v2/lab6.php",
+
     "htmlphp/sql1" => "config/sql/lab1.php",
     //"htmlphp/sql2" => "config/sql/lab2.php",
 

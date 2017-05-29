@@ -101,7 +101,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use your two variables 'numOne' and 'numTwo'. Subtract 'numOne' from 'numTwo' and answer with the result.
+Use your two variables `numOne` and `numTwo`. Subtract `numOne` from `numTwo` and answer with the result.
 EOD
 ,
 
@@ -120,7 +120,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use your two variables 'numOne' and 'numTwo'. Answer with the product of the variables.
+Use your two variables `numOne` and `numTwo`. Answer with the product of the variables.
 EOD
 ,
 
@@ -139,7 +139,7 @@ EOD
 [
 
 "text" => <<<EOD
-Divide 'numOne' with 'numTwo' and use the function round() to round the answer to 1 decimal.
+Divide `numOne` with `numTwo` and use the function `round()` to round the answer to 1 decimal.
 EOD
 ,
 
@@ -158,7 +158,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable called 'floatOne' and give it the value $s1_floatOne. Create another variable called 'floatTwo' and give it the value $s1_floatTwo. Sum up the variables, round off to 2 decimals and answer with the result.
+Create a variable called `floatOne` and give it the value $s1_floatOne. Create another variable called `floatTwo` and give it the value $s1_floatTwo. Sum up the variables and answer with the result rounded to 2 decimals.
 EOD
 ,
 
@@ -177,7 +177,7 @@ EOD
 [
 
 "text" => <<<EOD
-Subtract 'floatOne' from 'floatTwo', round up to 3 decimals and answer with the result.
+Subtract `floatOne` from `floatTwo`, round up to 3 decimals and answer with the result.
 EOD
 ,
 
@@ -196,7 +196,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable called 'floatThree' and give it the value $s1_floatThree.  Add 'floatOne' to 'floatTwo' and multiply the result with 'floatThree', take that result and divide it by 'numOne'.
+Create a variable called `floatThree` and give it the value $s1_floatThree.  Add `floatOne` to `floatTwo` and multiply the result with `floatThree`, take that result and divide it by `numOne`.
 
 Answer with the result rounded to 4 decimals.
 EOD
@@ -217,9 +217,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable 'modOne' with a value of $s1_modOne and a variable 'modTwo' holding the value $s1_modTwo.
+Create a variable `modOne` with a value of $s1_modOne and a variable `modTwo` holding the value $s1_modTwo.
 
-Answer with the result of 'modOne' modulo (%) 'modTwo'.
+Answer with the result of `modOne` modulo (%) `modTwo`.
 EOD
 ,
 
@@ -238,7 +238,7 @@ EOD
 [
 
 "text" => <<<EOD
-Answer with the integer value of 'modOne' divided by 'modTwo' by using the function `floor()`.
+Answer with the integer value of `modOne` divided by `modTwo` by using the function `floor()`.
 EOD
 ,
 
@@ -257,7 +257,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the function `max()` to get the highest value from your variables 'modOne', 'modTwo', 'floatOne', 'floatTwo', 'numOne', 'numTwo'.
+Use the function `max()` to get the highest value from your variables `modOne`, `modTwo`, `floatOne`, `floatTwo`, `numOne`, `numTwo`.
 EOD
 ,
 
@@ -276,7 +276,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the function `min()` to get the smallest value from your variables 'modOne', 'modTwo', 'floatOne', 'floatTwo', 'numOne', 'numTwo'.
+Use the function `min()` to get the smallest value from your variables `modOne`, `modTwo`, `floatOne`, `floatTwo`, `numOne`, `numTwo`.
 EOD
 ,
 

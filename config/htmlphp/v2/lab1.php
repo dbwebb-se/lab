@@ -81,7 +81,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create two variables called 'numOne' and 'numTwo' and assign to them the values $s1_numOne and $s1_numTwo.
+Create two variables called `numOne` and `numTwo` and assign to them the values $s1_numOne and $s1_numTwo.
 
 Sum up the variables and answer with the result.
 EOD

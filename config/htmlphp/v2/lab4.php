@@ -59,7 +59,8 @@ $s1_circleArea = round((($s1_diameter/2)*($s1_diameter/2))*pi(),4);
 
 return [
 
-
+"passPercentage" => 9/9,
+"passDistinctPercentage" => 9/9,
 
 /**
  * Titel and introduction to the lab.
@@ -100,11 +101,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'sumNumbers' that should take 2 numbers as arguments and return the sum of them.
+Create a function called `sumNumbers()` that should take 2 numbers as arguments and return the sum of them.
 
 Answer with a call to the function using the numbers $s1_num1 and $s1_num2.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s1_num1, $s1_num2) {
 
@@ -121,11 +124,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'sumArray' that should take an array as argument and return the sum of all items in the array.
+Create a function called `sumArray()` that should take an array as argument and return the sum of all items in the array.
 
-Answer with a call to the function using the array: [$s1_printNumArr1].
+Answer with a call to the function using the array: `[$s1_printNumArr1]`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s1_useNumArr1) {
 
@@ -147,11 +152,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'modArray' that should take 2 arguments, an array and a string. Replace the first item in the array with the string and return the array.
+Create a function called `modArray()` that should take 2 arguments, an array and a string. Replace the first item in the array with the string and return the array.
 
-Answer with a call to the function using the arguments: [$s1_printNumArr2] and '$s1_singleWord1'.
+Answer with a call to the function using the arguments: `[$s1_printNumArr2]` and `"$s1_singleWord1"`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s1_useNumArr2, $s1_singleWord1) {
 
@@ -169,11 +176,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'printRange' that should take 2 numbers as arguments, start and stop. The function should add all even numbers between start and stop (not including) to an array and return it.
+Create a function called `printRange()` that should take 2 numbers as arguments, start and stop. The function should add all even numbers between start and stop (not including) to an array and return it.
 
 Answer with a call to the function using the arguments: $s1_smallNr and $s1_bigNr.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s1_smallNr, $s1_bigNr) {
 
@@ -196,11 +205,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'combineArrays' that takes two arrays as arguments. The function should combine the arrays to one associative array and return it. The first argument is the key and the second argument is the value.
+Create a function called `combineArrays()` that takes two arrays as arguments. The function should combine the arrays to one associative array and return it. The first argument is the key and the second argument is the value.
 
-Answer with a call to the function using the arguments: [$s1_array1Print] and [$s1_array2Print].
+Answer with a call to the function using the arguments: `[$s1_array1Print]` and `[$s1_array2Print]`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s1_array3) {
 
@@ -217,11 +228,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'euroToDollar' that takes one argument, the euro amount to convert to dollars. Count 1 Euro as $s1_dollars dollars. Return the dollar amount of $s1_euroToConvert Euros.
+Create a function called `euroToDollar()` that takes one argument, the euro amount to convert to dollars. Count 1 Euro as $s1_dollars dollars. Return the dollar amount of $s1_euroToConvert Euros.
 
 Answer with the result as a double with 4 decimals.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s1_dollars, $s1_euroToConvert) {
 
@@ -238,11 +251,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'inRange' that takes one argument. The function should return 'true' if the argument is higher than 50 and lower than 100. If the number is out of range, the function should return 'false'. The return type should be boolean.
+Create a function called `inRange()` that takes one argument. The function should return `true` if the argument is higher than 50 and lower than 100. If the number is out of range, the function should return `false`. The return type should be boolean.
 
 Use the argument $s1_inRange and answer with a call to the function.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s1_inRange) {
 
@@ -264,11 +279,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'calculateArea' that takes one argument, the diameter of a circle. The function should return the area of the circle, with 4 decimals.
+Create a function called `calculateArea()` that takes one argument, the diameter of a circle. The function should return the area of the circle, with 4 decimals.
 
 Answer with the result if the diameter is $s1_diameter. ( hint: `pi()` )
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($s1_circleArea) {
 
@@ -285,11 +302,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called 'fibonacci'. The function should use the [Fibbonacci Sequence](http://en.wikipedia.org/wiki/Fibonacci_number), starting with 1 and 2. Return the sum of all odd numbers in the sequence, when the sequence value dont exceed 1.000.000.
+Create a function called `fibonacci()`. The function should use the [Fibbonacci Sequence](http://en.wikipedia.org/wiki/Fibonacci_number), starting with 1 and 2. Return the sum of all odd numbers in the sequence, when the sequence value dont exceed 1.000.000.
 
-Answer with a call of the function. A Fibonacci-sequence can look like this: 1, 2, 3, 5, 8, 13, 21, 34, 55 etc. You add the current value with the last, i.e. 1+2=3, 3+2=5, 5+3=8 etc.
+Answer with a call of the function. A Fibonacci-sequence can look like this: 1, 2, 3, 5, 8, 13, 21, 34, 55 etc. You add the current value with the last, i.e. `1+2=3, 3+2=5, 5+3=8 etc`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () {
 

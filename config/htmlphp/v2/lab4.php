@@ -47,7 +47,8 @@ $s1_circleArea = round((($s1_diameter/2)*($s1_diameter/2))*pi(),4);
 
 // ################### SECTION 2 ##################
 
-
+$extra1 = [rand_int(5, 50), rand_int(5, 50), rand_int(5, 50), rand_int(5, 50), rand_int(5, 50)];
+$extra1Print = implode(", ", $extra1);
 
 // ################### SECTION 3 ##################
 
@@ -59,8 +60,8 @@ $s1_circleArea = round((($s1_diameter/2)*($s1_diameter/2))*pi(),4);
 
 return [
 
-"passPercentage" => 9/9,
-"passDistinctPercentage" => 9/9,
+"passPercentage" => 9/12,
+"passDistinctPercentage" => 12/12,
 
 /**
  * Titel and introduction to the lab.
@@ -327,6 +328,61 @@ EOD
 	  }
 	}
 	return $res;
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+These questions are worth 3 points each. Solve them for extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+In this exercises you should use the former functions `sumArray()` and `calculateArea()`. Create a new function called `calculateMany()` that takes an array with numbers as argument. For every number in the array, call `calculateArea()` and store the result in a new array. The last position in your new array should hold the result of a call to the function `calculateArea()` where you pass the sum of the whole array, you passed as argument. All numbers in the resulting array should be rounded up to nearest integer.  
+
+Answer with a call to `calculateMany()` with the array `$extra1Print`. 
+EOD
+,
+
+"points" => 3,
+
+"answer" => function () use($extra1) {
+    $result = [];
+    $total = array_sum($extra1);
+    
+    foreach ($extra1 as $key) {
+        $result[] = ceil(round((($key/2)*($key/2))*pi(), 4));
+    }
+    $result[] = ceil(round((($total/2)*($total/2))*pi(), 4));
+    
+    return $result;
 },
 
 ],

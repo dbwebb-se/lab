@@ -19,8 +19,8 @@ $s1_capitals = [
 $s1_useThisRand = rand_int(0, count($s1_countries)-1);
 $s1_useThisCountryArray = $s1_countries[$s1_useThisRand];
 $s1_useThisCapitalArray = $s1_capitals[$s1_useThisRand];
-$s1_countryPrint = implode(",", $s1_useThisCountryArray);
-$s1_capitalPrint = implode(",", $s1_useThisCapitalArray);
+$s1_countryPrint = implode(", ", $s1_useThisCountryArray);
+$s1_capitalPrint = implode(", ", $s1_useThisCapitalArray);
 $s1_smallRand1 = rand_int(0, count($s1_useThisCountryArray)-1);
 
 $s1_arr1 = [
@@ -32,7 +32,7 @@ $s1_arr1 = [
 ];
 $s1_arrWhich = rand_int(1, count($s1_arr1)-1);
 $s1_arrSel = $s1_arr1[$s1_arrWhich];
-$s1_arrSelPrint = implode(",", $s1_arrSel);
+$s1_arrSelPrint = implode(", ", $s1_arrSel);
 $s1_smallRand2 = rand_int(0, count($s1_arrSel)-1);
 
 
@@ -44,7 +44,7 @@ $s1_states = [
 ];
 $s1_singleStates = ["Washington", "Wyoming", "Oregon", "Montana", "North Dakota"];
 $s1_stateRand = $s1_states[rand_int(0, count($s1_states[0])-1)];
-$s1_statesPrint = implode(",", $s1_stateRand);
+$s1_statesPrint = implode(", ", $s1_stateRand);
 $stateSingle1 = $s1_singleStates[rand_int(0, count($s1_singleStates)-1)];
 
 
@@ -76,10 +76,10 @@ $s3_arr1 = [
 ];
 $s3_arrWhich = rand_int(1, count($s3_arr1)-1);
 $s3_arrSel = $s3_arr1[$s3_arrWhich];
-$s3_arrSelPrint = implode(",", $s3_arrSel);
+$s3_arrSelPrint = implode(", ", $s3_arrSel);
 $s3_smallRand2 = rand_int(0, count($s3_arrSel)-1);
 $s3_arrSel2 = $s3_arr1[$s3_arrWhich-1];
-$s3_arrSel2Print = implode(",", $s3_arrSel2);
+$s3_arrSel2Print = implode(", ", $s3_arrSel2);
 
 $s3_singleNumbers = [3, 56, 65, 555, 122, 45, 669, 55.89, 7, 1];
 $s3_single = $s3_singleNumbers[rand_int(0, count($s3_singleNumbers)-1)];
@@ -104,8 +104,8 @@ $s4_numArr1 = [
 $s4_which = rand_int(1, count($s4_numArr1)-1);
 $s4_useThis1 = $s4_numArr1[$s4_which];
 $s4_useThis2 = $s4_numArr1[$s4_which-1];
-$s4_printNum1 = implode(",", $s4_useThis1);
-$s4_printNum2 = implode(",", $s4_useThis2);
+$s4_printNum1 = implode(", ", $s4_useThis1);
+$s4_printNum2 = implode(", ", $s4_useThis2);
 $s4_smallNum = rand_int(5, 20);
 $s4_capitals = $s1_useThisCapitalArray;
 
@@ -140,8 +140,8 @@ $switchWich2 = rand_int(0, 2);
 
 return [
 
-"passPercentage" => 18/21,
-"passDistinctPercentage" => 21/21,
+"passPercentage" => 20/26,
+"passDistinctPercentage" => 26/26,
 
 /**
  * Titel and introduction to the lab.
@@ -203,7 +203,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new array called `capitals` with the items: [$s1_capitalPrint].
+Create a new array called `capitals` with the items: `[$s1_capitalPrint]`.
 
 Answer with a string containing each country from the `countries`-array followed by the corresponding capital. Use the format `"country = capital, country = capital..."`
 EOD
@@ -711,7 +711,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a switch-case statement that returns the continent a certain country resides in. Use the countries: `"$countriesString1"` and the continents: `"$continentsString1"`.
+Create a switch-case statement that returns the continent a certain country resides in. Use the countries: `"$countriesString1"` and the continents:  
+    `"$continentsString1"`.
 
 Answer with a test on the country: `"$switchCountries1[$switchWich1]"`.
 EOD
@@ -722,30 +723,6 @@ EOD
 "answer" => function () use ($switchContinents1, $switchWich1) {
 
     return $switchContinents1[$switchWich1];
-
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that returns the corresponding continent. Use the countries: `"$countriesString2"` and the continents: `"$continentsString1"`.
-
-Answer with a test on the country: `"$switchCountries2[$switchWich2]"`.
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($switchContinents2, $switchWich2) {
-
-    return $switchContinents2[$switchWich2];
 
 },
 
@@ -775,6 +752,28 @@ EOD
 "shuffle" => false,
 
 "questions" => [
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that returns the corresponding continent. Use the countries: `"$countriesString2"` and the continents: `"$continentsString1"`.
+
+Answer with a test on the country: `"$switchCountries2[$switchWich2]"`.
+EOD
+,
+
+"points" => 3,
+
+"answer" => function () use ($switchContinents2, $switchWich2) {
+
+    return $switchContinents2[$switchWich2];
+
+},
+
+],
 
 
 

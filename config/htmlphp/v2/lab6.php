@@ -21,7 +21,7 @@ $q3Use2 = $q3b[rand_int(0, count($q3b)-1)];
 // ################### Connect to Database ##################
 
 try {
-    $mydb = new PDO("sqlite:" . __DIR__ . "/lab5_extra/myDB.sqlite");
+    $mydb = new PDO("sqlite:" . __DIR__ . "/lab6_extra/myDB.sqlite");
     $mydb->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 }
 catch(PDOException $e) {
@@ -116,7 +116,8 @@ unset($mydb);
 
 return [
 
-
+"passPercentage" => 8/8,
+"passDistinctPercentage" => 8/8,
 
 /**
  * Titel and introduction to the lab.
@@ -124,7 +125,7 @@ return [
 "title" => "Lab 6 - Htmlphp",
 
 "intro" => <<<EOD
-In this lab you will be working with a SQLite database file: 'myDB.sqlite' and PDO.
+In this lab you will be working with a SQLite database file: `myDB.sqlite` and PDO.
 
 Do not forget to check the [PHP Manual on PDO](http://php.net/manual/en/book.pdo.php)
 EOD
@@ -142,11 +143,11 @@ EOD
 "title" => "Working with SQLite and PDO",
 
 "intro" => <<<EOD
-The database has one table called 'people'. 
+The database has one table called `people`. 
 
 The table 'people' has six columns:
 
-> 'id', 'firstName', 'lastName', 'born', 'cityOfBirth', 'countryOfBirth'.
+> `id`, `firstName`, `lastName`, `born`, `cityOfBirth`, `countryOfBirth`.
 EOD
 ,
 
@@ -166,6 +167,8 @@ Find the firstnames of the people born in $q1Use. Answer with an array containin
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use($answer1) {
 
     return $answer1;
@@ -181,9 +184,12 @@ EOD
 [
 
 "text" => <<<EOD
-Find the first name and last name of the person born $q2Use. Answer with a string in the format: 'Firstname Lastname'.
+Find the first name and last name of the person born $q2Use.  
+Answer with a string in the format: `Firstname Lastname`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($answer2) {
 
@@ -200,9 +206,11 @@ EOD
 [
 
 "text" => <<<EOD
-Sum the years the persons with the lastnames '$q3Use1' and '$q3Use2' were born. Answer with an integer.
+Sum the years the persons with the lastnames `$q3Use1` and `$q3Use2` were born. Answer with an integer.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($answer3) {
 
@@ -219,9 +227,11 @@ EOD
 [
 
 "text" => <<<EOD
-Count the number of entries in the table 'people'. Answer with an integer.
+Count the number of entries in the table `people`. Answer with an integer.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($answer4) {
 
@@ -238,9 +248,11 @@ EOD
 [
 
 "text" => <<<EOD
-Find which country ('countryOfBirth') the oldest person was born in. Answer with a string.
+Find which country `(countryOfBirth)` the oldest person was born in. Answer with a string.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($answer5) {
 
@@ -257,9 +269,11 @@ EOD
 [
 
 "text" => <<<EOD
-What is the average value of the column 'born'? Answer with an integer.
+What is the average value of the column `born`? Answer with an integer.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($answer6){
 
@@ -280,6 +294,8 @@ Find the youngest person born in USA. Which city is he/she born in? Answer with 
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use($answer7){
 
     return $answer7;
@@ -299,9 +315,11 @@ Get the first name and lastname of all persons in the database. Order them by th
 
 Answer with an array of strings, like this:
 
-> ['lastName firstName', 'lastName firstName'].
+> `["lastName firstName", "lastName firstName"]`.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use($answer8){
 

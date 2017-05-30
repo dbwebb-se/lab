@@ -116,8 +116,8 @@ unset($mydb);
 
 return [
 
-"passPercentage" => 8/8,
-"passDistinctPercentage" => 8/8,
+"passPercentage" => 7/10,
+"passDistinctPercentage" => 10/10,
 
 /**
  * Titel and introduction to the lab.
@@ -185,7 +185,7 @@ EOD
 
 "text" => <<<EOD
 Find the first name and last name of the person born $q2Use.  
-Answer with a string in the format: `Firstname Lastname`.
+Answer with a string in the format: `"Firstname Lastname"`.
 EOD
 ,
 
@@ -305,6 +305,31 @@ EOD
 
 
 
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+These questions are worth 3 points each. Solve them for extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
 /** -----------------------------------------------------------------------------------
  * A question.
  */
@@ -319,7 +344,7 @@ Answer with an array of strings, like this:
 EOD
 ,
 
-"points" => 1,
+"points" => 3,
 
 "answer" => function () use($answer8){
 

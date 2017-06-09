@@ -166,6 +166,7 @@ create table if not exists lab
     acronym text,
     course text,
     lab text,
+    labversion text,
     version text,
     created datetime
 )
@@ -181,7 +182,7 @@ create table if not exists lab
  *
  * @return void
  */
-function generateKey($acronym, $course, $lab, $created)
+function generateKey($acronym, $course, $lab, $labversion, $created)
 {
     global $db;
 
@@ -191,27 +192,28 @@ function generateKey($acronym, $course, $lab, $created)
     where 
         acronym = ? AND 
         course = ? AND
-        lab = ?
+        lab = ? AND
+        labversion = ?
     ";
     $stmt = $db->prepare($sql);
-    $stmt->execute([$acronym, $course, $lab]);
+    $stmt->execute([$acronym, $course, $lab, $labversion]);
     $res = $stmt->fetch(PDO::FETCH_OBJ);
 
     // Create new key
     if (empty($res)) {
-        $gen_key = md5($acronym . $course . $lab . $created);
+        $gen_key = md5($acronym . $course . $lab . $labversion . $created);
         $sql = "
     insert into lab
-    (acronym, course, lab, created, gen_key, version)
+    (acronym, course, lab, labversion, created, gen_key, version)
     values 
-    (?, ?, ?, ?, ?, ?)
+    (?, ?, ?, ?, ?, ?, ?)
     ";
         $stmt = $db->prepare($sql);
-        $stmt->execute([$acronym, $course, $lab, $created, $gen_key, VERSION]);
+        $stmt->execute([$acronym, $course, $lab, $labversion, $created, $gen_key, VERSION]);
     } else {
         $gen_key = $res->gen_key;
     }
-    
+
     return $gen_key;
 }
 
@@ -222,14 +224,14 @@ function generateKey($acronym, $course, $lab, $created)
  *
  * @return void
  */
-function getConfigurationFor($course, $lab)
+function getConfigurationFor($course, $lab, $labversion)
 {
     global $VALID_LABS;
     
     if ($lab == 'labtest') {
         return "config/labtest.php";
-    } elseif (array_key_exists("$course/$lab", $VALID_LABS)) {
-        return $VALID_LABS["$course/$lab"];
+    } elseif (array_key_exists("$course/$lab/$labversion", $VALID_LABS)) {
+        return $VALID_LABS["$course/$lab/$labversion"];
     }
     return false;
 }

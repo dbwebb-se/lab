@@ -59,13 +59,14 @@ $res        = getDetailsFromKeyOrDie($key);
 $acronym    = $res->acronym;
 $course     = $res->course;
 $lab        = $res->lab;
+$labversion = $res->labversion;
 $created    = $res->created;
 $version    = empty($res->version) ? "No version provided" : $res->version;
 
 
 
 // Read configuration for lab
-$configFile = getConfigurationFor($course, $lab);
+$configFile = getConfigurationFor($course, $lab, $labversion);
 
 if ($configFile === false) {
     die("Not a valid combination.");

@@ -2,6 +2,12 @@ Revision history
 ===================
 
 
+v2.3.0 (2017-06-09)
+-------------------
+
+* Introduced versioning of labs and integrated with dbwebb-cli 2.0.
+
+
 v2.2.31 (2017-02-27)
 -------------------
 

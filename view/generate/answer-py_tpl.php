@@ -4,6 +4,7 @@
 <?="$key
 $course
 $lab
+$labversion
 $acronym
 $created
 $version

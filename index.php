@@ -42,11 +42,14 @@ $action     = isset($_GET['action'])    ? $_GET['action'] : null;
 $acronym    = isset($_GET['acronym'])   ? $_GET['acronym'] : null;
 $course     = isset($_GET['course'])    ? $_GET['course'] : null;
 $lab        = isset($_GET['lab'])       ? $_GET['lab'] : null;
+$labversion = isset($_GET['version']) && !empty($_GET['version'])
+    ? $_GET['version']
+    : "v1";
 $created    = date('Y-m-d H:i:s');
 
 $gen_key = null;
 if ($doGenerate) {
-    $gen_key = generateKey($acronym, $course, $lab, $created);
+    $gen_key = generateKey($acronym, $course, $lab, $labversion, $created);
     
     if ($action == "only-key") {
         die($gen_key);

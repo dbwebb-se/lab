@@ -3,12 +3,13 @@
 // Support if only accessed by key
 if (is_null($lab)) {
     $res = getDetailsFromKeyOrDie($key);
-    $lab = $res->lab;
     $course = $res->course;
+    $lab = $res->lab;
+    $labversion = $res->labversion;
 }
 
 // Check if valid combination and then create paths to source.
-$srcLab = getConfigurationFor($course, $lab);
+$srcLab = getConfigurationFor($course, $lab, $labversion);
 if ($srcLab === false) {
     die("Invalid combination of course and lab.");
 }

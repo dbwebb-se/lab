@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.2.31 (2017-02-27)";
+const VERSION = "v2.3.0 (2017-06-09)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 const LAB_INSTALL_DIR = __DIR__;
@@ -45,19 +45,19 @@ $VALID_LABS = [
     "javascript1/lab4" => "config/javascript1/lab4.php",
     "javascript1/lab5" => "config/javascript1/lab5.php",
 
-    "python/lab1" => "config/python/v1/lab1.php",
-    "python/lab2" => "config/python/v1/lab2.php",
-    "python/lab3" => "config/python/v1/lab3.php",
-    "python/lab4" => "config/python/v1/lab4.php",
-    "python/lab5" => "config/python/v1/lab5.php",
-    "python/lab6" => "config/python/v1/lab6.php",
+    "python/lab1/v1" => "config/python/v1/lab1.php",
+    "python/lab2/v1" => "config/python/v1/lab2.php",
+    "python/lab3/v1" => "config/python/v1/lab3.php",
+    "python/lab4/v1" => "config/python/v1/lab4.php",
+    "python/lab5/v1" => "config/python/v1/lab5.php",
+    "python/lab6/v1" => "config/python/v1/lab6.php",
 
-    "python/lab01" => "config/python/v2/lab1.php",
-    "python/lab02" => "config/python/v2/lab2.php",
-    "python/lab03" => "config/python/v2/lab3.php",
-    "python/lab04" => "config/python/v2/lab4.php",
-    "python/lab05" => "config/python/v2/lab5.php",
-    "python/lab06" => "config/python/v2/lab6.php",
+    "python/lab1/v2" => "config/python/v2/lab1.php",
+    "python/lab2/v2" => "config/python/v2/lab2.php",
+    "python/lab3/v2" => "config/python/v2/lab3.php",
+    "python/lab4/v2" => "config/python/v2/lab4.php",
+    "python/lab5/v2" => "config/python/v2/lab5.php",
+    "python/lab6/v2" => "config/python/v2/lab6.php",
 
     "oopython/lab1" => "config/oopython/lab1.php",
     "oopython/lab2" => "config/oopython/lab2.php",
@@ -65,21 +65,21 @@ $VALID_LABS = [
     "oopython/lab4" => "config/oopython/lab4.php",
     "oopython/lab5" => "config/oopython/lab5.php",
 
-    "htmlphp/lab1" => "config/htmlphp/v1/lab1.php",
-    "htmlphp/lab2" => "config/htmlphp/v1/lab2.php",
-    "htmlphp/lab3" => "config/htmlphp/v1/lab3.php",
-    "htmlphp/lab4" => "config/htmlphp/v1/lab4.php",
-    "htmlphp/lab5" => "config/htmlphp/v1/lab5.php",
+    "htmlphp/lab1/v1" => "config/htmlphp/v1/lab1.php",
+    "htmlphp/lab2/v1" => "config/htmlphp/v1/lab2.php",
+    "htmlphp/lab3/v1" => "config/htmlphp/v1/lab3.php",
+    "htmlphp/lab4/v1" => "config/htmlphp/v1/lab4.php",
+    "htmlphp/lab5/v1" => "config/htmlphp/v1/lab5.php",
+    "htmlphp/sql1/v1" => "config/sql/v1/lab1.php",
+    //"htmlphp/sql2/v1" => "config/sql/v1/lab2.php",
 
-    "htmlphp/lab01" => "config/htmlphp/v2/lab1.php",
-    "htmlphp/lab02" => "config/htmlphp/v2/lab2.php",
-    "htmlphp/lab03" => "config/htmlphp/v2/lab3.php",
-    "htmlphp/lab04" => "config/htmlphp/v2/lab4.php",
-    "htmlphp/lab05" => "config/htmlphp/v2/lab5.php",
-    "htmlphp/lab06" => "config/htmlphp/v2/lab6.php",
-
-    "htmlphp/sql1" => "config/sql/lab1.php",
-    //"htmlphp/sql2" => "config/sql/lab2.php",
+    "htmlphp/lab1/v2" => "config/htmlphp/v2/lab1.php",
+    "htmlphp/lab2/v2" => "config/htmlphp/v2/lab2.php",
+    "htmlphp/lab3/v2" => "config/htmlphp/v2/lab3.php",
+    "htmlphp/lab4/v2" => "config/htmlphp/v2/lab4.php",
+    "htmlphp/lab5/v2" => "config/htmlphp/v2/lab5.php",
+    "htmlphp/sql1/v2" => "config/sql/v2/lab1.php",
+    //"htmlphp/sql2/v2" => "config/sql/v2/lab2.php",
 
     "oophp/lab1" => "config/oophp/lab1.php",
 

@@ -3,7 +3,7 @@
 /**
  * Generate random values to use in lab.
  */
-include __DIR__ . "/../random.php";
+include LAB_INSTALL_DIR . "/config/random.php";
 
 // SECTION 1 ****************************************************
 
@@ -221,7 +221,7 @@ EOD
 [
 
 "text" => <<<EOD
-Assign the words: '$s1_word5' and '$s1_word6' to two different variables. 
+Assign the words: '$s1_word5' and '$s1_word6' to two different variables.
 
 Create a function and pass the two words as arguments to it. Your function should return them as a single word.
 

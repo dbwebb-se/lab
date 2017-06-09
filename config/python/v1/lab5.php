@@ -1,9 +1,11 @@
 <?php
 
+include LAB_INSTALL_DIR . "/config/random.php"
+
 /**
  * Titel and introduction to the lab.
  */
-
+;
 
 return [
 
@@ -53,7 +55,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -72,7 +74,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -91,7 +93,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -110,7 +112,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -154,7 +156,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -173,7 +175,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -192,7 +194,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -211,7 +213,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -230,7 +232,7 @@ return [
 
 "answer" => function () {
 
-	
+
 },
 
 ],
@@ -249,7 +251,7 @@ return [
 
 "answer" => function () {
 
-	
+
 },
 
 ],
@@ -293,7 +295,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -312,7 +314,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -331,7 +333,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -350,7 +352,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -369,7 +371,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],
@@ -388,7 +390,7 @@ return [
 
 "answer" => function () {
 
-    
+
 },
 
 ],

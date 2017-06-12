@@ -31,8 +31,8 @@ $s1_wordTwo 	= $s1_wordSerie2[$s1_arrRandOne];
 return [
 
 
-"passPercentage" => 10/19,
-"passDistinctPercentage" => 19/19,
+"passPercentage" => 10/16,
+"passDistinctPercentage" => 16/16,
 
 
 /**
@@ -181,14 +181,14 @@ EOD
 "text" => <<<EOD
 All variables used in the exercise below are defined above.
 
-Sum `float_one` with `num_one` and subtract `num_four`. Multiply the result by `num_two` and add `float_two`.
+Sum `num_three` with `num_one` and subtract `num_four`. Multiply the result by `num_two`, add `float_two` and subtract `float_one`.
 
 Answer with the result.
 EOD
 ,
 
-"answer" => function () use ($s1_floatOne, $s1_numOne, $s1_numFour, $s1_numTwo, $s1_floatTwo) {
-    return ($s1_floatOne + $s1_numOne - $s1_numFour) * $s1_numTwo + $s1_floatTwo;
+"answer" => function () use ($s1_numThree, $s1_floatOne, $s1_numOne, $s1_numFour, $s1_numTwo, $s1_floatTwo) {
+    return ($s1_numThree + $s1_numOne - $s1_numFour) * $s1_numTwo + $s1_floatTwo - $s1_floatOne;
 },
 
 ],
@@ -261,7 +261,7 @@ EOD
 [
 
 "text" => <<<EOD
-Concatenate the integer $s1_numOne with the word '$s1_wordOne' with a space between, to the resulting string concatenate the string string ' and ' and integer $s1_numTwo with the word '$s1_wordTwo' with a space between.
+Concatenate the integer $s1_numOne with the word '$s1_wordOne' with a space between. To the resulting string concatenate the string ' and '. To this string concatenate integer $s1_numTwo and the word '$s1_wordTwo' with a space between between the two variables.
 
 EOD
 ,
@@ -282,12 +282,12 @@ EOD
 "text" => <<<EOD
 Assign the string value '$s1_divNum' to a variable called `string_number` and assign the integer value $s1_divNumWith to a variable called `actual_number`.
 
-Use `int()` to change the type of `string_number` to an integer and divide the integer value with `actual_number`.
+Use `int()` to change the type of `string_number` to an integer and divide the integer value with `actual_number`. Answer with an integer by using the function `round()`.
 EOD
 ,
 "points" => 1,
 "answer" => function () use ($s1_divNum, $s1_divNumWith) {
-    return $s1_divNum / $s1_divNumWith;
+    return round($s1_divNum / $s1_divNumWith);
 },
 
 ],
@@ -334,7 +334,14 @@ EOD
 ,
 "points" => 3,
 "answer" => function () {
-    return 100;
+    $big = 1 / 10;
+    $small = 1 / 20;
+
+    $time = 1 / (4 * $big + 4 * $small);
+
+    $time_in_minutes = round($time * 60);
+
+    return $time_in_minutes;
 },
 
 ],
@@ -347,7 +354,7 @@ EOD
 [
 
 "text" => <<<EOD
-Peter has the phonenumber '0731415926' and Anders has the phonenumber '0727182818'. They call each other every sunday afternoon for 9 minutes. Calculate the number of hours that they talk with each other pr year (assume 52 sundays pr year). Use that number in a string concatenation with the following format: 'Peter calls from [#Peter's phonenumber] to Anders on [#Anders's phonenumber] for [#hours] every year.' Replace the content inside [#] with the corresponding values.
+Peter has the phonenumber '0731415926' and Anders has the phonenumber '0727182818'. They call each other every sunday afternoon for 9 minutes. Calculate the number of hours that they talk with each other pr year (assume 52 sundays pr year). Use that number in a string concatenation with the following format: 'Peter calls from [#Peter's phonenumber] to Anders on [#Anders's phonenumber] for [#hours] hours every year.' Replace the content inside [#] with the corresponding values.
 
 Answer with the concatenated string.
 EOD

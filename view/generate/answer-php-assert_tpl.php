@@ -109,7 +109,7 @@ class Dbwebb
 
         $withDistinct = "";
         if (!is_null($passDistinct)) {
-            $withDistinct = ", PASS W DISTINCTION=> {$passDistinct}p";
+            $withDistinct = ", PASS W DISTINCTION=>{$passDistinct}p";
         }
 
         if ($pass) {

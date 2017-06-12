@@ -348,7 +348,7 @@ You are going to solve the well-known 'chessboard and rice grain problem'.
 
 Imagine you have a standard chessboard and put one rice grain on the first square. Then you put two grains on the second square, four on the third, eight on the fourth and so on... How many rice grains are there on the last square?  
 
-Answer with the square root of the result. (Make sure the answer is of the type `double`)
+Answer with the square root of the result, converted to an integer.
 EOD
 ,
 

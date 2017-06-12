@@ -70,7 +70,7 @@ $VALID_LABS = [
     "htmlphp/lab3/v1" => "config/htmlphp/v1/lab3.php",
     "htmlphp/lab4/v1" => "config/htmlphp/v1/lab4.php",
     "htmlphp/lab5/v1" => "config/htmlphp/v1/lab5.php",
-    "htmlphp/sql1/v1" => "config/sql/v1/lab1.php",
+    "htmlphp/sql1/v1" => "config/sql/lab1.php",
     //"htmlphp/sql2/v1" => "config/sql/v1/lab2.php",
 
     "htmlphp/lab1/v2" => "config/htmlphp/v2/lab1.php",
@@ -79,7 +79,7 @@ $VALID_LABS = [
     "htmlphp/lab4/v2" => "config/htmlphp/v2/lab4.php",
     "htmlphp/lab5/v2" => "config/htmlphp/v2/lab5.php",
     "htmlphp/lab6/v2" => "config/htmlphp/v2/lab6.php",
-    "htmlphp/sql1/v2" => "config/sql/v2/lab1.php",
+    "htmlphp/sql1/v2" => "config/sql/lab1.php",
     //"htmlphp/sql2/v2" => "config/sql/v2/lab2.php",
 
     "oophp/lab1" => "config/oophp/lab1.php",

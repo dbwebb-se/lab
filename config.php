@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.3.2 (2017-06-12)";
+const VERSION = "v2.3.3 (2017-06-12)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 const LAB_INSTALL_DIR = __DIR__;
@@ -78,6 +78,7 @@ $VALID_LABS = [
     "htmlphp/lab3/v2" => "config/htmlphp/v2/lab3.php",
     "htmlphp/lab4/v2" => "config/htmlphp/v2/lab4.php",
     "htmlphp/lab5/v2" => "config/htmlphp/v2/lab5.php",
+    "htmlphp/lab6/v2" => "config/htmlphp/v2/lab6.php",
     "htmlphp/sql1/v2" => "config/sql/v2/lab1.php",
     //"htmlphp/sql2/v2" => "config/sql/v2/lab2.php",
 
@@ -109,6 +110,7 @@ $LAB_TYPE = [
         "lab3" => "php",
         "lab4" => "php",
         "lab5" => "php",
+        "lab6" => "php",
         "sql1" => "sqlite",
         "sql2" => "sqlite",
     ],

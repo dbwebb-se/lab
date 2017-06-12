@@ -34,6 +34,7 @@ return [
 "passPercentage" => 10/16,
 "passDistinctPercentage" => 16/16,
 
+"author" => ["efo", "aar"],
 
 /**
  * Titel and introduction to the lab.

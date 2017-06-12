@@ -7,44 +7,34 @@ include LAB_INSTALL_DIR . "/config/random.php";
 
 // SECTION 1 ****************************************************
 
-$s1_wordList 		= [
-['melon', 'banana', 'apple', 'orange', 'lemon'],
-['potato', 'carrot', 'onion', 'leek', 'cabbage'],
-['milk', 'juice', 'lemonade', 'soda', 'water'],
-['candy', 'cake', 'cupcakes', 'lollipop', 'pringles'],
-['car', 'bus', 'plane', 'helicopter', 'train']
-];
-$s1_smallArrRand	= rand_int(0, 4);
-$s1_smallArrRand2	= rand_int(0, 4);
-$s1_smallArrRand3	= rand_int(0, 4);
-$s1_smallArrRand4	= rand_int(0, 4);
-$s1_word 			= $s1_wordList[rand_int(0, 4)][rand_int(0, 4)];
-$s1_word2 			= $s1_wordList[rand_int(0, 4)][rand_int(0, 4)];
-$s1_word3			= $s1_wordList[rand_int(0, 4)][rand_int(0, 4)];
-$s1_word4 			= $s1_wordList[rand_int(0, 4)][rand_int(0, 4)];
-$s1_word5 			= $s1_wordList[rand_int(0, 4)][rand_int(0, 4)];
-$s1_word6 			= $s1_wordList[rand_int(0, 4)][rand_int(0, 4)];
-$s1_letter			= $s1_word4[rand_int(0, strlen($s1_word4)-1)];
+$dice1			= rand_int(1,6);
+$dice2			= rand_int(1,6);
+$dice3			= rand_int(1,6);
+$dice4			= rand_int(1,6);
+$dice5			= rand_int(1,6);
 
-$s1_format = [
-["grandma", 42, "cows"],
-["father", 9, "cats"],
-["brother", 2, "dogs"],
-["sister", 2, "houses"],
-["book", 398, "pages"]
-];
-$s1_formatRand 		= $s1_format[rand_int(0, count($s1_format)-1)];
-$s1_f1				= $s1_formatRand[0];
-$s1_f2				= $s1_formatRand[1];
-$s1_f3				= $s1_formatRand[2];
+$s1_wordSerie2 	= ["icecream", "sunshine", "beach", "music", "vacation", "barbeque", "resort", "water", "restaurant", "beverage"];
 
-$s1_findSlice = [
-"154.84.56.0 : (wallpaper), soda",
-"567.1.53.4 : (greece), table",
-"196.98.2.54 : (tree), window",
-"984.45.6.65 : (wasp), boat",
-"789.234.2.54 : (sunshine), bakery"];
-$s1_slice1		= $s1_findSlice[rand_int(0, count($s1_findSlice)-1)];
+$s1_arrRandOne  = rand_int(0, count($s1_wordSerie2)-1);
+$s1_word        = $s1_wordSerie2[$s1_arrRandOne];
+
+$loopNumberStart = rand_int(10, 50);
+$loopNumberEnd = rand_int(60, 90);
+
+$s5_addNum		= rand_int(3, 9);
+$s5_addTo		= rand_int(10, 100);
+$s5_addTimes	= rand_int(20, 80);
+
+$s5_subNum		= rand_int(3, 9);
+$s5_subFrom		= rand_int(10, 100);
+$s5_subTimes	= rand_int(20, 80);
+
+
+$longwords = ["philanthropist", "constitutionality", "disproportionality", "internationalization"];
+$longRandom     = rand_int(0, count($longwords)-1);
+$longword       = $longwords[$longRandom];
+
+
 
 /**
  * Titel and introduction to the lab.
@@ -53,7 +43,10 @@ $s1_slice1		= $s1_findSlice[rand_int(0, count($s1_findSlice)-1)];
 
 return [
 
+"passPercentage" => 10/16,
+"passDistinctPercentage" => 16/16,
 
+"author" => ["efo"],
 
 /**
  * Titel and introduction to the lab.
@@ -61,7 +54,7 @@ return [
 "title" => "Lab 2 - python",
 
 "intro" => <<<EOD
-Strings and files.
+In this exercise we will look into flow-control. If-statements, for-loops and while-loops.
 EOD
 ,
 
@@ -74,10 +67,10 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "Strings",
+"title" => "Boolean operators and if-statements",
 
 "intro" => <<<EOD
-The basics of strings.
+The basics of boolean operators and if-statements.
 EOD
 ,
 
@@ -93,13 +86,16 @@ EOD
 [
 
 "text" => <<<EOD
-Assign the word: '$s1_word' to a variable and put your variable as the answer.
+Create three variables representing dice values: `dice1` = $dice1, `dice2` = $dice2 and `dice3` = $dice3.
+
+Answer with the boolean value of the expression '`dice1` is greater than `dice2`'.
+
 EOD
 ,
 
-"answer" => function () use ($s1_word) {
+"answer" => function () use ($dice1, $dice2) {
 
-    return $s1_word;
+    return $dice1 > $dice2;
 },
 
 ],
@@ -112,289 +108,72 @@ EOD
 [
 
 "text" => <<<EOD
-Assign the word '$s1_word' to a variable. Create another variable where you put the first and the last letter in the word.
+Sum the three variables `dice1`, `dice2` and `dice3`.
 
-Answer with the second variable.
+Use an if-statement to decide if the sum of the three variables i greater than 11. If the sum is greater than 11 answer with 'big' otherwise answer with 'small'.
+
 EOD
 ,
 
-"answer" => function () use ($s1_word) {
-
-	$a = $s1_word[0];
-	$b = strlen($s1_word);
-	$c = $s1_word[$b-1];
-    return $a . $c;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Assign the word: $s1_word2 to a variable. Answer with the length of the word as an integer.
-EOD
-,
-
-"answer" => function () use ($s1_word2) {
-
-    return strlen($s1_word2);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the 'in-operator' to see if the word: '$s1_word3' contains the letter 'a'. Answer with a boolean result.
-EOD
-,
-
-"answer" => function () use ($s1_word3) {
-
-	$result = false;
-	for($i = 0; $i < strlen($s1_word3); $i++) {
-		if($s1_word3[$i] === "a") {
-			$result = true;
-		}
-	}
-    return $result;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Make all the letters in the word '$s1_word2' capitalized. Answer with the capitalized word.
-EOD
-,
-
-"answer" => function () use ($s1_word2) {
-
-    return strtoupper($s1_word2);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-"text" => <<<EOD
-Use the built-in function `startswith()` to see if the word '$s1_word4' starts with the letter '$s1_letter'. Answer with the boolean value.
-EOD
-,
-
-"answer" => function () use ($s1_word4, $s1_letter) {
-	$result = false;
-
-	if($s1_word4[0] === $s1_letter) {
-		$result = true;
-	}
-    return $result;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Assign the words: '$s1_word5' and '$s1_word6' to two different variables.
-
-Create a function and pass the two words as arguments to it. Your function should return them as a single word.
-
-Answer with the result.
-EOD
-,
-
-"answer" => function () use ($s1_word5, $s1_word6) {
-
-    return $s1_word5 . $s1_word6;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a function and pass the word: '$s1_word' to it. Your function should return the sentence:
-
-> "This word was: $s1_word"
-
-Answer with the result.
-EOD
-,
-
-"answer" => function () use ($s1_word) {
-
-    return "This word was: " . $s1_word;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a function and pass the word: '$s1_word6' to it.
-
-Your function should return the string 'yes' if the word is longer than 5 characters. Else return 'no'.
-
-Answer with the result.
-EOD
-,
-
-"answer" => function () use ($s1_word6) {
-
-	$len = strlen($s1_word6);
-	$result = "no";
-	if($len > 5) {
-		$result = "yes";
-	}
-    return $result;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a function and pass the word: '$s1_word2' to it.
-
-Your function should return a string with the word backwards.
-
-Answer with the result.
-EOD
-,
-
-"answer" => function () use ($s1_word2) {
-
-	$result = "";
-	$len = strlen($s1_word2)-1;
-	for($i = $len; $i > -1; $i--) {
-		$result .= $s1_word2[$i];
-	}
-    return $result;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a function and pass the word: '$s1_word5' to it.
-
-Your function should exclude the first and the last letter of the word and return it.
-
-Answer with the result.
-EOD
-,
-
-"answer" => function () use ($s1_word5) {
-
-	$result = "";
-	$len = strlen($s1_word5);
-	for($i = 1; $i < $len-1; $i++) {
-		$result .= $s1_word5[$i];
-	}
-    return $result;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use `str.format()` to print out:
-
-> 'My 'string' has 'integer' 'string''.
-
-Use the values: '$s1_f1', '$s1_f2' and '$s1_f3'. Answer with the result.
-EOD
-,
-
-"answer" => function () use ($s1_f1, $s1_f2, $s1_f3) {
-
-    return "My " . $s1_f1 . " has " . $s1_f2 . " " . $s1_f3;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use `find` and `slice` on the string:
-
-> "$s1_slice1"
-
-to get the word inside the parenthesis.
-
-Answer with the word as a string.
-EOD
-,
-
-"answer" => function () use ($s1_slice1) {
-
-    $a = strpos($s1_slice1, "(");
-    $b = strpos($s1_slice1, ")");
-    $result = "";
-
-    for($i = $a+1; $i < $b; $i++) {
-    	$result .= $s1_slice1[$i];
+"answer" => function () use ($dice1, $dice2, $dice3) {
+    $string = "small";
+    if ($dice1 + $dice2 + $dice3 > 11) {
+        $string = "big";
     }
+    return $string;
+},
 
-    return $result;
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Add the sum of `dice4` = $dice4 and `dice5` = $dice5 to the sum of the three other dices.
+
+Use an if, elseif, else statement to check the total value of the dices. Answer with 'small' if the sum is smaller than 11, 'intermediate' if the sum is greater than or equal to 11 but smaller than 21. If the sum is greater than or equal to 21 answer with 'big'.
+
+EOD
+,
+
+"answer" => function () use ($dice1, $dice2, $dice3, $dice4, $dice5) {
+
+    $sum = $dice1 + $dice2 + $dice3 + $dice4 + $dice5;
+    if ($sum >= 21) {
+        $string = "big";
+    } elseif ($sum >= 11 && $sum < 21) {
+        $string = "intermediate";
+    } else {
+        $string = "small";
+    }
+    return $string;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a variable `summer_word` containing the word '$s1_word'.
+
+Answer with True if `summer_word` contains the letter 's' otherwise answer with False.
+
+Tip: Use the `in` operator.
+
+EOD
+,
+
+"answer" => function () use ($s1_word) {
+    return strpos($s1_word, 's') !== false;
 },
 
 ],
@@ -413,10 +192,10 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "Files",
+"title" => "For-loops",
 
 "intro" => <<<EOD
-This section uses the text file: '[httpd-access.txt](httpd-access.txt)'.
+The basics of iteration and for-loops.
 EOD
 ,
 
@@ -432,13 +211,21 @@ EOD
 [
 
 "text" => <<<EOD
-Open the file and count the number of times a line starts with '81'. Answer with the result as an integer.
+
+Loop through the numbers 0 to 10 (10 included) and concatenate a string with the numbers comma-separated. You should have a comma at the end of the string.
+
+Answer with the string.
+
 EOD
 ,
 
-"answer" => function () {
+"answer" => function () use ($s1_word) {
+    $numbers_string = "";
+    for ($i = 0; $i <= 10; $i++) {
+        $numbers_string.= $i . ",";
+    }
 
-   return 112;
+    return $numbers_string;
 },
 
 ],
@@ -451,32 +238,21 @@ EOD
 [
 
 "text" => <<<EOD
-Find out the last 4 digits on line 821 in the file. Answer with the result as an integer.
+
+Loop through the letters of the variable `summer_word` from above. Concatenate the consonants from `summer_word` and answer with the new word.
+
 EOD
 ,
 
-"answer" => function () {
-	return 2154;
-},
+"answer" => function () use ($s1_word) {
+    $new_word = "";
+    for ($i = 0; $i < strlen($s1_word); $i++) {
+        if (strpos('bcdfghjklmnpqrstvxzw', $s1_word[$i]) !== false) {
+            $new_word.= $s1_word[$i];
+        }
+    }
 
-],
-
-/* Find out which ip adress (first serie of numbers on each line) that has the highest amount of entries in the file. Test with the adresses: '81.226.253.26' and '95.19.133.73'. Answer with the highest amount of entries as an integer.*/
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Find out which of the ip adresses 81.226.253.26 and 95.19.133.73 that has the highest amount of entries in the file.
-
-Answer with the result as an integer.
-EOD
-,
-
-"answer" => function () {
-	return 93;
+    return $new_word;
 },
 
 ],
@@ -489,16 +265,74 @@ EOD
 [
 
 "text" => <<<EOD
-Count the number of periods (.) there are in the file.
 
-Use the built-in function `count()` on the file after you have converted it to a string.
+Loop through all numbers from $loopNumberStart to $loopNumberEnd both numbers included. Add all odd (udda) numbers together and answer with the result.
 
-Answer with the result as an integer.
+Tip: Use the modulus % operator.
+
 EOD
 ,
 
-"answer" => function () {
-	return 5199;
+"answer" => function () use ($loopNumberStart, $loopNumberEnd) {
+    $mighty_sum = 0;
+    for ($i = $loopNumberStart; $i <= $loopNumberEnd; $i++) {
+        if ($i%2) {
+            $mighty_sum += $i;
+        }
+    }
+    return $mighty_sum;
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "While-loops",
+
+"intro" => <<<EOD
+The basics of while-loops.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a while-loop that starts at value $s5_addNum and ends when the value is greater than $s5_addTimes, the value should be incremented by 3 for each iteration. Concatenate a string with the numbers comma-separated. You should have a comma at the end of the string.
+
+Answer with the string.
+EOD
+,
+
+"answer" => function () use ($s5_addNum, $s5_addTimes) {
+    $numbers_string = "";
+    $start = $s5_addNum;
+	while($start <= $s5_addTimes) {
+		$numbers_string.= $start . ",";
+		$start+=3;
+	}
+	return $numbers_string;
+
 },
 
 ],
@@ -511,14 +345,20 @@ EOD
 [
 
 "text" => <<<EOD
-Find the characters on line 637 from index 65 to index 75. Make sure that the character at index 75 also gets included.
-
-Answer with the piece of string you found.
+Create a while-loop that adds $s5_addNum to the number $s5_addTo, $s5_addTimes times. Answer with the result.
 EOD
 ,
 
-"answer" => function () {
-	return "source.php?";
+"answer" => function () use ($s5_addNum, $s5_addTo, $s5_addTimes) {
+
+	$result = $s5_addTo;
+	$i = 0;
+	while($i < $s5_addTimes) {
+		$result += $s5_addNum;
+		$i+=1;
+	}
+	return $result;
+
 },
 
 ],
@@ -531,14 +371,132 @@ EOD
 [
 
 "text" => <<<EOD
-Find the last element (digit) on each line, if there are any, and sum all that are even.
-
-Answer with the result as an integer.
+Create a while-loop that subtracts $s5_subNum from $s5_subFrom, $s5_subTimes times. Answer with the result.
 EOD
 ,
 
+"answer" => function () use ($s5_subNum, $s5_subFrom, $s5_subTimes) {
+
+	$result = $s5_subFrom;
+	$i = 0;
+	while($i < $s5_subTimes) {
+		$result -= $s5_subNum;
+		$i+=1;
+	}
+	return $result;
+
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+These questions are worth 3 points each. Solve them for extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Use a for-loop or a while-loop to reverse the word '$longword'.
+
+Answer with the reversed word.
+
+
+EOD
+,
+
+"answer" => function () use ($longword) {
+    $reversed = "";
+    for ($i = 0; $i < strlen($longword); $i++) {
+
+        $reversed = $longword[$i] . $reversed;
+    }
+    return $reversed;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Swedish numberplates consist of three letters and three numbers. The numbers range from 001 to 999. Using the four most common rules of arithmetics (+, -, *, /) how many of the numberplates can the two first numbers give the third number?
+
+Examples:
+'ABC123' can be combined to 1 + 2 = 3. So this numberplate is good.
+'ABC129' 1 and 2 cannot be combined to give 9 using the four rules of arithmetics, so this does not work.
+
+Do not count multiple times if more than one rule of arithmetics work.
+
+
+Answer with the number of numberplates.
+EOD
+,
+"points" => 3,
 "answer" => function () {
-	return 2226;
+    $count = 0;
+    for ($i = 0; $i < 10; $i++) {
+        for ($j = 0; $j < 10; $j++) {
+            for ($k = 0; $k < 10; $k++) {
+                if ($i == 0 && $j == 0 && $k == 0) {
+                    continue;
+                }
+
+                if ($i + $j == $k) {
+                    $count++;
+                    continue;
+                }
+
+                if ($i - $j == $k) {
+                    $count++;
+                    continue;
+                }
+
+                if ($i * $j == $k) {
+                    $count++;
+                    continue;
+                }
+
+                if ($j > 0) {
+                    if ($i + $j == $k) {
+                        $count++;
+                        continue;
+                    }
+                }
+            }
+        }
+    }
+
+    return $count;
 },
 
 ],

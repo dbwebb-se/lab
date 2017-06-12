@@ -13,6 +13,9 @@ $s1_numTwo 		= rand_int(10, 100);
 $s1_numThree 	= rand_int(10, 100);
 $s1_numFour 	= rand_int(10, 100);
 
+$s1_floatOne 	= rand_float(10, 100, 2);
+$s1_floatTwo 	= rand_float(10, 100, 2);
+
 // kan man ha dessa "jämna" sä man kan dela dem utan att få decimaler?
 $s1_divNum 		= 30;
 $s1_divNumWith 	= 5;
@@ -53,7 +56,7 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "Integers and basic arithmetics",
+"title" => "Integers, floats and basic arithmetics",
 
 "intro" => <<<EOD
 The foundation of numbers and basic arithmetic.
@@ -148,6 +151,50 @@ EOD
 
 
 
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a variable called `float_one` and give it the value $s1_floatOne.
+
+Create another variable called `float_two` and give it the value $s1_floatTwo.
+
+Sum the two values and answer with the result.
+EOD
+,
+
+"answer" => function () use ($s1_floatOne, $s1_floatTwo) {
+    return $s1_floatOne+$s1_floatTwo;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+All variables used in the exercise below are defined above.
+
+Sum `float_one` with `num_one` and subtract `num_four`. Multiply the result by `num_two` and add `float_two`.
+
+Answer with the result.
+EOD
+,
+
+"answer" => function () use ($s1_floatOne, $s1_numOne, $s1_numFour, $s1_numTwo, $s1_floatTwo) {
+    return ($s1_floatOne + $s1_numOne - $s1_numFour) * $s1_numTwo + $s1_floatTwo;
+},
+
+],
+
+
+
 /**
  * Closing up this section.
  */
@@ -178,7 +225,7 @@ EOD
 [
 
 "text" => <<<EOD
-Concatenate the two words '$s1_wordOne' and '$s1_wordTwo' and answer with the result.
+Concatenate (svenska: konkatenera) the two words '$s1_wordOne' and '$s1_wordTwo' and answer with the result.
 EOD
 ,
 "points" => 1,
@@ -202,6 +249,25 @@ EOD
 "points" => 1,
 "answer" => function () use ($s1_wordTwo, $s1_numOne) {
     return $s1_wordTwo . " " . $s1_numOne;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Concatenate the integer $s1_numOne with the word '$s1_wordOne' with a space between, to the resulting string concatenate the string string ' and ' and integer $s1_numTwo with the word '$s1_wordTwo' with a space between.
+
+EOD
+,
+"points" => 1,
+"answer" => function () use ($s1_wordOne, $s1_numOne, $s1_wordTwo, $s1_numTwo) {
+    return $s1_numOne . " " .$s1_wordOne . " and " . $s1_numTwo . " " .$s1_wordTwo;
 },
 
 ],
@@ -259,7 +325,7 @@ EOD
 [
 
 "text" => <<<EOD
-Two large and 1 small pumps can fill a swimming pool in 4 hours. One large and 3 small pumps can also fill the same swimming pool in 4 hours. How many minutes will it take 4 large and 4 small pumps to fill the swimming pool?
+Two large and one small pumps can fill a swimming pool in four hours. One large and three small pumps can also fill the same swimming pool in four hours. How many minutes will it take four large and four small pumps to fill the swimming pool?
 
 (We assume that all large pumps are similar and all small pumps are also similar.)
 
@@ -269,6 +335,30 @@ EOD
 "points" => 3,
 "answer" => function () {
     return 100;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Peter has the phonenumber '0731415926' and Anders has the phonenumber '0727182818'. They call each other every sunday afternoon for 9 minutes. Calculate the number of hours that they talk with each other pr year (assume 52 sundays pr year). Use that number in a string concatenation with the following format: 'Peter calls from [#Peter's phonenumber] to Anders on [#Anders's phonenumber] for [#hours] every year.' Replace the content inside [#] with the corresponding values.
+
+Answer with the concatenated string.
+EOD
+,
+"points" => 3,
+"answer" => function () {
+    $peter = '0731415926';
+    $anders = '0727182818';
+    $hours = 52 * 9 / 60;
+
+    return "Peter calls from " . $peter . " to Anders on " . $anders . " for " . $hours . " hours every year.";
 },
 
 ],

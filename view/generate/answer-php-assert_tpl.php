@@ -6,7 +6,7 @@
  * for checking with assertEqual().
  *
  */
-class CDbwebb
+class Dbwebb
 {
     const PROMPT = ">>> ";
 
@@ -16,21 +16,24 @@ class CDbwebb
      */
     public function __construct()
     {
-        $this->answers = json_decode(file_get_contents("answer.json"), true);
+        $this->answers = json_decode(file_get_contents(".answer.json"), true);
         $this->correct = 0;
         $this->failed  = 0;
         $this->notDone = 0;
+        $this->points  = 0;
         $this->jsonOptions = JSON_PRETTY_PRINT;
 
         if (php_sapi_name() == "cli") {
             $this->pre    = null;
             $this->preEnd = "\n";
+            $this->colorBlue   = "\033[96m";
             $this->colorGreen  = "\033[92m";
             $this->colorYellow = "\033[93m";
             $this->colorStop   = "\033[0m";
         } else {
             $this->pre    = "<pre>";
             $this->preEnd = "</pre>";
+            $this->colorBlue   = "<span style='color: #0296ff'>";
             $this->colorGreen  = "<span style='color: #006400'>";
             $this->colorYellow = "<span style='color: #FF8C00'>";
             $this->colorStop   = "</span>";
@@ -67,6 +70,9 @@ class CDbwebb
             $status = self::PROMPT . $question . " CORRECT. Well done!\n"
                 . json_encode($answer, $this->jsonOptions);
             $this->correct += 1;
+            $this->points += isset($this->answers["points"][$question])
+                ? $this->answers["points"][$question]
+                : 0;
 
         } else {
 
@@ -92,13 +98,43 @@ class CDbwebb
      */
     public function exitWithSummary()
     {
-        $total = count($this->answers["answers"]);
-        echo self::PROMPT
-            . "Done with status {$total}/{$this->correct}/{$this->failed}/"
-            . "{$this->notDone} (Total/Correct/Failed/Not done).\n";
-        $status = $total == $this->correct;
+        $questions    = $this->answers["summary"]["questions"];
+        $points       = $this->answers["summary"]["points"];
+        $pass         = $this->answers["summary"]["pass"];
+        $passDistinct = $this->answers["summary"]["passdistinct"];
 
-        if ($status) {
+        echo self::PROMPT
+            . "Done with status {$questions}/{$this->correct}/{$this->failed}/"
+            . "{$this->notDone} (Total/Correct/Failed/Not done).\n";
+
+        $withDistinct = "";
+        if (!is_null($passDistinct)) {
+            $withDistinct = ", PASS W DISTINCTION=> {$passDistinct}p";
+        }
+
+        if ($pass) {
+            echo self::PROMPT
+                . "Points earned: {$this->points}p of {$points}p"
+                . " (PASS=>{$pass}p{$withDistinct}).\n";
+        }
+
+        // Check if pass, pass w distinction or not
+        $didPass = $this->correct == $questions;
+        if ($pass) {
+            $didPass = $this->points >= $pass;
+        }
+
+        $didPassDistinct = null;
+        if ($passDistinct) {
+            $didPassDistinct = $this->points >= $passDistinct;
+        }
+
+        if ($didPassDistinct) {
+            echo $this->colorBlue
+                . self::PROMPT
+                . "Grade: PASS WITH DISTINCTION!!! :-D"
+                . $this->colorStop;
+        } elseif ($didPass) {
             echo $this->colorGreen
                 . self::PROMPT
                 . "Grade: PASS! :-)"
@@ -110,6 +146,6 @@ class CDbwebb
                 . $this->colorStop;
         }
         echo $this->preEnd;
-        return $status ? 0 : 42;
+        return $didPass ? 0 : 42;
     }
 }

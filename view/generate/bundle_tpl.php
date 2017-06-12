@@ -58,8 +58,8 @@ $labPerType = [
         ["filename" => "answer.php", "action" => "answer-php", "mode" => "755"],
         //["filename" => ".CDbwebb.php", "action" => "answer-php-assert"],
         //["filename" => ".answer.json",  "action" => "answer-json"],
-        ["filename" => "CDbwebb.php", "action" => "answer-php-assert"],
-        ["filename" => "answer.json",  "action" => "answer-json"],
+        ["filename" => ".Dbwebb.php", "action" => "answer-php-assert"],
+        ["filename" => ".answer.json",  "action" => "answer-json"],
     ],
     "javascript" => [
         ["filename" => "answer.html", "action" => "answer-html"],

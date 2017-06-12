@@ -2,6 +2,12 @@ Revision history
 ===================
 
 
+v2.3.1 (2017-06-12)
+-------------------
+
+* Enabled PHP labs to be pass/pass w distinction.
+
+
 v2.3.0 (2017-06-09)
 -------------------
 

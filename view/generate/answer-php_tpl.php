@@ -27,8 +27,8 @@ error_reporting(-1);              // Report all type of errors
 ini_set('display_errors', 1);     // Display all errors
 
 // Load and create object with lab utilities
-require __DIR__ . "/CDbwebb.php";
-$dbwebb = new CDbwebb();
+require __DIR__ . "/.Dbwebb.php";
+$dbwebb = new Dbwebb();
 
 
 

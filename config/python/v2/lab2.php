@@ -92,7 +92,7 @@ Answer with the boolean value of the expression '`dice1` is greater than `dice2`
 
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($dice1, $dice2) {
 
     return $dice1 > $dice2;
@@ -114,7 +114,7 @@ Use an if-statement to decide if the sum of the three variables i greater than 1
 
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($dice1, $dice2, $dice3) {
     $string = "small";
     if ($dice1 + $dice2 + $dice3 > 11) {
@@ -139,7 +139,7 @@ Use an if, elseif, else statement to check the total value of the dices. Answer 
 
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($dice1, $dice2, $dice3, $dice4, $dice5) {
 
     $sum = $dice1 + $dice2 + $dice3 + $dice4 + $dice5;
@@ -171,7 +171,7 @@ Tip: Use the `in` operator.
 
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($s1_word) {
     return strpos($s1_word, 's') !== false;
 },
@@ -218,7 +218,7 @@ Answer with the string.
 
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($s1_word) {
     $numbers_string = "";
     for ($i = 0; $i <= 10; $i++) {
@@ -243,7 +243,7 @@ Loop through the letters of the variable `summer_word` from above. Concatenate t
 
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($s1_word) {
     $new_word = "";
     for ($i = 0; $i < strlen($s1_word); $i++) {
@@ -272,7 +272,7 @@ Tip: Use the modulus % operator.
 
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($loopNumberStart, $loopNumberEnd) {
     $mighty_sum = 0;
     for ($i = $loopNumberStart; $i <= $loopNumberEnd; $i++) {
@@ -323,7 +323,7 @@ Create a while-loop that starts at value $s5_addNum and ends when the value is g
 Answer with the string.
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($s5_addNum, $s5_addTimes) {
     $numbers_string = "";
     $start = $s5_addNum;
@@ -348,7 +348,7 @@ EOD
 Create a while-loop that adds $s5_addNum to the number $s5_addTo, $s5_addTimes times. Answer with the result.
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($s5_addNum, $s5_addTo, $s5_addTimes) {
 
 	$result = $s5_addTo;
@@ -374,7 +374,7 @@ EOD
 Create a while-loop that subtracts $s5_subNum from $s5_subFrom, $s5_subTimes times. Answer with the result.
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($s5_subNum, $s5_subFrom, $s5_subTimes) {
 
 	$result = $s5_subFrom;
@@ -429,7 +429,7 @@ Answer with the reversed word.
 
 EOD
 ,
-
+"points" => 3,
 "answer" => function () use ($longword) {
     $reversed = "";
     for ($i = 0; $i < strlen($longword); $i++) {

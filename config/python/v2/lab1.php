@@ -165,7 +165,7 @@ Create another variable called `float_two` and give it the value $s1_floatTwo.
 Sum the two values and answer with the result.
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($s1_floatOne, $s1_floatTwo) {
     return $s1_floatOne+$s1_floatTwo;
 },
@@ -187,7 +187,7 @@ Sum `num_three` with `num_one` and subtract `num_four`. Multiply the result by `
 Answer with the result.
 EOD
 ,
-
+"points" => 1,
 "answer" => function () use ($s1_numThree, $s1_floatOne, $s1_numOne, $s1_numFour, $s1_numTwo, $s1_floatTwo) {
     return ($s1_numThree + $s1_numOne - $s1_numFour) * $s1_numTwo + $s1_floatTwo - $s1_floatOne;
 },

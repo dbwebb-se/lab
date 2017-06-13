@@ -59,7 +59,7 @@ $extra1Print = implode(", ", $extra1);
 
 
 return [
-
+"author" => ["lew"],
 "passPercentage" => 9/12,
 "passDistinctPercentage" => 12/12,
 

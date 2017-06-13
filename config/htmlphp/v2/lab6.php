@@ -115,7 +115,7 @@ unset($mydb);
 
 
 return [
-
+"author" => ["lew"],
 "passPercentage" => 7/10,
 "passDistinctPercentage" => 10/10,
 

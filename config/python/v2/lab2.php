@@ -449,7 +449,7 @@ EOD
 [
 
 "text" => <<<EOD
-Swedish numberplates consist of three letters and three numbers. The numbers range from 001 to 999. Using the four most common rules of arithmetics (+, -, *, /) how many of the numberplates can the two first numbers give the third number?
+Swedish numberplates consist of three letters and three numbers. The numbers range from 001 to 999. Using one of the four common rules of arithmetics (+, -, *, /), how many of the numberplates can the two first numbers give the third number?
 
 Examples:
 'ABC123' can be combined to 1 + 2 = 3. So this numberplate is good.
@@ -487,7 +487,7 @@ EOD
                 }
 
                 if ($j > 0) {
-                    if ($i + $j == $k) {
+                    if ($i / $j == $k) {
                         $count++;
                         continue;
                     }

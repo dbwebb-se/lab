@@ -7,123 +7,39 @@ include LAB_INSTALL_DIR . "/config/random.php";
 
 // SECTION 1 ****************************************************
 
-$s1_listWords 		= [
-["table", "wall", "desk", "chair", "floor"],
-["wasp", "fly", "butterfly", "bumblebee", "mosquito"],
-["lion", "tiger", "ozelot", "bobcat", "cougar"],
-["Dafoe", "Sheen", "Berenger", "Depp", "Whitaker"],
-["flute", "guitar", "drums", "piano", "bass"]
+$greeterValue = "Hi, the weather is nice today!";
+
+$s4_numOne 		= rand_int(1, 100);
+$s4_numTwo 		= rand_int(1, 100);
+$s4_numThree 	= rand_int(1, 100);
+$s4_wordSerie 	= ["icecream", "sunshine", "beach", "music", "vacation", "barbeque", "resort", "water", "restaurant", "beverage"];
+$s4_arrRand		= rand_int(0, 9);
+$s4_word 		= $s4_wordSerie[$s4_arrRand];
+
+$s1_wordList 		= [
+['melon', 'banana', 'apple', 'orange', 'lemon'],
+['potato', 'carrot', 'onion', 'leek', 'cabbage'],
+['milk', 'juice', 'lemonade', 'soda', 'water'],
+['candy', 'cake', 'cupcakes', 'lollipop', 'pringles'],
+['car', 'bus', 'plane', 'helicopter', 'train']
 ];
-$s1_extraWords		= ["icecream", "hotdog", "purple", "yellow", "elevator"];
-$s1_extraWords2		= ["pirate", "donkey", "jacket", "bag", "money"];
-$s1_extraWords3		= ["cord", "light", "painting", "tablet", "potato"];
-$s1_shortList1		= [$s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)], $s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)]];
-$s1_shortList1Print	= implode(", ", $s1_shortList1);
-$s1_shortList2		= [$s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)], $s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)]];
-$s1_shortList2Print	= implode(", ", $s1_shortList2);
+$s1_word5 			= $s1_wordList[rand_int(0, 4)][rand_int(0, 4)];
+$s1_word6 			= $s1_wordList[rand_int(0, 4)][rand_int(0, 4)];
 
-$s1_list1 			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
-$s1_list1Print 		= implode(", ", $s1_list1);
-$s1_list2 			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
-$s1_list2Print 		= implode(", ", $s1_list2);
-$s1_word1			= $s1_extraWords[rand_int(0, count($s1_extraWords)-1)];
-$s1_word2			= $s1_extraWords2[rand_int(0, count($s1_extraWords2)-1)];
-$s1_word3			= $s1_extraWords3[rand_int(0, count($s1_extraWords3)-1)];
+$multiplicatorStart = rand_int(1, 5);
+$multiplicatorEnd = rand_int(11, 25);
 
-$s1_list3			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
-$s1_wordToList3		= $s1_list3[rand_int(0, count($s1_list3)-1)];
-$s1_list3Print 		= implode(", ", $s1_list3);
+$deciderList = [["blunderbuss", "crudivore", "fartlek", "filibuster", "hemidemisemiquaver"], [rand_int(1, 100), rand_int(1, 100), rand_int(1, 100), rand_int(1, 100), rand_int(1, 100)]];
 
-// SECTION 2
+$stringOrInteger = rand_int(0, 1);
+$deciderValue = $deciderList[$stringOrInteger][rand_int(0, count($deciderList[$stringOrInteger]) - 1)];
+$deciderStringValue = $deciderList[0][rand_int(0, count($deciderList[0]) - 1)];
+$deciderIntegerValue = $deciderList[1][rand_int(0, count($deciderList[1]) - 1)];
 
-$s2_listNumbers = [
-[98,5,12,369,1],
-[123,4,125,69,155],
-[67,50,2,39,15],
-[567,23,12,36,7],
-[45,22,2,498,78]
-];
-$s2_numSerie1		= $s2_listNumbers[rand_int(0, count($s2_listNumbers)-1)];
-$s2_numSerie1Print	= implode(", ", $s2_numSerie1);
-$s2_numSerie2		= $s2_listNumbers[rand_int(0, count($s2_listNumbers)-1)];
-$s2_numSerie2Print	= implode(", ", $s2_numSerie2);
-$s2_numSerie3		= $s2_listNumbers[rand_int(0, count($s2_listNumbers)-1)];
-$s2_numSerie3Print	= implode(", ", $s2_numSerie3);
+$sentenceList = ["Pack my Box with five dozen LiQuor juGs.", "JackDaws Love my big Sphinx of QuarTz.", "The fiVe boXing Wizards jump quickLy.", "How vexingly Quick Daft zeBras jumP!", "Bright viXens juMp; doZy fowl Quack.", "SphiNx of bLack quArtz, juDge my vow."];
 
-$s2_listSent = [
-"The?sun?is?shining",
-"The?snow?is?falling",
-"The?rain?is?pouring",
-"The?wind?is?blowing",
-"The?grass?is?growing"
-];
-$s2_listSent1		= $s2_listSent[rand_int(0, count($s2_listSent)-1)];
-$s2_smallInt1		= rand_int(1, 3);
-$s2_smallInt2		= rand_int(5, 9);
+$sentence = $sentenceList[rand_int(0, count($sentenceList) - 1)];
 
-// SECTION 3
-
-$s3_split1 = [
-"I have not failed. I've just found 10,000 ways that won't work.",
-"For every minute you are angry you lose sixty seconds of happiness.",
-"I love deadlines. I love the whooshing noise they make as they go by.",
-"Whenever I feel the need to exercise, I lie down until it goes away.",
-"One good thing about music, when it hits you, you feel no pain."
-];
-$s3_split1Nr = rand_int(0, count($s3_split1)-1);
-$s3_split1Use = $s3_split1[$s3_split1Nr];
-$s3_split1Answer = explode(" ", $s3_split1Use);
-$s3_split1AnswerNr = rand_int(0, count($s3_split1Answer)-1);
-$s3_split1SingleWordAnswer = $s3_split1Answer[$s3_split1AnswerNr];
-
-$s3_slice1 = [
-["a", "b", "c", "d", "e"],
-["pig", "horse", "cow", "cat", "dog"],
-["reggae", "rock", "blues", "jazz", "opera"],
-["dvd", "mp3", "blu-ray", "vhs", "cd"],
-["tree", "stone", "grass", "water", "sky"]
-];
-$s3_slice1Rand = rand_int(0, count($s3_slice1)-1);
-$s3_slice1Use = $s3_slice1[$s3_slice1Rand];
-
-$s3_slice1ReplaceList = [
-["book", "candle"],
-["freezer", "fridge"],
-["green", "purple"],
-["picture", "canvas"]
-];
-$s3_slice1Replace = $s3_slice1ReplaceList[rand_int(0, count($s3_slice1ReplaceList)-1)];
-$s3_slice1Answer = $s3_slice1Use;
-$s3_slice1Answer[1] = $s3_slice1Replace[0];
-$s3_slice1Answer[2] = $s3_slice1Replace[1];
-$s3_slice1PrintList = implode(", ", $s3_slice1Use);
-$s3_slice1PrintReplace = implode(", ", $s3_slice1Replace);
-$s3_slice2Use = $s3_slice1Use;
-$s3_slice2Use[count($s3_slice2Use)-2] = $s3_slice1Replace[0];
-$s3_slice2Use[count($s3_slice2Use)-1] = $s3_slice1Replace[1];
-$s3_slice3 = $s3_slice1Use;
-array_splice($s3_slice3, 3, 0, $s3_slice1Replace);
-
-$s3_del1Rand = rand_int(0, count($s3_slice1)-1);
-$s3_del1List = $s3_slice1[$s3_del1Rand];
-$s3_del2List = $s3_del1List;
-$s3_printDel1 = implode(", ", $s3_del1List);
-unset($s3_del1List[0]);
-unset($s3_del2List[1], $s3_del2List[2]);
-
-$s3_aliasLists = [
-["a","b","c","d","e"],
-["e","d","c","b","a"],
-["b","a","e","d","c"],
-["c","b","a","e","d"],
-["d","c","b","a","e"]
-];
-$s3_aliasRand = rand_int(0, count($s3_aliasLists)-1);
-$s3_aliasUse = $s3_aliasLists[$s3_aliasRand];
-$s3_aliasPrint = implode(", ",$s3_aliasUse);
-
-$s3_aliasReplace = ["x", "y", "z", "p", "s"];
-$s3_aliasReplaceWith = $s3_aliasReplace[rand_int(0, count($s3_aliasReplace)-1)];
 
 //$s3_slice2PrintList = implode(",", $s3_slice2Use);
 /**
@@ -134,7 +50,10 @@ $s3_aliasReplaceWith = $s3_aliasReplace[rand_int(0, count($s3_aliasReplace)-1)];
 
 return [
 
+"passPercentage" => 10/16,
+"passDistinctPercentage" => 16/16,
 
+"author" => ["efo", "lew"],
 
 /**
  * Titel and introduction to the lab.
@@ -142,6 +61,7 @@ return [
 "title" => "Lab 3 - python",
 
 "intro" => <<<EOD
+In these exercises we will work with functions.
 EOD
 ,
 
@@ -154,7 +74,7 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "List basics",
+"title" => "Functions",
 
 "intro" => <<<EOD
 EOD
@@ -172,16 +92,15 @@ EOD
 [
 
 "text" => <<<EOD
-Concatenate the two lists [$s1_shortList1Print] and [$s1_shortList2Print].
+Create a function called `greeter` that returns `"$greeterValue"`.
 
-Answer with your list.
+Answer with the return value from a call to the function.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($greeterValue) {
 
-"answer" => function () use ($s1_shortList1, $s1_shortList2) {
-	$result = array_merge($s1_shortList1, $s1_shortList2);
-	return $result;
-
+	return $greeterValue;
 },
 
 ],
@@ -194,20 +113,17 @@ EOD
 [
 
 "text" => <<<EOD
-Use the list [$s1_list1Print].
+Assign the words: '$s1_word5' and '$s1_word6' to two different variables.
 
-Add the words '$s1_word1' and '$s1_word2' as the second and third element.
+Create a function and pass the two words as arguments to it. Your function should return them as a single word.
 
-Answer with the modified list.
+Answer with the result.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s1_word5, $s1_word6) {
 
-"answer" => function () use ($s1_list1, $s1_word1, $s1_word2) {
-	$tempList = $s1_list1;
-	array_splice($tempList, 1, 0, $s1_word1);
-
-	array_splice($tempList, 2, 0, $s1_word2);
-	return $tempList;
+    return $s1_word5 . $s1_word6;
 },
 
 ],
@@ -220,19 +136,15 @@ EOD
 [
 
 "text" => <<<EOD
-Use the list [$s1_list1Print].
+Create a function called `funny_word` that takes one argument and prepends it to the string ' is a funny word'. **EXAMPLE:** If the argument is 'water', the function should return: `"water is a funny word"`.
 
-Replace the third word with: '$s1_word3'.
-
-Answer with the modified list.
+Use the argument '$s4_word' and answer with a call to the function.
 EOD
 ,
 
-"answer" => function () use ($s1_list1, $s1_word3) {
-
-	$tempList = $s1_list1;
-	$tempList[2] = $s1_word3;
-	return $tempList;
+"points" => 1,
+"answer" => function () use ($s4_word) {
+	return $s4_word . " is a funny word";
 },
 
 ],
@@ -245,18 +157,15 @@ EOD
 [
 
 "text" => <<<EOD
-Sort the list
+Create a function called `summation` that takes two arguments. The function should return the sum of the two arguments.
 
-> [$s1_list2Print]
-
-in ascending alphabetical order. Answer with the sorted list.
+Answer with the return value from a call to the function with the two arguments $s4_numOne and $s4_numTwo.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s4_numOne, $s4_numTwo) {
 
-"answer" => function () use ($s1_list2) {
-	$tempList = $s1_list2;
-	sort($tempList);
-	return $tempList;
+	return $s4_numOne+$s4_numTwo;
 },
 
 ],
@@ -269,19 +178,15 @@ EOD
 [
 
 "text" => <<<EOD
-Use the list from the last excercise
+Create a function called `multiplication` that takes two arguments. The function should return the product of the two arguments.
 
-> [$s1_list2Print]
-
-and sort it in decending alphabetical order. Answer with the sorted list.
+Answer with the return value from a call to the function with the two arguments $s4_numOne and $s4_numTwo.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s4_numOne, $s4_numTwo) {
 
-"answer" => function () use ($s1_list2) {
-	$tempList = $s1_list2;
-	rsort($tempList);
-	return $tempList;
-
+	return $s4_numOne*$s4_numTwo;
 },
 
 ],
@@ -294,20 +199,21 @@ EOD
 [
 
 "text" => <<<EOD
-Use `pop()` to get the second and the last element in the list:
+Create a function called `in_range` that takes one argument. The function should return `True` if the argument is higher than 50 and lower than 100. If the number is out of range, the function should return `False`. The return type should be boolean.
 
-> [$s1_list1Print]
-
-Answer with the popped elements in a new list.
+Use the argument $s4_numThree and answer with a call to the function.
 EOD
 ,
 
-"answer" => function () use ($s1_list1) {
-	$result = [];
-	array_push($result, $s1_list1[1]);
-	array_push($result, $s1_list1[count($s1_list1)-1]);
-	return $result;
+"points" => 1,
+"answer" => function () use ($s4_numThree) {
 
+	$result = false;
+
+    if($s4_numThree > 50 && $s4_numThree < 100) {
+       $result = true;
+    }
+    return $result;
 },
 
 ],
@@ -320,475 +226,182 @@ EOD
 [
 
 "text" => <<<EOD
-Use `remove()` to delete the word:
+Create a function called `multiplicator`. Inside the function create a loop that iterates from $multiplicatorStart to $multiplicatorEnd (both included). For each number use the `multiplication` function from above to get the square of the current number. The function should return a comma-separated string of the squared numbers.
 
-> '$s1_wordToList3'
-
-from the list:
-
-> [$s1_list3Print]
-
-Answer with the modified list.
+Answer with a call to the function `multiplicator`.
 EOD
 ,
 
-"answer" => function () use ($s1_wordToList3, $s1_list3) {
+"points" => 1,
+"answer" => function () use ($multiplicatorStart, $multiplicatorEnd) {
 
-	$result = [];
-	for($i = 0; $i < count($s1_list3); $i++) {
-		if($s1_list3[$i] != $s1_wordToList3) {
-			array_push($result, $s1_list3[$i]);
+	$resultString = "";
+
+	for ($i = $multiplicatorStart; $i <= $multiplicatorEnd; $i++) {
+		$resultString .= $i*$i . ",";
+	}
+
+    return $resultString;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a function called `squares_in_range`. Inside the function create a loop that iterates from $multiplicatorStart to $multiplicatorEnd (both included). For each number use the `multiplication` function from above to get the square of the current number. Use the `in_range` function to check if the value is between 50 and 100. The function should return a comma-separated string of either `"Inside"` or `"Outside"`, use an if-statement to concatenate the strings to the return value.
+
+Answer with a call to the function `squares_in_range`.
+EOD
+,
+
+"points" => 1,
+"answer" => function () use ($multiplicatorStart, $multiplicatorEnd) {
+
+	$resultString = "";
+
+	for ($i = $multiplicatorStart; $i <= $multiplicatorEnd; $i++) {
+		$resultString.= $i*$i > 50 && $i*$i < 100 ? "Inside":"Outside";
+		$resultString.= ",";
+	}
+
+    return $resultString;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a function called `decider`. The function takes one argument. If the argument is a string return a call to `funny_word()`, if the argument is an integer return the square of the argument by using the `multiplication` function.
+
+Answer with a call to the function `decider` with the argument $deciderValue.
+EOD
+,
+
+"points" => 1,
+"answer" => function () use ($deciderValue) {
+
+	if (gettype($deciderValue) == "integer") {
+		return $deciderValue * $deciderValue;
+	} else {
+		return $deciderValue . " is a funny word";
+	}
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a function called `double_decider`. The function takes two arguments. For each argument call the `decider` function. Concatenate the returned values in a string.
+
+Separate the two values by ' and the square is '.
+
+Answer with a call to the function `double_decider` with the arguments: $deciderStringValue and $deciderIntegerValue.
+EOD
+,
+
+"points" => 1,
+"answer" => function () use ($deciderStringValue, $deciderIntegerValue) {
+
+
+	return $deciderStringValue . " is a funny word and the square is " . $deciderIntegerValue * $deciderIntegerValue;
+
+},
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+These questions are worth 3 points each. Solve them for extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a function that returns a binary string value of a given integer. Return only the binary number and not any identification that it is a binary number.
+
+Example: Calling the function with the number 3 should return `"11"`.
+
+Answer with a call to the function with the argument $s4_numThree.
+EOD
+,
+"points" => 3,
+"answer" => function () use ($s4_numThree) {
+    return decbin($s4_numThree);
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Write a Python function that accepts a string and calculate the number of upper case letters and lower case letters. The function should return a string with the format "Lower case letters: #, upper case letters: #". Only count letters, you can ignore space and special characters.
+
+Answer with a call to the function with the argument: `"$sentence"`.
+EOD
+,
+"points" => 3,
+"answer" => function () use ($sentence) {
+	$lower = 0;
+	$upper = 0;
+	for ($i = 0; $i < strlen($sentence); $i++) {
+		if (ctype_upper($sentence[$i])) {
+			$upper++;
+		} elseif (ctype_lower($sentence[$i])) {
+			$lower++;
+		} else {
+			continue;
 		}
 	}
-	return $result;
 
-},
-
-],
-
-
-
-/**
- * Closing up this section.
- */
-], // EOF questions
-], // EOF section
-
-
-
-/** ===================================================================================
- * New section of exercises.
- */
-[
-"title" => "Built-in list functions",
-
-"intro" => <<<EOD
-Some basic built-in functions.
-EOD
-,
-
-"shuffle" => false,
-
-"questions" => [
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use a built-in function to sum all numbers in the list:
-
-> [$s2_numSerie1Print]
-
-Answer with the result as an integer.
-EOD
-,
-
-"answer" => function () use ($s2_numSerie1) {
-
-    return array_sum($s2_numSerie1);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use built-in functions, such as `sum` and `len` to get the average value of the list:
-
-> [$s2_numSerie2Print]
-
-Answer with the result as a float with at most one decimal.
-EOD
-,
-
-"answer" => function () use ($s2_numSerie2) {
-
-    return round(floatval(array_sum($s2_numSerie2)/count($s2_numSerie2)), 1);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use a built-in function to get the lowest number in the list:
-
-> [$s2_numSerie3Print]
-
-Answer with the result as a integer.
-EOD
-,
-
-"answer" => function () use ($s2_numSerie3) {
-
-    return min($s2_numSerie3);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the built-in functions `split()` and `join()` to fix this string:
-
-> "$s2_listSent1"
-
-into a real sentence, (without '?').
-
-Answer with the fixed string.
-EOD
-,
-
-"answer" => function () use ($s2_listSent1) {
-
-    $a = explode("?", $s2_listSent1);
-    $b = join($a, " ");
-    return $b;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the string:
-
-> "$s3_split1Use"
-
-and split it with the delimiter " " (space).
-
-Answer with the element at index $s3_split1AnswerNr.
-EOD
-,
-
-"answer" => function () use ($s3_split1SingleWordAnswer) {
-
-    return $s3_split1SingleWordAnswer;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use slice on the list
-
-> [$s3_slice1PrintList]
-
-and replace the second and third element with
-
-> "$s3_slice1PrintReplace"
-
-Answer with the modified list.
-EOD
-,
-
-"answer" => function () use ($s3_slice1Answer) {
-
-    return $s3_slice1Answer;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use slice on the list
-
-> [$s3_slice1PrintList]
-
-and replace the last two elements with
-
-> "$s3_slice1PrintReplace"
-
-Answer with the modified list.
-EOD
-,
-
-"answer" => function () use ($s3_slice2Use) {
-
-    return $s3_slice2Use;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use slice on the list
-
-> [$s3_slice1PrintList]
-
-and insert the words
-
-> "$s3_slice1PrintReplace"
-
-after the third element.
-
-Answer with the modified list.
-EOD
-,
-
-"answer" => function () use ($s3_slice3) {
-
-    return $s3_slice3;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use `del` on the list
-
-> [$s3_printDel1]
-
-and delete the first element.
-
-Answer with the modified list.
-EOD
-,
-
-"answer" => function () use ($s3_del1List) {
-
-    return array_values($s3_del1List);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use `del` on the list
-
-> [$s3_printDel1]
-
-and delete the second and third element.
-
-Answer with the modified list.
-EOD
-,
-
-"answer" => function () use ($s3_del2List) {
-
-    return array_values($s3_del2List);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Assign the list
-
-> [$s3_aliasPrint]
-
-to a variable called 'list1'.
-
-Assign the list again, but to another variable called 'list2'.
-
-Answer with the result of 'list1 is list2'.
-EOD
-,
-
-"answer" => function () {
-
-    return false;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use your lists from the last exercise. Assign 'list1' to another variable called 'list3' like this:
-
-> list3 = list1
-
-Answer with the result of 'list1 is list3'.
-EOD
-,
-
-"answer" => function () {
-
-    return true;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use your lists from the last exercise. Change the first element in 'list1' to
-
-> "$s3_aliasReplaceWith"
-
-Answer with 'list3'.
-EOD
-,
-
-"answer" => function () use($s3_aliasUse, $s3_aliasReplaceWith) {
-	$temp = $s3_aliasUse;
-	$temp[0] = $s3_aliasReplaceWith;
-    return $temp;
-},
-
-],
-
-
-
-/**
- * Closing up this section.
- */
-], // EOF questions
-], // EOF section
-
-
-
-/** ===================================================================================
- * New section of exercises.
- */
-[
-"title" => "Lists as arguments",
-
-"intro" => <<<EOD
-Some excercises with passing lists as arguments to a function.
-EOD
-,
-
-"shuffle" => false,
-
-"questions" => [
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a function that returns the list passed as argument sorted in numerical and ascending order. Also multiply all values with 10.
-
-Use the list:
-
-> [$s2_numSerie3Print]
-
-and the built-in method `sort()`.
-
-Answer with the sorted list.
-EOD
-,
-
-"answer" => function () use ($s2_numSerie3) {
-
-    $a = [];
-    for($i = 0; $i < count($s2_numSerie3); $i++) {
-    	$a[$i] = ($s2_numSerie3[$i] * 10);
-    }
-    sort($a);
-
-    return $a; //implode(",",$a);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a function that takes the list:
-
-> [$s2_numSerie2Print]
-
-as argument.
-
-The function should multiply all even numbers by $s2_smallInt1 and add $s2_smallInt2 to all odd numbers.
-
-Answer with the modified list sorted in numerical order, descending.
-EOD
-,
-
-"answer" => function () use ($s2_numSerie2, $s2_smallInt1, $s2_smallInt2) {
-
-    $result = $s2_numSerie2;
-    for ($i = 0; $i < count($result); $i++) {
-    	if ($result[$i]%2===0) {
-    		$result[$i] *= $s2_smallInt1;
-    	} else {
-    		$result[$i] += $s2_smallInt2;
-    	}
-    }
-    rsort($result);
-    return $result; //implode(",", $result);
+	return "Lower case letters: " . $lower . ", upper case letters: " . $upper;
 },
 
 ],

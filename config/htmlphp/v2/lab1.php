@@ -41,7 +41,7 @@ $extra2 = 100 * (100+1) / 2;
 
 
 return [
-
+"author" => ["lew"],
 "passPercentage" => 10/16,
 "passDistinctPercentage" => 16/16,
 

@@ -139,7 +139,7 @@ $switchWich2 = rand_int(0, 2);
 
 
 return [
-
+"author" => ["lew"],
 "passPercentage" => 20/26,
 "passDistinctPercentage" => 26/26,
 

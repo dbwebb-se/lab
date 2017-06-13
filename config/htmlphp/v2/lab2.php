@@ -86,7 +86,7 @@ $s4_numserie1 = [rand_int(10, 100), rand_int(10, 100), rand_int(10, 100), rand_i
 $s4_numserie1Print = implode(",",$s4_numserie1);
 
 return [
-
+"author" => ["lew"],
 "passPercentage" => 16/19,
 "passDistinctPercentage" => 19/19,
 

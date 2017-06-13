@@ -6,93 +6,138 @@
 include LAB_INSTALL_DIR . "/config/random.php";
 
 // SECTION 1 ****************************************************
-$s1_dictNames = [
-["Baggins", "Aragorn", "Smaug"],
-["Solo", "Skywalker", "Vader"],
-["Chandler", "Monica", "Ross"],
-["Clinton", "Obama", "Bush"],
-["Jagger", "Diamond", "Cash"]
+
+$s1_listWords 		= [
+["table", "wall", "desk", "chair", "floor"],
+["wasp", "fly", "butterfly", "bumblebee", "mosquito"],
+["lion", "tiger", "ozelot", "bobcat", "cougar"],
+["Dafoe", "Sheen", "Berenger", "Depp", "Whitaker"],
+["flute", "guitar", "drums", "piano", "bass"]
 ];
-$s1_dictNrs = [
-[55523412, 55564222, 55567894],
-[55511243, 55568711, 55590858],
-[55523645, 55564452, 55545872],
-[55590899, 55567345, 55564533],
-[55537654, 55598078, 55587768]
-];
-$s1_rand1 = rand_int(0, 2);
+$s1_extraWords		= ["icecream", "hotdog", "purple", "yellow", "elevator"];
+$s1_extraWords2		= ["pirate", "donkey", "jacket", "bag", "money"];
+$s1_extraWords3		= ["cord", "light", "painting", "tablet", "potato"];
+$s1_shortList1		= [$s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)], $s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)]];
+$s1_shortList1Print	= implode(", ", $s1_shortList1);
+$s1_shortList2		= [$s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)], $s1_listWords[rand_int(0, count($s1_listWords)-1)][rand_int(0, 4)]];
+$s1_shortList2Print	= implode(", ", $s1_shortList2);
 
-$s1_dictNameSet1 	= $s1_dictNames[$s1_rand1];
-$s1_dictNameSet1Print	= implode(", ", $s1_dictNameSet1);
+$s1_list1 			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
+$s1_list1Print 		= implode(", ", $s1_list1);
+$s1_list2 			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
+$s1_list2Print 		= implode(", ", $s1_list2);
+$s1_word1			= $s1_extraWords[rand_int(0, count($s1_extraWords)-1)];
+$s1_word2			= $s1_extraWords2[rand_int(0, count($s1_extraWords2)-1)];
+$s1_word3			= $s1_extraWords3[rand_int(0, count($s1_extraWords3)-1)];
 
-$s1_dictNrSet1 	= $s1_dictNrs[$s1_rand1];
-$s1_dictNrSet1Print	= implode(", ", $s1_dictNrSet1);
-
-$s1_name1 	= $s1_dictNameSet1[$s1_rand1];
-$s1_number1 = $s1_dictNrSet1[$s1_rand1];
+$s1_list3			= $s1_listWords[rand_int(0, count($s1_listWords)-1)];
+$s1_wordToList3		= $s1_list3[rand_int(0, count($s1_list3)-1)];
+$s1_list3Print 		= implode(", ", $s1_list3);
 
 // SECTION 2
 
-$s2_tuples = [
-["frog", 54, 4.77, "fridge", 2],
-["bear", 65, 6.47, "chair", 5],
-["moose", 12, 1.98, "table", 7],
-["elephant", 33, 7.28, "stove", 4],
-["snake", 89, 9.63, "bookshelf", 1]
-];
-$s2_rand1 = rand_int(0, count($s2_tuples)-1);
-$s2_tuple1 = $s2_tuples[$s2_rand1];
-$s2_tuple1Print = implode(", ", $s2_tuple1);
-
-$s2_rand2 = rand_int(0, count($s2_tuples)-1);
-$s2_tuple2 = $s2_tuples[$s2_rand2];
-$s2_tuple2Print = implode(", ", $s2_tuple2);
-$s2_replWords = ["bucket", "elevator", "hammer", "fire", "green", "music", "elephant", "beverage", "cow", "curtain"];
-$s2_replWord1 = $s2_replWords[rand_int(0, count($s2_replWords)-1)];
-
-$s2_tuplesListNumbers = [
+$s2_listNumbers = [
 [98,5,12,369,1],
 [123,4,125,69,155],
 [67,50,2,39,15],
 [567,23,12,36,7],
 [45,22,2,498,78]
 ];
-$s2_listSerie1		= $s2_tuplesListNumbers[rand_int(0, count($s2_tuplesListNumbers)-1)];
-$s2_listSerie1Print	= implode(", ", $s2_listSerie1);
+$s2_numSerie1		= $s2_listNumbers[rand_int(0, count($s2_listNumbers)-1)];
+$s2_numSerie1Print	= implode(", ", $s2_numSerie1);
+$s2_numSerie2		= $s2_listNumbers[rand_int(0, count($s2_listNumbers)-1)];
+$s2_numSerie2Print	= implode(", ", $s2_numSerie2);
+$s2_numSerie3		= $s2_listNumbers[rand_int(0, count($s2_listNumbers)-1)];
+$s2_numSerie3Print	= implode(", ", $s2_numSerie3);
 
+$s2_listSent = [
+"The?sun?is?shining",
+"The?snow?is?falling",
+"The?rain?is?pouring",
+"The?wind?is?blowing",
+"The?grass?is?growing"
+];
+$s2_listSent1		= $s2_listSent[rand_int(0, count($s2_listSent)-1)];
+$s2_smallInt1		= rand_int(1, 3);
+$s2_smallInt2		= rand_int(5, 9);
+
+// SECTION 3
+
+$s3_split1 = [
+"I have not failed. I've just found 10,000 ways that won't work.",
+"For every minute you are angry you lose sixty seconds of happiness.",
+"I love deadlines. I love the whooshing noise they make as they go by.",
+"Whenever I feel the need to exercise, I lie down until it goes away.",
+"One good thing about music, when it hits you, you feel no pain."
+];
+$s3_split1Nr = rand_int(0, count($s3_split1)-1);
+$s3_split1Use = $s3_split1[$s3_split1Nr];
+$s3_split1Answer = explode(" ", $s3_split1Use);
+$s3_split1AnswerNr = rand_int(0, count($s3_split1Answer)-1);
+$s3_split1SingleWordAnswer = $s3_split1Answer[$s3_split1AnswerNr];
+
+$s3_slice1 = [
+["a", "b", "c", "d", "e"],
+["pig", "horse", "cow", "cat", "dog"],
+["reggae", "rock", "blues", "jazz", "opera"],
+["dvd", "mp3", "blu-ray", "vhs", "cd"],
+["tree", "stone", "grass", "water", "sky"]
+];
+$s3_slice1Rand = rand_int(0, count($s3_slice1)-1);
+$s3_slice1Use = $s3_slice1[$s3_slice1Rand];
+
+$s3_slice1ReplaceList = [
+["book", "candle"],
+["freezer", "fridge"],
+["green", "purple"],
+["picture", "canvas"]
+];
+$s3_slice1Replace = $s3_slice1ReplaceList[rand_int(0, count($s3_slice1ReplaceList)-1)];
+$s3_slice1Answer = $s3_slice1Use;
+$s3_slice1Answer[1] = $s3_slice1Replace[0];
+$s3_slice1Answer[2] = $s3_slice1Replace[1];
+$s3_slice1PrintList = implode(", ", $s3_slice1Use);
+$s3_slice1PrintReplace = implode(", ", $s3_slice1Replace);
+$s3_slice2Use = $s3_slice1Use;
+$s3_slice2Use[count($s3_slice2Use)-2] = $s3_slice1Replace[0];
+$s3_slice2Use[count($s3_slice2Use)-1] = $s3_slice1Replace[1];
+$s3_slice3 = $s3_slice1Use;
+array_splice($s3_slice3, 3, 0, $s3_slice1Replace);
+
+$s3_del1Rand = rand_int(0, count($s3_slice1)-1);
+$s3_del1List = $s3_slice1[$s3_del1Rand];
+$s3_del2List = $s3_del1List;
+$s3_printDel1 = implode(", ", $s3_del1List);
+unset($s3_del1List[0]);
+unset($s3_del2List[1], $s3_del2List[2]);
+
+$s3_aliasLists = [
+["a","b","c","d","e"],
+["e","d","c","b","a"],
+["b","a","e","d","c"],
+["c","b","a","e","d"],
+["d","c","b","a","e"]
+];
+$s3_aliasRand = rand_int(0, count($s3_aliasLists)-1);
+$s3_aliasUse = $s3_aliasLists[$s3_aliasRand];
+$s3_aliasPrint = implode(", ",$s3_aliasUse);
+
+$s3_aliasReplace = ["x", "y", "z", "p", "s"];
+$s3_aliasReplaceWith = $s3_aliasReplace[rand_int(0, count($s3_aliasReplace)-1)];
+
+//$s3_slice2PrintList = implode(",", $s3_slice2Use);
 /**
  * Titel and introduction to the lab.
  */
-/* Unused stuff
-$dictNames = [
-["Baggins", "Aragorn", "Smaug"],
-["Solo", "Skywalker", "Vader"],
-["Chandler", "Monica", "Ross"],
-["Clinton", "Obama", "Bush"],
-["Jagger", "Diamond", "Cash"]
-];
-$dictNrs = [
-[55523412, 55564222, 55567894],
-[55511243, 55568711, 55590858],
-[55523645, 55564452, 55545872],
-[55590899, 55567345, 55564533],
-[55537654, 55598078, 55587768]
-];
-$r1 = 2; // 0-4
-$r2 = 4;// 0-4
-$sr1 = 1; // 0-2
-$tuples = [
-["frog", 54, 4.77, "fridge", 2],
-["bear", 65, 6.47, "chair", 5],
-["moose", 12, 1.98, "table", 7],
-["elephant", 33, 7.28, "stove", 4],
-["snake", 89, 9.63, "bookshelf", 1]
-];*/
+
 
 
 return [
 
+"passPercentage" => 12/18,
+"passDistinctPercentage" => 18/18,
 
+"author" => ["efo", "lew"],
 
 /**
  * Titel and introduction to the lab.
@@ -100,7 +145,7 @@ return [
 "title" => "Lab 4 - python",
 
 "intro" => <<<EOD
-Dictionaries and tuples.
+"In these exercises we will take a look into lists."
 EOD
 ,
 
@@ -113,10 +158,9 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "Dictionaries",
+"title" => "List basics",
 
 "intro" => <<<EOD
-Some basics with dictionaries.
 EOD
 ,
 
@@ -132,23 +176,16 @@ EOD
 [
 
 "text" => <<<EOD
-Create a small phonebook using a dictionary. Use the names as keys and numbers as values.
+Concatenate the two lists [$s1_shortList1Print] and [$s1_shortList2Print].
 
-Use
-
-> $s1_dictNameSet1Print
-
-and corresponding numbers
-
-> $s1_dictNrSet1Print
-
-Add the phonenumbers as integers. Answer with the resulting dictionary.
+Answer with your list.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s1_shortList1, $s1_shortList2) {
+	$result = array_merge($s1_shortList1, $s1_shortList2);
+	return $result;
 
-"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-
-    return array_combine($s1_dictNameSet1, $s1_dictNrSet1);
 },
 
 ],
@@ -161,13 +198,20 @@ EOD
 [
 
 "text" => <<<EOD
-How many items are there in the dictionary?
+Use the list [$s1_list1Print].
+
+Add the words '$s1_word1' and '$s1_word2' as the second and third element.
+
+Answer with the modified list.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s1_list1, $s1_word1, $s1_word2) {
+	$tempList = $s1_list1;
+	array_splice($tempList, 1, 0, $s1_word1);
 
-"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-
-    return count(array_combine($s1_dictNameSet1, $s1_dictNrSet1));
+	array_splice($tempList, 2, 0, $s1_word2);
+	return $tempList;
 },
 
 ],
@@ -180,13 +224,19 @@ EOD
 [
 
 "text" => <<<EOD
-Use the `get()` method on your phonebook and answer with the phonenumber of '$s1_name1'.
+Use the list [$s1_list1Print].
+
+Replace the third word with: '$s1_word3'.
+
+Answer with the modified list.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s1_list1, $s1_word3) {
 
-"answer" => function () use ($s1_number1) {
-
-    return (int)$s1_number1;
+	$tempList = $s1_list1;
+	$tempList[2] = $s1_word3;
+	return $tempList;
 },
 
 ],
@@ -199,15 +249,18 @@ EOD
 [
 
 "text" => <<<EOD
-Get all keys from the dictionary and return them in a sorted list.
+Sort the list
+
+> [$s1_list2Print]
+
+in descending alphabetical order. Answer with the sorted list.
 EOD
 ,
-
-"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-
-    $res = $s1_dictNameSet1;
-    sort($res);
-    return $res;
+"points" => 1,
+"answer" => function () use ($s1_list2) {
+	$tempList = $s1_list2;
+	rsort($tempList);
+	return $tempList;
 },
 
 ],
@@ -220,159 +273,29 @@ EOD
 [
 
 "text" => <<<EOD
-Get all values from the dictionary and return them in a sorted list.
+Use `remove()` to delete the word:
+
+> '$s1_wordToList3'
+
+from the list:
+
+> [$s1_list3Print]
+
+Answer with the modified list.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s1_wordToList3, $s1_list3) {
 
-"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
+	$result = [];
+	for($i = 0; $i < count($s1_list3); $i++) {
+		if($s1_list3[$i] != $s1_wordToList3) {
+			array_push($result, $s1_list3[$i]);
+		}
+	}
+	return $result;
 
-    $res = $s1_dictNrSet1;
-    sort($res);
-    return $res;
 },
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the in-operator to test if the name '$s1_name1' exists in the dictionary. Answer with the return boolean value.
-EOD
-,
-
-"answer" => function () {
-
-    return true;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the in-operator to test if the phone number $s1_number1 exists in the dictionary. Answer with the return boolean value.
-EOD
-,
-
-"answer" => function () {
-
-    return true;
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use a for-loop to walk through the dictionary and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order.
-
-Answer with the resulting string.
-EOD
-,
-
-"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-
-    $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
-    ksort($res);
-
-    $str = "";
-    foreach ($res as $key => $val) {
-        $str .= $key . " " . $val . "\n";
-    };
-
-    return $str;
-},
-
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Convert the phonenumber to a string and add the prefix '+1-', representing the language code, to each phone-number.
-
-Answer with the resulting dictionary.
-EOD
-,
-
-"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-
-    $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
-
-    $res = array_map( function($val) {
-            return "+1-" . $val;
-        },
-        $res
-    );
-    return $res;
-},
-
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Get and remove the item '$s1_name1' from the phonebook (use pop()). Answer with the resulting dictionary.
-EOD
-,
-
-"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1, $s1_name1) {
-
-    $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
-
-    unset($res[$s1_name1]);
-
-    return $res;
-},
-
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Add the item you just popped from the phonebook. Answer with the resulting dictionary.
-EOD
-,
-
-"answer" => function () use ($s1_dictNameSet1, $s1_dictNrSet1) {
-
-    $res = array_combine($s1_dictNameSet1, $s1_dictNrSet1);
-
-    return $res;
-},
-
 
 ],
 
@@ -390,10 +313,10 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "Tuples",
+"title" => "Built-in list functions",
 
 "intro" => <<<EOD
-Some basics with tuples.
+Some basic built-in functions.
 EOD
 ,
 
@@ -409,13 +332,17 @@ EOD
 [
 
 "text" => <<<EOD
-Create a tuple with '$s2_tuple1Print'. Answer with the length of the tuple as an integer.
+Use a built-in function to sum all numbers in the list:
+
+> [$s2_numSerie1Print]
+
+Answer with the result as an integer.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s2_numSerie1) {
 
-"answer" => function () use ($s2_tuple1) {
-
-    return count($s2_tuple1);
+    return array_sum($s2_numSerie1);
 },
 
 ],
@@ -428,21 +355,144 @@ EOD
 [
 
 "text" => <<<EOD
-Create a tuple out of:
+Use built-in functions, such as `sum` and `len` to get the average value of the list:
 
-> ($s2_tuple1Print).
+> [$s2_numSerie2Print]
 
-Assign each value in the tuple to different variables:
-
-> 'a','b','c','d','e'.
-
-Answer with the variable: 'd'. Hint: a,b,c = tuple.
+Answer with the result as a float with at most one decimal.
 EOD
 ,
+"points" => 1,
+"answer" => function () use ($s2_numSerie2) {
 
-"answer" => function () use ($s2_tuple1) {
-	$temp = $s2_tuple1[3];
+    return round(floatval(array_sum($s2_numSerie2)/count($s2_numSerie2)), 1);
+},
 
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Use the built-in functions `split()` and `join()` to fix this string:
+
+> "$s2_listSent1"
+
+into a real sentence, (without '?').
+
+Answer with the fixed string.
+EOD
+,
+"points" => 1,
+"answer" => function () use ($s2_listSent1) {
+
+    $a = explode("?", $s2_listSent1);
+    $b = join($a, " ");
+    return $b;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Use slice on the list
+
+> [$s3_slice1PrintList]
+
+and replace the second and third element with
+
+> "$s3_slice1PrintReplace"
+
+Answer with the modified list.
+EOD
+,
+"points" => 1,
+"answer" => function () use ($s3_slice1Answer) {
+
+    return $s3_slice1Answer;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Assign the list
+
+> [$s3_aliasPrint]
+
+to a variable called 'list1'.
+
+Assign the list again, but to another variable called 'list2'.
+
+Answer with the result of 'list1 is list2'.
+EOD
+,
+"points" => 1,
+"answer" => function () {
+
+    return false;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Use your lists from the last exercise. Assign 'list1' to another variable called 'list3' like this:
+
+> list3 = list1
+
+Answer with the result of 'list1 is list3'.
+EOD
+,
+"points" => 1,
+"answer" => function () {
+
+    return true;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Use your lists from the last exercise. Change the first element in 'list1' to
+
+> "$s3_aliasReplaceWith"
+
+Answer with 'list3'.
+EOD
+,
+"points" => 1,
+"answer" => function () use($s3_aliasUse, $s3_aliasReplaceWith) {
+	$temp = $s3_aliasUse;
+	$temp[0] = $s3_aliasReplaceWith;
     return $temp;
 },
 
@@ -450,26 +500,58 @@ EOD
 
 
 
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+These questions are worth 3 points each. Solve them for extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
 /** -----------------------------------------------------------------------------------
  * A question.
  */
 [
 
 "text" => <<<EOD
-Use the list
+Create a function that returns the list passed as argument sorted in numerical and ascending order. Also multiply all values with 10.
 
-> [$s2_listSerie1Print]
+Use the list:
 
-Assign the first two elements to a tuple with a slice on the list.
+> [$s2_numSerie3Print]
 
-Answer with the first element in the tuple as an integer.
+and the built-in method `sort()`.
+
+Answer with the sorted list.
 EOD
 ,
+"points" => 3,
+"answer" => function () use ($s2_numSerie3) {
 
-"answer" => function () use ($s2_listSerie1) {
-	$temp = (int)$s2_listSerie1[0];
+    $a = [];
+    for($i = 0; $i < count($s2_numSerie3); $i++) {
+    	$a[$i] = ($s2_numSerie3[$i] * 10);
+    }
+    sort($a);
 
-    return $temp;
+    return $a; //implode(",",$a);
 },
 
 ],
@@ -482,23 +564,30 @@ EOD
 [
 
 "text" => <<<EOD
-Create a tuple with
+Create a function that takes the list:
 
-> ($s2_tuple2Print)
+> [$s2_numSerie2Print]
 
-Convert it to a list and replace the second element with:
+as argument.
 
-> "$s2_replWord1"
+The function should multiply all even numbers by $s2_smallInt1 and add $s2_smallInt2 to all odd numbers.
 
-Convert it back to a tuple and answer with the first three elements in a comma-separated string.
+Answer with the modified list sorted in numerical order, descending.
 EOD
 ,
+"points" => 3,
+"answer" => function () use ($s2_numSerie2, $s2_smallInt1, $s2_smallInt2) {
 
-"answer" => function () use ($s2_tuple2, $s2_replWord1) {
-	$temp = $s2_tuple2;
-	$repl = $s2_replWord1;
-	$temp[1] = $repl;
-    return (string)implode(",", array_slice($temp, 0, 3));
+    $result = $s2_numSerie2;
+    for ($i = 0; $i < count($result); $i++) {
+    	if ($result[$i]%2===0) {
+    		$result[$i] *= $s2_smallInt1;
+    	} else {
+    		$result[$i] += $s2_smallInt2;
+    	}
+    }
+    rsort($result);
+    return $result;
 },
 
 ],
@@ -523,4 +612,4 @@ EOD
 /**
  * Closing up this lab.
  */
-]; // EOF the enritre lab
+]; // EOF the entire lab

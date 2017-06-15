@@ -11,7 +11,7 @@ import json
 import sys
 
 
-class Dbwebb():
+class Dbwebb(object):
     """
     Class for autocorrecting labs.
     """

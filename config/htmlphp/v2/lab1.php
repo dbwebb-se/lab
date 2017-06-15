@@ -42,8 +42,8 @@ $extra2 = 100 * (100+1) / 2;
 
 return [
 "author" => ["lew"],
-"passPercentage" => 10/16,
-"passDistinctPercentage" => 16/16,
+"passPercentage" => 7/13,
+"passDistinctPercentage" => 13/13,
 
 /**
  * Titel and introduction to the lab.

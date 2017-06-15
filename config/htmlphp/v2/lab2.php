@@ -428,7 +428,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create an if-statement that checks if a value is between (or equal to) $s2_smallIf1 and  $s2_smallIf2. Use the variable `totalSum` to test the if-statement. Answer with a boolean `true` if the value is between the values, otherwise respond with `false`.
+Create an if-statement that checks if a value is between (or equal to) $s2_smallIf1 and  $s2_smallIf2. Use the variable `totalSum` from last exercise to test the if-statement. Answer with a boolean `true` if the value is between the values, otherwise respond with `false`.
 EOD
 ,
 

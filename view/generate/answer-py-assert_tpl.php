@@ -26,8 +26,7 @@ class Dbwebb():
 
         "no_answer": "{prompt} {question} NOT YET DONE.",
 
-        "correct": """{prompt} {question} CORRECT. Well done!
-{answer}""",
+        "correct": """{prompt} {question} CORRECT. Well done!""",
 
         "fail": """{prompt} {question} FAIL.
 {prompt} You said:
@@ -84,8 +83,7 @@ class Dbwebb():
         elif answer == self.answers["answers"][question]:
             status = self._text["correct"].format(
                 prompt=self.prompt,
-                question=question,
-                answer=json.dumps(answer)
+                question=question
             )
             self.correct += 1
             self.points += self.answers["points"][question]

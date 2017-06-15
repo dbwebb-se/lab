@@ -250,66 +250,66 @@ EOD
 
 
 
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Answer with the integer value of `modOne` divided by `modTwo` by using the function `floor()`.
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($s1_modOne, $s1_modTwo) {
-
-    return floor($s1_modOne / $s1_modTwo);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the function `max()` to get the highest value from your variables `modOne`, `modTwo`, `floatOne`, `floatTwo`, `numOne`, `numTwo`.
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo) {
-
-    return max($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo);
-},
-
-],
-
-
-
-/** -----------------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Use the function `min()` to get the smallest value from your variables `modOne`, `modTwo`, `floatOne`, `floatTwo`, `numOne`, `numTwo`.
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo) {
-
-    return min($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo);
-},
-
-],
+// /** -----------------------------------------------------------------------------------
+//  * A question.
+//  */
+// [
+// 
+// "text" => <<<EOD
+// Answer with the integer value of `modOne` divided by `modTwo` by using the function `floor()`.
+// EOD
+// ,
+// 
+// "points" => 1,
+// 
+// "answer" => function () use ($s1_modOne, $s1_modTwo) {
+// 
+//     return floor($s1_modOne / $s1_modTwo);
+// },
+// 
+// ],
+// 
+// 
+// 
+// /** -----------------------------------------------------------------------------------
+//  * A question.
+//  */
+// [
+// 
+// "text" => <<<EOD
+// Use the function `max()` to get the highest value from your variables `modOne`, `modTwo`, `floatOne`, `floatTwo`, `numOne`, `numTwo`.
+// EOD
+// ,
+// 
+// "points" => 1,
+// 
+// "answer" => function () use ($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo) {
+// 
+//     return max($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo);
+// },
+// 
+// ],
+// 
+// 
+// 
+// /** -----------------------------------------------------------------------------------
+//  * A question.
+//  */
+// [
+// 
+// "text" => <<<EOD
+// Use the function `min()` to get the smallest value from your variables `modOne`, `modTwo`, `floatOne`, `floatTwo`, `numOne`, `numTwo`.
+// EOD
+// ,
+// 
+// "points" => 1,
+// 
+// "answer" => function () use ($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo) {
+// 
+//     return min($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo);
+// },
+// 
+// ],
 
 
 

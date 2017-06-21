@@ -96,8 +96,8 @@ $VALID_LABS = [
     "linux/node2" => "config/linux/node2.php",
     "linux/node3" => "config/linux/node3.php",
 
-    "webgl/lab1" => "config/webgl/lab1.php",
-    "webgl/lab2" => "config/webgl/lab2.php",
+    "webgl/lab1/v1" => "config/webgl/v1/lab1.php",
+    "webgl/lab2/v1" => "config/webgl/v1/lab2.php",
 
     "dbjs/javascript1" => "config/dbjs/javascript1.php",
     "dbjs/javascript2" => "config/dbjs/javascript2.php",

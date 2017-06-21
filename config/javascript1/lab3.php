@@ -3,7 +3,7 @@
 /**
  * Titel and introduction to the lab.
  */
-include __DIR__ . "/../random.php";
+include LAB_INSTALL_DIR . "/config/random.php";
 
 $array1 = [
 [42, 78, -1, 0, -432, 799, 2, 1100],

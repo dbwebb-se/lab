@@ -39,11 +39,17 @@ try {
  */
 //const VALID_LABS = [
 $VALID_LABS = [
-    "javascript1/lab1" => "config/javascript1/lab1.php",
-    "javascript1/lab2" => "config/javascript1/lab2.php",
-    "javascript1/lab3" => "config/javascript1/lab3.php",
-    "javascript1/lab4" => "config/javascript1/lab4.php",
-    "javascript1/lab5" => "config/javascript1/lab5.php",
+    "javascript1/lab1/v1" => "config/javascript1/v1/lab1.php",
+    "javascript1/lab2/v1" => "config/javascript1/v1/lab2.php",
+    "javascript1/lab3/v1" => "config/javascript1/v1/lab3.php",
+    "javascript1/lab4/v1" => "config/javascript1/v1/lab4.php",
+    //"javascript1/lab5/v1" => "config/javascript1/lab5.php",
+
+    "javascript1/lab1/v2" => "config/javascript1/v2/lab1.php",
+    "javascript1/lab2/v2" => "config/javascript1/v2/lab2.php",
+    "javascript1/lab3/v2" => "config/javascript1/v2/lab3.php",
+    "javascript1/lab4/v2" => "config/javascript1/v2/lab4.php",
+    "javascript1/lab5/v2" => "config/javascript1/v2/lab5.php",
 
     "python/lab1/v1" => "config/python/v1/lab1.php",
     "python/lab2/v1" => "config/python/v1/lab2.php",

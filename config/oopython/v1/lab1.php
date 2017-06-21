@@ -3,7 +3,7 @@
 /**
  * Generate random values to use in lab.
  */
-include __DIR__ . "/../random.php";
+include LAB_INSTALL_DIR . "/config/random.php";
 
 $arrayNames = ["Misty", "Buster", "Gordon", "Lilly", "Misha", "Nova", "Perrin", "Nynaeve", "Kvothe", "Denna", "Basion"];
 $arrayEyeColors = ["blue", "green", "brown", "red", "black"];

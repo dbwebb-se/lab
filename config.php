@@ -90,21 +90,21 @@ $VALID_LABS = [
 
     //"oophp/lab1" => "config/oophp/lab1.php",
 
-    "linux/bash1" => "config/linux/bash1.php",
-    "linux/bash2" => "config/linux/bash2.php",
-    "linux/node1" => "config/linux/node1.php",
-    "linux/node2" => "config/linux/node2.php",
-    "linux/node3" => "config/linux/node3.php",
+    "linux/bash1/v1" => "config/linux/v1/bash1.php",
+    "linux/bash2/v1" => "config/linux/v1/bash2.php",
+    "linux/node1/v1" => "config/linux/v1/node1.php",
+    "linux/node2/v1" => "config/linux/v1/node2.php",
+    "linux/node3/v1" => "config/linux/v1/node3.php",
 
     "webgl/lab1/v1" => "config/webgl/v1/lab1.php",
     "webgl/lab2/v1" => "config/webgl/v1/lab2.php",
 
-    "dbjs/javascript1" => "config/dbjs/javascript1.php",
-    "dbjs/javascript2" => "config/dbjs/javascript2.php",
-    "dbjs/sql1" => "config/dbjs/sql1.php",
-    "dbjs/sql2" => "config/dbjs/sql2.php",
-    "dbjs/node1" => "config/dbjs/node1.php",
-    "dbjs/node2" => "config/dbjs/node2.php",
+    "dbjs/javascript1/v1" => "config/dbjs/v1/javascript1.php",
+    "dbjs/javascript2/v1" => "config/dbjs/v1/javascript2.php",
+    "dbjs/sql1/v1" => "config/dbjs/v1/sql1.php",
+    "dbjs/sql2/v1" => "config/dbjs/v1/sql2.php",
+    "dbjs/node1/v1" => "config/dbjs/v1/node1.php",
+    "dbjs/node2/v1" => "config/dbjs/v1/node2.php",
 
 ];
 

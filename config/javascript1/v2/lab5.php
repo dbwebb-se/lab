@@ -95,7 +95,7 @@ EOD
 "title" => "Create object",
 
 "intro" => <<<EOD
-Start by creating an empty object called 'person' by using the object literal.
+Start by creating an empty object called `person` by using the object literal.
 EOD
 ,
 
@@ -111,9 +111,10 @@ EOD
 [
 
 "text" => <<<EOD
-Give your person-object the property 'firstName' with a value of '$person1FirstName'. Add a method called 'print1()' that returns a presentation of the object, like this: 'My name is $person1FirstName.' Use 'this.firstName' to construct the string.  
+Give your person-object the property `firstName` with a value of `"$person1FirstName"`. Add a method called `print1()` that returns a presentation of the object, like this: `"My name is $person1FirstName."`  
+Use `this.firstName` to construct the string.  
 
-Answer with the result from calling 'person.print1()'.
+Answer with the result from calling `person.print1()`.
 EOD
 ,
 
@@ -134,9 +135,9 @@ EOD
 [
 
 "text" => <<<EOD
-Add properties 'lastName' and 'nationality' to your person-object. Their values should be '$person1LastName' and '$person1Nationality'.  
+Add properties `lastName` and `nationality` to your person-object. Their values should be `"$person1LastName"` and `"$person1Nationality"`.  
 
-Create the method 'person.print2()' which should say: '$person1Print2'.
+Create the method `person.print2()` which should say: `"$person1Print2"`.
 EOD
 ,
 
@@ -157,7 +158,9 @@ EOD
 [
 
 "text" => <<<EOD
-Add the property 'born' with the value of a Date object: '$person1BornFormat'. Create a method 'print3()' that says exactly the same as 'print2()' followed by '$person1Print3'.
+Add the property `born` with the value of a Date object: `"$person1BornFormat"`.
+
+Create a method `print3()` that says exactly the same as `print2()` followed by `"$person1Print3"`.
 EOD
 ,
 
@@ -178,9 +181,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create a second person, called 'person2' by using built-in function 'Object.create()'. The person2 should have the following properties: '$person2FirstName, $person2LastName, $person2Nationality, $person2BornFormat'.  
+Create a second person, called `person2` by using built-in function `Object.create()`.
 
-Print out details on the second person using 'person2.print3()'.
+person2 should have the following properties: `"$person2FirstName", "$person2LastName", "$person2Nationality", "$person2BornFormat"`.  
+
+Print out details on the second person using `person2.print3()`.
 EOD
 ,
 
@@ -196,16 +201,18 @@ EOD
 
 
 /** -----------------------------------------------------------------------------------
- * A question, 1.4.
+ * A question, 1.5.
  */
 [
 
 "text" => <<<EOD
-Add the method, `init(firstName, lastName, nationality, born)`, to your Person-object. The method should help you create new Person-objects. Try it out using the following properties: '$person3FirstName, $person3LastName, $person3Nationality, $person3BornFormat'. 
+Add the method, `init(firstName, lastName, nationality, born)`, to your Person-object. The method should help you create new Person-objects. 
+
+Try it out using the following properties: `"$person3FirstName", "$person3LastName", "$person3Nationality", "$person3BornFormat"`. 
 
 Name the variable holding the person `person3`.
 
-Print out details on the third person using 'person3.print3()'.
+Print out details on the third person using `person3.print3()`.
 EOD
 ,
 

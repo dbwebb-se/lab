@@ -79,7 +79,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable `array2` holding an array with the words: `$array2SelectedString`. Return the element on position: $array2Within in `array2`.  
+Create a variable `array2` holding an array with the words: `[$array2SelectedString]`. Return the element on position: `$array2Within` in array2.  
 
 Answer with the result.
 EOD
@@ -102,7 +102,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the variable `array2`. Concatenate the first item and the last item as a string. Separate the string with '-'.  
+Use the variable `array2`. Concatenate the first item and the last item as a string. Separate the string with `-`.  
 
 Answer with the result.
 EOD
@@ -125,9 +125,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create an array, `array1`, with the items $array1SelectedString. Merge the two arrays `array1` and `array2` into a third variable `array3`.
+Create an array, `array1`, with the items `$array1SelectedString`.
 
-Answer with 'array3'.
+Merge the two arrays, `array1` and `array2`, into a third variable `array3`.
+
+Answer with array3.
 EOD
 ,
 
@@ -150,8 +152,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable 'array21' as a clone of 'array2'. Sort 'array21'. Answer with the resulting array.  
+Create a variable `array21` as a clone of `array2`.  
+Sort `array21`.  
 (Hint: http://stackoverflow.com/questions/3978492/javascript-fastest-way-to-duplicate-an-array-slice-vs-for-loop)
+
+Answer with the resulting array.
 EOD
 ,
 
@@ -176,7 +181,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable 'array11' as a copy of 'array1'. Sort 'array11' according to its values. The smallest value comes first and the largest value comes last.  
+Create a variable `array11` as a copy of `array1`.  
+Sort `array11` according to its values. The smallest value comes first and the largest value comes last.  
 
 Answer with the resulting array.
 EOD
@@ -204,7 +210,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable 'array22' which holds the same content as 'array2' - but all strings are uppercase. Use the built-in Array-function 'map()' to solve it.  
+Create a variable `array22` which holds the same content as `array2` - but all strings are uppercase.  
+Use the built-in Array-function `map()` to solve it.  
 
 Answer with the array.
 EOD
@@ -229,7 +236,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new array 'array12'. It should contain all positive numbers from the 'array1'. Use the built-in array-function 'filter()' to solve it.  
+Create a new array, `array12`. It should contain all positive numbers from the `array1`.  
+Use the built-in array-function `filter()` to solve it.  
 
 Answer with the resulting array.
 EOD
@@ -256,9 +264,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function 'arrayAverage' that takes one array as argument and returns the average of all elements in that array.  
+Create a function `arrayAverage()` that takes one array as argument and returns the average of all elements in that array.  
 
-Try out the function using 'array1' and answer with the rounded integer result.
+Try out the function using `array1` and answer with the rounded integer result.
 EOD
 ,
 
@@ -312,7 +320,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new array `myArray` and make it a copy of `array1`. Switch place on the first and the last element, with the help of built-in array-functions. Use the array-functions pop(), push(), shift() and unshift().  
+Create a new array `myArray` and make it a copy of `array1`. Switch place on the first and the last element, with the help of built-in array-functions.  
+Use the array-functions `pop(), push(), shift() and unshift()`.  
 
 Answer with `myArray`.
 EOD
@@ -340,7 +349,7 @@ EOD
 [
 
 "text" => <<<EOD
-Change 'myArray' element 3 and 4 to the boolean value 'false' using built-in array-function 'splice()'.  
+In `myArray` change the `3rd and 4th` value to the boolean value `false` using built-in array-function `splice()`.  
 
 Answer with the resulting array.
 EOD
@@ -371,7 +380,7 @@ EOD
 [
 
 "text" => <<<EOD
-Remove item 4 and 5 in 'myArray'. Then insert the string 'MEGA' after item 3. Answer with the resulting array.
+Remove the `4th and 5th` item in 'myArray'. Then insert the string `MEGA` after the item `3rd`. Answer with the resulting array.
 EOD
 ,
 

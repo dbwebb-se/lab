@@ -86,9 +86,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create five variables: 'card1'=$card1, 'card2'=$card2, 'card3'=$card3, 'card4'=$card4, 'card5'=$card5.  
+Create five variables: `card1, card2, card3, card4, card5`. 
 
-Add them up and answer with the result.
+Assign the values `$card1, $card2, $card3, $card4, $card5` to the variables created above.
+
+Add them up and put the sum in a variable called `result`. 
+
+Put the result in your answer.
 EOD
 ,
 
@@ -109,9 +113,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use an if statement to see if the five cards (card1-card5) have a combined value that is higher than 21.  
+Use an `if statement` to see if the five cards (card1-card5) have a combined value that is higher than `21`.
 
-If the value is higher, answer with the string 'busted'. Else answer with the string 'safe'.
+If the value is higher, answer with the string `"busted"`. Else answer with the string `"safe"`.
 EOD
 ,
 
@@ -132,9 +136,12 @@ EOD
 [
 
 "text" => <<<EOD
-Use if else statements to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly 21.  
+Use `if else statements` to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly `21`.
 
-Answer with lower = 'safe', higher = 'busted', 21 = 'black jack'.
+Answer with a string corresponding to the result:  
+lower = `"safe"`  
+higher = `"busted"`  
+21 = `"black jack"`
 EOD
 ,
 
@@ -164,9 +171,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create three variables: 'dealer1' = $dealer1, 'dealer2' = $dealer2 and 'dealer3' = $dealer3. Combine the if, else and the AND (&&) statements to see what the dealer should do.  
+Create three variables: `dealer1, dealer2, dealer3`. 
 
-If the combined value of the dealercards is lower than 17, answer with 'safe', if the value is higher than or equal to 17 and lower than 21 answer 'stop'. If the value is 21 answer 'black jack'. If the value is higher than 21 answer 'busted'.
+Assign the values `$dealer1, $dealer2, $dealer3` to the variables created above.
+
+Combine the `if`, `else` and the `AND (&&)` statements to see what the dealer should do.
+
+If the combined value of the dealercards is lower than 17, answer with `"safe"`, if the value is higher than or equal to 17 and lower than 21 answer `"stop"`. If the value is 21 answer `"black jack"`. If the value is higher than 21 answer `"busted"`.
 EOD
 ,
 
@@ -226,7 +237,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use a switch-case statement to figure out the color of a fruit. You have the following fruits - banana=yellow, apple=green, kiwi=green, plum=purple). Create a variable 'myFruit' which holds the current value of your fruit. If 'myFruit' is banana, the result should be 'The banana is yellow.'.  
+Use a `switch-case statement` to figure out the color of a fruit. You have the following fruits:
+    
+    banana=yellow, apple=green, kiwi=green, plum=purple. 
+    
+Create a variable `myFruit` which holds the current value of your fruit. If 'myFruit' is banana, the result should be `"The banana is yellow."`  
 
 Answer with the result where 'myFruit = $fruit'.
 EOD
@@ -250,7 +265,9 @@ EOD
 [
 
 "text" => <<<EOD
-Extend your switch-case statement with a default value. The result should be 'That is an unknown fruit.' when the variable 'myFruit' has an unknown value.  
+Extend your switch-case statement with a `default value`. The result should be:  
+
+`"That is an unknown fruit."` when the variable 'myFruit' has an unknown value.
 
 Answer with the result where 'myFruit = pear'.
 EOD
@@ -300,7 +317,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to increment $loopLarge1 with the value $loopTiny1, $loopSmall1 times.  
+Use a `for-loop` to increment `$loopLarge1` with the value `$loopTiny1`, `$loopSmall1` times.  
 
 Answer with the result.
 EOD
@@ -327,7 +344,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to decrement $loopLarge2 with the value $loopTiny2, $loopSmall2 times.  
+Use a for-loop to decrement `$loopLarge2` with the value `$loopTiny2`, `$loopSmall2` times.  
 
 Answer with the result.
 EOD
@@ -354,7 +371,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to add all the values in the range - $loopRange1 to $loopRange2 - to a string with each number separated by a comma ','. The result should not end with a comma. You should neither have a space after the comma.
+Use a for-loop to add all the values in the range `$loopRange1 to $loopRange2` to a string with each number separated by a comma ','. 
+
+The result should not end with a comma. You should neither have a space after the comma.
+
+Answer with the resulting string.
 EOD
 ,
 
@@ -411,7 +432,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use a while-loop to increment $loopSmall1 with the value $loopTiny1 until it has reached or passed $loopLarge1.  
+Use a `while-loop` to increment `$loopSmall1` with the value `$loopTiny1` until it has reached or passed `$loopLarge1`.  
 
 Answer with the amount of steps needed.
 EOD
@@ -441,7 +462,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use a while-loop to subtract $loopTiny2 from $loopLarge2 until the value has reached or passed 0.  
+Use a while-loop to subtract `$loopTiny2` from `$loopLarge2` until the value has reached or passed `0`.  
 
 Answer with the amount of steps needed.
 EOD

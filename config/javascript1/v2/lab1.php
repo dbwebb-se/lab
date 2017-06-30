@@ -95,7 +95,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create two variables, 'floatOne' and 'floatTwo'. Give them the values: $floatOne and $floatTwo. Use your 'result'-variable and assign to it the sum of the float numbers.  
+Create two variables, `floatOne` and `floatTwo`. 
+
+Give them the values `$floatOne` and `$floatTwo`. 
+
+Create a variable called `result` and assign to it the sum of the variables above.  
 
 Answer with the result.
 EOD
@@ -120,9 +124,13 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable 'someIntText' and give it a value of '$sect2IntText'. Use the function 'parseInt' to find out the integer representation of the text.  
+Create a variable `someIntText` and give it a value of `"$sect2IntText"`. 
 
-Answer with your 'result'-variable.
+Use the function `parseInt()` to find out the integer representation of the text.
+
+Assign the value to your `result`-variable.
+
+Answer with the result.
 EOD
 ,
 
@@ -143,9 +151,13 @@ EOD
 [
 
 "text" => <<<EOD
-Use your variable 'someIntText'. Use the function 'parseFloat' to find out the float representation of the text.  
+Use your variable `someIntText`. 
 
-Answer with your 'result'-variable.
+Use the function `parseFloat()` to find out the float representation of the text.  
+
+Assign the value to your `result`-variable.
+
+Answer with the result.
 EOD
 ,
 
@@ -166,9 +178,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use the method 'max', in Math, to find out the highest number in the serie: $serie1_imp.  
+Use the method `max()`, in Math, to find out the highest number in the serie: `$serie1_imp`.  
 
-Answer with your 'result'-variable.
+Assign the number to your `result`-variable.
+
+Answer with the result.
 EOD
 ,
 
@@ -189,9 +203,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use the Math property 'PI' to get the float value of 'Pi'. Round the result to 4 decimals.  
+Use the Math property `PI` to get the float value of 'Pi'. Round the result to 4 decimals.
 
-Answer with your 'result'-variable.
+Assign the number to your `result`-variable.
+
+Answer with the result.
 EOD
 ,
 
@@ -238,7 +254,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable called 'wordOne' and assign to it: '$sect4Word'. Add the number $sect4BigInt to the word and answer with the result in your 'result'-variable.
+Create a variable called `wordOne` and assign the word "$sect4Word" to it. 
+
+Add the number `$sect4BigInt` to the word and answer with the resulting variable.
 EOD
 ,
 
@@ -259,7 +277,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'charAt' on a string to return the character at a given index. Use it on the word '$sect5Word' and answer with the character at index $sect5SmallInt.
+Use the built-in method `charAt()` on the word `"$sect5Word"` to return the character at a given index.
+
+Answer with the character at index $sect5SmallInt.
 EOD
 ,
 
@@ -281,7 +301,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'toUpperCase' to transform the string: '$sect5Sentence' to uppercase.  
+Use the built-in method `toUpperCase()` to transform the string: 
+
+`"$sect5Sentence"` to uppercase.  
 
 Answer with the result.
 EOD
@@ -304,7 +326,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'length' to find out the length of the string: '$sect5Word'.  
+Use the built-int method `length()` to find out the length of the string: `"$sect5Word"`.
 
 Answer with the result.
 EOD
@@ -327,7 +349,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use 'substr' to extract the last three characters of the word: '$sect5Word'.  
+Use the built-int method `substr()` to extract the last three characters of the word: `"$sect5Word"`.
 
 Answer with the result.
 EOD
@@ -376,7 +398,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a Date object called 'myDate' and initiate it with: '$aDate'. Use the built-in function Date.getFullYear to get the year from your Date object.  
+Create a Date object called `myDate` and initiate it with: `"$aDate"`.
+
+Use the built-in function `Date.getFullYear()` to get the year from your Date object.  
 
 Answer with the result.
 EOD
@@ -398,9 +422,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new Date object that is equal to 'myDate' plus 30 days.  
+Create a new Date object that is equal to `myDate` plus 30 days.  
 
-Use Date.getDate and answer with the day of the month.
+Use `Date.getDate()` and answer with the day of the month.
 EOD
 ,
 

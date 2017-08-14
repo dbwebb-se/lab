@@ -35,7 +35,7 @@ $s1_wordRand1 = rand_int(0, count($s1_wordList1)-1);
 $s1_wordRand2 = rand_int(0, count($s1_wordList2)-1);
 $s1_sentence = "There are $s1_numOne $s1_singleWord2's doing some $s1_singleWord1.";
 
-$extra1 = sqrt(pow(2, 64) - 1);
+$extra1 = (int) sqrt(pow(2, 64) - 1);
 $extra2 = 100 * (100+1) / 2;
 
 

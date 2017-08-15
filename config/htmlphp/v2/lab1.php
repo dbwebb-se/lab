@@ -36,7 +36,7 @@ $s1_wordRand2 = rand_int(0, count($s1_wordList2)-1);
 $s1_sentence = "There are $s1_numOne $s1_singleWord2's doing some $s1_singleWord1.";
 
 // $extra1 = (int)sqrt(pow(2, 63));
-$extra1 = sqrt(pow(2, 63));
+$extra1 = round(sqrt(pow(2, 63)), 2);
 
 $extra2 = 100 * (100+1) / 2;
 
@@ -350,7 +350,7 @@ You are going to solve the well-known 'chessboard and rice grain problem'.
 
 Imagine you have a standard chessboard and put one rice grain on the first square. Then you put two grains on the second square, four on the third, eight on the fourth and so on... How many rice grains are there on the last square?
 
-Answer with the square root of the result. (Make sure the answer is of the type `double`).
+Answer with the square root of the result, rounded to 2 decimals. (Make sure the answer is of the type `double`).
 EOD
 ,
 

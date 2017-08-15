@@ -35,7 +35,7 @@ $s1_wordRand1 = rand_int(0, count($s1_wordList1)-1);
 $s1_wordRand2 = rand_int(0, count($s1_wordList2)-1);
 $s1_sentence = "There are $s1_numOne $s1_singleWord2's doing some $s1_singleWord1.";
 
-$extra1 = (int) sqrt(pow(2, 64) - 1);
+$extra1 = (int) sqrt(pow(2, 63));
 $extra2 = 100 * (100+1) / 2;
 
 
@@ -126,17 +126,17 @@ EOD
  * A question.
  */
 // [
-// 
+//
 // "text" => <<<EOD
 // Use your two variables `numOne` and `numTwo`. Answer with the product of the variables.
 // EOD
 // ,
-// 
+//
 // "answer" => function () use($s1_numOne, $s1_numTwo) {
-// 
+//
 //     return $s1_numOne * $s1_numTwo;
 // },
-// 
+//
 // ],
 
 
@@ -254,61 +254,61 @@ EOD
 //  * A question.
 //  */
 // [
-// 
+//
 // "text" => <<<EOD
 // Answer with the integer value of `modOne` divided by `modTwo` by using the function `floor()`.
 // EOD
 // ,
-// 
+//
 // "points" => 1,
-// 
+//
 // "answer" => function () use ($s1_modOne, $s1_modTwo) {
-// 
+//
 //     return floor($s1_modOne / $s1_modTwo);
 // },
-// 
+//
 // ],
-// 
-// 
-// 
+//
+//
+//
 // /** -----------------------------------------------------------------------------------
 //  * A question.
 //  */
 // [
-// 
+//
 // "text" => <<<EOD
 // Use the function `max()` to get the highest value from your variables `modOne`, `modTwo`, `floatOne`, `floatTwo`, `numOne`, `numTwo`.
 // EOD
 // ,
-// 
+//
 // "points" => 1,
-// 
+//
 // "answer" => function () use ($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo) {
-// 
+//
 //     return max($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo);
 // },
-// 
+//
 // ],
-// 
-// 
-// 
+//
+//
+//
 // /** -----------------------------------------------------------------------------------
 //  * A question.
 //  */
 // [
-// 
+//
 // "text" => <<<EOD
 // Use the function `min()` to get the smallest value from your variables `modOne`, `modTwo`, `floatOne`, `floatTwo`, `numOne`, `numTwo`.
 // EOD
 // ,
-// 
+//
 // "points" => 1,
-// 
+//
 // "answer" => function () use ($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo) {
-// 
+//
 //     return min($s1_numOne, $s1_numTwo, $s1_floatOne, $s1_floatTwo, $s1_modOne, $s1_modTwo);
 // },
-// 
+//
 // ],
 
 
@@ -344,9 +344,9 @@ EOD
 [
 
 "text" => <<<EOD
-You are going to solve the well-known 'chessboard and rice grain problem'.  
+You are going to solve the well-known 'chessboard and rice grain problem'.
 
-Imagine you have a standard chessboard and put one rice grain on the first square. Then you put two grains on the second square, four on the third, eight on the fourth and so on... How many rice grains are there on the last square?  
+Imagine you have a standard chessboard and put one rice grain on the first square. Then you put two grains on the second square, four on the third, eight on the fourth and so on... How many rice grains are there on the last square?
 
 Answer with the square root of the result, converted to an integer.
 EOD

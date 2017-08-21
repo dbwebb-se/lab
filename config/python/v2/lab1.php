@@ -162,12 +162,12 @@ Create a variable called `float_one` and give it the value $s1_floatOne.
 
 Create another variable called `float_two` and give it the value $s1_floatTwo.
 
-Sum the two values and answer with the result.
+Sum the two values and answer with the result, rounded to two decimals.
 EOD
 ,
 "points" => 1,
 "answer" => function () use ($s1_floatOne, $s1_floatTwo) {
-    return $s1_floatOne+$s1_floatTwo;
+    return round($s1_floatOne+$s1_floatTwo, 2);
 },
 
 ],

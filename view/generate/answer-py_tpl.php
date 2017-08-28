@@ -14,9 +14,9 @@ Generated <?=$timestamp_now?> by dbwebb lab-utility <?=VERSION?>.
 https://github.com/mosbth/lab
 """
 
-<?php if (isset($header)) echo $header ?>
-
 from dbwebb import Dbwebb
+
+<?php if (isset($header)) echo $header ?>
 
 # pylint: disable=invalid-name
 

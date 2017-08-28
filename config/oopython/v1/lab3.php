@@ -30,6 +30,7 @@ EOD
 "header" => <<<EOD
 # pylint: disable=line-too-long
 # pylint: disable=unused-import
+# pylint: disable=wrong-import-order
 import re
 # pylint: enable=unused-import
 #

@@ -9,6 +9,7 @@ for checking with assert_equal().
 
 import json
 import sys
+import os
 
 
 class Dbwebb(object):
@@ -54,7 +55,13 @@ class Dbwebb(object):
         """
         Init by reading json-file with answers.
         """
-        self.answers = json.load(open(answersFileName))
+        location = os.path.realpath(
+            os.path.join(
+                os.getcwd(),
+                os.path.dirname(__file__)
+            )
+        )
+        self.answers = json.load(open(os.path.join(location, answersFileName)))
         self.correct = 0
         self.failed = 0
         self.not_done = 0

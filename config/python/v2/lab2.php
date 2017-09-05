@@ -455,8 +455,9 @@ Examples:
 'ABC123' can be combined to 1 + 2 = 3. So this numberplate is good.
 'ABC129' 1 and 2 cannot be combined to give 9 using the four rules of arithmetics, so this does not work.
 
-Do not count multiple times if more than one rule of arithmetics work.
+Order matters, so only use 1 +-*/ 2 = 3 and not 2 +-/* 1 = 3.  
 
+Do not count multiple times if more than one rule of arithmetics work.
 
 Answer with the number of numberplates.
 EOD

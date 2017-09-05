@@ -226,7 +226,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called `multiplicator`. Inside the function create a loop that iterates from $multiplicatorStart to $multiplicatorEnd (both included). For each number use the `multiplication` function from above to get the square of the current number. The function should return a comma-separated string of the squared numbers.
+Create a function called `multiplicator`. Inside the function create a loop that iterates from $multiplicatorStart to $multiplicatorEnd (both included). For each number use the `multiplication` function from above to get the square of the current number. The function should return a comma-separated string of the squared numbers,  without an ending `,`.
 
 Answer with a call to the function `multiplicator`.
 EOD
@@ -241,7 +241,7 @@ EOD
 		$resultString .= $i*$i . ",";
 	}
 
-    return $resultString;
+    return rtrim($resultString, ',');
 },
 
 ],
@@ -254,7 +254,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function called `squares_in_range`. Inside the function create a loop that iterates from $multiplicatorStart to $multiplicatorEnd (both included). For each number use the `multiplication` function from above to get the square of the current number. Use the `in_range` function to check if the value is between 50 and 100. The function should return a comma-separated string of either `"Inside"` or `"Outside"`, use an if-statement to concatenate the strings to the return value.
+Create a function called `squares_in_range`. Inside the function create a loop that iterates from $multiplicatorStart to $multiplicatorEnd (both included). For each number use the `multiplication` function from above to get the square of the current number. Use the `in_range` function to check if the value is between 50 and 100. The function should return a comma-separated string of either `"Inside"` or `"Outside"`,  without an ending `,`. Use an if-statement to concatenate the strings to the return value.
 
 Answer with a call to the function `squares_in_range`.
 EOD
@@ -270,7 +270,7 @@ EOD
 		$resultString.= ",";
 	}
 
-    return $resultString;
+    return rtrim($resultString, ',');
 },
 
 ],

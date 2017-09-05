@@ -367,7 +367,7 @@ Convert it to a list and replace the second element with:
 
 > "$s2_replWord1"
 
-Convert it back to a tuple and answer with the first three elements in a comma-separated string.
+Convert it back to a tuple and answer with the first three elements in a comma-separated string,  without an ending `,`.
 EOD
 ,
 "points" => 1,

@@ -413,7 +413,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to walk through the dictionary and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order.
+Use a for-loop to walk through the dictionary and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order. Note that every row should end with a newline character, `\\n`.
 
 Answer with the resulting string.
 EOD

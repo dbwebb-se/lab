@@ -711,7 +711,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a switch-case statement that returns the continent a certain country resides in. Use the countries: `"$countriesString1"` and the continents:  
+Create a switch-case statement to decide which continent a certain country resides in. Use the countries: `"$countriesString1"` and the continents:  
     `"$continentsString1"`.
 
 Answer with a test on the country: `"$switchCountries1[$switchWich1]"`.
@@ -759,7 +759,7 @@ EOD
 [
 
 "text" => <<<EOD
-A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that returns the corresponding continent. Use the countries: `"$countriesString2"` and the continents: `"$continentsString1"`.
+A switch-case statement can handle multiple cases with the same result. Create a new switch-case statement that decides which is the corresponding continent. Use the countries: `"$countriesString2"` and the continents: `"$continentsString1"`.
 
 Answer with a test on the country: `"$switchCountries2[$switchWich2]"`.
 EOD

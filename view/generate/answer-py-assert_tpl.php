@@ -99,7 +99,7 @@ class Dbwebb(object):
             status = self._text["fail"].format(
                 prompt=self.prompt,
                 question=question,
-                answer=json.dumps(answer),
+                answer=answer,
                 type=str(type(answer))
             )
 

@@ -24,7 +24,7 @@ $version
 <hr>
 
 <h1><?=$title?></h1>
-<p>Solve the exercises in the file <code>answer.js</code> and reload this file to see the outcome. Check the console for errors.</p>
+<p>Solve the exercises in the file <code>answer.js</code> and reload this file to see the outcome. Check the development console for errors and use it for your own debugging.</p>
 
 <?php
 $sectionId = 0;
@@ -72,32 +72,64 @@ Array.prototype.equals = function (array) {
 
 window.dbwebb = {
 
-    "answers": {
+    "answers": <?php
+$sectionId = 0;
+$numQuestions = 0;
+$sumPoints = null;
+$json = "";
+foreach ($sections as $section) {
+    $sectionId++;
+    $questionId = 0;
 
-        <?php
-        $sectionId = 0;
-        foreach ($sections as $section) {
-            $sectionId++;
-            $questionId = 0;
+    foreach ($section['questions'] as $question) {
+        $numQuestions++;
+        $questionId++;
 
-            foreach ($section['questions'] as $question) {
-                $questionId++;
-                $answer = formatAnswerJSON($question['answer']());
-                echo "\t\t\"$sectionId.$questionId\": $answer,\n";
-            }
-        }?>
+        if (isset($question['points'])) {
+            $points = $question['points'];
+            $sumPoints += $points;
+            $data["points"]["$sectionId.$questionId"] = $points;
+        }
 
-    },
+        $data["answers"]["$sectionId.$questionId"] = $question['answer']();
+    }
+}
+
+$pass = null;
+if (isset($passPercentage) && !is_null($passPercentage)) {
+    $pass = floor($sumPoints * $passPercentage);
+}
+
+$passdistinct = null;
+if (isset($passDistinctPercentage) && !is_null($passDistinctPercentage)) {
+    $passdistinct = floor($sumPoints * $passDistinctPercentage);
+}
+
+$data["summary"]["questions"] = $numQuestions;
+$data["summary"]["points"] = $sumPoints;
+$data["summary"]["pass"] = $pass;
+$data["summary"]["passdistinct"] = $passdistinct;
+
+$options = JSON_PRETTY_PRINT;
+if (defined("JSON_PRESERVE_ZERO_FRACTION")) {
+    $options = JSON_PRETTY_PRINT | JSON_PRESERVE_ZERO_FRACTION;
+}
+
+echo json_encode($data, $options);
+?>,
     "correct": 0,
     "failed": 0,
     "notDone": 0,
+    "points": 0,
+
     "arrayCheck": function (answer1, answer2) {
         if (answer1 instanceof Array && answer2 instanceof Array) {
             return answer1.equals(answer2);
         }
         return false;
     },
-    "assert": function(question, answer, hint) {
+
+    "assert": function (question, answer, hint) {
         var element = document.getElementById("answer" + question),
             status,
             noanswer = "Replace this text with the variable holding the answer.";
@@ -107,14 +139,15 @@ window.dbwebb = {
         if (answer === noanswer) {
             status = question + " NOT YET DONE.";
             window.dbwebb.notDone += 1;
-        } else if (answer === this.answers[question]
-                   || this.arrayCheck(answer, this.answers[question])) {
+        } else if (answer === this.answers.answers[question]
+                   || this.arrayCheck(answer, this.answers.answers[question])) {
             status = question + " CORRECT. Well done!\n" + JSON.stringify(answer) + " (" + typeof answer + ")";
             window.dbwebb.correct += 1;
+            window.dbwebb.points += this.answers.points[question];
         } else {
             status = question + " FAIL.\nYou said:\n" + JSON.stringify(answer) + " (" + typeof answer + ")";
             if (hint) {
-                status += "\nHint:\n" + JSON.stringify(this.answers[question]) + " (" + typeof this.answers[question] + ")";
+                status += "\nHint:\n" + JSON.stringify(this.answers.answers[question]) + " (" + typeof this.answers.answers[question] + ")";
             }
             window.dbwebb.failed += 1;
         }
@@ -122,9 +155,15 @@ window.dbwebb = {
         console.log(status);
         element.innerHTML = status;
     },
+
     "exitWithSummary": function() {
-        var element = document.getElementById("summary"),
-            status;
+        var element = document.getElementById("summary");
+        var status;
+        var questions = window.dbwebb.answers.summary.questions;
+        var pass = window.dbwebb.answers.summary.pass;
+        var passDistinct = window.dbwebb.answers.summary.passdistinct;
+        var didPass;
+        var didPassDistinct;
 
         status  = "Done with status ";
         status += Object.keys(window.dbwebb.answers).length;
@@ -134,7 +173,40 @@ window.dbwebb = {
         status += window.dbwebb.failed;
         status += "/";
         status += window.dbwebb.notDone;
-        status += " (Total/Correct/Failed/Not done).";
+        status += " (Total/Correct/Failed/Not done).<br><br>";
+        status += "Points earned: ";
+        status += window.dbwebb.points;
+        status += " of ";
+        status += window.dbwebb.answers.summary.points;
+        status += "p ";
+        status += " (PASS=>";
+        status += window.dbwebb.answers.summary.pass;
+        status += "p";
+        if (window.dbwebb.answers.summary.passdistinct) {
+            status += ", PASS W DISTINCTION=>";
+            status += window.dbwebb.answers.summary.passdistinct;
+            status += "p";
+        }
+        status += ").<br><br>";
+
+        // Check if pass, pass w distinction or not
+        var didPass = window.dbwebb.correct === questions;
+        if (pass) {
+            didPass = window.dbwebb.points >= pass;
+        }
+
+        didPassDistinct = null;
+        if (passDistinct) {
+            didPassDistinct = window.dbwebb.points >= passDistinct;
+        }
+
+        if (didPassDistinct) {
+            status += "<span class='passdistinct'>Grade: PASS WITH DISTINCTION!!! :-D</span>";
+        } else if (didPass) {
+            status += "<span class='pass'>Grade: PASS! :-)</span>";
+        } else {
+            status += "<span class='nopass'>Grade: Thou Did Not Pass. :-|</span>";
+        }
 
         console.log(status);
         element.innerHTML = status;

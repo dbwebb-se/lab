@@ -17,6 +17,17 @@ div.answer {
     color: green;
 }
 
+.nopass {
+    color: olive;
+}
+
+.pass {
+    color: green;
+}
+
+.passdistinct {
+    color: DarkGoldenRod;
+}
 table, th, td {
     border: 1px solid #666;
 }

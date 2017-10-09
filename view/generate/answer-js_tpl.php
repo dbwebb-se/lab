@@ -21,7 +21,9 @@ EOD;
 <?php if (isset($header)) echo $header ?>
 
 /*jshint maxcomplexity:false */
-(function(dbwebb) {
+/* eslint-disable indent */
+/* jscs:disable indent */
+(function (dbwebb) {
 "use strict";
 
 var ANSWER = null;
@@ -90,5 +92,4 @@ dbwebb.assert("<?="$sectionId.$questionId"?>", ANSWER, false);
 ?>
 
 console.log(dbwebb.exitWithSummary());
-
 }(window.dbwebb));

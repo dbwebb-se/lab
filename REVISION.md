@@ -2,6 +2,12 @@ Revision history
 ===================
 
 
+v2.3.4 (2017-10-09)
+-------------------
+
+* Feature javascript labs with points and well done.
+
+
 v2.3.3 (2017-06-12)
 -------------------
 

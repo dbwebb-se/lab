@@ -430,7 +430,7 @@ EOD
 "title" => "Extra assignments",
 
 "intro" => <<<EOD
-These questions are worth 3 points each. Solve them for extra points. In this section, you could re-use your code from lab 1 in exercise 2.1 and 2.2. 
+These questions are worth 3 points each. Solve them for extra points. In this section, you could re-use your code from lab 1 in exercise 2.1 and 2.2.
 EOD
 ,
 

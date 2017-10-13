@@ -135,7 +135,7 @@ EOD
 [
 
 "text" => <<<EOD
-How many items are there in the dictionary?
+How many items are there in the phonebook dictionary?
 EOD
 ,
 "points" => 1,
@@ -174,7 +174,7 @@ EOD
 [
 
 "text" => <<<EOD
-Get all keys from the dictionary and return them in a sorted list.
+Get all keys from the phonebook dictionary and return them in a sorted list.
 EOD
 ,
 "points" => 1,
@@ -195,7 +195,7 @@ EOD
 [
 
 "text" => <<<EOD
-Get all values from the dictionary and return them in a sorted list.
+Get all values from the phonebook dictionary and return them in a sorted list.
 EOD
 ,
 "points" => 1,
@@ -216,7 +216,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the in-operator to test if the name '$s1_name1' exists in the dictionary. Answer with the return boolean value.
+Use the in-operator to test if the name '$s1_name1' exists in the phonebook dictionary. Answer with the return boolean value.
 EOD
 ,
 
@@ -236,7 +236,8 @@ EOD
 [
 
 "text" => <<<EOD
-Get and remove the item '$s1_name1' from the phonebook (use pop()). Answer with the resulting dictionary.
+Create a copy of the phonebook dictionary. 
+Get and remove the item '$s1_name1' from the copied phonebook (use pop()). Answer with the resulting dictionary.
 EOD
 ,
 
@@ -413,7 +414,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to walk through the dictionary and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order. Note that every row should end with a newline character, `\\n`.
+Use a for-loop to walk through the original phonebook dictionary and create a string representing it. Each name and number should be on its own row, separated by a space. The names must come in alphabetical order. Note that every row should end with a newline character, `\\n`.
 
 Answer with the resulting string.
 EOD

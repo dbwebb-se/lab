@@ -2,7 +2,7 @@ Revision history
 ===================
 
 
-v2.3.5* (2017-10-17)
+v2.3.5 (2017-10-17)
 -------------------
 
 * Copy javascrip1 labs to webgl och walk through lab 1 and 2.

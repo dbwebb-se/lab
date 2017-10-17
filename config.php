@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.3.4 (2017-10-09)";
+const VERSION = "v2.3.5 (2017-10-17)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 const LAB_INSTALL_DIR = __DIR__;
@@ -101,6 +101,8 @@ $VALID_LABS = [
     "webgl/lab1/v2" => "config/webgl/v2/lab1.php",
     "webgl/lab2/v2" => "config/webgl/v2/lab2.php",
     "webgl/lab3/v2" => "config/webgl/v2/lab3.php",
+    "webgl/lab4/v2" => "config/webgl/v2/lab4.php",
+    "webgl/lab5/v2" => "config/webgl/v2/lab5.php",
 
     "dbjs/javascript1/v1" => "config/dbjs/v1/javascript1.php",
     "dbjs/javascript2/v1" => "config/dbjs/v1/javascript2.php",

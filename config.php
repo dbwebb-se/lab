@@ -98,6 +98,9 @@ $VALID_LABS = [
 
     "webgl/lab1/v1" => "config/webgl/v1/lab1.php",
     "webgl/lab2/v1" => "config/webgl/v1/lab2.php",
+    "webgl/lab1/v2" => "config/webgl/v2/lab1.php",
+    "webgl/lab2/v2" => "config/webgl/v2/lab2.php",
+    "webgl/lab3/v2" => "config/webgl/v2/lab3.php",
 
     "dbjs/javascript1/v1" => "config/dbjs/v1/javascript1.php",
     "dbjs/javascript2/v1" => "config/dbjs/v1/javascript2.php",

@@ -250,12 +250,12 @@ EOD
 [
 
 "text" => <<<EOD
-Use a `switch-case statement` to create a message with th etype of fruit and its color. You have the following type of fruits with a corresponding color:
+Use a switch-case statement to create a message with the type of fruit and its color. You have the following type of fruits with a corresponding color:
 
 * banana: yellow
 * apple: green
 * kiwi: green
-* plum: purple.
+* plum: purple
 
 Create a variable `myFruit` which holds the current type of your fruit. If 'myFruit' is banana, the result should be a variable containing the string value `"The banana is yellow."`
 

@@ -75,9 +75,7 @@ EOD
 [
 "title" => "If, else if and else",
 
-"intro" => <<<EOD
-EOD
-,
+"intro" => null,
 
 "shuffle" => false,
 
@@ -193,7 +191,7 @@ If the sum of the dealercards is lower than 17, answer with `"pick"`, if the sum
 
 Store the response in a variable, and answer with it.
 
-PS. You can change the sum to test that your if-statement really works for all values, just to try it out. 
+PS. You can change the sum to test that your if-statement really works for all values, just to try it out.
 EOD
 ,
 

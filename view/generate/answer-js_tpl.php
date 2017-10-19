@@ -38,8 +38,10 @@ $sectionId = 0;
 /** ======================================================================
  * <?= $title . "\n" ?>
  *
+<?php if ($intro) : ?>
  * <?= wrap($intro, "\n * ") ?>
  *
+ <?php endif; ?>
  */
 
 
@@ -52,8 +54,10 @@ foreach ($sections as $section) {
 /** ----------------------------------------------------------------------
  * Section <?= $sectionId ?> . <?= $section['title'] . "\n" ?>
  *
+<?php if ($section['intro']) : ?>
  * <?= wrap($section['intro'], "\n * ") ?>
  *
+<?php endif; ?>
  */
 
 

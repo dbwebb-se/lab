@@ -2,6 +2,12 @@ Revision history
 ===================
 
 
+v2.3.8 (2017-10-19)
+-------------------
+
+* Format text in wrap() to avoid markdown code segments.
+
+
 v2.3.7 (2017-10-19)
 -------------------
 

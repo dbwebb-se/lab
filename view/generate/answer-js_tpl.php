@@ -41,7 +41,7 @@ $sectionId = 0;
 <?php if ($intro) : ?>
  * <?= wrap($intro, "\n * ") ?>
  *
- <?php endif; ?>
+<?php endif; ?>
  */
 
 

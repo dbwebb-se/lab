@@ -94,6 +94,7 @@ function wrap($text, $wrapper = "\n# ")
         return "\n";
     }
 
+    $text = preg_replace("#```\w*\n#", "", $text);
     $text = wordwrap(trim($text, "\n"), 75, "\n", true);
     $text = str_replace("\n", $wrapper, $text);
     $text = preg_replace("#[ \t]+\n#", "\n", $text);

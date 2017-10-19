@@ -503,7 +503,7 @@ Create a function called `printResult()` that should take two variables, the sum
 
 Players hand should be three cards with the values: `$card1, $card2 and $card3`. The dealers hand should be three card with the values: `$dealer1, $dealer2, $dealer3`.
 
-This time you should include the check from lab 1 where you find out the boundaries of the player and the dealer.  
+This time you should include the check from lab 2 where you find out the boundaries of the player and the dealer.  
 Player hand = 21 (black jack).  
 Player hand less than 21 (safe).  
 Player hand larger than 21 (busted).  

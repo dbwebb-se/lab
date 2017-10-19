@@ -39,11 +39,13 @@ return [
 "passDistinctPercentage" => 11/11,
 
 "author" => ["lew", "aar"],
+"co-author" => [],
+"reviewer" => ["mos"],
 
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 4 - javascript1",
+"title" => "Lab 4 - arrays",
 
 "intro" => <<<EOD
 Practise arrays. You might find useful help here:  

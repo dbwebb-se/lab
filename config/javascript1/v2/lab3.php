@@ -5,6 +5,27 @@
  */
 include LAB_INSTALL_DIR . "/config/random.php";
 
+/*
+TODO Some early exercises are more or less the same, consider limit them to make lab more challenging.
+*/
+
+/*
+TODO Perhaps add exercise with own round function.
+*/
+
+/*
+TODO degree to radian is one google away, perhaps change it.
+*/
+
+/*
+TODO handle default arguments.
+*/
+
+/*
+TODO when function can return different results, try them outputwith an extra exercise.
+*/
+
+
 // basic functions 
 
 // SECTION 1
@@ -69,11 +90,13 @@ return [
 "passDistinctPercentage" => 19/19,
 
 "author" => ["lew", "aar"],
+"co-author" => [],
+"reviewer" => ["mos"],
 
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 3 - javascript1",
+"title" => "Lab 3 - functions",
 
 "intro" => <<<EOD
 Practice to write functions.

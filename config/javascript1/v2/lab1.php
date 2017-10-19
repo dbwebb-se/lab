@@ -49,16 +49,18 @@ return [
 "passDistinctPercentage" => 16/16,
 
 "author" => ["lew", "aar"],
+"co-author" => [],
+"reviewer" => ["mos"],
 
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 1 - javascript1",
+"title" => "Lab 1 - variables and builtins",
 
 "intro" => <<<EOD
-If you need to peek at examples or just want to know more, take a look at the references at [MDNs (Mozilla Developers Network)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference.)
+The foundation of variables, numbers, strings and basic arithmetic and built in functions.
 
-There you will find everything this lab will go through and much more.
+Use MDN as your reference and base to solving the exercises.
 EOD
 ,
 
@@ -71,14 +73,17 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "Variables and built-in functions",
+"title" => "Variables, numbers and built-in functions",
 
 "intro" => <<<EOD
-The foundation of variables, numbers, strings and basic arithmetic. In questions 1.1 you are going to work with floats. One way to round a float to a certain amount of decimals is:
+Use variables, numbers and built-in functions.
+
+One way to round a float to a certain amount of decimals is:
 
 ```javascript
 Math.round(val*10000)/10000
 ```
+
 Where `val` is your float number.
 EOD
 ,
@@ -101,7 +106,7 @@ Give them the values `$floatOne` and `$floatTwo`.
 
 Create a variable called `result` and assign to it the sum of the variables above.  
 
-Answer with the result.
+Answer with the result, rounded to two decimals.
 EOD
 ,
 
@@ -110,7 +115,7 @@ EOD
 
 "answer" => function () use ($floatOne, $floatTwo) {
 
-    $sum = $floatOne + $floatTwo;
+    $sum = round($floatOne + $floatTwo, 2);
     return $sum;
 },
 
@@ -124,7 +129,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable `someIntText` and give it a value of `"$sect2IntText"`. 
+Create a variable `someIntText` and give it a string value of `"$sect2IntText"`. 
 
 Use the function `parseInt()` to find out the integer representation of the text.
 
@@ -178,7 +183,11 @@ EOD
 [
 
 "text" => <<<EOD
-Use the method `max()`, in Math, to find out the highest number in the serie: `$serie1_imp`.  
+Use the method `max()`, in Math, to find out the highest number in the serie: 
+
+```text
+$serie1_imp
+```
 
 Assign the number to your `result`-variable.
 
@@ -237,8 +246,7 @@ EOD
 "title" => "Strings and built-in functions",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:  
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+Work with strings and find out about the built-in functions.
 EOD
 ,
 
@@ -256,7 +264,7 @@ EOD
 "text" => <<<EOD
 Create a variable called `wordOne` and assign the word "$sect4Word" to it. 
 
-Add the number `$sect4BigInt` to the word and answer with the resulting variable.
+Add (concatenate) the number `$sect4BigInt` to the word and answer with the resulting variable.
 EOD
 ,
 
@@ -277,7 +285,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the built-in method `charAt()` on the word `"$sect5Word"` to return the character at a given index.
+Use the built-in method `charAt()` on the word "$sect5Word" to return the character at a given index.
 
 Answer with the character at index $sect5SmallInt.
 EOD
@@ -326,7 +334,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the built-int method `length()` to find out the length of the string: `"$sect5Word"`.
+Use the built-int property `length` to find out the length of the string: `"$sect5Word"`.
 
 Answer with the result.
 EOD
@@ -382,7 +390,7 @@ EOD
 "title" => "Extra assignments",
 
 "intro" => <<<EOD
-These questions are worth 3 points each. Solve them for extra points.
+Solve these optional questions to earn extra points.
 EOD
 ,
 

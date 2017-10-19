@@ -2,6 +2,13 @@ Revision history
 ===================
 
 
+v2.3.6 (2017-10-19)
+-------------------
+
+* Link all webgl v2-labs to javascript1 v2.
+* Update javascript1 lab1, 2, 3 with minor edits after review.
+
+
 v2.3.5 (2017-10-17)
 -------------------
 

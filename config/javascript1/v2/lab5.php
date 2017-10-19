@@ -71,12 +71,14 @@ return [
 "passDistinctPercentage" => 5/5,
 
 "author" => ["lew", "aar"],
+"co-author" => [],
+"reviewer" => ["mos"],
 
 
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 5 - javascript1",
+"title" => "Lab 5 - objects",
 
 "intro" => <<<EOD
 Practice basics on objects.

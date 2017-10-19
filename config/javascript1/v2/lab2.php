@@ -33,27 +33,34 @@ $loopSmall1 =  rand_int(10, 20);
 $loopSmall2 =  rand_int(10, 20);
 $loopTiny1  =  rand_int(3, 9);
 $loopTiny2  =  rand_int(3, 9);
+
 $loopRange1  =  rand_int(20, 29);
 $loopRange2  =  rand_int(40, 49);
+$oddEvenValue = rand_int(0, 1);
+$oddEvenString = ["even", "odd"];
+$oddEven = $oddEvenString[$oddEvenValue];
 
-
+$loopRange3  =  rand_int(20, 29);
+$loopRange4  =  rand_int(60, 69);
 
 return [
 
 "passPercentage" => 11/11,
-"passDistinctPercentage" => 11/11,
+//"passDistinctPercentage" => 11/11,
 
 "author" => ["lew", "aar"],
+"co-author" => ["mos"],
+"reviewer" => [],
 
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 2 - javascript1",
+"title" => "Lab 2 - statements",
 
 "intro" => <<<EOD
-If you need to peek at examples or just want to know more, take a look at the references at [MDNs (Mozilla Developers Network)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference.)
+Statements and expressions in JavaScript.
 
-There you will find everything this lab will go through and much more.
+Use MDN as your reference and base to solving the exercises.
 EOD
 ,
 
@@ -69,8 +76,6 @@ EOD
 "title" => "If, else if and else",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:  
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else
 EOD
 ,
 
@@ -92,7 +97,7 @@ Assign the values `$card1, $card2, $card3, $card4, $card5` to the variables crea
 
 Add them up and put the sum in a variable called `result`. 
 
-Put the result in your answer.
+Answer with the variable `result`.
 EOD
 ,
 
@@ -113,9 +118,14 @@ EOD
 [
 
 "text" => <<<EOD
-Use an `if statement` to see if the five cards (card1-card5) have a combined value that is higher than `21`.
+Use an `if statement` to see if the five cards (card1-card5) have a combined sum that is higher than 21.
 
-If the value is higher, answer with the string `"busted"`. Else answer with the string `"safe"`.
+Create a variable `status` and give it a different value depending on the following.
+
+* If the sum is higher than 21, give your variable the value `"busted"`.
+* Else give it the value `"safe"`.
+
+Answer with your status-variable.
 EOD
 ,
 
@@ -136,12 +146,14 @@ EOD
 [
 
 "text" => <<<EOD
-Use `if else statements` to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly `21`.
+Use `if else statements` to see if the combined value of the first three cards (card1-card3) is lower, higher or exactly 21.
 
 Answer with a string corresponding to the result:  
 lower = `"safe"`  
 higher = `"busted"`  
 21 = `"black jack"`
+
+Store the response in your status-variable and answer with it.
 EOD
 ,
 
@@ -173,21 +185,25 @@ EOD
 "text" => <<<EOD
 Create three variables: `dealer1, dealer2, dealer3`. 
 
-Assign the values `$dealer1, $dealer2, $dealer3` to the variables created above.
+Assign the values `$dealer1, $dealer2, $dealer3` to the variables.
 
-Combine the `if`, `else` and the `AND (&&)` statements to see what the dealer should do.
+Combine the `if`, `else if`, `else` statements and the operator `AND (&&)` to see what the dealer should do. Combine as you feel needed.
 
-If the combined value of the dealercards is lower than 17, answer with `"safe"`, if the value is higher than or equal to 17 and lower than 21 answer `"stop"`. If the value is 21 answer `"black jack"`. If the value is higher than 21 answer `"busted"`.
+If the sum of the dealercards is lower than 17, answer with `"pick"`, if the sum is higher than or equal to 17 and lower than 21 answer with `"stop"`. If the sum is 21 answer with `"black jack"`. If the sum is higher than 21 answer with `"busted"`.
+
+Store the response in a variable, and answer with it.
+
+PS. You can change the sum to test that your if-statement really works for all values, just to try it out. 
 EOD
 ,
 
-"points" => 1,
+"points" => 2,
 
 "answer" => function () use ($dealerSum) {
 
     $res = "";
     if($dealerSum < 17) {
-        $res = "safe";
+        $res = "pick";
     }
     else if($dealerSum >= 17 && $dealerSum < 21) {
         $res = "stop";
@@ -220,8 +236,7 @@ EOD
 "title" => "Switch, case",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:  
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch
+
 EOD
 ,
 
@@ -237,13 +252,18 @@ EOD
 [
 
 "text" => <<<EOD
-Use a `switch-case statement` to figure out the color of a fruit. You have the following fruits:
-    
-    banana=yellow, apple=green, kiwi=green, plum=purple. 
-    
-Create a variable `myFruit` which holds the current value of your fruit. If 'myFruit' is banana, the result should be `"The banana is yellow."`  
+Use a `switch-case statement` to create a message with th etype of fruit and its color. You have the following type of fruits with a corresponding color:
 
-Answer with the result where 'myFruit = $fruit'.
+* banana: yellow
+* apple: green
+* kiwi: green
+* plum: purple.
+
+Create a variable `myFruit` which holds the current type of your fruit. If 'myFruit' is banana, the result should be a variable containing the string value `"The banana is yellow."`
+
+Ensure that your switch-case works for all values.
+
+Answer with the result where `myFruit = "$fruit"`.
 EOD
 ,
 
@@ -300,8 +320,7 @@ EOD
 "title" => "For loops",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:  
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+
 EOD
 ,
 
@@ -371,7 +390,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use a for-loop to add all the values in the range `$loopRange1 to $loopRange2` to a string with each number separated by a comma ','. 
+Use a for-loop to add all the $oddEven values in the range `$loopRange1` to `$loopRange2` to a string with each number separated by a comma `,`. 
 
 The result should not end with a comma. You should neither have a space after the comma.
 
@@ -379,15 +398,17 @@ Answer with the resulting string.
 EOD
 ,
 
-"points" => 1,
+"points" => 3,
 
-"answer" => function () use ($loopRange1, $loopRange2) {
+"answer" => function () use ($loopRange1, $loopRange2, $oddEvenValue) {
 
     $result = '';
     $temp = [];
     for ($i = $loopRange1; $i <= $loopRange2; $i++) {
         //$result .= $i . ',';
-        array_push($temp, $i);
+        if (($i % 2) === $oddEvenValue) {
+            array_push($temp, $i);
+        }
     }
     $result = implode(",", $temp);
     return $result;
@@ -415,8 +436,7 @@ EOD
 "title" => "While loops",
 
 "intro" => <<<EOD
-If you need a hint, take a look at:  
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while
+
 EOD
 ,
 
@@ -479,6 +499,40 @@ EOD
         $countThis -= $loopTiny2;
     }
     return $result;
+},
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question, 4.3.
+ */
+[
+
+"text" => <<<EOD
+Use a while-loop to add all the values, to a comma-separated string, in the range `$loopRange3` to `$loopRange4`, where the value is divisable by 5 or 7. 
+
+Answer with the resulting string.
+EOD
+,
+
+"points" => 3,
+
+"answer" => function () use ($loopRange3, $loopRange4) {
+    $temp = [];
+    $start = $loopRange3;
+    $stop = $loopRange4;
+    $cur = $start;
+    while ($cur <= $stop) {
+        if (($cur % 5) === 0
+            || ($cur % 7) === 0
+        ) {
+            array_push($temp, $cur);
+        }
+        $cur++;
+    }
+    return implode(",", $temp);
 },
 
 ],

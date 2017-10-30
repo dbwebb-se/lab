@@ -48,7 +48,7 @@ return [
 "title" => "Lab 4 - arrays",
 
 "intro" => <<<EOD
-Practise arrays. You might find useful help here:  
+Practise arrays. You might find useful help here:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
 EOD
 ,
@@ -81,7 +81,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable `array2` holding an array with the words: `[$array2SelectedString]`. Return the element on position: `$array2Within` in array2.  
+Create a variable `array2` holding an array with the words: `[$array2SelectedString]`. Return the element on position: `$array2Within` in array2.
 
 Answer with the result.
 EOD
@@ -90,7 +90,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($array2Selected, $array2Within) {
-        
+
     return $array2Selected[$array2Within];
 },
 
@@ -104,7 +104,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the variable `array2`. Concatenate the first item and the last item as a string. Separate the string with `-`.  
+Use the variable `array2`. Concatenate the first item and the last item as a string. Separate the string with `-`.
 
 Answer with the result.
 EOD
@@ -113,7 +113,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($array2Selected) {
-        
+
     return $array2Selected[0] . '-' . $array2Selected[count($array2Selected)-1];
 },
 
@@ -138,9 +138,9 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($array1Selected, $array2Selected) {
-    
+
     $result = array_merge($array1Selected, $array2Selected);
-        
+
     return $result;
 },
 
@@ -154,8 +154,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable `array21` as a clone of `array2`.  
-Sort `array21`.  
+Create a variable `array21` as a clone of `array2`.
+Sort `array21`.
 (Hint: http://stackoverflow.com/questions/3978492/javascript-fastest-way-to-duplicate-an-array-slice-vs-for-loop)
 
 Answer with the resulting array.
@@ -165,10 +165,10 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($array2Selected) {
-    
+
     $a = $array2Selected;
     sort($a);
-        
+
     return $a;
 },
 
@@ -183,8 +183,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable `array11` as a copy of `array1`.  
-Sort `array11` according to its values. The smallest value comes first and the largest value comes last.  
+Create a variable `array11` as a copy of `array1`.
+Sort `array11` according to its values. The smallest value comes first and the largest value comes last.
 
 Answer with the resulting array.
 EOD
@@ -193,11 +193,11 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($array1Selected) {
-    
+
     $a = array();
     $a = $array1Selected;
     sort($a);
-        
+
     return $a;
 },
 
@@ -212,8 +212,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable `array22` which holds the same content as `array2` - but all strings are uppercase.  
-Use the built-in Array-function `map()` to solve it.  
+Create a variable `array22` which holds the same content as `array2` - but all strings are uppercase.
+Use the built-in Array-function `map()` to solve it.
 
 Answer with the array.
 EOD
@@ -222,7 +222,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($array2Selected) {
-    
+
     $result = array_map("strtoupper", $array2Selected);
 
     return $result;
@@ -238,8 +238,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new array, `array12`. It should contain all positive numbers from the `array1`.  
-Use the built-in array-function `filter()` to solve it.  
+Create a new array, `array12`. It should contain all positive numbers from the `array1`.
+Use the built-in array-function `filter()` to solve it.
 
 Answer with the resulting array.
 EOD
@@ -248,7 +248,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($array1Selected) {
-    
+
     $a = array_filter($array1Selected, function ($val) {
         return ($val > 0);
     });
@@ -266,7 +266,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function `arrayAverage()` that takes one array as argument and returns the average of all elements in that array.  
+Create a function `arrayAverage()` that takes one array as argument and returns the average of all elements in that array.
 
 Try out the function using `array1` and answer with the rounded integer result.
 EOD
@@ -275,7 +275,7 @@ EOD
 "points" => 1,
 
 "answer" => function () use ($array1Selected) {
-    
+
     $sum = 0;
     foreach ($array1Selected as $val) {
         $sum += $val;
@@ -322,8 +322,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new array `myArray` and make it a copy of `array1`. Switch place on the first and the last element, with the help of built-in array-functions.  
-Use the array-functions `pop(), push(), shift() and unshift()`.  
+Create a new array `myArray` and make it a copy of `array1`. Switch place on the first and the last element, with the help of built-in array-functions.
+Use the array-functions `pop(), push(), shift() and unshift()`.
 
 Answer with `myArray`.
 EOD
@@ -337,7 +337,7 @@ EOD
     $first = array_shift($a);
     array_push($a, $first);
     array_unshift($a, $last);
-    
+
     return $a;
 },
 
@@ -351,7 +351,7 @@ EOD
 [
 
 "text" => <<<EOD
-In `myArray` change the `3rd and 4th` value to the boolean value `false` using built-in array-function `splice()`.  
+In `myArray` change the `3rd and 4th` value to the boolean value `false` using built-in array-function `splice()`.
 
 Answer with the resulting array.
 EOD
@@ -362,13 +362,13 @@ EOD
 "answer" => function () use ($array1Selected) {
 
     $a = $array1Selected;
-    array_pop($a);
-    array_push($a, true);
-    array_shift($a);
-    array_unshift($a, 3.14);
+    // array_pop($a);
+    // array_push($a, true);
+    // array_shift($a);
+    // array_unshift($a, 3.14);
     $a[2] = false;
     $a[3] = false;
-    
+
     return $a;
 },
 
@@ -391,10 +391,10 @@ EOD
 "answer" => function () use ($array1Selected) {
 
     $a = $array1Selected;
-    array_pop($a);
-    array_push($a, true);
-    array_shift($a);
-    array_unshift($a, 3.14);
+    // array_pop($a);
+    // array_push($a, true);
+    // array_shift($a);
+    // array_unshift($a, 3.14);
     $a[2] = false;
     $a[3] = false;
     unset($a[3]);

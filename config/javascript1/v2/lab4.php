@@ -362,6 +362,11 @@ EOD
 "answer" => function () use ($array1Selected) {
 
     $a = $array1Selected;
+    $last = array_pop($a);
+    $first = array_shift($a);
+    array_push($a, $first);
+    array_unshift($a, $last);
+
     // array_pop($a);
     // array_push($a, true);
     // array_shift($a);
@@ -391,10 +396,10 @@ EOD
 "answer" => function () use ($array1Selected) {
 
     $a = $array1Selected;
-    // array_pop($a);
-    // array_push($a, true);
-    // array_shift($a);
-    // array_unshift($a, 3.14);
+    $last = array_pop($a);
+    $first = array_shift($a);
+    array_push($a, $first);
+    array_unshift($a, $last);
     $a[2] = false;
     $a[3] = false;
     unset($a[3]);

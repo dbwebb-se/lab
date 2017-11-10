@@ -40,6 +40,7 @@ $aYear          = rand_int(1970, 2014);//2014
 $aMonth         = 'Aug';
 $aDay           = rand_int(1, 29);
 $aDate          = "$aMonth $aDay, $aYear";
+$randDays       = rand_int(15, 25);
 
 
 
@@ -100,11 +101,11 @@ EOD
 [
 
 "text" => <<<EOD
-Create two variables, `floatOne` and `floatTwo`. 
+Create two variables, `floatOne` and `floatTwo`.
 
-Give them the values `$floatOne` and `$floatTwo`. 
+Give them the values `$floatOne` and `$floatTwo`.
 
-Create a variable called `result` and assign to it the sum of the variables above.  
+Create a variable called `result` and assign to it the sum of the variables above.
 
 Answer with the result, rounded to two decimals.
 EOD
@@ -129,7 +130,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable `someIntText` and give it a string value of `"$sect2IntText"`. 
+Create a variable `someIntText` and give it a string value of `"$sect2IntText"`.
 
 Use the function `parseInt()` to find out the integer representation of the text.
 
@@ -156,9 +157,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use your variable `someIntText`. 
+Use your variable `someIntText`.
 
-Use the function `parseFloat()` to find out the float representation of the text.  
+Use the function `parseFloat()` to find out the float representation of the text.
 
 Assign the value to your `result`-variable.
 
@@ -183,7 +184,7 @@ EOD
 [
 
 "text" => <<<EOD
-Use the method `max()`, in Math, to find out the highest number in the serie: 
+Use the method `max()`, in Math, to find out the highest number in the serie:
 
 ```text
 $serie1_imp
@@ -262,7 +263,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a variable called `wordOne` and assign the word "$sect4Word" to it. 
+Create a variable called `wordOne` and assign the word "$sect4Word" to it.
 
 Add (concatenate) the number `$sect4BigInt` to the word and answer with the resulting variable.
 EOD
@@ -309,9 +310,9 @@ EOD
 [
 
 "text" => <<<EOD
-Use the built-in method `toUpperCase()` to transform the string: 
+Use the built-in method `toUpperCase()` to transform the string:
 
-`"$sect5Sentence"` to uppercase.  
+`"$sect5Sentence"` to uppercase.
 
 Answer with the result.
 EOD
@@ -408,7 +409,7 @@ EOD
 "text" => <<<EOD
 Create a Date object called `myDate` and initiate it with: `"$aDate"`.
 
-Use the built-in function `Date.getFullYear()` to get the year from your Date object.  
+Use the built-in function `Date.getFullYear()` to get the year from your Date object.
 
 Answer with the result.
 EOD
@@ -430,7 +431,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new Date object that is equal to `myDate` plus 30 days.  
+Create a new Date object that is equal to `myDate` plus `$randDays` days.
 
 Use `Date.getDate()` and answer with the day of the month.
 EOD
@@ -438,9 +439,10 @@ EOD
 
 "points" => 3,
 
-"answer" => function () use ($aDate) {
+"answer" => function () use ($aDate, $randDays) {
+    $addDays = "P" . (string)$randDays . "D";
     $myDate = new DateTime($aDate);
-    $interval = new DateInterval("P30D");
+    $interval = new DateInterval($addDays);
     $myDate->add($interval);
     $res = $myDate->format('d');
     return (int)$res;

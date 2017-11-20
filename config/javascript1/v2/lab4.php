@@ -250,7 +250,7 @@ EOD
 "answer" => function () use ($array1Selected) {
 
     $a = array_filter($array1Selected, function ($val) {
-        return ($val > 0);
+        return ($val >= 0);
     });
 
     return array_values($a);

@@ -95,8 +95,8 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new file, for creating classes in. Create a class called Cat in your new file. Give the Cat class the variables `eye_color` and `name` in the constructor. Make it so that values for the variables can be sent as arguments to the constructor.  
-Create a *get*-method for each variable.
+Create a new file, for creating classes in. Create a class called Cat in your new file. Give the Cat class the instance attribute `eye_color` and `name` in the constructor. Make it so that values for the attributes can be sent as arguments to the constructor.  
+Create a *get*-method for each attribute.
 
 
 Dont forget to import the file!
@@ -123,9 +123,9 @@ EOD
 [
 
 "text" => <<<EOD
-Expand your Cat class with the variable `lives-left` and a *set*- and *get*-method for the variable.
+Expand your Cat class with the instance attribute `lives-left` and a *set*- and *get*-method for the attribute.
 
-Initialize the variable in the constructor to `-1`. In the code below use the set-method to change the value to `$s1_livesLeft`.
+Initialize the attribute in the constructor to `-1`. In the code below use the set-method to change the value to `$s1_livesLeft`.
 
 Answer with number of lives the cat has left.
 EOD
@@ -169,7 +169,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a static variable in the Cat class, "nr_of_paws", that contains the number of paws a cat have. Set its value to `$s1_CatNrOfPaws` in the declaration.  
+Create a static attribute in the Cat class, "nr_of_paws", that contains the number of paws a cat have. Set its value to `$s1_CatNrOfPaws` in the declaration.  
 Also create a method for the class that returns "self.nr_of_paws".
 
 Answer with the string "`$s1_catName` has `$s1_CatNrOfPaws` paws."
@@ -193,7 +193,7 @@ EOD
 
 "text" => <<<EOD
 
-In the code below, for your **cat variable**, assign the nr_of_paws variable to `$s1_catNrOfPaws`.
+In the code below, for your **cat variable**, assign the nr_of_paws attribute to `$s1_catNrOfPaws`.
 
 Answer with the string "`$s1_catName` has `$s1_catNrOfPaws` paws but cats have `<Cat.nr_of_paws>` paws.".  
 Use the method, from previous exercise, to get how many paws `$s1_catName` have and the class name, "Cat.nr_of_paws", to get how many paws cats have.
@@ -261,7 +261,7 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new class named Dog, it should have the same variables and methods as the Cat class.  
+Create a new class named Dog, it should have the same attributes and methods as the Cat class.  
 But in the description method return "My dogs name..." instead of "My cats name...".
 
 In the constructor set lives left to live to `1`.
@@ -293,7 +293,7 @@ EOD
 
 "text" => <<<EOD
 Create a new class named Time.  
-Declare the variables `hours`, `minutes` and `seconds` in the constructor. Make it so that values for the variables can be sent as arguments to the constructor.  
+Declare the instance attributes `hours`, `minutes` and `seconds` in the constructor. Make it so that values for the attributes can be sent as arguments to the constructor.  
 Give the class a method named `info` that returns time as a string with the format "h-m-s". Numbers below 10 should have a leading zero when returned in the info method.
 
 

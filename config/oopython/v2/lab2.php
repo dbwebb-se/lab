@@ -6,38 +6,45 @@
 include LAB_INSTALL_DIR . "/config/random.php";
 
 //SECTION 1 ****************************************************
+$s1_names              = ["Buster", "James", "Zimba", "Goliat", "Hugo", "Skorstten", "Ove", "Kvothe", "Farseer", "FitzChivalry", "Badgerlock"];
+$s1_ssns               = ["768244-4857", "502075-3392", "578118-6946", "228474-2825", "350967-5218", "421396-9785", "619172-0731", "503233-4011", "541355-8072", "516518-3442", "930807-7536"];
+$s1_cities             = ["Kholinar", "Elanor", "Ru Parat", "Buckkeep", "Renere", "Imre", "Katar", "Tear", "Lugard", "Amador", "Tar Valon"];
+$s1_states             = ["Withywoods", "Blekinge", "Skane", "Smaland", "Gotland", "Norrland", "Vansterland", "Throvenland", "Sagenmark", "The Aiel Waste"];
+$s1_countries          = ["Six Duchies", "Commonwealth", "Ceald", "Ademere", "Tarabon", "Andor", "Shienar", "Tear", "Illian", "Gettland"];
+$s1_courses            = ["oopython", "webgl", "python", "htmlphp", "linux", "ramverk1", "ramverk2", "webapp", "oophp", "javascript1", "design"];
 
-$s1_present         = ["Ozelot", "Kvothe", "It's a very, very, merry, merry christmas. Gonna party on 'til Santa grants my wishes.", rand_int(10000, 15000)];
-$s1_christPresent   = ["Pirate", "Zeldah", "You, oh, oh, a Christmas. My Christmas tree is delicious", rand_int(20000, 25000)];
-$s1_compPresent     = ["Icecream", "Lew", "That's why I celebrate Christmas 'Cause this overweighted redneck devil is big business", rand_int(1, 20)];
-$s1_searchStrings   = [
-                    ["ew", "False False True "],
-                    ["zel", "True False False "],
-                    ["irat", "False True False "]
-                    ];
-$s1_searchString    = $s1_searchStrings[rand_int(0, count($s1_searchStrings) -1)];
+$s1_per_name           = $s1_names[rand_int(0, count($s1_names) -1)];
+$s1_per_ssn            = $s1_ssns[rand_int(0, count($s1_ssns) -1)];
+$s1_per_city           = $s1_cities[rand_int(0, count($s1_cities) -1)];
+$s1_per_state          = $s1_states[rand_int(0, count($s1_states) -1)];
+$s1_per_country        = $s1_countries[rand_int(0, count($s1_countries) -1)];
 
-$s1_dogNames        = ["Buster", "James", "Zimba", "Goliat"];
-$s1_dogRaces        = ["Shitzu", "Cocker spaniel", "Rottweiler", "Grand danois"];
-$s1_dogSizes        = ["small", "medium", "big", "big"];
-$s1_dogDays         = [rand_int(5, 10), rand_int(7, 14), rand_int(5, 15), rand_int(20, 25)];
-#$s1_dogOrders       = [
-#                    [1,2,3,4],
-#                    [2,4,1,3],
-#                    [4,2,3,1],
-#                    [3,2,1,4]
-#                    ];
-#$s1_dogOrder        = $s1_dogOrders[rand_int(0, count($s1_dogOrders) -1)];
-$s1_dog1            = [$s1_dogNames[0], $s1_dogSizes[0], $s1_dogRaces[0], $s1_dogDays[0]];
-$s1_dog2            = [$s1_dogNames[2], $s1_dogSizes[2], $s1_dogRaces[2], $s1_dogDays[2]];
-$s1_dog3            = [$s1_dogNames[3], $s1_dogSizes[3], $s1_dogRaces[3], $s1_dogDays[3]];
-#$s1_dog4            = [$s1_dogNames[1], $s1_dogSizes[1], $s1_dogRaces[1], $s1_dogDays[1]];
-$s1_priceSmall      = rand_int(100, 120);
-$s1_priceMedium     = rand_int(121, 150);
-$s1_priceBig        = rand_int(151, 200);
+$s1_tea_name           = $s1_names[rand_int(0, count($s1_names) -1)];
+$s1_tea_ssn            = $s1_ssns[rand_int(0, count($s1_ssns) -1)];
+$s1_tea_city           = $s1_cities[rand_int(0, count($s1_cities) -1)];
+$s1_tea_state          = $s1_states[rand_int(0, count($s1_states) -1)];
+$s1_tea_country        = $s1_countries[rand_int(0, count($s1_countries) -1)];
+$s1_tea_c1             = $s1_courses[rand_int(0, count($s1_courses) -1)];
+$s1_tea_c2             = $s1_courses[rand_int(0, count($s1_courses) -1)];
+$s1_tea_c3             = $s1_courses[rand_int(0, count($s1_courses) -1)];
+
+$s1_stu_name           = $s1_names[rand_int(0, count($s1_names) -1)];
+$s1_stu_ssn            = $s1_ssns[rand_int(0, count($s1_ssns) -1)];
+$s1_stu_city           = $s1_cities[rand_int(0, count($s1_cities) -1)];
+$s1_stu_state          = $s1_states[rand_int(0, count($s1_states) -1)];
+$s1_stu_country        = $s1_countries[rand_int(0, count($s1_countries) -1)];
+$s1_stu_c1             = $s1_courses[rand_int(0, count($s1_courses) -1)];
+$s1_stu_c2             = $s1_courses[rand_int(0, count($s1_courses) -1)];
+$s1_stu_c3             = $s1_courses[rand_int(0, count($s1_courses) -1)];
+$s1_stu_g1             = rand_int(0, 5);
+$s1_stu_g2             = "-";
+$s1_stu_g3             = rand_int(0, 5);
+
 
 return [
-
+"author" => ["aar"],
+"passPercentage" => 8/8,
+"passDistinctPercentage" => 8/8,
 
 
 /**
@@ -60,10 +67,10 @@ EOD
  * New section of exercises.
  */
 [
-"title" => "More classes",
+"title" => "Class relationships",
 
 "intro" => <<<EOD
-Practice more on creating classes in python.
+Practice on creating classes and relationships between them in python.
 EOD
 ,
 
@@ -79,20 +86,49 @@ EOD
 [
 
 "text" => <<<EOD
-For the next few exercises we will work on a dog kennel, we will have three classes when we are done, *Dog*, *DogType* and *Kennel*.
+Create a new class named **Person**.  Give the class the instance attributes "name" and "ssn". Make "ssn" a private attribute. The values for the attributes should be sent to the constructor as arguments.  
+Create a *get* method for both "name" and "ssn". Only Create a *set* method for "name".  
 
-Create a new class called Dog. Declare the variables `name`, `size`, `race` and numberOfDays (to stay at kennel) in the constructor.  
-Give it a method that returns a string of its information in the format "name: xxx, size: ccc, race: fff, nrOfDays: 000".
+In the code below create a new variable called **per** and set it to a new instance of Person. Give it the name `$s1_per_name` and ssn `$s1_per_ssn`.
 
-In the code below initialize a new Dog variable calle `dog1`, give it the name "$s1_dog1[0]", the size "$s1_dog1[1]", the race "$s1_dog1[2]" and `$s1_dog1[3]` days to stay.
 
-Answer with the info method of `dog1`.
+Answer with per\'s get method for ssn.
 EOD
 ,
+"points" => 2,
 
-"answer" => function () use ($s1_dog1) {
+"answer" => function () use ($s1_per_ssn) {
 
-    return "name: $s1_dog1[0], size: $s1_dog1[1], race: $s1_dog1[2], nrOfDays: $s1_dog1[3]";
+    return "$s1_per_ssn";
+
+},
+
+],
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a new class named **Address**.  Give the class the instance attributes "city", "state" and "country". The values for the attributes should be sent to the constructor as arguments.  
+Create a method, in Address, called **to_string**, it should return `"Address: <city> <state> <country>"` (replace the \<city\> with the value of the attribute city...).  
+
+Add the instance attribute **address** to class Person. It's value should be sent as argument to constructor, give it a default value of and empty string, `""`.  
+Create a set method for attribute "address".  
+Create a method, in Person, called **to_string**, it should return `"Name: <name> SSN: <ssn> Address: <city> <state> <country>"`. Use Address' to_string method to get address data.  
+
+In the code below Create a new instance of the class Address. Initiate it with the city `$s1_per_city`, the state `$s1_per_state` and the country `$s1_per_country`.  
+Use the set method in Person to add the newly create Address object to your **per** object.
+
+Answer with per's "to_string" method.
+EOD
+,
+"points" => 2,
+
+"answer" => function () use ($s1_per_name, $s1_per_ssn, $s1_per_city, $s1_per_state, $s1_per_country) {
+
+    return "Name: $s1_per_name SSN: $s1_per_ssn Address: $s1_per_city $s1_per_state $s1_per_country";
 
 },
 
@@ -106,20 +142,26 @@ EOD
 [
 
 "text" => <<<EOD
-The next class that you will create will hold dogs of a certain type. Eg. small, medium or big sized.
+Create a new class name **Teacher** make it inherit from class "Person". In the constructor add the instance attribute "courses" and initiate it to and empty list.  
+Create the method **add_course**, it should take one argument and add it to the course list attribute.  
+Create the method **remove_course**, it should take one argument and remove if from the course list attribute.  
+Overload the **to_string** method from the base class. It should return the same as the original method and add the courses to the end of the string, `"Name: <name> SSN: <ssn> Address: <city> <state> <country> Courses: <course>, <course>, ..."`. The list of courses should be comma seperated without one at the end. Tip, use `super(Teacher, self)` to access base method.  
 
-Create a new class called DogType. In the constructor declare the variables `size`, `cost` (per day), `numberOfAllowedDogs` and a private list that will contain *Dog objects*. Declare the list containing `Dogs` to an empty list in the constructor.  
-Give the class a new method called `addDog`, it should take a Dog object as parameter. In the method add the Dog to the list if you have room for it and it has the correct size. If you add the dog return `True` otherwise return `False`.
 
-Initialize a new DogType variable in the code below, name it `smallDogs`, set `size` to "small", `cost` to `$s1_priceSmall` and `numberOfAllowedDogs` to `3`. 
-Use the add method to add dog1.
+In the code below Create a new instance of the class Address. Initiate it with the city `$s1_tea_city`, the state `$s1_tea_state` and the country `$s1_tea_country`.  
+Create a new instance of the class Teacher. Initiate it with the name `$s1_tea_name` and ssn `$s1_tea_ssn` and the aforementioned Address object.  
+Use the add_course method to add the following courses, `$s1_tea_c1`, `$s1_tea_c2` and `$s1_tea_c3`.
 
-Answer with the result from adding `dog1` to `smallDogs`.
+
+Answer with the Teacher object's "to_string" method.
 EOD
 ,
+"points" => 2,
 
-"answer" => function () {
-    return True;
+"answer" => function () use ($s1_tea_name, $s1_tea_ssn, $s1_tea_city, $s1_tea_state, $s1_tea_country, $s1_tea_c1, $s1_tea_c2, $s1_tea_c3) {
+
+    return "Name: $s1_tea_name SSN: $s1_tea_ssn Address: $s1_tea_city $s1_tea_state $s1_tea_country Courses: $s1_tea_c1, $s1_tea_c2, $s1_tea_c3";
+
 },
 
 ],
@@ -132,145 +174,28 @@ EOD
 [
 
 "text" => <<<EOD
-In the DogType class create a new method called `retrieveDog`, take a `name` as parameter. If the dogs name is the same as a dog  in the list remove it from the list and return the object, otherwise return `False`.
+Create a new class name **Student** make it inherit from class "Person". In the constructor add the instance attribute "courses_grades" and initiate it to and empty list.  
+Create the method **add_course_grade**, it should take two arguments, one course and a grade. Create a tuple with the two arguments and add to the attribute "courses_grades".  
+Create the method **average_grade**. Calculate and return the students average grade. Ignore grades with "-" in the calculation.
 
-In the code below retrieve "$s1_dog1[0]" from `smallDogs`. 
+In the code below Create a new instance of the class Address. Initiate it with the city `$s1_stu_city`, the state `$s1_stu_state` and the country `$s1_stu_country`.  
+Create a new instance of the class Student. Initiate it with the name `$s1_stu_name` and ssn `$s1_stu_ssn` and the aforementioned Address object.  
+Use the add_course_grade method to add the following courses, `$s1_stu_c1` with grade `$s1_stu_g1`, `$s1_stu_c2` with grade `$s1_stu_g2` and `$s1_stu_c3` with grade `$s1_stu_g3`.
 
-Answer with the returned Dogs number of days stayed.
+
+Answer with the Student object's "average_grade" method.
 EOD
 ,
+"points" => 2,
 
-"answer" => function () use ($s1_dog1) {
-    return $s1_dog1[3];
+"answer" => function () use ($s1_stu_g1, $s1_stu_g3) {
+
+    return ($s1_stu_g1 + $s1_stu_g3) / 2;
+
 },
 
 ],
 
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Time to make the Kennel class. Choose a way to store three *DogType objects*, a list, a dictionary or one variable for each. We will have the dog types `small`, `medium` and `big` dogs.  
-In the constructor:  
-Initialize the DogType for small dogs with size "small", cost `$s1_priceSmall` and numberOfAllowedDogs `3`.  
-Initialize the DogType for medium dogs with size `medium`, cost `$s1_priceMedium` and numberOfAllowedDogs `2`.  
-Initialize the DogType for big dogs with size `big`, cost `$s1_priceBig` and numberOfAllowedDogs `1`.
-
-Create a method in Kennel that checks-in a new dog at the Kennel, it takes a *Dog object* as parameter. In the method add the dog to the appropriate DogType and return whats returned from the DogType `addDog` method.
-
-In the code below initialize a new Kennel variable and check-in `dog1` to the kennel.
-
-Answer with the result from the check-in.
-EOD
-,
-
-"answer" => function () {
-    return True;
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a new method in the kennel class for checking out a Dog. It takes a `name` and `size` as parameter.  
-In the method try to retrieve the dog from appropriate DogType with the DogType method `retrieveDog`. The check out method should return the `cost` for having the dog at the Kennel, aka days stayed * cost of size.
-
-In the code below create a new Dog variable called `dog2`, give it the name "$s1_dog2[0]", the size "$s1_dog2[1]", the race "$s1_dog2[2]" and `$s1_dog2[3]` days to stay.  
-Check-in `dog2` at the kennel and checkout `dog1`, "$s1_dog1[0]", "$s1_dog1[1]", from the Kennel.
-
-Answer with the price of having `dog1` at the Kennel, the result from the check out method.
-EOD
-,
-
-"answer" => function () use ($s1_dog1, $s1_priceSmall) {
-
-    return $s1_dog1[3] * $s1_priceSmall;
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a class named Present.  
-Declare the variables `content` and `recipient` in the constructor.  
-Give it a `info` method where you return "content: xxx, recipient: yyy".
-
-Initialize a new Present variable in the code below named `present`. Give it the content "$s1_present[0]", recipient "$s1_present[1]".
-
-Answer with the result from the `info` method.
-EOD
-,
-
-"answer" => function () use ($s1_present) {
-
-    return "content: $s1_present[0], recipient: $s1_present[1]";
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a new class called ChristmasPresent it should *inherit from Present*.  
-Give ChristmasPresent the variale `rhyme`. Use *super* to initiate the variables from the parent class (Present) with `content` and `recipient` from the constructor.
-
-Override the `info` method from Present to return "content: xxx, recipient: yyy, rhyme: zzz". A tip, you can access the parent method with super and just add rhyme to the returned string and return that.
-
-Create a new ChristmasPresent variable in the code below. Give it the content "$s1_christPresent[0]", recipient "$s1_christPresent[1]" and rhyme "$s1_christPresent[2]".
-
-Answer with the christmas presents `info` method.
-EOD
-,
-
-"answer" => function () use ($s1_christPresent) {
-    
-    return "content: $s1_christPresent[0], recipient: $s1_christPresent[1], rhyme: $s1_christPresent[2]";
-},
-
-],
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-Create a new class called CompanyPresent it should *inherit from Present*.  
-Give CompanyPresent the variale `Cost`. Use "super" to initiate the variables from the parent class (Present) with content and recipient from the constructor.
-
-Override the `info` method from Present to return "content: xxx, recipient: yyy, cost: zzz". A tip, you can access the parent method with super and just add cost to the returned string and return that.
-
-Create a new CompanyPresent variable in the code below. Give it the content "$s1_compPresent[0]", recipient "$s1_compPresent[1]" and cost `$s1_compPresent[3]`.
-EOD
-,
-
-"answer" => function () use ($s1_compPresent) {
-    
-    return "content: $s1_compPresent[0], recipient: $s1_compPresent[1], cost: $s1_compPresent[3]";
-},
-
-],
 
 
 /** ---------------------------------------------------------------------------

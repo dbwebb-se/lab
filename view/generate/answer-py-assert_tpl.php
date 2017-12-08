@@ -43,11 +43,11 @@ class Dbwebb(object):
         "pointspass": """{prompt} Points earned: {points}p of {total}p (PASS=>{passval}p).""",  # noqa
 
         "pointspassdistinct": """{prompt} Points earned: {points}p of {total}p (PASS=>{passval}p PASS W DISTINCTION=>{passdistinct}p).""",  # noqa
-        # pylint: enable=line-too-long
 
         "passdistinct": "\033[96m{prompt}Grade: PASS WITH DISTINCTION!!! :-D\033[0m",
         "pass": "\033[92m{prompt}Grade: PASS! :-)\033[0m",
 
+        # pylint: enable=line-too-long
         "no_pass": "\033[93m{prompt}Grade: Thou Did Not Pass. :-|\033[0m"
     }
 
@@ -120,8 +120,8 @@ class Dbwebb(object):
         """
         questions = self.answers["summary"]["questions"]
         points = self.answers["summary"]["points"]
-        passVal = self.answers["summary"]["pass"]
-        passDistinct = self.answers["summary"]["passdistinct"]
+        pass_val = self.answers["summary"]["pass"]
+        pass_distinct = self.answers["summary"]["passdistinct"]
 
         print(self._text["done"].format(
             prompt=self.prompt,
@@ -131,36 +131,36 @@ class Dbwebb(object):
             not_done=self.not_done
         ))
 
-        if passDistinct:
+        if pass_distinct:
             print(self._text["pointspassdistinct"].format(
                 prompt=self.prompt,
                 points=self.points,
                 total=points,
-                passval=passVal,
-                passdistinct=passDistinct
+                passval=pass_val,
+                passdistinct=pass_distinct
             ))
-        elif passVal:
+        elif pass_val:
             print(self._text["pointspass"].format(
                 prompt=self.prompt,
                 points=points,
                 total=questions,
-                passval=passVal
+                passval=pass_val
             ))
 
 
         # Grading
-        didPass = self.correct == questions
-        if passVal:
-            didPass = self.points >= passVal
+        did_pass = self.correct == questions
+        if pass_val:
+            did_pass = self.points >= pass_val
 
-        didPassDistinct = None
-        if passDistinct:
-            didPassDistinct = self.points >= passDistinct
+        did_pass_distinct = None
+        if pass_distinct:
+            did_pass_distinct = self.points >= pass_distinct
 
-        if didPassDistinct:
+        if did_pass_distinct:
             print(self._text["passdistinct"].format(prompt=self.prompt))
             sys.exit(0)
-        elif didPass:
+        elif did_pass:
             print(self._text["pass"].format(prompt=self.prompt))
             sys.exit(0)
         else:

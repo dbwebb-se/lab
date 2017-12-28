@@ -11,6 +11,7 @@
         <option value="python" <?= isSelected("python", $course) ?>>python</option>
         <option value="webgl" <?= isSelected("webgl", $course) ?>>webgl</option>
         <option value="dbjs" <?= isSelected("dbjs", $course) ?>>dbjs</option>
+        <option value="databas" <?= isSelected("databas", $course) ?>>databas</option>
     </select></label>
 </p>
 

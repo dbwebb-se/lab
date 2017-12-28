@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.3.8 (2017-10-19)";
+const VERSION = "v2.3.9 (2017-12-28)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 const LAB_INSTALL_DIR = __DIR__;
@@ -117,6 +117,8 @@ $VALID_LABS = [
     "dbjs/node1/v1" => "config/dbjs/v1/node1.php",
     "dbjs/node2/v1" => "config/dbjs/v1/node2.php",
 
+    "databas/node1/v1" => "config/databas/v1/node1.php",
+    "databas/node2/v1" => "config/databas/v1/node2.php",
 ];
 
 // Type of lab
@@ -141,6 +143,10 @@ $LAB_TYPE = [
         "javascript2" => "javascript",
         "sql1" => "sqlite",
         "sql2" => "sqlite",
+        "node1" => "node",
+        "node2" => "node",
+    ],
+    "databas" => [
         "node1" => "node",
         "node2" => "node",
     ],

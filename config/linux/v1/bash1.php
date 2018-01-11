@@ -28,15 +28,19 @@ return [
 "title" => "Bash 1 - linux",
 
 "intro" => "
-A lab where you use Unix commands to list, find, and change i directory structure.
+A lab where you use Unix commands to list, find, and change the directory structure.
 
 The entire lab uses the apache2 configuration directory from '/etc/apache2' in linux installations.
 ",
 
 "header" => null,
 
-"passPercentage" => 100/100,
-"passDistinctPercentage" => 100/100,
+"passPercentage" => 10/19,
+"passDistinctPercentage" => 19/19,
+
+"author" => ["efo"],
+"co-author" => ["lew"],
+"reviewer" => ["mos"],
 
 /*
 "grades" => [
@@ -75,7 +79,7 @@ EOD
 
 "text" => <<<EOD
 
-Use the command `ls` to list the files in the `apache2` directory, list one file per line.
+Use the command `ls` to list the files and directories in the `apache2` directory, list one file/directory per line.
 
 Tip: Use the command `man ls` to see the flags that can be used for the `ls` command.
 
@@ -99,7 +103,7 @@ EOD
 
 "text" => <<<EOD
 
-Use the command `ls` to list the files in the `apache2` directory. Use a flag so every directory gets a slash (`/`) after the name, list one file per line.
+Use the command `ls` to list the files and directories in the `apache2` directory. Use a flag so every directory gets a slash (`/`) after the name, list one file/directory per line.
 
 Tip: Use the command `man ls` to see the flags that can be used for the `ls` command.
 
@@ -151,7 +155,7 @@ EOD
 
 "text" => <<<EOD
 
-List all, even hidden, files and directories in the `apache2/sites-available` directory. List one file per line.
+List all, even hidden, files and directories in the `apache2/sites-available` directory. List one file/directory per line.
 
 EOD
 ,
@@ -160,32 +164,6 @@ EOD
 
 "answer" => function () use ($base) {
     return execute("cd $base && ls -1a ./apache2/sites-available");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-List files and directories in `apache2/conf-available`, sort the files in file size order with the smallest file first.
-
-List one file per line.
-
-Do not show hidden files.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return execute("cd $base && ls -1rS ./apache2/conf-available");
 },
 
 ],
@@ -203,71 +181,71 @@ EOD
 /** ===========================================================================
  * New section of exercises.
  */
-[
-"title" => "file",
-
-"intro" => <<<EOD
-
-In this section we will use the `file` command to get information on the files in the directory structure.
-
-EOD
-,
-
-"shuffle" => false,
-
-"questions" => [
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Use the `file` command to show the file name and type for the files and directories in `apache2`.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return execute("cd $base && file apache2/*");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Use the `file` command to show only the file type for the files and directories in `apache2`.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base) {
-    return execute("cd $base && file -b apache2/*");
-},
-
-],
+// [
+// "title" => "file",
+//
+// "intro" => <<<EOD
+//
+// In this section we will use the `file` command to get information on the files in the directory structure.
+//
+// EOD
+// ,
+//
+// "shuffle" => false,
+//
+// "questions" => [
+//
+//
+//
+// /** ---------------------------------------------------------------------------
+//  * A question.
+//  */
+// [
+//
+// "text" => <<<EOD
+//
+// Use the `file` command to show the file name and type for the files and directories in `apache2`.
+//
+// EOD
+// ,
+//
+// "points" => 1,
+//
+// "answer" => function () use ($base) {
+//     return execute("cd $base && file apache2/*");
+// },
+//
+// ],
+//
+//
+//
+// /** ---------------------------------------------------------------------------
+//  * A question.
+//  */
+// [
+//
+// "text" => <<<EOD
+//
+// Use the `file` command to show only the file type for the files and directories in `apache2`.
+//
+// EOD
+// ,
+//
+// "points" => 1,
+//
+// "answer" => function () use ($base) {
+//     return execute("cd $base && file -b apache2/*");
+// },
+//
+// ],
 
 
 
 /** ---------------------------------------------------------------------------
  * Closing up this section.
  */
-], // EOF questions
-], // EOF section
+// ], // EOF questions
+// ], // EOF section
 
 
 
@@ -301,7 +279,7 @@ Use the `mkdir` command to create a directory called `backup/` if the directory 
 
 Copy all files with the file extension `.conf` from `apache2/mods-available` to a new directory `backup/conf/`, create the directory if it does not exist.
 
-Lista the files in the new directory `backup/conf/`, sort the files according to file size, with the biggest file first. List one file per line.
+List all the files in the new directory `backup/conf/`, sort the files according to file size, with the biggest file first. List one file per line.
 
 Tip: Use `&&` to execute more than one command and `man mkdir` to find the correct flag.
 
@@ -364,32 +342,6 @@ EOD
 
 "answer" => function () use ($base, $tmpBase) {
     return execute("cd $tmpBase && rm backup/conf/proxy* && ls -1 ./backup/conf");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Use the `cp` command to copy all files from the `backup/php/` directory to the `backup/` directory.
-
-Remove the entire `backup/php/` directory.
-
-List files and directories in the `backup/` directory, use a flag so that all directories gets a slash (`/`) at the end of the file name. List one file per line.
-
-EOD
-,
-
-"points" => 1,
-
-"answer" => function () use ($base, $tmpBase) {
-    return execute("cd $tmpBase && cp backup/php/* backup/ && rm -rf backup/php && ls -1p ./backup/");
 },
 
 ],
@@ -478,7 +430,7 @@ EOD
 
 Use the `find` command to find all directories which have 'conf' in the file name in the `apache2/` directory.
 
-Search only in the `apache2/` directory and not inte subdirectories.
+Search only in the `apache2/` directory and not in the subdirectories.
 
 EOD
 ,
@@ -487,6 +439,83 @@ EOD
 
 "answer" => function () use ($base) {
     return execute("cd $base && find apache2 -maxdepth 1 -type d -name '*conf*'");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+Solve these optional questions to earn extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+List files and directories in `apache2/conf-available`, sort the files in file size order with the smallest file first.
+
+List one file per line.
+
+Do not show hidden files.
+
+EOD
+,
+
+"points" => 3,
+
+"answer" => function () use ($base) {
+    return execute("cd $base && ls -1rS ./apache2/conf-available");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
+Use the `cp` command to copy all files from the `backup/php/` directory to the `backup/` directory.
+
+Remove the entire `backup/php/` directory.
+
+List files and directories in the `backup/` directory, use a flag so that all directories gets a slash (`/`) at the end of the file name. List one file per line.
+
+EOD
+,
+
+"points" => 3,
+
+"answer" => function () use ($base, $tmpBase) {
+    return execute("cd $tmpBase && cp backup/php/* backup/ && rm -rf backup/php && ls -1p ./backup/");
 },
 
 ],
@@ -507,7 +536,7 @@ Search only in the `apache2/sites-available` and `apache2/mods-available` direct
 EOD
 ,
 
-"points" => 1,
+"points" => 3,
 
 "answer" => function () use ($base) {
     return execute("cd $base && find apache2/sites-available apache2/mods-available -type f -name '*ssl*.conf'");
@@ -515,9 +544,7 @@ EOD
 
 ],
 
-
-
-/** ---------------------------------------------------------------------------
+/**
  * Closing up this section.
  */
 ], // EOF questions

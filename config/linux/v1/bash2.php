@@ -33,8 +33,8 @@ A lab where you use Unix tools available from the command line interface togethe
 
 "header" => null,
 
-"passPercentage" => 70/100,
-"passDistinctPercentage" => 100/100,
+"passPercentage" => 10/19,
+"passDistinctPercentage" => 19/19,
 
 /*
 "grades" => [
@@ -58,19 +58,7 @@ Train Linux commands and use them together with Bash.
 
 I this exercise you will mainly use comands like `grep`, `wc`, `head` and `tail` to search for information in a log file from the irc-chat.
 
-Write HTML in text, wrap in backtick `<a href="moped">mask</a>`
-
-Pure link as HTML <a href="moped">mask</a>
-
-```
-<html>
-```
-
-```
-a > 2
-```
-
-Then you combine the output of the commands to variables in Bash. Use the man-pages when needed to find information on haow to solve the exercises.
+Then you combine the output of the commands to variables in Bash. Use the man-pages when needed to find information on how to solve the exercises.
 
 EOD
 ,
@@ -281,12 +269,34 @@ EOD
 
 "text" => <<<EOD
 
+Find the first row where 'pansar' says something when the time is 07:48.
+
+EOD
+,
+
+"points" => 1,
+
+"answer" => function () use ($base, $file) {
+    return exec("cd $base && grep 07:48 $file | grep pansar | head -1");
+},
+
+],
+
+
+
+/** ---------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+
 Find the first 10 lines from 'Wed Jun 17 2015'.
 
 EOD
 ,
 
-"points" => 3,
+"points" => 1,
 
 "answer" => function () use ($base, $file) {
     $res = [];
@@ -295,6 +305,31 @@ EOD
 },
 
 ],
+
+
+
+/** ---------------------------------------------------------------------------
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+Solve these optional questions to earn extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
 
 
 
@@ -360,28 +395,6 @@ EOD
 
 "answer" => function () use ($base, $file) {
     return exec("cd $base && grep -A 9 'Mon Jun 08 2015' $file | tail -6 | wc -w");
-},
-
-],
-
-
-
-/** ---------------------------------------------------------------------------
- * A question.
- */
-[
-
-"text" => <<<EOD
-
-Find the first row where 'pansar' says something when the time is 07:48.
-
-EOD
-,
-
-"points" => 3,
-
-"answer" => function () use ($base, $file) {
-    return exec("cd $base && grep 07:48 $file | grep pansar | head -1");
 },
 
 ],

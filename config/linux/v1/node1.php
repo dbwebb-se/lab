@@ -64,6 +64,8 @@ function isPrime($number) {
 return [
 
 
+"passPercentage" => 9/15,
+"passDistinctPercentage" => 15/15,
 
 /**
  * Titel and introduction to the lab.
@@ -111,6 +113,8 @@ Answer with the number.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($numberArray) {
     for ($i=0; $i < count($numberArray); $i++) {
         if ($numberArray[$i] >= 42) {
@@ -135,6 +139,8 @@ Answer with the smallest number.
 
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($numberArray) {
     return min($numberArray);
@@ -161,6 +167,8 @@ Answer with a call to the `meaningOfLife()` function without any parameters.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () {
     return 'The meaning of life is ' . 42;
 },
@@ -183,6 +191,8 @@ Tip: Use nodejs function `includes`.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($randomWord) {
     return strpos($randomWord, "oo") > -1;
 },
@@ -204,6 +214,8 @@ Tip: Use nodejs function `startsWith`.
 
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($randomWord) {
     return strpos($randomWord, "El") === 0;
@@ -250,6 +262,8 @@ Answer with the resulting array.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($numberArray) {
     $resultArray = [];
     for ($i=0; $i < count($numberArray); $i++) {
@@ -280,6 +294,8 @@ Answer with the resulting array.
 
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($numberArrayAdded) {
     $resultArray = [];
@@ -336,6 +352,8 @@ Store the result in a new array and answer with that array.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($stringArray, $apolloMission) {
     $resultArray = [];
     for ($i=0; $i < count($stringArray); $i++) {
@@ -364,6 +382,8 @@ Answer with the resulting array.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($stringArray, $notApolloMission) {
     $resultArray = [];
     for ($i=0; $i < count($stringArray); $i++) {
@@ -373,6 +393,31 @@ EOD
 },
 
 ],
+
+
+
+/** ---------------------------------------------------------------------------
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
+"title" => "Extra assignments",
+
+"intro" => <<<EOD
+Solve these optional questions to earn extra points.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
 
 
 
@@ -391,6 +436,8 @@ Answer with the resulting sum.
 
 EOD
 ,
+
+"points" => 3,
 
 "answer" => function () use ($reduceArray) {
     $sum = 0;
@@ -421,6 +468,8 @@ Answer with the resulting sum.
 
 EOD
 ,
+
+"points" => 3,
 
 "answer" => function () use ($reduceArray) {
     $sum = 0;

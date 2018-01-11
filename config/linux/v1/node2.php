@@ -71,7 +71,8 @@ $hmacedStrings = ["2sQc86l8abV9vEACt5ayaTOaSQ6cUKQnCF3LwNVwIUc="];
 
 return [
 
-
+"passPercentage" => 9/11,
+"passDistinctPercentage" => 11/11,
 
 /**
  * Titel and introduction to the lab.
@@ -118,6 +119,8 @@ Use the `fs` module and the function `readFileSync` to read the entire `$file` i
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($base, $file){
     $text = utf8_decode(file_get_contents($base.$file));
 
@@ -137,6 +140,8 @@ EOD
 Use your variable from the exercise above and answer with the contents on line $lineNumber.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($base, $file, $lineNumber){
     $text = file_get_contents($base.$file);
@@ -160,6 +165,8 @@ Answer with characters 7 through 10 from `$highlightsFile`.
 Tip: Use the function `writeFileSync()` when writing to files.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($base, $file, $lineNumber, $highlightsFile) {
     $text = file_get_contents($base.$file);
@@ -208,6 +215,8 @@ Use the `querystring` module to parse a query string '$queryString'. Answer with
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($queryString, $queryKey){
     parse_str($queryString, $parsedStrings);
     return $parsedStrings[$queryKey];
@@ -226,6 +235,8 @@ EOD
 Use the parsed query string from above to concatenate the astronaut's full name with the string ' was on the ' and the mission that the astronaut was on.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($queryString){
     parse_str($queryString, $parsedStrings);
@@ -252,6 +263,8 @@ Encode the javascript object as a querystring and answer with the encoded query 
 
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($object) {
     return http_build_query($object);
@@ -300,6 +313,8 @@ Answer with a digest of the hash in `hex` format.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($cryptoString1){
     return hash("sha256", $cryptoString1);
 },
@@ -321,6 +336,8 @@ Use filter to create an array only containing elements that has the string 'noth
 Answer with the array.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($cryptoStrings){
     $return_arr = [];
@@ -351,6 +368,8 @@ Answer with the array of hashes.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($cryptoStrings){
     $return_arr = [];
     for ($i = 0; $i < count($cryptoStrings); $i++) {
@@ -380,6 +399,8 @@ Answer with the array of hashes.
 EOD
 ,
 
+"points" => 1,
+
 "answer" => function () use ($cryptoStrings){
     $return_arr = [];
     for ($i = 0; $i < count($cryptoStrings); $i++) {
@@ -408,6 +429,8 @@ For the remaining elements create a HMAC using the `sha256` algorithm and the se
 Answer with the array of HMACs.
 EOD
 ,
+
+"points" => 1,
 
 "answer" => function () use ($hmacedStrings) {
     return $hmacedStrings;

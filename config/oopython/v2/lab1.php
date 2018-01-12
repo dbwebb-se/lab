@@ -154,14 +154,14 @@ EOD
 Create a static attribute in the Cat class, "nr_of_paws", that contains the number of paws a cat have. Set its value to `$s1_CatNrOfPaws` in the declaration.  
 Also create a method for the class that returns "self.nr_of_paws".
 
-Answer with the string "`$s1_catName` has `$s1_CatNrOfPaws` paws."
+Answer with the string "`$s1_catName` has `$s1_CatNrOfPaws` paws"
 EOD
 ,
 "points" => 1,
 
 "answer" => function () use ($s1_catName, $s1_CatNrOfPaws) {
 
-    return "$s1_catName has $s1_CatNrOfPaws paws.";
+    return "$s1_catName has $s1_CatNrOfPaws paws";
 },
 
 ],
@@ -229,12 +229,12 @@ EOD
 [
 
 "text" => <<<EOD
-Create a new class named Time.  
+Create a new class named Duration.  
 Declare the instance attributes `hours`, `minutes` and `seconds` in the constructor. Make it so that values for the attributes can be sent as arguments to the constructor.  
-Give the class a method named `info` that returns time as a string with the format "h-m-s". Numbers below 10 should have a leading zero when returned in the info method.
+Give the class a method named `info` that returns duration as a string with the format "h-m-s". Numbers below 10 should have a leading zero when returned in the info method.
 
 
-Initialize a new *Time object* and assign it to a variable called `time1`. Give it hours `$s1_hours`, minutes `$s1_minutes` and seconds `$s1_seconds`.
+Initialize a new *Duration object* and assign it to a variable called `duration1`. Give it hours `$s1_hours`, minutes `$s1_minutes` and seconds `$s1_seconds`.
 
 Answer with the result from the info method.
 
@@ -256,9 +256,9 @@ EOD
 [
 
 "text" => <<<EOD
-Create a static method in your Time class. The method should take one argument, a string in the format as the one `info` returns, "h-m-s", and return the time it represents converted to number of seconds.
+Create a static method in your Duration class. The method should take one argument, a string in the format as the one `info` returns, "h-m-s", and return the duration it represents converted to number of seconds.
 
-Answer with the result from the new static method, use `time1.info()` as argument to it.
+Answer with the result from the new static method, use `duration1.info()` as argument to it.
 
 EOD
 ,
@@ -305,12 +305,12 @@ EOD
 [
 
 "text" => <<<EOD
-Overload the `add operator(+)` in the Time class.  
+Overload the `add operator(+)` in the Duration class.  
 It should return the duration of two objects added together, in seconds.
 
-Initialize a new Time object to a variable called `time2` , give it hours `$s1_hours2`, minutes `$s1_minutes2` and seconds `$s1_seconds2`.
+Initialize a new Duration object to a variable called `duration2` , give it hours `$s1_hours2`, minutes `$s1_minutes2` and seconds `$s1_seconds2`.
 
-Answer with `time1+time2`.
+Answer with `duration1+duration2`.
 EOD
 ,
 "points" => 1,
@@ -330,12 +330,12 @@ EOD
 [
 
 "text" => <<<EOD
-Overload the `iadd operator(+=)` in the Time class to update the own object with the sum of each unit,  hours+hours, minutes+minutes and seconds+seconds.  
+Overload the `iadd operator(+=)` in the Duration class to update the own object with the sum of each unit,  hours+hours, minutes+minutes and seconds+seconds.  
 
-Initialize a new Time object to a variable called `time3` , give it hours `$s1_hours3`, minutes `$s1_minutes3` and seconds `$s1_seconds3`.  
-In the code use "+=" to update `time2` with `time3`.
+Initialize a new Duration object to a variable called `duration3` , give it hours `$s1_hours3`, minutes `$s1_minutes3` and seconds `$s1_seconds3`.  
+In the code use "+=" to update `duration2` with `duration3`.
 
-Answer with `time2`s info method.
+Answer with `duration2`s info method.
 EOD
 ,
 "points" => 1,
@@ -381,10 +381,10 @@ EOD
 [
 
 "text" => <<<EOD
-Overload the `smaller than operator(<)` in the Time class.  
-It should return True if the time is shorter than the other.
+Overload the `smaller than operator(<)` in the Duration class.  
+It should return True if the duration is shorter than the other.
 
-Answer with `time1<time2`.
+Answer with `duration1<duration2`.
 EOD
 ,
 "points" => 3,

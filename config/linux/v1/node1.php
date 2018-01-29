@@ -462,7 +462,7 @@ EOD
 
 Create a function `isNotPrime()` that takes one parameter (an integer) and tests if that number is a prime number. If the number is not prime, the number is returned otherwise return 0.
 
-Use the built-in higher-order functions `reduce` to sum all numbers that are NOT prime numbers.
+Create the variable `maybePrimeNumber` once more with the numbers $reduceArrayString. Use the built-in higher-order function `reduce` to sum all numbers in `maybePrimeNumber` that are NOT prime numbers.
 
 Answer with the resulting sum.
 

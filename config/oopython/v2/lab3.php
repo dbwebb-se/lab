@@ -31,11 +31,14 @@ $s1_strings         = ["Frontwards", "Backwards", "switcharoo", "Switchy mc swit
 $s1_string          = $s1_strings[rand_int(0, count($s1_strings) -1)];
 
 return [
+"author" => ["aar"],
+"passPercentage" => 6/6,
+"passDistinctPercentage" => 6/6,
 
 /**
  * Titel and introduction to the lab.
  */
-"title" => "Lab 4 - Recursion",
+"title" => "Lab 3 - Recursion",
 
 "intro" => <<<EOD
 If you need to peek at examples or just want to know more, take a look at the page: https://docs.python.org/3/library/index.html. Here you will find everything this lab will go through and much more.
@@ -66,7 +69,7 @@ EOD
 
 
 /** ---------------------------------------------------------------------------
- * A question.
+ * A question. 1
  */
 [
 
@@ -76,6 +79,7 @@ Create a recursive function in the code below that calculates the sum of the num
 Answer with the sum.
 EOD
 ,
+"points" => 1,
 
 "answer" => function () use ($s1_sumTopNr, $s1_sumTop2Nr) {
     $sum = 0;
@@ -90,17 +94,18 @@ EOD
 
 
 /** ---------------------------------------------------------------------------
- * A question.
+ * A question. 2
  */
 [
 
 "text" => <<<EOD
-Create a recursive function in the code below that calculates the sum of the numbers in the list `[$s1_sumArrayString]`.  
+Create a recursive function in the code below that calculates the sum of the numbers in the list `[$s1_sumArrayString]`.
 If its an empty list return `0`.
 
 Answer with the sum.
 EOD
 ,
+"points" => 1,
 
 "answer" => function () use ($s1_sumArray) {
 
@@ -117,18 +122,19 @@ EOD
 
 
 /** ---------------------------------------------------------------------------
- * A question.
+ * A question. 3
  */
 [
 
 "text" => <<<EOD
-Create a recursive function in the code below that searches a list for a number and returns the index of the number.  
-Find the index of `$s1_searchFor` in the list `[$s1_sumArrayString]`.  
+Create a recursive function in the code below that searches a list for a number and returns the index of the number.
+Find the index of `$s1_searchFor` in the list `[$s1_sumArrayString]`.
 If the number cant be found, return -1.
 
 Answer with the index.
 EOD
 ,
+"points" => 1,
 
 "answer" => function () use ($s1_indexOfSearch){
     return $s1_indexOfSearch;
@@ -139,7 +145,7 @@ EOD
 
 
 /** ---------------------------------------------------------------------------
- * A question.
+ * A question. 4
  */
 [
 
@@ -150,6 +156,7 @@ Answer with the index.
 
 EOD
 ,
+"points" => 1,
 
 "answer" => function () {
     return -1;
@@ -160,7 +167,7 @@ EOD
 
 
 /** ---------------------------------------------------------------------------
- * A question.
+ * A question. 5
  */
 [
 
@@ -170,6 +177,7 @@ Create a recursive function in the code below that calculates `$s1_powBase` to t
 Answer with the result.
 EOD
 ,
+"points" => 1,
 
 "answer" => function () use ($s1_powBase, $s1_powTop) {
     return pow($s1_powBase, $s1_powTop);
@@ -180,16 +188,17 @@ EOD
 
 
 /** ---------------------------------------------------------------------------
- * A question.
+ * A question. 6
  */
 [
 
 "text" => <<<EOD
-Create a recursive function in the code below that turns a string backwards. Turn the string "$s1_string" backwards.  
+Create a recursive function in the code below that turns a string backwards. Turn the string "$s1_string" backwards.
 
 Answer with the backward string.
 EOD
 ,
+"points" => 1,
 
 "answer" => function () use ($s1_string) {
     return strrev($s1_string);

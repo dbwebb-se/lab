@@ -1,2 +1,5 @@
 db.sqlite
 vendor/
+
+# Atom
+debug.log

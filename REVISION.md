@@ -2,6 +2,12 @@ Revision history
 ===================
 
 
+v2.3.* (2018-02-12)
+-------------------
+
+* Fix #89 Wrong calculation of total number of tasks in javascript labs.
+
+
 v2.3.9 (2017-12-28)
 -------------------
 

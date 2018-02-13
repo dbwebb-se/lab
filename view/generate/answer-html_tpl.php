@@ -166,7 +166,7 @@ echo json_encode($data, $options);
         var didPassDistinct;
 
         status  = "Done with status ";
-        status += Object.keys(window.dbwebb.answers).length;
+        status += Object.keys(window.dbwebb.answers.answers).length;
         status += "/";
         status += window.dbwebb.correct;
         status += "/";

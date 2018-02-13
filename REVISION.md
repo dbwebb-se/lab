@@ -2,7 +2,7 @@ Revision history
 ===================
 
 
-v2.3.* (2018-02-12)
+v2.3.10 (2018-02-12)
 -------------------
 
 * Fix #92 To add support for points in node labs.

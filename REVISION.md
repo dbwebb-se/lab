@@ -5,6 +5,7 @@ Revision history
 v2.3.* (2018-02-12)
 -------------------
 
+* Fix #92 To add support for points in node labs.
 * Fix #89 Wrong calculation of total number of tasks in javascript labs.
 
 

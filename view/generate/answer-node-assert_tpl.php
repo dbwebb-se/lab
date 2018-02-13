@@ -44,6 +44,7 @@ Array.prototype.equals = function (array) {
 var dbwebb = {
 
     "prompt":   ">>> ",
+    "points":   0,
     "correct":  0,
     "failed":   0,
     "notDone":  0,
@@ -55,7 +56,7 @@ var dbwebb = {
         var file = path.join(__dirname, ".answer.json");
         var data = fs.readFileSync(file);
         var answers = JSON.parse(data);
-        this.answers = answers.answers;
+        this.answers = answers;
     },
 
 
@@ -78,13 +79,14 @@ var dbwebb = {
         if (answer === noanswer) {
             status = this.prompt + question + " NOT YET DONE.";
             this.notDone += 1;
-        } else if (answer === this.answers[question] || this.arrayCheck(answer, this.answers[question])) {
+        } else if (answer === this.answers.answers[question] || this.arrayCheck(answer, this.answers.answers[question])) {
             status = this.prompt + question + " CORRECT. Well done!\n" + JSON.stringify(answer) + " (" + typeof answer + ")";
             this.correct += 1;
+            this.points += this.answers.points[question];
         } else {
             status = this.prompt + question + " FAIL.\n" + this.prompt + "You said:\n" + JSON.stringify(answer) + " (" + typeof answer + ")";
             if (hint) {
-                status += "\n" + this.prompt + "Hint:\n" + JSON.stringify(this.answers[question]) + " (" + typeof this.answers[question] + ")";
+                status += "\n" + this.prompt + "Hint:\n" + JSON.stringify(this.answers.answers[question]) + " (" + typeof this.answers.answers[question] + ")";
             }
             this.failed += 1;
         }
@@ -96,29 +98,59 @@ var dbwebb = {
 
     "exitWithSummary": function() {
         var status;
-        var numberOfQuestions = Object.keys(this.answers).length;
-        var done = numberOfQuestions - this.correct;
+        var colorBlue   = "\x1b[96m";
         var colorGreen  = "\x1b[92m";
         var colorYellow = "\x1b[93m";
         var colorStop   = "\x1b[0m";
+        var questions = this.answers.summary.questions;
+        var pass = this.answers.summary.pass;
+        var passDistinct = this.answers.summary.passdistinct;
+        var didPass;
+        var didPassDistinct;
 
-        status  = this.prompt + "Done with status ";
-        status += numberOfQuestions;
+        status  = "Done with status ";
+        status += this.answers.summary.questions;
         status += "/";
         status += this.correct;
         status += "/";
         status += this.failed;
         status += "/";
         status += this.notDone;
-        status += " (Total/Correct/Failed/Not done).";
+        status += " (Total/Correct/Failed/Not done).\n";
+        status += "Points earned: ";
+        status += this.points;
+        status += " of ";
+        status += this.answers.summary.points;
+        status += "p (PASS=>";
+        status += this.answers.summary.pass;
+        status += "p";
+        if (this.answers.summary.passdistinct) {
+            status += ", PASS W DISTINCTION=>";
+            status += this.answers.summary.passdistinct;
+            status += "p";
+        }
+        status += ").";
+        console.info(status);
 
-        console.log(status);
+        // Check if pass, pass w distinction or not
+        var didPass = this.correct === questions;
+        if (pass) {
+            didPass = this.points >= pass;
+        }
 
-        if (done === 0) {
-            console.log(colorGreen + this.prompt + "Grade: PASS! :-)" + colorStop);
+        didPassDistinct = null;
+        if (passDistinct) {
+            didPassDistinct = this.points >= passDistinct;
+        }
+
+        if (didPassDistinct) {
+            console.info(colorBlue + this.prompt + "Grade: PASS WITH DISTINCTION!!! :-D" + colorStop);
+            return 0;
+        } else if (didPass) {
+            console.info(colorGreen + this.prompt + "Grade: PASS! :-)" + colorStop);
             return 0;
         } else {
-            console.log(colorYellow + this.prompt + "Grade: Thou Did Not Pass. :-|" + colorStop);
+            console.info(colorYellow + this.prompt + "Grade: Thou Did Not Pass. :-|" + colorStop);
             return 42;
         }
     }

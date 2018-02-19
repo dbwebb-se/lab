@@ -13,8 +13,10 @@ function md5_to_int($md5)
 
     $sum = $inc;
     foreach ($parts as $val) {
-        $sum += $val;
+        // $sum += hexdec($val);
+        $sum += intval($val);
     }
+
     return $sum;
 }
 

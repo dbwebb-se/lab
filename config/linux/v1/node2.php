@@ -113,7 +113,7 @@ EOD
 [
 
 "text" => <<<EOD
-Start by importing the filesystem module `fs`.
+Start by requiring the filesystem module `fs`.
 
 Use the `fs` module and the function `readFileSync` to read the entire `$file` in UTF-8 encoding into a variable. Answer with the number of characters in the file.
 EOD
@@ -209,7 +209,7 @@ EOD
 [
 
 "text" => <<<EOD
-Start by importing the querystring module `querystring`.
+Start by requiring the querystring module `querystring`.
 
 Use the `querystring` module to parse a query string '$queryString'. Answer with the value of $queryKey.
 EOD
@@ -305,7 +305,7 @@ EOD
 [
 
 "text" => <<<EOD
-Start by importing the `crypto` module.
+Start by requiring the `crypto` module.
 
 Use the `crypto` module to create a hash of '$cryptoString1' using the `sha256` algorithm.
 
@@ -458,4 +458,5 @@ EOD
 /**
  * Closing up this lab.
  */
+
 ]; // EOF the enritre lab

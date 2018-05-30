@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.3.11 (2018-02-17)";
+const VERSION = "v2.4.0 (2018-05-30)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 const LAB_INSTALL_DIR = __DIR__;
@@ -119,6 +119,7 @@ $VALID_LABS = [
 
     "databas/node1/v1" => "config/databas/v1/node1.php",
     "databas/node2/v1" => "config/databas/v1/node2.php",
+    "databas/exam/v1" => "config/databas/v1/exam",
 ];
 
 // Type of lab

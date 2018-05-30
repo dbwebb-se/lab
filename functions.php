@@ -160,16 +160,58 @@ function init()
     global $db;
 
     $sql = "
-create table if not exists lab
+CREATE TABLE IF NOT EXISTS lab
 (
-    int id primary key,
-    gen_key text key,
-    acronym text,
-    course text,
-    lab text,
-    labversion text,
-    version text,
-    created datetime
+    id INTEGER,
+    gen_key TEXT KEY,
+    acronym TEXT,
+    course TEXT,
+    lab TEXT,
+    labversion TEXT,
+    version TEXT,
+    created DATETIME,
+
+    PRIMARY KEY (id)
+)
+";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+
+    $sql = "
+CREATE TABLE IF NOT EXISTS exam
+(
+    id INTEGER,
+    course TEXT,
+    courseEvent TEXT,
+    type TEXT,
+    target TEXT,
+    description TEXT,
+    timelimit TEXT,
+    version TEXT,
+    start DATETIME,
+    stop DATETIME,
+
+    PRIMARY KEY (id)
+)
+";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+
+    $sql = "
+CREATE TABLE IF NOT EXISTS exam_log
+(
+    id INTEGER,
+    action TEXT,
+    acronym TEXT,
+    signature TEXT,
+    ts DATETIME,
+    toolversion TEXT,
+    examid INTEGER,
+
+    PRIMARY KEY (id),
+    FOREIGN KEY (examid) REFERENCES exam(id)
 )
 ";
     $stmt = $db->prepare($sql);
@@ -303,4 +345,280 @@ function formatAnswerJSON($answer)
         return json_encode($answer, JSON_PRETTY_PRINT | JSON_PRESERVE_ZERO_FRACTION);
     }
     return json_encode($answer, JSON_PRETTY_PRINT);
+}
+
+
+
+/**
+ * List coming (and passed exams)
+ */
+function examList($course)
+{
+    global $db;
+
+    $sqlCurrent = "
+SELECT
+    datetime('now', 'localtime') AS ts
+;
+";
+
+    $sqlActive = "
+SELECT
+    *
+FROM exam
+WHERE
+    course = ?
+    AND datetime('now', 'localtime') >= start
+    AND datetime('now', 'localtime') <= stop
+ORDER BY start ASC
+;
+";
+
+$sqlPlanned = "
+SELECT
+    *
+FROM exam
+WHERE
+    course = ?
+    AND start > datetime('now', 'localtime')
+    AND start < datetime('now', '+13 months', 'localtime')
+    AND stop IS NOT NULL
+ORDER BY start ASC
+;
+";
+
+$sqlPassed = "
+SELECT
+    *
+FROM exam
+WHERE
+    course = ?
+    AND start < date('now', 'localtime')
+    AND start > date('now', '-13 months', 'localtime')
+    AND stop IS NOT NULL
+ORDER BY stop DESC
+;
+";
+
+    $stmt = $db->prepare($sqlCurrent);
+    $stmt->execute();
+    $current = $stmt->fetch();
+
+    $stmt = $db->prepare($sqlActive);
+    $stmt->execute([$course]);
+    $active = $stmt->fetchAll();
+
+    $stmt = $db->prepare($sqlPlanned);
+    $stmt->execute([$course]);
+    $planned = $stmt->fetchAll();
+
+    $stmt = $db->prepare($sqlPassed);
+    $stmt->execute([$course]);
+    $passed = $stmt->fetchAll();
+
+    return [$current, $active, $planned, $passed];
+}
+
+
+
+/**
+ * Get details of active exam.
+ */
+function getActiveExamDetail($course, $target)
+{
+    global $db;
+
+    $sql = "
+SELECT
+    *
+FROM exam
+WHERE
+    course = ?
+    AND target = ?
+    AND datetime('now', 'localtime') > start
+    AND datetime('now', 'localtime') < stop
+ORDER BY start ASC
+;
+";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$course, $target]);
+    $res = $stmt->fetch();
+
+    return $res;
+}
+
+
+
+/**
+ * Log that a user is checking out the exam.
+ */
+function examLogCheckout($examId, $acronym, $signature)
+{
+    global $db;
+
+    $sql = "
+INSERT INTO exam_log
+    (examId, acronym, signature, action, ts, toolversion)
+VALUES
+    (?, ?, ?, 'Checkout', datetime('now'), ?)
+;
+";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$examId, $acronym, $signature, VERSION]);
+}
+
+
+
+/**
+ * Log that a user is checking out the exam.
+ */
+function examLogSeal($examId, $acronym, $signature)
+{
+    global $db;
+
+    $sql = "
+INSERT INTO exam_log
+    (examId, acronym, signature, action, ts, toolversion)
+VALUES
+    (?, ?, ?, 'Seal', datetime('now'), ?)
+;
+";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$examId, $acronym, $signature, VERSION]);
+}
+
+
+
+/**
+ * Get details of an exam by its id, course and courseEvent.
+ */
+function getExamById($id)
+{
+    global $db;
+
+    $sql = "
+SELECT
+    *
+FROM exam
+WHERE
+    course = ?
+    AND target = ?
+    AND datetime('now', 'localtime') > start
+    AND datetime('now', 'localtime') < stop
+ORDER BY start ASC
+;
+";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute([$course, $target]);
+    $res = $stmt->fetch();
+
+    return $res;
+}
+
+
+
+/**
+ * Get details of active exam.
+ */
+function getReceiptForExam($examId, $acronym)
+{
+    global $db;
+
+    $sqlExam = "
+SELECT
+    *,
+    datetime('now', 'localtime') AS ts
+FROM exam
+WHERE
+    id = ?
+;
+";
+
+$sqlLog = "
+SELECT
+    *,
+    datetime(ts, 'localtime') AS timestamp
+FROM exam_log
+WHERE
+    examId = ?
+    AND acronym = ?
+ORDER BY ts
+;
+";
+
+$sqlDuration = "
+SELECT
+    strftime('%s', (SELECT ts FROM exam_log WHERE examId=? AND acronym=? AND action='Seal' ORDER BY ts DESC LIMIT 1)) - strftime('%s', (SELECT ts FROM exam_log WHERE examId=? AND acronym=? AND action='Checkout' ORDER BY ts LIMIT 1)) AS duration,
+    strftime('%s', datetime('now')) - strftime('%s', (SELECT ts FROM exam_log WHERE examId=? AND acronym=? AND action='Checkout' ORDER BY ts LIMIT 1)) AS ongoing
+;
+";
+
+    $stmt = $db->prepare($sqlExam);
+    $stmt->execute([$examId]);
+    $res = $stmt->fetch();
+
+    $stmt = $db->prepare($sqlLog);
+    $stmt->execute([$examId, $acronym]);
+    $log = $stmt->fetchAll();
+
+    $stmt = $db->prepare($sqlDuration);
+    $stmt->execute([$examId, $acronym, $examId + 1, $acronym, $examId, $acronym]);
+    $duration = $stmt->fetch();
+
+    $seconds = !is_null($duration["duration"])
+        ? $duration["duration"]
+        : $duration["ongoing"];
+
+    $durationText = $seconds > 86400
+        ? gmdate("z H:i:s", $seconds)
+        : gmdate("H:i:s", $seconds);
+
+    $maxLength = gmdate("H:i:s", $res["timelimit"]);
+    $durationText .= " ($maxLength)";
+
+    $logText  = "| Action   | Timestamp           | Id    | Signature |\n";
+    $logText .= "|----------|---------------------|-------|-----------|\n";
+    foreach ($log AS $row) {
+        $logText .= "| ". str_pad($row["action"], 9);
+        $logText .= "| ". str_pad($row["timestamp"], 20);
+        $logText .= "| ". str_pad($row["id"], 5, " ", STR_PAD_LEFT);
+        $logText .= " | ". $row["signature"];
+        $logText .= " |\n";
+    }
+
+    $text = <<<EOD
+Receipt for ${res["course"]}:${res["target"]}
+==================================
+
+Details
+----------------------------------
+
+Id:          ${res["id"]}
+What:        ${res["type"]} ${res["courseEvent"]}
+Description: ${res["description"]}
+Max length:  $maxLength
+Active:      ${res["start"]} - ${res["stop"]}
+
+
+User
+----------------------------------
+
+Acronym: $acronym
+
+
+Log
+----------------------------------
+
+$logText
+Duration:  $durationText
+Timestamp: ${res["ts"]}
+
+
+EOD;
+
+    return $text;
 }

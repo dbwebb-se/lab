@@ -2,6 +2,14 @@ Revision history
 ===================
 
 
+
+v2.4.0 (2018-05-30)
+-------------------
+
+* Added support for dbwebb exam and databas exam in 2018-lp4 and 2018-prepare.
+
+
+
 v2.3.11 (2018-02-17)
 -------------------
 

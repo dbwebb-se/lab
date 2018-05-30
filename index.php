@@ -41,6 +41,7 @@ $doGenerate = isset($_GET['doGenerate']);
 $action     = isset($_GET['action'])    ? $_GET['action'] : null;
 $acronym    = isset($_GET['acronym'])   ? $_GET['acronym'] : null;
 $course     = isset($_GET['course'])    ? $_GET['course'] : null;
+$target     = isset($_GET['target'])    ? $_GET['target'] : null;
 $lab        = isset($_GET['lab'])       ? $_GET['lab'] : null;
 $labversion = isset($_GET['version']) && !empty($_GET['version'])
     ? $_GET['version']
@@ -60,9 +61,32 @@ if ($doGenerate) {
 if ($action == "bundle") {
     $key = isset($key) ? $key : $gen_key;
     include "view/generate/bundle_tpl.php";
-    die();
+    exit();
 }
 
+// View exam details
+if ($action == "exam-list") {
+    include "view/generate/exam-list_tpl.php";
+    exit();
+}
+
+// Checkout exam
+if ($action == "exam-checkout") {
+    include "view/generate/exam-checkout_tpl.php";
+    exit();
+}
+
+// Seal exam
+if ($action == "exam-seal") {
+    include "view/generate/exam-seal_tpl.php";
+    exit();
+}
+
+// REceipt for exam
+if ($action == "exam-receipt") {
+    include "view/generate/exam-receipt_tpl.php";
+    exit();
+}
 
 $title = "Lab generation";
 include "view/gui/header_tpl.php";

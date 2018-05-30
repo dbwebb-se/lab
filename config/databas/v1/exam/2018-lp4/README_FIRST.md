@@ -1,7 +1,20 @@
-LÄS MIG FÖRST
+---
+author:
+    - mos
+category:
+    - kurs databas
+    - examination
+revision:
+    "2018-05-30": "(A, mos) Första utgåvan."
+...
+Om examination med dbwebb exam
 ================================
 
 Detta är den individuella examinationen i kursen databas, det är en del av kmom10 och delmomentet heter "exam". 
+
+<!--
+[Du kan läsa detta dokumentet via dbwebb.se](https://dbwebb.se/kurser/databas/examination/om).
+-->
 
 Se till att du har senaste versionen av kommandot `dbwebb`.
 
@@ -9,7 +22,7 @@ Se till att du har senaste versionen av kommandot `dbwebb`.
 dbwebb selfupdate
 ```
 
-Du skall använda kommandot `dbwebb exam` för att hämta ut och lämna in din examination. Du kan läsa mer om kommandot `dbwebb exam` via:
+Du skall använda kommandot `dbwebb exam` för att hämta ut och lämna in din examination. Du kan läsa mer om kommandot [`dbwebb exam` via manualen](dbwebb-cli/examination) eller via hjälp-kommandot.
 
 ```
 dbwebb exam help
@@ -22,7 +35,7 @@ Förberedelser inför examinationen
 
 Se till att katalogen `me/kmom10/exam` är tom.
 
-Om du har gjort en tidigare examination kan du ta en kopia av katalogen och sedan tömma den.
+Om du har gjort en tidigare examination kan du byta namn på katalogen och skapa en ny tom katalog.
 
 ```
 # Du står i kursrepots root
@@ -32,11 +45,18 @@ cd me/kmom10 \
     && cd exam 
 ```
 
-Du kan lista om det finns en aktiv examination.
+Du kan lista om det finns en aktiv examination. Examinationstillfällen är endast aktiva under en viss period.
 
 ```
 dbwebb exam list
 ```
+
+
+
+Prova processen dagen innan
+--------------------------------
+
+Normalt finns det en testexamination som är aktiv dagen innan den riktiga examinationen. Det gör att du kan bekanta dig med verktyget `dbwebb exam` för att se hur det fungerar.
 
 
 
@@ -76,18 +96,3 @@ dbwebb exam seal exam
 ```
 
 Blir något fel så kan du försegla och lämna in igen, det är din sista inlämning som räknas.
-
-
-
-Filer
---------------------------------
-
-Följande filer genereras när du använder `dbwebb exam`.
-
-| Fil | Innehåll |
-|-----|----------|
-| `INSTRUKTION.md` | Instruktionen till examinationen och uppgiften som skall utföras. |
-| `README_FIRST` | Denna filen med information om förfarandet. |
-| `.dbwebb_exam/FILES.txt` | En lista av alla filer som ligger i katalogen, genereras vid `checkout` och `seal`. |
-| `.dbwebb_exam/RECEIPT.md` | Ett kvitto på dina aktiviteter, samma information som du kan hämta med `dbwebb exam receipt <target>`. |
-| `.dbwebb_exam/RECEIPT.md.sha1` | En hash på motsvarande fil. | 

@@ -65,12 +65,19 @@ $VALID_LABS = [
     "python/lab5/v2" => "config/python/v2/lab5.php",
     "python/lab6/v2" => "config/python/v2/lab6.php",
 
+    "python/lab1/v3" => "config/python/v3/lab1.php",
+    "python/lab2/v3" => "config/python/v3/lab2.php",
+    "python/lab3/v3" => "config/python/v3/lab3.php",
+    "python/lab4/v3" => "config/python/v3/lab4.php",
+    "python/lab5/v3" => "config/python/v3/lab5.php",
+    "python/lab6/v3" => "config/python/v3/lab6.php",
+
     "oopython/lab1/v1" => "config/oopython/v1/lab1.php",
     "oopython/lab2/v1" => "config/oopython/v1/lab2.php",
     "oopython/lab3/v1" => "config/oopython/v1/lab3.php",
     "oopython/lab4/v1" => "config/oopython/v1/lab4.php",
     "oopython/lab5/v1" => "config/oopython/v1/lab5.php",
-    
+
     "oopython/lab1/v2" => "config/oopython/v2/lab1.php",
     "oopython/lab2/v2" => "config/oopython/v2/lab2.php",
     "oopython/lab3/v2" => "config/oopython/v2/lab3.php",

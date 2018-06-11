@@ -1,5 +1,5 @@
 <form>
-    
+
 <p>
     <label>Course:</br>
     <select name="course">
@@ -48,6 +48,7 @@
     <select name="version">
         <option value="v1" <?= isSelected("v1", $labversion) ?>>v1</option>
         <option value="v2" <?= isSelected("v2", $labversion) ?>>v2</option>
+        <option value="v3" <?= isSelected("v3", $labversion) ?>>v3</option>
     </select></label>
 </p>
 

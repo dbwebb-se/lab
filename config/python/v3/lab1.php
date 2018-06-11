@@ -330,11 +330,9 @@ BTH have two plugin-hybrid cars. A new car and an old car. The new car has a fas
 
 During fast charging the effect of the charger is 200W and during normal charging the effect of the charger is 100W.
 
-Calculate the total amount of energy used to fully charge the two cars. Answer in kWh.
+The formula for calculating the amount of energy based on effect and time is: `energy = effect * time`. To get the amount of energy in kWh the formula is `energy = (effect in W * time in hours) / 1000`.
 
-The formula for calculating the amount of energy based on effect and time is: `energy = time * effect`.
-
-Answer with the number of minutes.
+Calculate the total amount of energy used to fully charge the two cars. Answer with the amount of energy in kWh.
 EOD
 ,
 "points" => 3,

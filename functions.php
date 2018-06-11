@@ -566,7 +566,7 @@ SELECT
     $log = $stmt->fetchAll();
 
     $stmt = $db->prepare($sqlDuration);
-    $stmt->execute([$examId, $acronym, $examId + 1, $acronym, $examId, $acronym]);
+    $stmt->execute([$examId, $acronym, $examId, $acronym, $examId, $acronym]);
     $duration = $stmt->fetch();
 
     $seconds = !is_null($duration["duration"])

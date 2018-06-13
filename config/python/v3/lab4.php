@@ -182,6 +182,85 @@ Answer with the return value of the function `analyze_password` called with the 
  * New section of exercises.
  */
 [
+"title" => "Modules",
+
+"intro" => <<<EOD
+In this section we will look into modules and how we can structure our code.
+EOD
+,
+
+"shuffle" => false,
+
+"questions" => [
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Create a a new Python file called `physics.py`. Import you new file/module in `answer.py` using the import statement: import physics
+
+In your physics module create a function that calculates the speed after a free fall without air resistance. The function takes two arguments time and initial speed. The inital speed argument should have a default value of 0 and it should be possible to call the function only with a time argument.
+
+Tip: the formula for calculating the speed of a free fall without air resistance is: speed = initial speed + g * time, where g = 9.82 m/s².
+
+Answer with a call to the function with time = 5 seconds.
+EOD
+,
+"points" => 1,
+"answer" => function () {
+    return 9.82 * 5;
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Every point mass attracts every other point mass by a force acting along the line intersecting both points. The formula for calculating the force between two point masses is the following: force = G * m1*m2 / r². Where G = 6.674 * 10⁻¹¹, m1 and m2 is the masses of the two objects and r is the distance between the two objects.
+
+Create a function in your physics module that returns the force given three arguments m1, m2 and r.
+
+Answer with the returned value from a call to the function with the following arguments m1 = 5.972*10²⁴, m2 = 1.989*10³⁰ and r = 149.6*10⁹. The calculated force is the gravitational pull between the sun and the earth.
+
+Tip: Use the math.pow(x, y) function.
+EOD
+,
+"points" => 1,
+"answer" => function () {
+    $G = 6.674 * pow(10, -11);
+    $m1 = 5.972 * pow(10, 24);
+    $m2 = 1.989 * pow(10, 30);
+    $r = 1.496 * pow(10, 11);
+    return $G * $m1 * $m2 / ($r * $r);
+},
+
+
+],
+
+
+
+/**
+ * Closing up this section.
+ */
+], // EOF questions
+], // EOF section
+
+
+
+/** ===================================================================================
+ * New section of exercises.
+ */
+[
 "title" => "Extra assignments",
 
 "intro" => <<<EOD

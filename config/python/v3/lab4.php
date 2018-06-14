@@ -203,7 +203,7 @@ EOD
 "text" => <<<EOD
 Create a a new Python file called `physics.py`. Import you new file/module in `answer.py` using the import statement: import physics
 
-In your physics module create a function that calculates the speed after a free fall without air resistance. The function takes two arguments time and initial speed. The inital speed argument should have a default value of 0 and it should be possible to call the function only with a time argument.
+In your physics module create a function `free_fall` that calculates the speed after a free fall without air resistance. The function takes two arguments time and initial speed. The inital speed argument should have a default value of 0 and it should be possible to call the function only with a time argument.
 
 Tip: the formula for calculating the speed of a free fall without air resistance is: speed = initial speed + g * time, where g = 9.82 m/s².
 
@@ -226,9 +226,80 @@ EOD
 [
 
 "text" => <<<EOD
+Modify your defined function `free_fall` to take another argument `gravity` with a default value of 9.82.
+
+Answer with a call to the function with time = 3 seconds, an initial speed of 4 and a gravity value of 1.62 (gravity on the moon).
+EOD
+,
+"points" => 1,
+"answer" => function () {
+    return 1.62 * 3 + 4;
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Kinetic energy describes the energy of an object with a certain mass (m) and velocity (v).
+
+Create a function `kinetic_energy` that calculates the amount of energy of an object. The formula for calculating kinetic energy is: energy = 0.5 * m * v².
+
+Use your defined function `free_fall` in combination with `kinetic_energy` to calculate the kinetic energy of an object with m = 10 after a free fall of time = 10 with the default gravity of earth (9.82).
+
+Round the answer to one decimal.
+EOD
+,
+"points" => 1,
+"answer" => function () {
+    return round(0.5 * 10 * (9.82 * 10) * (9.82 * 10), 1);
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Potential energy is the energy stored in an object by virtue of the objects position in a gravitational field. The higher an object is lifted the greater the potential energy. The formula for calculating the potential energy is: energy = m * g * h, with m being the mass of the object, g the gravity and h the height of the object.
+
+When an object falls all of the potential energy is converted into kinetic energy. So it is possible to calculate the height of the fall based on the amount of kinetic energy an object has at the end of the fall using the following formula: height = kinetic energy / (m * g).
+
+Create a function `height` that calculates the height of a free fall of time = 10 for an object with m = 10 and g = 9.82.
+
+Round the answer to one decimal.
+EOD
+,
+"points" => 1,
+"answer" => function () {
+    return round(0.5 * 10 * (9.82 * 10) * (9.82 * 10) / (9.82 * 10), 1);
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
 Every point mass attracts every other point mass by a force acting along the line intersecting both points. The formula for calculating the force between two point masses is the following: force = G * m1*m2 / r². Where G = 6.674 * 10⁻¹¹, m1 and m2 is the masses of the two objects and r is the distance between the two objects.
 
-Create a function in your physics module that returns the force given three arguments m1, m2 and r.
+Create a function `gravitational_pull` in your physics module that returns the force given three arguments m1, m2 and r.
 
 Answer with the returned value from a call to the function with the following arguments m1 = 5.972*10²⁴, m2 = 1.989*10³⁰ and r = 149.6*10⁹. The calculated force is the gravitational pull between the sun and the earth.
 
@@ -241,6 +312,30 @@ EOD
     $m1 = 5.972 * pow(10, 24);
     $m2 = 1.989 * pow(10, 30);
     $r = 1.496 * pow(10, 11);
+    return $G * $m1 * $m2 / ($r * $r);
+},
+
+
+],
+
+
+
+/** -----------------------------------------------------------------------------------
+ * A question.
+ */
+[
+
+"text" => <<<EOD
+Using the already defined functions `height` and `gravitational_pull` to calculate the gravitational pull between the earth and the object of m = 10 before the free fall.
+
+EOD
+,
+"points" => 1,
+"answer" => function () {
+    $G = 6.674 * pow(10, -11);
+    $m1 = 5.972 * pow(10, 24);
+    $m2 = 10;
+    $r = 491;
     return $G * $m1 * $m2 / ($r * $r);
 },
 

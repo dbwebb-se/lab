@@ -391,7 +391,7 @@ Whether a certain year is a leap year depends on a few different rules. There is
 
 Create a function `leap_year` that checks whether a certain year is a leap year. The function should take one argument.
 
-Then create another function `leap_decider` that takes two arguments: `start_year` and `end_year`. The return value from should be a string containing the year and whether the year is a leap year.
+Then create another function `leap_decider` that takes two arguments: `start_year` and `end_year`. The return value from the function should be a string containing the years and whether the years are leap years.
 
 Example: With the arguments start_year: 1999 and end_year: 2005, the string would be:
 
@@ -439,7 +439,7 @@ EOD
 
     for ($i = 1; $i <= 4; $i++) {
         for ($j = 1; $j <= $i; $j++) {
-            $multiplicationTable.= "$j ";
+            $multiplicationTable.= $j*$i . " ";
         }
         $multiplicationTable.= "\n";
     }

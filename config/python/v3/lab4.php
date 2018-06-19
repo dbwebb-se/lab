@@ -205,9 +205,9 @@ Create a a new Python file called `physics.py`. Import you new file/module in `a
 
 In your physics module create a function `free_fall` that calculates the speed after a free fall without air resistance. The function takes two arguments time and initial speed. The inital speed argument should have a default value of 0 and it should be possible to call the function only with a time argument.
 
-Tip: the formula for calculating the speed of a free fall without air resistance is: speed = initial speed + g * time, where g = 9.82 m/s².
+Tip: the formula for calculating the speed of a free fall without air resistance is: speed = initial speed + g * time, where g = 9.82.
 
-Answer with a call to the function with time = 5 seconds.
+Answer with a call to the function with time = 5.
 EOD
 ,
 "points" => 1,
@@ -228,7 +228,7 @@ EOD
 "text" => <<<EOD
 Modify your defined function `free_fall` to take another argument `gravity` with a default value of 9.82.
 
-Answer with a call to the function with time = 3 seconds, an initial speed of 4 and a gravity value of 1.62 (gravity on the moon).
+Answer with a call to the function with time = 3, an initial speed of 4 and a gravity value of 1.62 (gravity on the moon).
 EOD
 ,
 "points" => 1,

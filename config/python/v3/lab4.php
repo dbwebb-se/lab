@@ -26,6 +26,17 @@ $stoicTexts = [
 $stoicTextsRand = rand_int(0, count($stoicTexts) - 1);
 $stoicText = $stoicTexts[$stoicTextsRand];
 
+
+$timeOfFall = rand_int(4, 8);
+$timeOfFallLess = $timeOfFall - 2;
+$timeOfFallMore = $timeOfFall + 1;
+$timeOfFallEvenMore = $timeOfFall + 2;
+
+$startYear = rand_int(1997, 2004);
+$endYear = $startYear + 6;
+
+$multiplicator = 4;
+
 /**
  * Titel and introduction to the lab.
  */
@@ -85,7 +96,7 @@ The function should return True or False depending on whether the password is va
 
 Answer with the return value of the function when called with the string '$password'.
 
-Tip: Use built-in character functions `isupper()`, `islower()`, `idigit()`.
+Tip: Use built-in character functions `isupper()`, `islower()`, `isdigit()`.
 ",
 "points" => 1,
 "answer" => function () use ($password) {
@@ -201,18 +212,18 @@ EOD
 [
 
 "text" => <<<EOD
-Create a a new Python file called `physics.py`. Import you new file/module in `answer.py` using the import statement: import physics
+Create a new Python file called `physics.py`. Import your new file/module in `answer.py` using the import statement: import physics
 
 In your physics module create a function `free_fall` that calculates the speed after a free fall without air resistance. The function takes two arguments time and initial speed. The inital speed argument should have a default value of 0 and it should be possible to call the function only with a time argument.
 
 Tip: the formula for calculating the speed of a free fall without air resistance is: speed = initial speed + g * time, where g = 9.82.
 
-Answer with a call to the function with time = 5.
+Answer with a call to the function with time = $timeOfFall.
 EOD
 ,
 "points" => 1,
-"answer" => function () {
-    return 9.82 * 5;
+"answer" => function () use ($timeOfFall) {
+    return 9.82 * $timeOfFall;
 },
 
 
@@ -228,12 +239,12 @@ EOD
 "text" => <<<EOD
 Modify your defined function `free_fall` to take another argument `gravity` with a default value of 9.82.
 
-Answer with a call to the function with time = 3, an initial speed of 4 and a gravity value of 1.62 (gravity on the moon).
+Answer with a call to the function with time = $timeOfFallLess, an initial speed of 4 and a gravity value of 1.62 (gravity on the moon).
 EOD
 ,
 "points" => 1,
-"answer" => function () {
-    return 1.62 * 3 + 4;
+"answer" => function () use ($timeOfFallLess) {
+    return 1.62 * $timeOfFallLess + 4;
 },
 
 
@@ -249,16 +260,16 @@ EOD
 "text" => <<<EOD
 Kinetic energy describes the energy of an object with a certain mass (m) and velocity (v).
 
-Create a function `kinetic_energy` that calculates the amount of energy of an object. The formula for calculating kinetic energy is: energy = 0.5 * m * v².
+Create a function `kinetic_energy` that calculates the amount of kinetic energy of an object. The formula for calculating kinetic energy is: energy = 0.5 * m * v².
 
-Use your defined function `free_fall` in combination with `kinetic_energy` to calculate the kinetic energy of an object with m = 10 after a free fall of time = 10 with the default gravity of earth (9.82).
+Use your defined function `free_fall` in combination with `kinetic_energy` to calculate the kinetic energy of an object with m = 10 after a free fall of time = $timeOfFallMore with the default gravity of earth (9.82).
 
 Round the answer to one decimal.
 EOD
 ,
 "points" => 1,
-"answer" => function () {
-    return round(0.5 * 10 * (9.82 * 10) * (9.82 * 10), 1);
+"answer" => function () use ($timeOfFallMore) {
+    return round(0.5 * 10 * (9.82 * $timeOfFallMore) * (9.82 * $timeOfFallMore), 1);
 },
 
 
@@ -274,16 +285,16 @@ EOD
 "text" => <<<EOD
 Potential energy is the energy stored in an object by virtue of the objects position in a gravitational field. The higher an object is lifted the greater the potential energy. The formula for calculating the potential energy is: energy = m * g * h, with m being the mass of the object, g the gravity and h the height of the object.
 
-When an object falls all of the potential energy is converted into kinetic energy. So it is possible to calculate the height of the fall based on the amount of kinetic energy an object has at the end of the fall using the following formula: height = kinetic energy / (m * g).
+When an object falls, all of the potential energy is converted into kinetic energy. So it is possible to calculate the height of the fall based on the amount of kinetic energy an object has at the end of the fall using the following formula: height = kinetic energy / (m * g).
 
-Create a function `height` that calculates the height of a free fall of time = 10 for an object with m = 10 and g = 9.82.
+Create a function `height` that calculates the height of a free fall of time = $timeOfFallMore for an object with m = 10 and g = 9.82.
 
 Round the answer to one decimal.
 EOD
 ,
 "points" => 1,
-"answer" => function () {
-    return round(0.5 * 10 * (9.82 * 10) * (9.82 * 10) / (9.82 * 10), 1);
+"answer" => function () use ($timeOfFallMore) {
+    return round(0.5 * 10 * (9.82 * $timeOfFallMore) * (9.82 * $timeOfFallMore) / (9.82 * 10), 1);
 },
 
 
@@ -301,7 +312,7 @@ Every point mass attracts every other point mass by a force acting along the lin
 
 Create a function `gravitational_pull` in your physics module that returns the force given three arguments m1, m2 and r.
 
-Answer with the returned value from a call to the function with the following arguments m1 = 5.972*10²⁴, m2 = 1.989*10³⁰ and r = 149.6*10⁹. The calculated force is the gravitational pull between the sun and the earth.
+Answer with the returned value from a call to the function with the following arguments m1 = 5.972 * 10²⁴, m2 = 10 and r = 100. The calculated force is the gravitational pull between the earth and an object with a mass of 10kg and 100 meters above the surface of the earth.
 
 Tip: Use the math.pow(x, y) function.
 EOD
@@ -310,8 +321,8 @@ EOD
 "answer" => function () {
     $G = 6.674 * pow(10, -11);
     $m1 = 5.972 * pow(10, 24);
-    $m2 = 1.989 * pow(10, 30);
-    $r = 1.496 * pow(10, 11);
+    $m2 = 10;
+    $r = 100;
     return $G * $m1 * $m2 / ($r * $r);
 },
 
@@ -326,17 +337,18 @@ EOD
 [
 
 "text" => <<<EOD
-Using the already defined functions `height` and `gravitational_pull` to calculate the gravitational pull between the earth and the object of m = 10 before the free fall.
+Using the already defined functions `height` and `gravitational_pull` to calculate the gravitational pull between the earth (m = 5.972 * 10²⁴) and an object of m = 10 before a free fall of $timeOfFallEvenMore seconds.
 
+Round the answer to one decimal.
 EOD
 ,
 "points" => 1,
-"answer" => function () {
+"answer" => function () use ($timeOfFallEvenMore) {
     $G = 6.674 * pow(10, -11);
     $m1 = 5.972 * pow(10, 24);
     $m2 = 10;
-    $r = 491;
-    return $G * $m1 * $m2 / ($r * $r);
+    $r = 0.5 * 10 * (9.82 * $timeOfFallEvenMore) * (9.82 * $timeOfFallEvenMore) / (9.82 * 10);
+    return round($G * $m1 * $m2 / ($r * $r), 1);
 },
 
 
@@ -375,12 +387,34 @@ EOD
 [
 
 "text" => <<<EOD
+Whether a certain year is a leap year depends on a few different rules. There is a leap year every year whose number is perfectly divisible by four - except for years which are both divisible by 100 and not divisible by 400. The second part of the rule effects century years. For example; the century years 1600 and 2000 are leap years, but the century years 1700, 1800, and 1900 are not.
+
+Create a function `leap_year` that checks whether a certain year is a leap year. The function should take one argument.
+
+Then create another function `leap_decider` that takes two arguments: `start_year` and `end_year`. The return value from should be a string containing the year and whether the year is a leap year.
+
+Example: With the arguments start_year: 1999 and end_year: 2005, the string would be:
+
+1999 is not a leap year, 2000 is a leap year, 2001 is not a leap year, 2002 is not a leap year, 2003 is not a leap year, 2004 is a leap year, 2005 is not a leap year
+
+Answer with a call to `leap_decider` with the following arguments $startYear and $endYear.
 
 EOD
 ,
 "points" => 3,
-"answer" => function () {
-    return 2;
+"answer" => function () use ($startYear, $endYear) {
+    $leapArr = [];
+    while ($startYear <= $endYear) {
+        if ($startYear%4 == 0 && !($startYear%100 == 0 && $startYear%400 != 0)) {
+            $leapArr[] = $startYear . " is a leap year";
+        } else {
+            $leapArr[] = $startYear . " is not a leap year";
+        }
+
+        $startYear++;
+    }
+
+    return implode(", ", $leapArr);
 },
 
 
@@ -394,12 +428,23 @@ EOD
 [
 
 "text" => <<<EOD
+Create a function `multiplication_table` that returns a multiplication table from 1 up to the argument given.
 
+Example:
 EOD
 ,
 "points" => 3,
-"answer" => function () {
-    return 3;
+"answer" => function () use ($multiplicator) {
+    $multiplicationTable = "";
+
+    for ($i = 1; $i <= 4; $i++) {
+        for ($j = 1; $j <= $i; $j++) {
+            $multiplicationTable.= "$j ";
+        }
+        $multiplicationTable.= "\n";
+    }
+
+    return $multiplicationTable;
 },
 
 

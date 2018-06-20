@@ -35,7 +35,7 @@ $timeOfFallEvenMore = $timeOfFall + 2;
 $startYear = rand_int(1997, 2004);
 $endYear = $startYear + 6;
 
-$multiplicator = 4;
+$multiplicator = rand_int(4, 10);
 
 /**
  * Titel and introduction to the lab.
@@ -428,20 +428,33 @@ EOD
 [
 
 "text" => <<<EOD
-Create a function `multiplication_table` that returns a multiplication table from 1 up to the argument given.
+Create a function `multiplication_table` that returns a multiplication table from 1 up to the argument given. As 4 * 3 = 3 * 4 you only need to return half of the multiplication table.
 
-Example:
+Example: With the argument being 3 the returned multiplication table should be:
+
+1
+
+2 4
+
+3 6 9
+
+Which is equal to the string '1\\n2 4\\n3 6 9\\n'
+
+
+Answer with a call to the function with the argument $multiplicator.
+
 EOD
 ,
 "points" => 3,
 "answer" => function () use ($multiplicator) {
     $multiplicationTable = "";
 
-    for ($i = 1; $i <= 4; $i++) {
+    for ($i = 1; $i <= $multiplicator; $i++) {
         for ($j = 1; $j <= $i; $j++) {
             $multiplicationTable.= $j*$i . " ";
         }
-        $multiplicationTable.= "\n";
+
+        $multiplicationTable = trim($multiplicationTable) . "\n";
     }
 
     return $multiplicationTable;

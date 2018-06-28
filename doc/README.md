@@ -1,0 +1,58 @@
+SQL för att testa exam-delen
+============================
+
+INSERT INTO exam 
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2020-05-31 08:00:00", "2020-05-31 23:00:00"),
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2016-05-31 08:00:00", "2016-05-31 23:00:00"),
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:00:00"),
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-28 08:00:00", "2018-05-28 23:00:00"),
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-04-31 08:00:00", "2018-04-31 23:00:00")
+;
+
+INSERT INTO exam 
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:59:59"),
+("databas", "2018-prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-05-30 08:00:00", "2018-05-30 23:59:59")
+;
+
+
+### Exam aug 2018
+
+INSERT INTO exam 
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "2018-lp4 omex", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-08-31 08:00:00", "2018-08-31 23:59:59"),
+("databas", "2018-prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-08-30 08:00:00", "2018-08-30 23:59:59")
+;
+
+
+select strftime("%s", (select ts from exam_log where acronym="mosstud" and examId=7 and action="Seal" order by ts desc limit 1)) - strftime("%s", (select ts from exam_log where acronym="mosstud" and examId=7 and action="Checkout" order by ts limit 1));
+
+
+Hämta alla från en exam
+------------------------
+
+SELECT DISTINCT acronym, signature FROM exam_log WHERE examid=1;
+
+SELECT
+    acronym,
+    signature,
+    action,
+    ts
+FROM exam_log AS e
+WHERE
+    examid=1
+ORDER BY acronym, ts ASC
+;
+
+--
+SELECT 
+    strftime("%s", (SELECT ts FROM exam_log WHERE acronym="mostud" AND examId=7 AND action="Seal" ORDER BY ts DESC LIMIT 1)) - strftime("%s", (SELECT ts FROM exam_log WHERE acronym="mostud" AND examId=7 AND action="Checkout" ORDER BY ts LIMIT 1));
+
+SELECT
+    *
+FROM (SELECT DISTINCT acronym, name FROM exam_log WHERE examid=1) AS e
+;

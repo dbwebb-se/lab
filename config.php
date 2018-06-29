@@ -2,7 +2,7 @@
 /**
  * Current version
  */
-const VERSION = "v2.4.0 (2018-05-30)";
+const VERSION = "v3.0.0 (2018-06-29)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 const LAB_INSTALL_DIR = __DIR__;

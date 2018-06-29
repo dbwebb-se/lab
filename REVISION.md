@@ -3,6 +3,13 @@ Revision history
 
 
 
+v3.0.0 (2018-06-29)
+-------------------
+
+* Splitting the source to the labs in config/ and put into its own private repo and using as submodule.
+
+
+
 v2.4.1 (2018-06-29)
 -------------------
 

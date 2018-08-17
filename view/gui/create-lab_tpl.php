@@ -4,8 +4,8 @@
 if ($gen_key) {
     $res = getDetailsFromKeyOrDie($gen_key);
 
-    include "view/gui/key-details_tpl.php";
-    include "view/gui/menu_tpl.php";
+    include LAB_INSTALL_PATH . "/view/gui/key-details_tpl.php";
+    include LAB_INSTALL_PATH . "/view/gui/menu_tpl.php";
 } 
 
-include "view/gui/form-create_tpl.php";
+include LAB_INSTALL_PATH . "/view/gui/form-create_tpl.php";

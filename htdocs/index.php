@@ -2,17 +2,16 @@
 /**
  * Frontend to create new labs or get existing ones from the key.
  * Pagecontroller
- */ 
-include __DIR__ . "/config.php";
-include __DIR__ . "/functions.php";
+ */
+include __DIR__ . "/../config.php";
 
 
 
 /**
  * Check that database exists and open it
  */
-if (!is_writable(__DIR__)) {
-    echo "<p>You must make this directory writable. Then click <a href='?init'>this link to generate the database tables</a>.</p>";
+if (!is_writable(LAB_INSTALL_PATH . "/data")) {
+    echo "<p>You must make the 'data/' directory writable. Then click <a href='?init'>this link to generate the database tables</a>.</p>";
     exit;
 }
 
@@ -60,39 +59,39 @@ if ($doGenerate) {
 // Generate bundle och lab content
 if ($action == "bundle") {
     $key = isset($key) ? $key : $gen_key;
-    include "view/generate/bundle_tpl.php";
+    include LAB_INSTALL_PATH . "/view/generate/bundle_tpl.php";
     exit();
 }
 
 // View exam details
 if ($action == "exam-list") {
-    include "view/generate/exam-list_tpl.php";
+    include LAB_INSTALL_PATH . "/view/generate/exam-list_tpl.php";
     exit();
 }
 
 // Checkout exam
 if ($action == "exam-checkout") {
-    include "view/generate/exam-checkout_tpl.php";
+    include LAB_INSTALL_PATH . "/view/generate/exam-checkout_tpl.php";
     exit();
 }
 
 // Seal exam
 if ($action == "exam-seal") {
-    include "view/generate/exam-seal_tpl.php";
+    include LAB_INSTALL_PATH . "/view/generate/exam-seal_tpl.php";
     exit();
 }
 
 // REceipt for exam
 if ($action == "exam-receipt") {
-    include "view/generate/exam-receipt_tpl.php";
+    include LAB_INSTALL_PATH . "/view/generate/exam-receipt_tpl.php";
     exit();
 }
 
 $title = "Lab generation";
-include "view/gui/header_tpl.php";
-include "view/gui/lab-utility-menu_tpl.php";
-include "view/gui/create-lab_tpl.php";
+include LAB_INSTALL_PATH . "/view/gui/header_tpl.php";
+include LAB_INSTALL_PATH . "/view/gui/lab-utility-menu_tpl.php";
+include LAB_INSTALL_PATH . "/view/gui/create-lab_tpl.php";
 
 $fullMenu = true;
-include "view/gui/details-existing-lab_tpl.php";
-include "view/gui/footer_tpl.php";
+include LAB_INSTALL_PATH . "/view/gui/details-existing-lab_tpl.php";
+include LAB_INSTALL_PATH . "/view/gui/footer_tpl.php";

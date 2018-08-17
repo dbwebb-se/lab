@@ -11,7 +11,7 @@ $version
 "?>
 
 Generated <?=$timestamp_now?> by dbwebb lab-utility <?=VERSION?>.
-https://github.com/mosbth/lab
+https://github.com/dbwebb-se/lab
 """
 
 from dbwebb import Dbwebb

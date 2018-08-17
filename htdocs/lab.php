@@ -2,9 +2,8 @@
 /**
  * Frontend to generate new labs and utilities.
  * Pagecontroller
- */ 
-include __DIR__ . "/config.php";
-include __DIR__ . "/functions.php";
+ */
+require __DIR__ . "/../config.php";
 
 $textfilter = new \Mos\TextFilter\CTextFilter();
 
@@ -72,44 +71,44 @@ if ($configFile === false) {
     die("Not a valid combination.");
 }
 
-extract(include $configFile);
+extract(require $configFile);
 // shuffle questions
 
 
 // Apply the config to the choosen view
 if ($doLab) {
-    include "view/generate/lab_tpl.php";
-} else if ($doAnswerPhp) {
-    include "view/generate/answer-php_tpl.php";
-} else if ($doAnswerPhpAssert) {
-    include "view/generate/answer-php-assert_tpl.php";
-} else if ($doAnswerPy) {
-    include "view/generate/answer-py_tpl.php";
-} else if ($doAnswerPyAssert) {
-    include "view/generate/answer-py-assert_tpl.php";
-} else if ($doAnswerBash) {
-    include "view/generate/answer-bash_tpl.php";
-} else if ($doAnswerBashAssert) {
-    include "view/generate/answer-bash-assert_tpl.php";
-} else if ($doAnswerSQLite) {
-    include "view/generate/answer-sqlite_tpl.php";
-} else if ($doAnswerNode) {
-    include "view/generate/answer-node_tpl.php";
-} else if ($doAnswerNodeAssert) {
-    include "view/generate/answer-node-assert_tpl.php";
-} else if ($doAnswerJson) {
-    include "view/generate/answer-json_tpl.php";
-} else if ($doAnswerHtml) {
-    include "view/generate/answer-html_tpl.php";
-} else if ($doAnswerJs) {
-    include "view/generate/answer-js_tpl.php";
-} else if ($doAnswerTar) {
-    include "view/generate/answer-tar_tpl.php";
+    require LAB_INSTALL_PATH . "/view/generate/lab_tpl.php";
+} elseif ($doAnswerPhp) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-php_tpl.php";
+} elseif ($doAnswerPhpAssert) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-php-assert_tpl.php";
+} elseif ($doAnswerPy) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-py_tpl.php";
+} elseif ($doAnswerPyAssert) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-py-assert_tpl.php";
+} elseif ($doAnswerBash) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-bash_tpl.php";
+} elseif ($doAnswerBashAssert) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-bash-assert_tpl.php";
+} elseif ($doAnswerSQLite) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-sqlite_tpl.php";
+} elseif ($doAnswerNode) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-node_tpl.php";
+} elseif ($doAnswerNodeAssert) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-node-assert_tpl.php";
+} elseif ($doAnswerJson) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-json_tpl.php";
+} elseif ($doAnswerHtml) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-html_tpl.php";
+} elseif ($doAnswerJs) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-js_tpl.php";
+} elseif ($doAnswerTar) {
+    require LAB_INSTALL_PATH . "/view/generate/answer-tar_tpl.php";
 
-} else if ($doAnswers) {
-    include "view/answers_tpl.php";
-} else if ($doAnswerExtra) {
-    include "view/answer-extra_tpl.php";
+} elseif ($doAnswers) {
+    require LAB_INSTALL_PATH . "/view/answers_tpl.php";
+} elseif ($doAnswerExtra) {
+    require LAB_INSTALL_PATH . "/view/answer-extra_tpl.php";
 } else {
     die("Nothing to do.");
 }

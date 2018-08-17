@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title><?=$title?> | dbwebb lab utility</title>
 <style>
-<?=file_get_contents("style/style.css")?>
+<?=file_get_contents(LAB_INSTALL_PATH . "/htdocs/style/style.css")?>
 </style>
 </head>
 <body>

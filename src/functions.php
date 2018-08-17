@@ -272,9 +272,9 @@ function getConfigurationFor($course, $lab, $labversion)
     global $VALID_LABS;
     
     if ($lab == 'labtest') {
-        return "config/labtest.php";
+        return LAB_INSTALL_PATH . "/config/labtest.php";
     } elseif (array_key_exists("$course/$lab/$labversion", $VALID_LABS)) {
-        return $VALID_LABS["$course/$lab/$labversion"];
+        return LAB_INSTALL_PATH . "/config/" . $VALID_LABS["$course/$lab/$labversion"];
     }
     return false;
 }

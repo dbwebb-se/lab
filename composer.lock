@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.9.3",
+            "version": "v4.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "95e1bae3182efc0f3422896a3236e991049dac69"
+                "reference": "d85d39da4576a6934b72480be6978fb10c860021"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/95e1bae3182efc0f3422896a3236e991049dac69",
-                "reference": "95e1bae3182efc0f3422896a3236e991049dac69",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d85d39da4576a6934b72480be6978fb10c860021",
+                "reference": "d85d39da4576a6934b72480be6978fb10c860021",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2017-06-03T02:28:16+00:00"
+            "time": "2018-02-23T01:58:20+00:00"
         },
         {
             "name": "michelf/php-markdown",
@@ -161,16 +161,16 @@
         },
         {
             "name": "mos/ctextfilter",
-            "version": "v1.2.20",
+            "version": "v1.2.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mosbth/ctextfilter.git",
-                "reference": "f324263f13fdc931982648443bb54da8ce5ad0c6"
+                "reference": "724d17d50dba68c0c39542c974d46ee6be066261"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mosbth/ctextfilter/zipball/f324263f13fdc931982648443bb54da8ce5ad0c6",
-                "reference": "f324263f13fdc931982648443bb54da8ce5ad0c6",
+                "url": "https://api.github.com/repos/mosbth/ctextfilter/zipball/724d17d50dba68c0c39542c974d46ee6be066261",
+                "reference": "724d17d50dba68c0c39542c974d46ee6be066261",
                 "shasum": ""
             },
             "require": {
@@ -220,21 +220,25 @@
                 "markdown",
                 "shortcode"
             ],
-            "time": "2017-02-06T23:08:34+00:00"
+            "time": "2018-06-26T11:27:49+00:00"
         },
         {
             "name": "scrivo/highlight.php",
-            "version": "v9.0.0",
+            "version": "v9.12.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/scrivo/highlight.php.git",
-                "reference": "a905bf346a47f5fa40f33641b346c37f418d1242"
+                "reference": "d5b40c678b79ac9faffb32df601dc69e5d11da50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/a905bf346a47f5fa40f33641b346c37f418d1242",
-                "reference": "a905bf346a47f5fa40f33641b346c37f418d1242",
+                "url": "https://api.github.com/repos/scrivo/highlight.php/zipball/d5b40c678b79ac9faffb32df601dc69e5d11da50",
+                "reference": "d5b40c678b79ac9faffb32df601dc69e5d11da50",
                 "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8",
+                "symfony/finder": "^2.8"
             },
             "type": "library",
             "autoload": {
@@ -246,7 +250,24 @@
             "license": [
                 "BSD-3-Clause"
             ],
-            "description": "Server side syntax highlighter that supports over 90 languages. It's a PHP port of highlight.js",
+            "authors": [
+                {
+                    "name": "Geert Bergman",
+                    "homepage": "http://www.scrivo.org/",
+                    "role": "Project Author"
+                },
+                {
+                    "name": "Vladimir Jimenez",
+                    "homepage": "https://allejo.io",
+                    "role": "Contributor"
+                },
+                {
+                    "name": "Martin Folkers",
+                    "homepage": "https://twobrain.io",
+                    "role": "Contributor"
+                }
+            ],
+            "description": "Server side syntax highlighter that supports 176 languages. It's a PHP port of highlight.js",
             "keywords": [
                 "code",
                 "highlight",
@@ -254,7 +275,7 @@
                 "highlight.php",
                 "syntax"
             ],
-            "time": "2016-01-01T14:08:00+00:00"
+            "time": "2018-08-05T06:14:48+00:00"
         }
     ],
     "packages-dev": [],

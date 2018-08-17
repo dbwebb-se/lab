@@ -3,6 +3,13 @@ Revision history
 
 
 
+v3.1.0 (2018-08-17)
+-------------------
+
+* Moving around files into directory structure to prepare for running on lab.dbwebb.se.
+
+
+
 v3.0.0 (2018-06-29)
 -------------------
 

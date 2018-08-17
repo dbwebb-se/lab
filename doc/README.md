@@ -25,7 +25,7 @@ INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("python", "2018-lp1", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-10-30 08:00:00", "2018-10-30 23:59:59"),
-("python", "prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-06-28 08:00:00", "2018-10-30 23:59:59")
+("python", "prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-06-28 08:00:00", "2028-10-30 23:59:59")
 ;
 
 

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title><?=$title?></title>
 <style>
-<?=file_get_contents("style/style.css")?>
+<?=file_get_contents(LAB_INSTALL_PATH . "/htdocs/style/style.css")?>
 </style>
 </head>
 <body>
@@ -20,7 +20,7 @@ $version
 " ?>
 </pre>
 
-<p><i>Generated <?=$timestamp_now?> by <a href="https://github.com/mosbth/lab">dbwebb lab-utility</a> <?=VERSION?>.</i></p>
+<p><i>Generated <?=$timestamp_now?> by <a href="https://github.com/dbwebb-se/lab">dbwebb lab-utility</a> <?=VERSION?>.</i></p>
 <hr>
 
 <h1><?=$title?></h1>

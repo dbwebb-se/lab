@@ -2,10 +2,12 @@
 /**
  * Current version
  */
-const VERSION = "v3.0.0 (2018-06-29)";
+define("LAB_INSTALL_PATH", realpath(__DIR__));
+define("LAB_INSTALL_DIR", LAB_INSTALL_PATH);
+
+const VERSION = "v3.1.0 (2018-08-17)";
 $timestamp_now = date('Y-m-d H:i:s');
 
-const LAB_INSTALL_DIR = __DIR__;
 
 
 
@@ -17,14 +19,15 @@ ini_set('display_errors', 1);     // Display all errors
 
 date_default_timezone_set("UTC");
 
-require LAB_INSTALL_DIR . "/vendor/autoload.php";
+require LAB_INSTALL_PATH . "/vendor/autoload.php";
+
 
 
 /**
  * Open the database file and catch the exception it it fails.
  */
 try {
-    $dsn = "sqlite:db.sqlite";
+    $dsn = "sqlite:" . LAB_INSTALL_PATH . "/data/db.sqlite";
     $db = new PDO($dsn);
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
@@ -35,99 +38,99 @@ try {
 
 
 /**
- * All courses/labs and their configfile.
+ * All courses/labs pointing to their configfile relative LAB_INSTALL_PATH . "/config/".
  */
 //const VALID_LABS = [
 $VALID_LABS = [
-    "javascript1/lab1/v1" => "config/javascript1/v1/lab1.php",
-    "javascript1/lab2/v1" => "config/javascript1/v1/lab2.php",
-    "javascript1/lab3/v1" => "config/javascript1/v1/lab3.php",
-    "javascript1/lab4/v1" => "config/javascript1/v1/lab4.php",
-    //"javascript1/lab5/v1" => "config/javascript1/lab5.php",
+    "javascript1/lab1/v1" => "javascript1/v1/lab1.php",
+    "javascript1/lab2/v1" => "javascript1/v1/lab2.php",
+    "javascript1/lab3/v1" => "javascript1/v1/lab3.php",
+    "javascript1/lab4/v1" => "javascript1/v1/lab4.php",
+    //"javascript1/lab5/v1" => "javascript1/lab5.php",
 
-    "javascript1/lab1/v2" => "config/javascript1/v2/lab1.php",
-    "javascript1/lab2/v2" => "config/javascript1/v2/lab2.php",
-    "javascript1/lab3/v2" => "config/javascript1/v2/lab3.php",
-    "javascript1/lab4/v2" => "config/javascript1/v2/lab4.php",
-    "javascript1/lab5/v2" => "config/javascript1/v2/lab5.php",
+    "javascript1/lab1/v2" => "javascript1/v2/lab1.php",
+    "javascript1/lab2/v2" => "javascript1/v2/lab2.php",
+    "javascript1/lab3/v2" => "javascript1/v2/lab3.php",
+    "javascript1/lab4/v2" => "javascript1/v2/lab4.php",
+    "javascript1/lab5/v2" => "javascript1/v2/lab5.php",
 
-    "python/lab1/v1" => "config/python/v1/lab1.php",
-    "python/lab2/v1" => "config/python/v1/lab2.php",
-    "python/lab3/v1" => "config/python/v1/lab3.php",
-    "python/lab4/v1" => "config/python/v1/lab4.php",
-    "python/lab5/v1" => "config/python/v1/lab5.php",
-    "python/lab6/v1" => "config/python/v1/lab6.php",
+    "python/lab1/v1" => "python/v1/lab1.php",
+    "python/lab2/v1" => "python/v1/lab2.php",
+    "python/lab3/v1" => "python/v1/lab3.php",
+    "python/lab4/v1" => "python/v1/lab4.php",
+    "python/lab5/v1" => "python/v1/lab5.php",
+    "python/lab6/v1" => "python/v1/lab6.php",
 
-    "python/lab1/v2" => "config/python/v2/lab1.php",
-    "python/lab2/v2" => "config/python/v2/lab2.php",
-    "python/lab3/v2" => "config/python/v2/lab3.php",
-    "python/lab4/v2" => "config/python/v2/lab4.php",
-    "python/lab5/v2" => "config/python/v2/lab5.php",
-    "python/lab6/v2" => "config/python/v2/lab6.php",
+    "python/lab1/v2" => "python/v2/lab1.php",
+    "python/lab2/v2" => "python/v2/lab2.php",
+    "python/lab3/v2" => "python/v2/lab3.php",
+    "python/lab4/v2" => "python/v2/lab4.php",
+    "python/lab5/v2" => "python/v2/lab5.php",
+    "python/lab6/v2" => "python/v2/lab6.php",
 
-    "python/lab1/v3" => "config/python/v3/lab1.php",
-    "python/lab2/v3" => "config/python/v3/lab2.php",
-    "python/lab3/v3" => "config/python/v3/lab3.php",
-    "python/lab4/v3" => "config/python/v3/lab4.php",
-    "python/lab5/v3" => "config/python/v3/lab5.php",
-    "python/lab6/v3" => "config/python/v3/lab6.php",
-    "python/exam/v3" => "config/python/v3/exam",
+    "python/lab1/v3" => "python/v3/lab1.php",
+    "python/lab2/v3" => "python/v3/lab2.php",
+    "python/lab3/v3" => "python/v3/lab3.php",
+    "python/lab4/v3" => "python/v3/lab4.php",
+    "python/lab5/v3" => "python/v3/lab5.php",
+    "python/lab6/v3" => "python/v3/lab6.php",
+    "python/exam/v3" => "python/v3/exam",
 
-    "oopython/lab1/v1" => "config/oopython/v1/lab1.php",
-    "oopython/lab2/v1" => "config/oopython/v1/lab2.php",
-    "oopython/lab3/v1" => "config/oopython/v1/lab3.php",
-    "oopython/lab4/v1" => "config/oopython/v1/lab4.php",
-    "oopython/lab5/v1" => "config/oopython/v1/lab5.php",
+    "oopython/lab1/v1" => "oopython/v1/lab1.php",
+    "oopython/lab2/v1" => "oopython/v1/lab2.php",
+    "oopython/lab3/v1" => "oopython/v1/lab3.php",
+    "oopython/lab4/v1" => "oopython/v1/lab4.php",
+    "oopython/lab5/v1" => "oopython/v1/lab5.php",
 
-    "oopython/lab1/v2" => "config/oopython/v2/lab1.php",
-    "oopython/lab2/v2" => "config/oopython/v2/lab2.php",
-    "oopython/lab3/v2" => "config/oopython/v2/lab3.php",
-    "oopython/lab4/v2" => "config/oopython/v2/lab4.php",
-    "oopython/lab5/v2" => "config/oopython/v2/lab5.php",
+    "oopython/lab1/v2" => "oopython/v2/lab1.php",
+    "oopython/lab2/v2" => "oopython/v2/lab2.php",
+    "oopython/lab3/v2" => "oopython/v2/lab3.php",
+    "oopython/lab4/v2" => "oopython/v2/lab4.php",
+    "oopython/lab5/v2" => "oopython/v2/lab5.php",
 
-    "htmlphp/lab1/v1" => "config/htmlphp/v1/lab1.php",
-    "htmlphp/lab2/v1" => "config/htmlphp/v1/lab2.php",
-    "htmlphp/lab3/v1" => "config/htmlphp/v1/lab3.php",
-    "htmlphp/lab4/v1" => "config/htmlphp/v1/lab4.php",
-    "htmlphp/lab5/v1" => "config/htmlphp/v1/lab5.php",
-    "htmlphp/sql1/v1" => "config/sql/lab1.php",
-    //"htmlphp/sql2/v1" => "config/sql/v1/lab2.php",
+    "htmlphp/lab1/v1" => "htmlphp/v1/lab1.php",
+    "htmlphp/lab2/v1" => "htmlphp/v1/lab2.php",
+    "htmlphp/lab3/v1" => "htmlphp/v1/lab3.php",
+    "htmlphp/lab4/v1" => "htmlphp/v1/lab4.php",
+    "htmlphp/lab5/v1" => "htmlphp/v1/lab5.php",
+    "htmlphp/sql1/v1" => "sql/lab1.php",
+    //"htmlphp/sql2/v1" => "sql/v1/lab2.php",
 
-    "htmlphp/lab1/v2" => "config/htmlphp/v2/lab1.php",
-    "htmlphp/lab2/v2" => "config/htmlphp/v2/lab2.php",
-    "htmlphp/lab3/v2" => "config/htmlphp/v2/lab3.php",
-    "htmlphp/lab4/v2" => "config/htmlphp/v2/lab4.php",
-    "htmlphp/lab5/v2" => "config/htmlphp/v2/lab5.php",
-    "htmlphp/lab6/v2" => "config/htmlphp/v2/lab6.php",
-    "htmlphp/sql1/v2" => "config/sql/lab1.php",
-    //"htmlphp/sql2/v2" => "config/sql/v2/lab2.php",
+    "htmlphp/lab1/v2" => "htmlphp/v2/lab1.php",
+    "htmlphp/lab2/v2" => "htmlphp/v2/lab2.php",
+    "htmlphp/lab3/v2" => "htmlphp/v2/lab3.php",
+    "htmlphp/lab4/v2" => "htmlphp/v2/lab4.php",
+    "htmlphp/lab5/v2" => "htmlphp/v2/lab5.php",
+    "htmlphp/lab6/v2" => "htmlphp/v2/lab6.php",
+    "htmlphp/sql1/v2" => "sql/lab1.php",
+    //"htmlphp/sql2/v2" => "sql/v2/lab2.php",
 
-    //"oophp/lab1" => "config/oophp/lab1.php",
+    //"oophp/lab1" => "oophp/lab1.php",
 
-    "linux/bash1/v1" => "config/linux/v1/bash1.php",
-    "linux/bash2/v1" => "config/linux/v1/bash2.php",
-    "linux/node1/v1" => "config/linux/v1/node1.php",
-    "linux/node2/v1" => "config/linux/v1/node2.php",
-    "linux/node3/v1" => "config/linux/v1/node3.php",
+    "linux/bash1/v1" => "linux/v1/bash1.php",
+    "linux/bash2/v1" => "linux/v1/bash2.php",
+    "linux/node1/v1" => "linux/v1/node1.php",
+    "linux/node2/v1" => "linux/v1/node2.php",
+    "linux/node3/v1" => "linux/v1/node3.php",
 
-    "webgl/lab1/v1" => "config/webgl/v1/lab1.php",
-    "webgl/lab2/v1" => "config/webgl/v1/lab2.php",
-    "webgl/lab1/v2" => "config/webgl/v2/lab1.php",
-    "webgl/lab2/v2" => "config/webgl/v2/lab2.php",
-    "webgl/lab3/v2" => "config/webgl/v2/lab3.php",
-    "webgl/lab4/v2" => "config/webgl/v2/lab4.php",
-    "webgl/lab5/v2" => "config/webgl/v2/lab5.php",
+    "webgl/lab1/v1" => "webgl/v1/lab1.php",
+    "webgl/lab2/v1" => "webgl/v1/lab2.php",
+    "webgl/lab1/v2" => "webgl/v2/lab1.php",
+    "webgl/lab2/v2" => "webgl/v2/lab2.php",
+    "webgl/lab3/v2" => "webgl/v2/lab3.php",
+    "webgl/lab4/v2" => "webgl/v2/lab4.php",
+    "webgl/lab5/v2" => "webgl/v2/lab5.php",
 
-    "dbjs/javascript1/v1" => "config/dbjs/v1/javascript1.php",
-    "dbjs/javascript2/v1" => "config/dbjs/v1/javascript2.php",
-    "dbjs/sql1/v1" => "config/dbjs/v1/sql1.php",
-    "dbjs/sql2/v1" => "config/dbjs/v1/sql2.php",
-    "dbjs/node1/v1" => "config/dbjs/v1/node1.php",
-    "dbjs/node2/v1" => "config/dbjs/v1/node2.php",
+    "dbjs/javascript1/v1" => "dbjs/v1/javascript1.php",
+    "dbjs/javascript2/v1" => "dbjs/v1/javascript2.php",
+    "dbjs/sql1/v1" => "dbjs/v1/sql1.php",
+    "dbjs/sql2/v1" => "dbjs/v1/sql2.php",
+    "dbjs/node1/v1" => "dbjs/v1/node1.php",
+    "dbjs/node2/v1" => "dbjs/v1/node2.php",
 
-    "databas/node1/v1" => "config/databas/v1/node1.php",
-    "databas/node2/v1" => "config/databas/v1/node2.php",
-    "databas/exam/v1" => "config/databas/v1/exam",
+    "databas/node1/v1" => "databas/v1/node1.php",
+    "databas/node2/v1" => "databas/v1/node2.php",
+    "databas/exam/v1" => "databas/v1/exam",
 ];
 
 // Type of lab

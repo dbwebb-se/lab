@@ -15,7 +15,7 @@ echo <<< EOD
  * $version
  *
  * Generated $timestamp_now by dbwebb lab-utility $currentVersion.
- * https://github.com/mosbth/lab
+ * https://github.com/dbwebb-se/lab
  */
 EOD;
 ?>

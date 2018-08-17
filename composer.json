@@ -1,4 +1,12 @@
 {
+    "autoload": {
+        "psr-4": { 
+            "Anax\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
     "require": {
         "mos/ctextfilter": "^1.2"
     }

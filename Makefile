@@ -69,7 +69,7 @@ production-publish:
 .PHONY: local-publish
 local-publish:
 	@echo $(call HELPTEXT,$@)
-	rsync -av $(EXCLUDE_ON_PUBLISH) config view vendor style config.php functions.php $(LOCAL_HTDOCS)
+	rsync -av $(EXCLUDE_ON_PUBLISH) config config.php htdocs src vendor view $(LOCAL_HTDOCS)
 	[ -h $(LOCAL_HTDOCS)/data ] || ln -s ../../git/lab/data $(LOCAL_HTDOCS)
 
 

@@ -92,6 +92,7 @@ ROBOTSTXT	 	:= robots.txt
 SSL_PEM_BASE 	= /etc/letsencrypt/live/$(WWW_SITE)
 
 # Publish
+INCLUDE_ON_PUBLISH = config config.php htdocs src vendor view
 EXCLUDE_ON_PUBLISH = --exclude old --exclude backup --exclude .git --exclude .solution --exclude .solutions --exclude error.log --exclude cache --exclude access.log --delete
 
 
@@ -517,7 +518,8 @@ site-build:
 .PHONY: local-publish
 local-publish:
 	@$(call HELPTEXT,$@)
-	rsync -av $(EXCLUDE_ON_PUBLISH) config content htdocs vendor $(LOCAL_HTDOCS)
+	rsync -av $(EXCLUDE_ON_PUBLISH) $(INCLUDE_ON_PUBLISH) $(LOCAL_HTDOCS)
+	install -d $(LOCAL_HTDOCS)/log
 
 	@# Enable robots if available
 	[ ! -f $(ROBOTSTXT) ] || cp $(ROBOTSTXT) "$(LOCAL_HTDOCS)/htdocs/robots.txt"

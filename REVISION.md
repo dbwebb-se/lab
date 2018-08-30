@@ -3,6 +3,13 @@ Revision history
 
 
 
+v3.1.* (2018-08-31)
+-------------------
+
+* Fix showing exams that passed.
+
+
+
 v3.1.0 (2018-08-17)
 -------------------
 

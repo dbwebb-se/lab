@@ -393,9 +393,7 @@ SELECT
 FROM exam
 WHERE
     course = ?
-    AND start < date('now', 'localtime')
-    AND start > date('now', '-13 months', 'localtime')
-    AND stop IS NOT NULL
+    AND stop < date('now', 'localtime')
 ORDER BY stop DESC
 ;
 ";

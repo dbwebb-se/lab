@@ -30,7 +30,17 @@ VALUES
 
 
 
-### Exam databas aug 2018
+### Exam databas
+
+INSERT INTO exam 
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "omexamination", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-08-31 08:00:00", "2018-08-31 23:59:59"),
+("databas", "examination", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:59:59"),
+("databas", "öva", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-08-30 08:00:00", "2018-08-31 23:59:59")
+;
+
+Older.
 
 INSERT INTO exam 
 (course, courseEvent, target, type, description, timelimit, version, start, stop)

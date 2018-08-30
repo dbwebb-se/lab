@@ -1,6 +1,8 @@
 db.sqlite
 vendor/
 composer.lock
+.bin/
+build/
 
 # Atom
 debug.log

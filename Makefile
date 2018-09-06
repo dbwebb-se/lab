@@ -81,6 +81,7 @@ BATS := $(BIN)/bats
 WWW_SITE		:= lab.dbwebb.se
 WWW_LOCAL		:= local.$(WWW_SITE)
 SERVER_ADMIN 	:= mos@$(WWW_SITE)
+SERVER_PORT		:= -p 2222
 BASE_URL    	:= https://$(WWW_SITE)/
 
 GIT_BASE 		:= git/$(WWW_SITE)
@@ -553,7 +554,7 @@ local-publish-clear: local-cache-clear local-publish
 .PHONY: production-publish
 production-publish:
 	@$(call HELPTEXT,$@)
-	ssh $(SERVER_ADMIN) -t "cd $(GIT_BASE) && git pull && make update local-publish"
+	ssh $(SERVER_ADMIN) $(SERVER_PORT) -t "cd $(GIT_BASE) && git pull && make update local-publish"
 
 
 # target: ssl-cert-create         - Create the HTTPS certificates.

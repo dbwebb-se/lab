@@ -5,7 +5,7 @@
 define("LAB_INSTALL_PATH", realpath(__DIR__));
 define("LAB_INSTALL_DIR", LAB_INSTALL_PATH);
 
-const VERSION = "v3.1.0 (2018-08-17)";
+const VERSION = "v3.1.2 (2018-09-06)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 

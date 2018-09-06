@@ -3,6 +3,13 @@ Revision history
 
 
 
+v3.1.2 (2018-09-06)
+-------------------
+
+* Fix that php-scripts can be executed from other dir.
+
+
+
 v3.1.1 (2018-08-31)
 -------------------
 

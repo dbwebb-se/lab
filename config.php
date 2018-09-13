@@ -5,7 +5,7 @@
 define("LAB_INSTALL_PATH", realpath(__DIR__));
 define("LAB_INSTALL_DIR", LAB_INSTALL_PATH);
 
-const VERSION = "v3.1.2 (2018-09-06)";
+const VERSION = "v3.1.3 (2018-09-13)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -18,6 +18,9 @@ error_reporting(-1);              // Report all type of errors
 ini_set('display_errors', 1);     // Display all errors
 
 date_default_timezone_set("UTC");
+
+// Fix rounding issue in json encode of floats
+ini_set("serialize_precision", -1);
 
 require LAB_INSTALL_PATH . "/vendor/autoload.php";
 

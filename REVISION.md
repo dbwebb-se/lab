@@ -2,6 +2,12 @@ Revision history
 ===================
 
 
+v3.1.3 (2018-09-13)
+-------------------
+
+* Use serialize_precision to fix rounding issue in json decode on PHP7.
+
+
 
 v3.1.2 (2018-09-06)
 -------------------

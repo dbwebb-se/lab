@@ -1,7 +1,7 @@
 SQL för att testa exam-delen
 ============================
 
-INSERT INTO exam 
+INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2020-05-31 08:00:00", "2020-05-31 23:00:00"),
@@ -11,7 +11,7 @@ VALUES
 ("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-04-31 08:00:00", "2018-04-31 23:00:00")
 ;
 
-INSERT INTO exam 
+INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:59:59"),
@@ -24,21 +24,35 @@ VALUES
 DELETE FROM exam WHERE course="python";
 SELECT * FROM exam WHERE course="python";
 
-INSERT INTO exam 
+INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
-("python", "lek", "exam", "Programmeringstenta", "Programmeringstenta, träna och förbered dig.", 1*60*60, "1.0.0", "2018-09-01 08:00:00", "2028-09-01 23:59:59"),
+("python", "lek", "prepare", "Programmeringstenta", "Programmeringstenta, träna och förbered dig.", 1*60*60, "1.0.0", "2018-09-01 08:00:00", "2028-09-01 23:59:59"),
 ("python", "examination", "exam", "Programmeringstenta", "Programmeringstenta, försök 1.", 5*60*60, "1.0.0", "2018-10-30 08:00:00", "2018-10-30 23:59:59"),
-("python", "omexamination", "exam", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2019-01-10 08:00:00", "2019-01-10 23:59:59"),
-("python", "restexamination", "exam", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2019-06-10 08:00:00", "2019-06-10 23:59:59")
+("python", "omexamination", "reexam1", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2019-01-10 08:00:00", "2019-01-10 23:59:59"),
+("python", "restexamination", "reexam2", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2019-06-10 08:00:00", "2019-06-10 23:59:59")
 ;
 
-<!-- INSERT INTO exam 
+<!-- INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("python", "2018-lp1", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-10-30 08:00:00", "2018-10-30 23:59:59"),
 ("python", "prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-06-28 08:00:00", "2028-10-30 23:59:59")
 ; -->
+
+#### Lek
+
+DELETE FROM exam WHERE course="python";
+SELECT * FROM exam WHERE course="python";
+
+INSERT INTO exam
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("python", "lek", "prepare", "Programmeringstenta", "Programmeringstenta, träna och förbered dig.", 1*60*60, "1.0.0", "2018-09-01 08:00:00", "2028-09-01 23:59:59"),
+("python", "examination", "exam", "Programmeringstenta", "Programmeringstenta, försök 1.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2018-10-30 23:59:59"),
+("python", "omexamination", "reexam1", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2019-01-10 23:59:59"),
+("python", "restexamination", "reexam2", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2019-06-10 23:59:59")
+;
 
 
 
@@ -47,7 +61,7 @@ VALUES
 DELETE FROM exam WHERE course="databas";
 SELECT * FROM exam WHERE course="databas";
 
-INSERT INTO exam 
+INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("databas", "omexamination", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-08-31 08:00:00", "2018-08-31 23:59:59"),
@@ -59,7 +73,7 @@ VALUES
 
 #### Older databas
 
-INSERT INTO exam 
+INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("databas", "2018-lp4 omex", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-08-31 08:00:00", "2018-08-31 23:59:59"),
@@ -87,7 +101,7 @@ ORDER BY acronym, ts ASC
 ;
 
 --
-SELECT 
+SELECT
     strftime("%s", (SELECT ts FROM exam_log WHERE acronym="mostud" AND examId=7 AND action="Seal" ORDER BY ts DESC LIMIT 1)) - strftime("%s", (SELECT ts FROM exam_log WHERE acronym="mostud" AND examId=7 AND action="Checkout" ORDER BY ts LIMIT 1));
 
 SELECT

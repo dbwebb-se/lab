@@ -21,12 +21,24 @@ VALUES
 
 ### Exam python
 
+DELETE FROM exam WHERE course="python";
+SELECT * FROM exam WHERE course="python";
+
 INSERT INTO exam 
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("python", "lek", "exam", "Programmeringstenta", "Programmeringstenta, träna och förbered dig.", 1*60*60, "1.0.0", "2018-09-01 08:00:00", "2028-09-01 23:59:59"),
+("python", "examination", "exam", "Programmeringstenta", "Programmeringstenta, försök 1.", 5*60*60, "1.0.0", "2018-10-30 08:00:00", "2018-10-30 23:59:59"),
+("python", "omexamination", "exam", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2019-01-10 08:00:00", "2019-01-10 23:59:59"),
+("python", "restexamination", "exam", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2019-06-10 08:00:00", "2019-06-10 23:59:59")
+;
+
+<!-- INSERT INTO exam 
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("python", "2018-lp1", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-10-30 08:00:00", "2018-10-30 23:59:59"),
 ("python", "prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-06-28 08:00:00", "2028-10-30 23:59:59")
-;
+; -->
 
 
 

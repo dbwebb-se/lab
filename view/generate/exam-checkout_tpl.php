@@ -44,6 +44,7 @@ mkdir("$base/.dbwebb_exam");
 
 // Prepare the content
 system("cp -r $source/* $base/");
+system("cp -r $source/.??* $base/");
 file_put_contents("$base/.dbwebb_exam/RECEIPT.md", getReceiptForExam($examId, $acronym));
 system("cd $base/.dbwebb_exam/ && sha1sum RECEIPT.md > RECEIPT.md.sha1");
 

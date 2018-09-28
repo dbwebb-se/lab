@@ -33,7 +33,7 @@ $baseurl = $_SERVER["REQUEST_SCHEME"]
 $labCommon = [
     ["filename" => "instruction.html", "action" => "lab"],
     //["filename" => "extra.tar", "action" => "answer-extra"], //OBSOLETE
-    ["dirname" => __DIR__ . "/../../$srcLabExtra"],
+    ["dirname" => $srcLabExtra],
 ];
 
 //Specific items to create
@@ -104,7 +104,10 @@ foreach ($labs as $lab) {
 
 // Gather it all in a tar file
 system("cd $base && tar cf $bundle .");
-//var_dump(system("ls -lRa $base"));
+// echo "<pre>";
+// var_dump(system("ls -lRa $base"));
+// var_dump($labs);
+// exit;
 
 // Deliver
 header("Content-type: archive/tar");

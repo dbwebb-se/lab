@@ -12,7 +12,7 @@ import sys
 import os
 
 
-class Dbwebb(object):
+class Dbwebb():
     """
     Class for autocorrecting labs.
     """

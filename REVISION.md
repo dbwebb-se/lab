@@ -2,6 +2,14 @@ Revision history
 ===================
 
 
+v3.2.0 (2019-03-05)
+-------------------
+
+* Update view/generate/exam*.
+* Add kmom10 tenta to databas.
+
+
+
 v3.1.3 (2018-09-13)
 -------------------
 

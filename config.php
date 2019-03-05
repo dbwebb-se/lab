@@ -5,7 +5,7 @@
 define("LAB_INSTALL_PATH", realpath(__DIR__));
 define("LAB_INSTALL_DIR", LAB_INSTALL_PATH);
 
-const VERSION = "v3.1.3 (2018-09-13)";
+const VERSION = "v4.0.0 (2019-03-05)";
 $timestamp_now = date('Y-m-d H:i:s');
 
 
@@ -138,7 +138,10 @@ $VALID_LABS = [
 
     "databas/node1/v1" => "databas/v1/node1.php",
     "databas/node2/v1" => "databas/v1/node2.php",
-    "databas/exam/v1" => "databas/v1/exam",
+    "databas/prep/v1" => "databas/v1/kmom10",
+    "databas/try1/v1" => "databas/v1/kmom10",
+    "databas/try2/v1" => "databas/v1/kmom10",
+    "databas/try3/v1" => "databas/v1/kmom10",
 ];
 
 // Type of lab

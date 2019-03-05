@@ -1,25 +1,87 @@
 SQL för att testa exam-delen
 ============================
 
-INSERT INTO exam
-(course, courseEvent, target, type, description, timelimit, version, start, stop)
-VALUES
-("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2020-05-31 08:00:00", "2020-05-31 23:00:00"),
-("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2016-05-31 08:00:00", "2016-05-31 23:00:00"),
-("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:00:00"),
-("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-28 08:00:00", "2018-05-28 23:00:00"),
-("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-04-31 08:00:00", "2018-04-31 23:00:00")
+
+
+Rapporter
+------------------------
+
+```text
+--
+-- Set output formatting
+--
+.header on
+.mode column
+
+
+
+--
+-- Visa alla exams
+--
+SELECT * FROM exam;
+SELECT * FROM exam WHERE course = 'databas';
+SELECT * FROM exam WHERE
+    start <= datetime('now')
+    AND stop >= datetime('now')
+    AND course = 'databas'
 ;
 
-INSERT INTO exam
-(course, courseEvent, target, type, description, timelimit, version, start, stop)
-VALUES
-("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:59:59"),
-("databas", "2018-prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-05-30 08:00:00", "2018-05-30 23:59:59")
+
+
+-- 
+-- Show only details on the used signatures, for a particular examid
+--
+SELECT DISTINCT
+    acronym,
+    signature
+FROM exam_log
+WHERE
+    examid=8
 ;
 
 
-### Exam python
+
+--
+-- Details from log, for a particular examid
+--
+SELECT
+    acronym,
+    signature,
+    action,
+    ts
+FROM exam_log AS e
+WHERE
+    examid=8
+ORDER BY acronym, ts ASC
+;
+
+
+
+--
+-- Uncertain...
+--
+SELECT
+    strftime("%s", (SELECT ts FROM exam_log WHERE acronym="mosstud" AND examId=8 AND action="Seal" ORDER BY ts DESC LIMIT 1)) - strftime("%s", (SELECT ts FROM exam_log WHERE acronym="mosstud" AND examId=8 AND action="Checkout" ORDER BY ts LIMIT 1));
+
+
+
+--
+-- Does not work...
+--
+SELECT
+    *
+FROM (SELECT DISTINCT acronym, name FROM exam_log WHERE examid=1) AS e
+;
+```
+
+
+
+Python
+-------------------------------------
+
+
+
+### Exam python 2018
 
 DELETE FROM exam WHERE course="python";
 SELECT * FROM exam WHERE course="python";
@@ -56,7 +118,39 @@ VALUES
 
 
 
-### Exam databas
+Databas
+-------------------------------------
+
+
+
+### Exam databas 2019
+
+DELETE FROM exam WHERE course="databas";
+SELECT * FROM exam WHERE course="databas";
+
+INSERT INTO exam
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "kmom10", "prep", "Tentamen", "Träna och förbered dig.", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2029-09-01 23:59:59"),
+("databas", "kmom10", "try1", "Tentamen", "Försök 1 (tenta).", 5*60*60, "1.0.0", "2019-03-28 09:00:00", "2019-03-28 23:59:59"),
+("databas", "kmom10", "try2", "Tentamen", "Försök 2 (omtenta).", 5*60*60, "1.0.0", "2019-05-31 09:00:00", "2019-05-31 23:59:59"),
+("databas", "kmom10", "try3", "Tentamen", "Försök 3 (resttenta).", 5*60*60, "1.0.0", "2019-08-30 09:00:00", "2019-08-30 23:59:59")
+;
+
+För test och utveckling.
+
+INSERT INTO exam
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "kmom10", "prep", "Tentamen", "Träna och förbered dig.", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2029-09-01 23:59:59"),
+("databas", "kmom10", "try1", "Tentamen", "Försök 1 (tenta).", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2019-03-28 23:59:59"),
+("databas", "kmom10", "try2", "Tentamen", "Försök 2 (omtenta).", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2019-05-31 23:59:59"),
+("databas", "kmom10", "try3", "Tentamen", "Försök 3 (resttenta).", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2019-08-30 23:59:59")
+;
+
+
+
+### Exam databas 2018
 
 DELETE FROM exam WHERE course="databas";
 SELECT * FROM exam WHERE course="databas";
@@ -70,8 +164,7 @@ VALUES
 ;
 
 
-
-#### Older databas
+### Older databas
 
 INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
@@ -84,27 +177,23 @@ VALUES
 select strftime("%s", (select ts from exam_log where acronym="mosstud" and examId=7 and action="Seal" order by ts desc limit 1)) - strftime("%s", (select ts from exam_log where acronym="mosstud" and examId=7 and action="Checkout" order by ts limit 1));
 
 
-Hämta alla från en exam
-------------------------
 
-SELECT DISTINCT acronym, signature FROM exam_log WHERE examid=1;
+Old
+-------------------------------------
 
-SELECT
-    acronym,
-    signature,
-    action,
-    ts
-FROM exam_log AS e
-WHERE
-    examid=1
-ORDER BY acronym, ts ASC
+INSERT INTO exam
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2020-05-31 08:00:00", "2020-05-31 23:00:00"),
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2016-05-31 08:00:00", "2016-05-31 23:00:00"),
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:00:00"),
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-28 08:00:00", "2018-05-28 23:00:00"),
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-04-31 08:00:00", "2018-04-31 23:00:00")
 ;
 
---
-SELECT
-    strftime("%s", (SELECT ts FROM exam_log WHERE acronym="mostud" AND examId=7 AND action="Seal" ORDER BY ts DESC LIMIT 1)) - strftime("%s", (SELECT ts FROM exam_log WHERE acronym="mostud" AND examId=7 AND action="Checkout" ORDER BY ts LIMIT 1));
-
-SELECT
-    *
-FROM (SELECT DISTINCT acronym, name FROM exam_log WHERE examid=1) AS e
+INSERT INTO exam
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:59:59"),
+("databas", "2018-prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-05-30 08:00:00", "2018-05-30 23:59:59")
 ;

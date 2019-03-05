@@ -19,16 +19,16 @@ if (empty($res)) {
     die("404: There is no active exam.\n");
 }
 
-$source = "$source/${res["courseEvent"]}";
+$source = "$source/${res["target"]}";
 if (!is_dir($source)) {
-    die("404: There is no such event.");
+    die("404: There is no source for the course event '$source'.");
 } 
 
 // Only check if there is an active exam
 $checkIfActive = isset($_GET["checkIfActive"]) ? true : false;
 if ($checkIfActive) {
     header("Content-type: text/plain");
-    die("ACTIVE: ${res["id"]} ${res["type"]} ${res["courseEvent"]}");
+    die("ACTIVE: ${res["type"]} - ${res["description"]} (${res["courseEvent"]}/${res["target"]})");
 }
 
 // Create log entry for checking out exam
@@ -38,15 +38,20 @@ examLogCheckout($examId, $acronym, $signature);
 // Create base for
 $base1 = tempnam("/tmp", "EXAM");
 $base = "${base1}_";
+$dir = ".dbwebb/exam";
 $bundle = "exam.tar";
-mkdir($base);
-mkdir("$base/.dbwebb_exam");
+mkdir("$base/$dir/receipt", 0755, true);
 
 // Prepare the content
 system("cp -r $source/* $base/");
 system("cp -r $source/.??* $base/");
-file_put_contents("$base/.dbwebb_exam/RECEIPT.md", getReceiptForExam($examId, $acronym));
-system("cd $base/.dbwebb_exam/ && sha1sum RECEIPT.md > RECEIPT.md.sha1");
+
+file_put_contents("$base/$dir/id.md", "ID: $examId\ntarget: ${res["target"]}\nacronym: $acronym\n");
+#system("cd $base/$dir && sha1sum id.md > id.md.sha1");
+
+$ts = date('YmdHis');
+file_put_contents("$base/$dir/receipt/$ts.md", getReceiptForExam($examId, $acronym));
+#system("cd $base/$dir/receipt && sha1sum $ts.md > $ts.md.sha1");
 
 // Gather it all in a tar file
 system("cd $base && tar cf $bundle .");

@@ -14,13 +14,14 @@ examLogSeal($examId, $acronym, $signature);
 // Create base for
 $base1 = tempnam("/tmp", "EXAM");
 $base = "${base1}_";
+$dir = ".dbwebb/exam";
 $bundle = "exam.tar";
-mkdir($base);
-mkdir("$base/.dbwebb_exam");
+mkdir("$base/$dir/receipt", 0755, true);
 
 // Prepare the content
-file_put_contents("$base/.dbwebb_exam/RECEIPT.md", getReceiptForExam($examId, $acronym));
-system("cd $base/.dbwebb_exam/ && sha1sum RECEIPT.md > RECEIPT.md.sha1");
+$ts = date('YmdHis');
+file_put_contents("$base/$dir/receipt/$ts.md", getReceiptForExam($examId, $acronym));
+#system("cd $base/$dir/receipt && sha1sum $ts.md > $ts.md.sha1");
 
 // Gather it all in a tar file
 system("cd $base && tar cf $bundle .");

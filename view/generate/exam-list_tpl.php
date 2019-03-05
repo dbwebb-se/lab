@@ -12,15 +12,17 @@ function printExamDetails($type, $res) {
 
     foreach ($res AS $row) {
         $html .= "\n";
-        $html .= "What:        {$row["type"]} {$row["courseEvent"]} ({$row["target"]})\n";
+        $html .= "Id:          {$row["target"]}\n";
         $html .= "Description: {$row["description"]}\n";
+        $html .= "What:        {$row["type"]}\n";
+        $html .= "Where:       {$row["courseEvent"]}/{$row["target"]}\n";
         $html .= "Length:      " . gmdate("H:i:s", $row["timelimit"]) . "\n";
         $html .= "Duration:    {$row["start"]} - {$row["stop"]}\n";
     }
 
     echo <<< EOD
-$type exam event(s)
----------------------------------
+$type
+-------------------------------------------------------
 $html
 
 EOD;
@@ -39,11 +41,10 @@ list($current, $active, $planned, $passed) = examList($course);
 
 // Deliver
 header("Content-type: text/plain; charset=utf-8");
-echo "Active, planned and passed examin events for course '$course'.\n";
-echo "==============================================================\n\n";
-echo "Current timestamp: ${current["ts"]}\n\n";
+echo "Active, planned and passed events for course '$course'.\n";
+echo "================= ${current["ts"]} =================\n\n";
 if (empty($active) && empty($planned) && empty($passed)) {
-    echo "There are no active, planned nor passed exam events.\n";
+    echo "There are no active, planned nor passed events.\n";
 }
 printExamDetails("ACTIVE", $active);
 printExamDetails("PLANNED", $planned);

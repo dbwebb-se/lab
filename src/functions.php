@@ -589,34 +589,24 @@ SELECT
     }
 
     $text = <<<EOD
-Receipt for ${res["course"]}:${res["target"]}
-==================================
+RECEIPT for ${res["course"]}:${res["target"]}
+================ ${res["ts"]} =================
 
-Details
-----------------------------------
-
-Id:          ${res["id"]}
-What:        ${res["type"]} ${res["courseEvent"]}
+Id:          ${res["target"]} (${res["id"]})
 Description: ${res["description"]}
-Max length:  $maxLength
+What:        ${res["type"]}
+Where:       ${res["courseEvent"]}/${res["target"]}
 Active:      ${res["start"]} - ${res["stop"]}
-
-
-User
-----------------------------------
-
-Acronym: $acronym
-
-
-Log
-----------------------------------
+Length:      $maxLength
+Acronym:     $acronym
 
 $logText
-Duration:  $durationText
-Timestamp: ${res["ts"]}
+Timestamp:        ${res["ts"]}
+Current duration: $durationText (first checkout, last seal)
 
 
 EOD;
 
+    //$text .= sha1($text) . "\n";
     return $text;
 }

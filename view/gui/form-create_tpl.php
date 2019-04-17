@@ -12,6 +12,7 @@
         <option value="webgl" <?= isSelected("webgl", $course) ?>>webgl</option>
         <option value="dbjs" <?= isSelected("dbjs", $course) ?>>dbjs</option>
         <option value="databas" <?= isSelected("databas", $course) ?>>databas</option>
+        <option value="vlinux" <?= isSelected("vlinux", $course) ?>>vlinux</option>
     </select></label>
 </p>
 
@@ -34,6 +35,7 @@
         <option value="sql2" <?= isSelected("sql2", $lab) ?>>SQL 2</option>
         <option value="bash1" <?= isSelected("bash1", $lab) ?>>Bash 1</option>
         <option value="bash2" <?= isSelected("bash2", $lab) ?>>Bash 2</option>
+        <option value="sed1" <?= isSelected("sed1", $lab) ?>>Sed 1</option>
         <option value="javascript1" <?= isSelected("javascript1", $lab) ?>>JavaScript 1</option>
         <option value="javascript2" <?= isSelected("javascript2", $lab) ?>>JavaScript 2</option>
         <option value="node1" <?= isSelected("node1", $lab) ?>>Node 1</option>

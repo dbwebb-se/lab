@@ -121,6 +121,10 @@ $VALID_LABS = [
     "linux/node2/v1" => "linux/v1/node2.php",
     "linux/node3/v1" => "linux/v1/node3.php",
 
+    "vlinux/bash1/v1" => "vlinux/v1/bash1.php",
+    "vlinux/bash2/v1" => "vlinux/v1/bash2.php",
+    "vlinux/sed1/v1" => "vlinux/v1/sed1.php",
+
     "webgl/lab1/v1" => "webgl/v1/lab1.php",
     "webgl/lab2/v1" => "webgl/v1/lab2.php",
     "webgl/lab1/v2" => "webgl/v2/lab1.php",
@@ -178,5 +182,10 @@ $LAB_TYPE = [
         "bash2" => "bash",
         "node1" => "node",
         "node2" => "node",
+    ],
+    "vlinux"      => [
+        "bash1" => "bash",
+        "bash2" => "bash",
+        "sed1" => "bash",
     ],
 ];

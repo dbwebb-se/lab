@@ -36,9 +36,15 @@ SELECT DISTINCT
     signature
 FROM exam_log
 WHERE
-    examid=8
+    examid=9
 ;
 
+SELECT DISTINCT
+    acronym,
+    signature
+FROM exam_log
+WHERE
+    examid=9 AND acronym='johv18';
 
 
 --
@@ -51,7 +57,7 @@ SELECT
     ts
 FROM exam_log AS e
 WHERE
-    examid=8
+    examid=9 AND acronym='johv18'
 ORDER BY acronym, ts ASC
 ;
 

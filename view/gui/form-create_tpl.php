@@ -13,6 +13,7 @@
         <option value="dbjs" <?= isSelected("dbjs", $course) ?>>dbjs</option>
         <option value="databas" <?= isSelected("databas", $course) ?>>databas</option>
         <option value="vlinux" <?= isSelected("vlinux", $course) ?>>vlinux</option>
+        <option value="unix" <?= isSelected("unix", $course) ?>>unix</option>
     </select></label>
 </p>
 

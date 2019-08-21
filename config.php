@@ -146,6 +146,10 @@ $VALID_LABS = [
     "databas/try1/v1" => "databas/v1/kmom10",
     "databas/try2/v1" => "databas/v1/kmom10",
     "databas/try3/v1" => "databas/v1/kmom10",
+
+    "unix/bash1/v1" => "vlinux/v1/bash1.php",
+    "unix/bash2/v1" => "vlinux/v1/bash2.php",
+    "unix/sed1/v1" => "vlinux/v1/sed1.php",
 ];
 
 // Type of lab
@@ -184,6 +188,11 @@ $LAB_TYPE = [
         "node2" => "node",
     ],
     "vlinux"      => [
+        "bash1" => "bash",
+        "bash2" => "bash",
+        "sed1" => "bash",
+    ],
+    "unix"      => [
         "bash1" => "bash",
         "bash2" => "bash",
         "sed1" => "bash",

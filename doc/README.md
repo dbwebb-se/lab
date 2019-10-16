@@ -86,6 +86,21 @@ Python
 -------------------------------------
 
 
+### Exam python 2019
+
+DELETE FROM exam WHERE course="python";
+SELECT * FROM exam WHERE course="python";
+
+INSERT INTO exam
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("python", "kmom10", "prep", "Programmeringstenta", "Programmeringstenta, träna och förbered dig.", 1*60*60, "1.0.0", "2018-09-01 08:00:00", "2028-09-01 23:59:59"),
+("python", "kmom10", "try1", "Programmeringstenta", "Programmeringstenta, försök 1.", 5*60*60, "1.0.0", "2019-10-28 08:00:00", "2019-10-28 23:59:59"),
+("python", "kmom10", "try2", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2020-01-10 08:00:00", "2020-01-10 23:59:59"),
+("python", "kmom10", "try3", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2020-06-10 08:00:00", "2020-06-10 23:59:59")
+;
+
+
 
 ### Exam python 2018
 

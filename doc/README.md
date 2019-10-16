@@ -88,6 +88,7 @@ Python
 
 ### Exam python 2019
 
+```
 DELETE FROM exam WHERE course="python";
 SELECT * FROM exam WHERE course="python";
 
@@ -99,11 +100,13 @@ VALUES
 ("python", "kmom10", "try2", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2020-01-10 08:00:00", "2020-01-10 23:59:59"),
 ("python", "kmom10", "try3", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2020-06-10 08:00:00", "2020-06-10 23:59:59")
 ;
+```
 
 
 
 ### Exam python 2018
 
+```
 DELETE FROM exam WHERE course="python";
 SELECT * FROM exam WHERE course="python";
 
@@ -122,9 +125,13 @@ VALUES
 ("python", "2018-lp1", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-10-30 08:00:00", "2018-10-30 23:59:59"),
 ("python", "prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-06-28 08:00:00", "2028-10-30 23:59:59")
 ; -->
+```
+
+
 
 #### Lek
 
+```
 DELETE FROM exam WHERE course="python";
 SELECT * FROM exam WHERE course="python";
 
@@ -136,6 +143,7 @@ VALUES
 ("python", "try2", "try2", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2019-01-10 23:59:59"),
 ("python", "try3", "try3", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2019-06-10 23:59:59")
 ;
+```
 
 
 
@@ -146,6 +154,7 @@ Databas
 
 ### Exam databas 2019
 
+```
 DELETE FROM exam WHERE course="databas";
 SELECT * FROM exam WHERE course="databas";
 
@@ -157,9 +166,11 @@ VALUES
 ("databas", "kmom10", "try2", "Tentamen", "Försök 2 (omtenta).", 5*60*60, "1.0.0", "2019-05-31 09:00:00", "2019-05-31 23:59:59"),
 ("databas", "kmom10", "try3", "Tentamen", "Försök 3 (resttenta).", 5*60*60, "1.0.0", "2019-08-30 09:00:00", "2019-08-30 23:59:59")
 ;
+```
 
 För test och utveckling.
 
+```
 INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
@@ -168,11 +179,13 @@ VALUES
 ("databas", "kmom10", "try2", "Tentamen", "Försök 2 (omtenta).", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2019-05-31 23:59:59"),
 ("databas", "kmom10", "try3", "Tentamen", "Försök 3 (resttenta).", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2019-08-30 23:59:59")
 ;
+```
 
 
 
 ### Exam databas 2018
 
+```
 DELETE FROM exam WHERE course="databas";
 SELECT * FROM exam WHERE course="databas";
 
@@ -183,10 +196,13 @@ VALUES
 ("databas", "examination", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:59:59"),
 ("databas", "lek", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (träna och förbered dig).", 1*60*60, "1.0.0", "2018-07-30 08:00:00", "2018-08-30 23:59:59")
 ;
+```
+
 
 
 ### Older databas
 
+```
 INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
@@ -196,12 +212,14 @@ VALUES
 
 
 select strftime("%s", (select ts from exam_log where acronym="mosstud" and examId=7 and action="Seal" order by ts desc limit 1)) - strftime("%s", (select ts from exam_log where acronym="mosstud" and examId=7 and action="Checkout" order by ts limit 1));
+```
 
 
 
 Old
 -------------------------------------
 
+```
 INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
@@ -218,3 +236,4 @@ VALUES
 ("databas", "2018-lp4", "exam", "Programmeringstenta", "Programmeringstenta som del i examination.", 5*60*60, "1.0.0", "2018-05-31 08:00:00", "2018-05-31 23:59:59"),
 ("databas", "2018-prepare", "exam", "Programmeringstenta", "Programmeringstenta som del i examination (förbered dig).", 1*60*60, "1.0.0", "2018-05-30 08:00:00", "2018-05-30 23:59:59")
 ;
+```

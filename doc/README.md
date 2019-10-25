@@ -28,7 +28,7 @@ SELECT * FROM exam WHERE
 
 
 
--- 
+--
 -- Show only details on the used signatures, for a particular examid
 --
 SELECT DISTINCT
@@ -139,7 +139,7 @@ INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("python", "prep", "prep", "Programmeringstenta", "Programmeringstenta, träna och förbered dig.", 1*60*60, "1.0.0", "2018-09-01 08:00:00", "2028-09-01 23:59:59"),
-("python", "try1", "try1", "Programmeringstenta", "Programmeringstenta, försök 1.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2018-10-30 23:59:59"),
+("python", "try1", "try1", "Programmeringstenta", "Programmeringstenta, försök 1.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2019-10-30 23:59:59"),
 ("python", "try2", "try2", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2019-01-10 23:59:59"),
 ("python", "try3", "try3", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2018-08-30 08:00:00", "2019-06-10 23:59:59")
 ;

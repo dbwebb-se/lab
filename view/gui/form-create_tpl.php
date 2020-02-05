@@ -14,6 +14,7 @@
         <option value="databas" <?= isSelected("databas", $course) ?>>databas</option>
         <option value="vlinux" <?= isSelected("vlinux", $course) ?>>vlinux</option>
         <option value="unix" <?= isSelected("unix", $course) ?>>unix</option>
+        <option value="webapp" <?= isSelected("webapp", $course) ?>>webapp</option>
     </select></label>
 </p>
 
@@ -43,6 +44,7 @@
         <option value="node2" <?= isSelected("node2", $lab) ?>>Node 2</option>
         <option value="node3" <?= isSelected("node3", $lab) ?>>Node 3</option>
         <option value="labtest" <?= isSelected("labtest", $lab) ?>>Lab Test</option>
+        <option value="jq" <?= isSelected("jq", $lab) ?>>jq</option>
     </select></label>
 </p>
 

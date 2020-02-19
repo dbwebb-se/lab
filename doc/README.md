@@ -161,9 +161,9 @@ INSERT INTO exam
 (course, courseEvent, target, type, description, timelimit, version, start, stop)
 VALUES
 ("databas", "kmom10", "prep", "Tentamen", "Träna och förbered dig.", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2029-09-01 23:59:59"),
-("databas", "kmom10", "try1", "Tentamen", "Försök 1 (tenta).", 5*60*60, "1.0.0", "2019-03-26 09:00:00", "2019-03-26 23:59:59"),
-("databas", "kmom10", "try2", "Tentamen", "Försök 2 (omtenta).", 5*60*60, "1.0.0", "2019-05-29 09:00:00", "2019-05-29 23:59:59"),
-("databas", "kmom10", "try3", "Tentamen", "Försök 3 (resttenta).", 5*60*60, "1.0.0", "2019-08-28 09:00:00", "2019-08-28 23:59:59")
+("databas", "kmom10", "try1", "Tentamen", "Försök 1 (tenta).", 5*60*60, "1.0.0", "2020-03-26 09:00:00", "2020-03-26 23:59:59"),
+("databas", "kmom10", "try2", "Tentamen", "Försök 2 (omtenta).", 5*60*60, "1.0.0", "2020-05-29 09:00:00", "2020-05-29 23:59:59"),
+("databas", "kmom10", "try3", "Tentamen", "Försök 3 (resttenta).", 5*60*60, "1.0.0", "2020-08-28 09:00:00", "2020-08-28 23:59:59")
 ;
 ```
 

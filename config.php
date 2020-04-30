@@ -150,6 +150,7 @@ $VALID_LABS = [
     "unix/bash1/v1" => "vlinux/v1/bash1.php",
     "unix/bash2/v1" => "vlinux/v1/bash2.php",
     "unix/sed1/v1" => "vlinux/v1/sed1.php",
+    "unix/jq/v1" => "webapp/v1/jq.php",
 
     "webapp/jq/v1" => "webapp/v1/jq.php",
 ];

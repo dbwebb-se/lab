@@ -199,6 +199,7 @@ $LAB_TYPE = [
         "bash1" => "bash",
         "bash2" => "bash",
         "sed1" => "bash",
+        "jq" => "bash",
     ],
     "webapp"    => [
         "jq" => "bash",

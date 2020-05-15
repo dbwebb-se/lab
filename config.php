@@ -124,6 +124,7 @@ $VALID_LABS = [
     "vlinux/bash1/v1" => "vlinux/v1/bash1.php",
     "vlinux/bash2/v1" => "vlinux/v1/bash2.php",
     "vlinux/sed1/v1" => "vlinux/v1/sed1.php",
+    "vlinux/regex/v1" => "vlinux/v1/regex.php",
 
     "webgl/lab1/v1" => "webgl/v1/lab1.php",
     "webgl/lab2/v1" => "webgl/v1/lab2.php",
@@ -194,6 +195,7 @@ $LAB_TYPE = [
         "bash1" => "bash",
         "bash2" => "bash",
         "sed1" => "bash",
+        "regex" => "bash",
     ],
     "unix"      => [
         "bash1" => "bash",

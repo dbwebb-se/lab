@@ -45,6 +45,7 @@
         <option value="node3" <?= isSelected("node3", $lab) ?>>Node 3</option>
         <option value="labtest" <?= isSelected("labtest", $lab) ?>>Lab Test</option>
         <option value="jq" <?= isSelected("jq", $lab) ?>>jq</option>
+        <option value="regex" <?= isSelected("regex", $lab) ?>>regex - bash</option>
     </select></label>
 </p>
 

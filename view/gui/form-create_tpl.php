@@ -5,6 +5,7 @@
     <select name="course">
         <option value="htmlphp" <?= isSelected("htmlphp", $course) ?>>htmlphp</option>
         <option value="javascript1" <?= isSelected("javascript1", $course) ?>>javascript1</option>
+        <option value="js" <?= isSelected("js", $course) ?>>js</option>
         <option value="linux" <?= isSelected("linux", $course) ?>>linux</option>
         <option value="oophp" <?= isSelected("oophp", $course) ?>>oophp</option>
         <option value="oopython" <?= isSelected("oopython", $course) ?>>oopython</option>

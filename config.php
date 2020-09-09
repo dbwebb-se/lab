@@ -57,6 +57,12 @@ $VALID_LABS = [
     "javascript1/lab4/v2" => "javascript1/v2/lab4.php",
     "javascript1/lab5/v2" => "javascript1/v2/lab5.php",
 
+    "js/lab1/v1" => "js/v1/lab1.php",
+    "js/lab2/v1" => "js/v1/lab2.php",
+    "js/lab3/v1" => "js/v1/lab3.php",
+    "js/lab4/v1" => "js/v1/lab4.php",
+    "js/lab5/v1" => "js/v1/lab5.php",
+
     "python/lab1/v1" => "python/v1/lab1.php",
     "python/lab2/v1" => "python/v1/lab2.php",
     "python/lab3/v1" => "python/v1/lab3.php",
@@ -178,6 +184,7 @@ $LAB_TYPE = [
     ],
     "oophp"      => "php",
     "javascript1" => "javascript",
+    "js" => "javascript",
     "webgl"      => "javascript",
     "python"     => "python",
     "oopython"   => "python",

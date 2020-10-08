@@ -97,6 +97,11 @@ $VALID_LABS = [
     "python/try2/v3" => "python/v3/exam",
     "python/try3/v3" => "python/v3/exam",
 
+    "python/prep/v4" => "python/v4/exam",
+    "python/try1/v4" => "python/v4/exam",
+    "python/try2/v4" => "python/v4/exam",
+    "python/try3/v4" => "python/v4/exam",
+
     "oopython/lab1/v1" => "oopython/v1/lab1.php",
     "oopython/lab2/v1" => "oopython/v1/lab2.php",
     "oopython/lab3/v1" => "oopython/v1/lab3.php",

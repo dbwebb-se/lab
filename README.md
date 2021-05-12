@@ -12,7 +12,26 @@ $ gsu
 
 
 
+## Setup production environment
+
+```
+git clone git@github.com:dbwebb-se/lab.git lab.dbwebb.se
+cd lab.dbwebb.se
+git submodule update --init --recursive
+composer install
+
+make site-build
+make local-publish
+
+make virtual-host
+
+make ssl-cert-create
+make virtual-host-https
+```
+
+
+
 ```                                                            
  .                                                             
-..:  Copyright (c) 2014-2018 Mikael Roos, mos@dbwebb.se   
+..:  Copyright (c) 2014-2021 Mikael Roos, mos@dbwebb.se   
 ```                                                            

@@ -583,11 +583,12 @@ ssl-cert-renew:
 define VIRTUAL_HOST_80
 Define site $(WWW_SITE)
 ServerAdmin $(SERVER_ADMIN)
+ServerName $${site}
 
 <VirtualHost *:80>
-	ServerName $${site}
 	ServerAlias local.$${site}
 	ServerAlias do3.$${site}
+	ServerAlias do4.$${site}
 	DocumentRoot $(HTDOCS_BASE)/$${site}/htdocs
 	ServerSignature Off
 

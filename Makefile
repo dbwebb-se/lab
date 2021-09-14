@@ -729,6 +729,7 @@ ServerAdmin $(SERVER_ADMIN)
 ServerName www.$${site}
 
 <VirtualHost *:80>
+	ServerName www.$${site}
 	Redirect "/" "https://www.$${site}/"
 </VirtualHost>
 

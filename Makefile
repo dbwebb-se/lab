@@ -679,8 +679,8 @@ ServerName $${site}
 	SSLCertificateChainFile $(SSL_PEM_BASE)/chain.pem
 
 	ServerName $${site}
-	ServerAlias do1.$${site}
-	ServerAlias do2.$${site}
+	ServerAlias do3.$${site}
+	ServerAlias do4.$${site}
 	DocumentRoot $(HTDOCS_BASE)/$${site}/htdocs
 	ServerSignature Off
 

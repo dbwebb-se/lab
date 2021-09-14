@@ -664,9 +664,9 @@ virtual-host-echo:
 define VIRTUAL_HOST_443
 Define site $(WWW_SITE)
 ServerAdmin $(SERVER_ADMIN)
-ServerName $${site}
 
 <VirtualHost *:80>
+	ServerName $${site}
 	ServerAlias do3.$${site}
 	ServerAlias do4.$${site}
 	Redirect "/" "https://$${site}/"

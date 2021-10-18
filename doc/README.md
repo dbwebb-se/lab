@@ -85,6 +85,24 @@ FROM (SELECT DISTINCT acronym, name FROM exam_log WHERE examid=1) AS e
 Python
 -------------------------------------
 
+### Exam python 2021
+
+```
+DELETE FROM exam WHERE course="python";
+SELECT * FROM exam WHERE course="python";
+
+INSERT INTO exam
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("python", "kmom10", "prep", "Programmeringstenta", "Programmeringstenta, träna och förbered dig.", 1*60*60, "1.0.0", "2018-09-01 08:00:00", "2028-09-01 23:59:59"),
+("python", "kmom10", "try1", "Programmeringstenta", "Programmeringstenta, försök 1.", 5*60*60, "1.0.0", "2021-10-27 08:00:00", "2021-10-27 23:59:59"),
+("python", "kmom10", "try2", "Programmeringstenta", "Programmeringstenta, försök 2.", 5*60*60, "1.0.0", "2022-01-07 08:00:00", "2022-01-07 23:59:59"),
+("python", "kmom10", "try3", "Programmeringstenta", "Programmeringstenta, försök 3.", 5*60*60, "1.0.0", "2022-06-02 08:00:00", "2022-06-02 23:59:59")
+;
+```
+
+
+
 ### Exam python 2020
 
 ```

@@ -61,7 +61,7 @@ class Dbwebb():
                 os.path.dirname(__file__)
             )
         )
-        with open(os.path.join(location, answersFileName)) as fd:
+        with open(os.path.join(location, answersFileName), encoding="utf8") as fd:
             self.answers = json.load(fd)
         self.correct = 0
         self.failed = 0

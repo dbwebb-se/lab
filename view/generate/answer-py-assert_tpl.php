@@ -51,7 +51,7 @@ class Dbwebb():
         "no_pass": "\033[93m{prompt}Grade: Thou Did Not Pass. :-|\033[0m"
     }
 
-    def __init__(self, answersFileName=".answer.json"):
+    def __init__(self, answers_file_name=".answer.json"):
         """
         Init by reading json-file with answers.
         """
@@ -61,7 +61,7 @@ class Dbwebb():
                 os.path.dirname(__file__)
             )
         )
-        with open(os.path.join(location, answersFileName), encoding="utf8") as fd:
+        with open(os.path.join(location, answers_file_name), encoding="utf8") as fd:
             self.answers = json.load(fd)
         self.correct = 0
         self.failed = 0

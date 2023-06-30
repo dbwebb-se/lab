@@ -1,0 +1,9 @@
+version: "3"
+services:
+  lab:
+    image: lewenhagen/lab
+    ports:
+      - "8181:80"
+    volumes:
+      - ./:/var/www/
+      - ./htdocs:/var/www/html

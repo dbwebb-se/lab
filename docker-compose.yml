@@ -4,6 +4,9 @@ services:
     image: lewenhagen/lab
     ports:
       - "8181:80"
+      - "80:80"
     volumes:
       - ./:/var/www/
       - ./htdocs:/var/www/html
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -190,6 +190,24 @@ select * from exam where course="databas";
 ```
 
 
+### Exam databas 2025
+
+```
+DELETE FROM exam WHERE course="databas";
+SELECT * FROM exam WHERE course="databas";
+
+INSERT INTO exam
+(course, courseEvent, target, type, description, timelimit, version, start, stop)
+VALUES
+("databas", "kmom10", "prep", "Tentamen", "Träna och förbered dig.", 5*60*60, "1.0.0", "2019-03-05 09:00:00", "2029-09-01 23:59:59"),
+("databas", "kmom10", "try1", "Tentamen", "Försök 1 (tenta).", 5*60*60, "1.0.0", "2025-03-27 09:00:00", "2025-03-27 23:59:59"),
+("databas", "kmom10", "try2", "Tentamen", "Försök 2 (omtenta).", 5*60*60, "1.0.0", "2025-06-05 09:00:00", "2025-06-05 23:59:59"),
+("databas", "kmom10", "try3", "Tentamen", "Försök 3 (resttenta).", 5*60*60, "1.0.0", "2025-08-28 09:00:00", "2025-08-28 23:59:59")
+;
+```
+
+
+
 ### Exam databas 2024
 
 ```
